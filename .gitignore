@@ -18,8 +18,10 @@ test-results/
 playwright-report/
 *.tsbuildinfo
 
-# Encore
-.encore/
+# Encore. manifest.json is committed: its local_id is baked into the generated
+# client, so it must be the same on every machine and in CI.
+.encore/*
+!.encore/manifest.json
 encore.gen/
 infra.config.rendered.json
 

@@ -280,8 +280,8 @@ https://encore.dev/docs/ts/self-host/configure-infra before the first build.
 | 3 | pgvector available locally | `2_init_silta.up.sql` | `SELECT extname FROM pg_extension` via `encore db shell silta` | health check `pgvector: ok` queries `pg_extension` (test + running app) | done (local app) |
 | 4 | `llm_usage` ported, Gemini call records a row | `llm` service | one ≤ €0.01 smoke call | `llm.test.ts` with `fetch` stubbed records ok and provider_error rows. No real Gemini call yet: `GeminiApiKey` is not set and the model ID in `integrations.ts` is unverified | partial (unit) |
 | 5 | Generated TS client used by the frontend | `encore gen client` | `npm run build` in `frontend/` | gate `api_client` + `frontend_build` ok; health page at `:5300` shows postgres/pgvector ok | done (browser, local) |
-| 6 | Aiven Postgres in the chosen region, `silta` db, pgvector | Aiven console + migrations | `pg_extension` query on Aiven | 2026-11-14: `silta-pg` running (PostgreSQL 18, Hobbyist, `google-europe-north1`), database `silta` created. Migrations not applied yet, so pgvector is unproven on Aiven | partial |
-| 7 | Docker image runs against Aiven | `infra.config.json` | health returns db true | `make image` builds with the Aiven host and CA. Not run against Aiven yet: the password is not in `.env` | partial (build only) |
+| 6 | Aiven Postgres in the chosen region, `silta` db, pgvector | Aiven console + migrations | `pg_extension` query on Aiven | 2026-11-14: `silta-pg` (PostgreSQL 18, Hobbyist, `google-europe-north1`), database `silta`; `make migrate-aiven` applied 1–2; health check `pgvector: ok` through the image | done (Aiven) |
+| 7 | Docker image runs against Aiven | `infra.config.json` | health returns db true | `make image` + `scripts/aiven.py run`: `/api/health` → `environment: aiven`, postgres and pgvector ok. About 725 ms per call from the laptop (network ~160 ms away) | done (Docker against Aiven) |
 | 8 | App deployed in the same region as the db | Plan A or B | public `/api/health` | Plan A prepared: `compose.aiven.yaml`, `deploy/aiven/Dockerfile`, CI job `image`; Runtime enabled and GitHub connected. Nothing deployed: needs a push to `main` | todo |
 | 9 | Docs and decision 0002 updated | step 9 | readiness gate | `bash dev_readiness_check.sh --all`: 8/8 ok. `docs/deployment.md` still lacks the chosen region/host | partial |
 
@@ -338,3 +338,8 @@ https://encore.dev/docs/ts/self-host/configure-infra before the first build.
   only show after a repository with a manifest is selected.
 - Developer ($5) and Free tiers do not let us pick a region, hence Hobbyist.
 - The project is the trial's auto-created `appzio-d111`, not `silta-junction`.
+- An unlinked Encore app gets a random `local_id` per machine
+  (`backend/.encore/manifest.json`) and `encore gen client` writes it into the
+  client, so CI and laptops disagreed. The manifest is now committed.
+- From the venue network the Aiven host was ~160 ms away (TCP connect), so the
+  "few ms" expectation in step 8 did not hold from a laptop.

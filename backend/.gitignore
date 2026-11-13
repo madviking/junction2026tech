@@ -1,4 +1,7 @@
 encore.gen.go
 encore.gen.cue
-/.encore
+# manifest.json holds the local app id that `encore gen client` bakes into the
+# frontend client; it is committed so every machine and CI generate the same file.
+/.encore/*
+!/.encore/manifest.json
 /encore.gen

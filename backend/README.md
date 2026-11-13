@@ -58,7 +58,9 @@ encore test health          # one service
 ```
 
 After an endpoint or type change: `make api` (regenerates
-`frontend/src/shared/api/client.ts`).
+`frontend/src/shared/api/client.ts`). `.encore/manifest.json` is committed on
+purpose: its `local_id` ends up in the generated client, so it must match on
+every machine and in CI.
 
 ## Build and run against Aiven
 
@@ -68,6 +70,6 @@ make migrate-aiven   # the image does NOT migrate; apply db/migrations first
 make run-image       # serves :8300 using .env, then: curl localhost:8300/api/health
 ```
 
-`.env` needs `AIVEN_PG_PASSWORD`, `AIVEN_SILTA_URL` and `GEMINI_API_KEY`
-(`.env.example`). The database host and CA certificate are in
+`.env` needs `AIVEN_PG_PASSWORD` and `GEMINI_API_KEY` (`.env.example`); the
+targets run `scripts/aiven.py`. The database host and CA certificate are in
 `infra.config.json`. Deployment and the CI pipeline: `docs/deployment.md`.

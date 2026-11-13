@@ -15,7 +15,7 @@ Project `appzio-d111` (trial credits, no payment method).
 | Thing | Value |
 | --- | --- |
 | PostgreSQL service | `silta-pg`, PostgreSQL 18, Hobbyist plan (~$19/month), `google-europe-north1`, connection limit 25 |
-| Database | `silta` (user `avnadmin`), `vector` extension from migration 2 |
+| Database | `silta` (user `avnadmin`), migrations 1–2 applied, `vector` extension installed |
 | Network | public, IP allowlist open, TLS required |
 | Runtime | enabled; GitHub account `madviking` connected |
 
@@ -40,8 +40,8 @@ push to main
 
 ## One-time setup
 
-1. GitHub repository secret `AIVEN_SILTA_URL`
-   (`postgres://avnadmin:<password>@<host>:<port>/silta?sslmode=require`).
+1. GitHub repository secret `AIVEN_SILTA_URL`, set without showing the value:
+   `python3 scripts/aiven.py url | gh secret set AIVEN_SILTA_URL`.
 2. After the first `image` run, make the GHCR package `silta-api` public
    (GitHub → Packages → silta-api → Package settings). Aiven pulls it anonymously.
 3. Aiven console → Runtime → Deploy application → account `madviking`,
@@ -58,7 +58,7 @@ push to main
 | --- | --- | --- |
 | `AIVEN_PG_PASSWORD` | image | password of `avnadmin` |
 | `GEMINI_API_KEY` | image | provider key, spend-capped, hackathon-only |
-| `AIVEN_SILTA_URL` | migrations only (CI secret, local `.env`) | full connection URL |
+| `AIVEN_SILTA_URL` | CI migrations only (repository secret) | full connection URL; locally `scripts/aiven.py` builds it from `AIVEN_PG_PASSWORD` |
 
 The database host and the project CA certificate are literals in
 `backend/infra.config.json` (Encore's schema takes no env reference there).
@@ -69,9 +69,14 @@ Neither is a secret. Adding or renaming a variable is a contract change: update
 
 ```bash
 make image           # encore build docker --config infra.config.json silta-api:dev
-make migrate-aiven   # needs AIVEN_SILTA_URL in .env
-make run-image       # needs AIVEN_PG_PASSWORD and GEMINI_API_KEY in .env; serves :8300
+make migrate-aiven   # needs AIVEN_PG_PASSWORD in .env
+make run-image       # also needs GEMINI_API_KEY; serves :8300 (BACKEND_PORT=8302 if encore run is up)
 ```
+
+Verified 2026-11-14 from a laptop: migrations applied, and the image answered
+`/api/health` with postgres and pgvector ok over TLS. Each query took roughly
+350 ms because the laptop's network was about 160 ms away from the database;
+that is the reason for the same-region rule, not a database problem.
 
 ## Fallbacks
 
