@@ -10,12 +10,12 @@ Use after task sizing for implementation work.
 ## Local-first read order
 
 1. Identify the primary module from the request or the touched path
-   (`backend/app/<module>/`, `frontend/src/features/<name>/`, `db/migrations/`).
+   (`backend/<service>/`, `frontend/src/features/<name>/`, `backend/db/migrations/`).
 2. Read that module's `README.md`.
 3. Read the exact implementation files and the closest tests.
 4. Search inside the same module for an existing pattern.
 5. Only then look at shared code the path already uses
-   (`backend/app/core/`, `backend/app/llm/`, `frontend/src/shared/`).
+   (`backend/db/`, `backend/llm/`, `frontend/src/shared/`).
 
 ## Reuse checklist
 
@@ -24,7 +24,7 @@ Use after task sizing for implementation work.
 - Reuse shared UI from `frontend/src/shared/` before writing a new component;
   if the shared owner lacks a capability, extend the owner.
 - Reuse the closest test as the template for the new failing test.
-- LLM work goes through `backend/app/llm/`; check its README first.
+- LLM work goes through `backend/llm/`; check its README first.
 
 ## New module
 

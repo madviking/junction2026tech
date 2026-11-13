@@ -9,8 +9,8 @@
     },
     {
       "name": "backend",
-      "runtimeExecutable": "uv",
-      "runtimeArgs": ["--directory", "backend", "run", "uvicorn", "app.main:app", "--reload", "--port", "8300"],
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd backend && PATH=\"$HOME/.encore/bin:$PATH\" exec encore run --port 8300"],
       "port": 8300
     }
   ]

@@ -15,17 +15,18 @@ from collections.abc import Callable, Iterable
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-SKIP_DIRS = {".git", "node_modules", ".venv", "dist", "coverage", "__pycache__", ".pytest_cache",
-             ".ruff_cache", "test-results", "playwright-report", "tmp", "scratch"}
+SKIP_DIRS = {".git", "node_modules", "dist", "coverage", "__pycache__", "encore.gen", ".encore",
+             "test-results", "playwright-report", "tmp", "scratch"}
 LINE_LIMITS = {".py": 500, ".ts": 400, ".tsx": 400}
-LINE_LIMIT_EXEMPT = ("frontend/src/shared/api/generated/",)
+GENERATED = ("frontend/src/shared/api/client.ts",)
+LINE_LIMIT_EXEMPT = GENERATED
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 STATUS_RE = re.compile(r"^Status: (active|draft|deprecated)\s*$")
 REVIEWED_RE = re.compile(r"^Last reviewed: (\S+)\s*$")
 SKILL_REF_RE = re.compile(r"\.codex/skills/([a-z0-9-]+)/SKILL\.md")
 
-LLM_ALLOWED_PREFIX = "backend/app/llm/"
+LLM_ALLOWED_PREFIX = "backend/llm/"
 PROVIDER_URL_RE = re.compile(
     r"(openrouter\.ai|api\.openai\.com|api\.anthropic\.com|generativelanguage\.googleapis\.com|api\.groq\.com)"
 )
@@ -95,8 +96,8 @@ def check_module_readmes(files: list[str]) -> list[str]:
     modules: set[str] = set()
     for path in files:
         parts = Path(path).parts
-        if len(parts) >= 4 and parts[:2] == ("backend", "app") and path.endswith(".py"):
-            modules.add("/".join(parts[:3]))
+        if len(parts) == 3 and parts[0] == "backend" and parts[2] == "encore.service.ts":
+            modules.add("/".join(parts[:2]))
         if len(parts) >= 5 and parts[:3] == ("frontend", "src", "features"):
             modules.add("/".join(parts[:4]))
     return [f"{m}/: missing README.md" for m in sorted(modules) if not (ROOT / m / "README.md").is_file()]
@@ -148,7 +149,7 @@ def _code_files(files: Iterable[str]) -> list[str]:
 def check_llm_boundary(files: list[str]) -> list[str]:
     problems = []
     for path in _code_files(files):
-        if path.startswith(LLM_ALLOWED_PREFIX) or path.startswith("frontend/src/shared/api/generated/"):
+        if path.startswith(LLM_ALLOWED_PREFIX) or path.startswith(GENERATED):
             continue
         text = read(path)
         for regex, what in (
@@ -158,7 +159,7 @@ def check_llm_boundary(files: list[str]) -> list[str]:
         ):
             for match in regex.finditer(text):
                 line = text.count("\n", 0, match.start()) + 1
-                problems.append(f"{path}:{line}: {what} outside backend/app/llm ({match.group(0).strip()})")
+                problems.append(f"{path}:{line}: {what} outside backend/llm ({match.group(0).strip()})")
     return problems
 
 

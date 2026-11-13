@@ -10,14 +10,6 @@
 .idea/
 .vscode/
 
-# Python
-__pycache__/
-*.pyc
-.venv/
-.pytest_cache/
-.ruff_cache/
-.coverage
-
 # Node / frontend
 node_modules/
 dist/
@@ -26,10 +18,10 @@ test-results/
 playwright-report/
 *.tsbuildinfo
 
-# Encore (if the backend moves there)
+# Encore
 .encore/
-encore.gen.go
-encore.gen.cue
+encore.gen/
+infra.config.rendered.json
 
 # Scratch and local artifacts
 tmp/

@@ -1,16 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
-import { api } from '@/shared/api/client'
+import { api } from '@/shared/api/api'
 
 export const healthQueryKey = ['health'] as const
 
 export function useHealth() {
   return useQuery({
     queryKey: healthQueryKey,
-    queryFn: async () => {
-      const { data, response } = await api.GET('/api/health')
-      if (!data) throw new Error(`Health check failed (HTTP ${response.status})`)
-      return data
-    },
+    queryFn: () => api.health.get(),
     refetchInterval: 30_000,
   })
 }

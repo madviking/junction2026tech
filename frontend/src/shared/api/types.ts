@@ -1,6 +1,5 @@
-import type { components } from '@/shared/api/generated/openapi'
+import type { health } from '@/shared/api/client'
 
-// Short names for generated schemas. Add aliases here, never hand-written shapes.
-export type Schemas = components['schemas']
-export type HealthStatus = Schemas['HealthStatus']
-export type DependencyCheck = Schemas['DependencyCheck']
+// Short names for generated types. Add aliases here, never hand-written shapes.
+export type HealthStatus = health.HealthStatus
+export type DependencyCheck = health.DependencyCheck

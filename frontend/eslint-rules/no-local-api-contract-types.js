@@ -1,20 +1,13 @@
 /**
- * API request/response shapes come from src/shared/api/generated/openapi.ts.
+ * API request/response shapes come from the generated src/shared/api/client.ts.
  * Flags local `*Request`, `*Response`, `*Dto` types and interfaces unless they are
- * aliases into the generated `components` / `paths` / `operations` types.
+ * aliases into a generated service namespace (for example `health.HealthStatus`).
  */
 
 const SUFFIX_RE = /(Request|Response|Dto|DTO)$/
-const OPENAPI_ROOTS = new Set(['components', 'paths', 'operations', 'Schemas'])
-
-const referencesGenerated = (typeNode) => {
-  let node = typeNode
-  while (node && node.type === 'TSIndexedAccessType') node = node.objectType
-  return Boolean(
-    node && node.type === 'TSTypeReference' && node.typeName?.type === 'Identifier' &&
-      OPENAPI_ROOTS.has(node.typeName.name),
-  )
-}
+// `service.Type`: a qualified name can only come from the generated client's namespaces.
+const referencesGenerated = (typeNode) =>
+  typeNode?.type === 'TSTypeReference' && typeNode.typeName?.type === 'TSQualifiedName'
 
 export default {
   meta: {
@@ -23,12 +16,12 @@ export default {
     schema: [],
     messages: {
       localContract:
-        "'{{name}}' looks like an API contract type. Use the generated OpenAPI types (make api) instead.",
+        "'{{name}}' looks like an API contract type. Use the generated client types (make api) instead.",
     },
   },
   create(context) {
     const filename = context.filename.replaceAll('\\', '/')
-    if (filename.includes('/src/shared/api/generated/')) return {}
+    if (filename.endsWith('/src/shared/api/client.ts')) return {}
 
     return {
       TSInterfaceDeclaration(node) {

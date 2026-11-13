@@ -81,31 +81,36 @@ echo "[ready] scope: $MODE ${CHANGED[*]+(${#CHANGED[@]} paths)}"
 run_step policy "repo policy checks" "$ROOT" python3 scripts/policy/check_repo_policy.py
 
 # ---------- backend ----------
-if in_scope backend/ db/; then
-  if command -v uv >/dev/null 2>&1; then
-    run_step backend_lint "ruff check + format --check" backend bash -c "uv run ruff check . && uv run ruff format --check ."
-    run_step backend_tests "pytest" backend uv run pytest -q -p no:warnings
+# encore may live in ~/.encore/bin without being on PATH.
+[ -d "$HOME/.encore/bin" ] && PATH="$HOME/.encore/bin:$PATH"
+
+if in_scope backend/; then
+  if [ -d backend/node_modules ]; then
+    run_step backend_typecheck "tsc --noEmit" backend npx tsc --noEmit
   else
-    record backend_prereq failed "uv not installed (https://docs.astral.sh/uv/)"; echo "[ready] backend_prereq FAILED: uv not installed"
+    record backend_prereq failed "backend/node_modules missing (make setup)"; echo "[ready] backend_prereq FAILED: run make setup"
+  fi
+  if command -v encore >/dev/null 2>&1; then
+    run_step backend_tests "encore test (needs Docker for the test database)" backend encore test
+  else
+    record backend_tests failed "encore CLI not installed (https://encore.dev/docs/ts/install)"; echo "[ready] backend_tests FAILED: encore CLI not installed"
   fi
 else
-  skip_step backend "no backend/db changes"
+  skip_step backend "no backend changes"
 fi
 
-# ---------- API contract ----------
-if in_scope backend/ contracts/ frontend/src/shared/api/; then
-  if [ -d frontend/node_modules ] && command -v uv >/dev/null 2>&1; then
-    run_step api_contract "contracts/openapi.json and generated TS are current (fix: make api)" "$ROOT" bash -c '
+# ---------- API client ----------
+if in_scope backend/ frontend/src/shared/api/; then
+  if command -v encore >/dev/null 2>&1; then
+    run_step api_client "frontend/src/shared/api/client.ts is current (fix: make api)" "$ROOT" bash -c '
       tmp="$(mktemp -d)"
-      (cd backend && uv run python scripts/export_openapi.py "$tmp/openapi.json") &&
-      diff -q "$tmp/openapi.json" contracts/openapi.json &&
-      (cd frontend && npx openapi-typescript "$tmp/openapi.json" -o "$tmp/openapi.ts" >/dev/null) &&
-      diff -q "$tmp/openapi.ts" frontend/src/shared/api/generated/openapi.ts'
+      (cd backend && encore gen client --lang=typescript --env=local --output="$tmp/client.ts") &&
+      diff -q "$tmp/client.ts" frontend/src/shared/api/client.ts'
   else
-    record api_contract failed "needs uv and frontend/node_modules (make setup)"; echo "[ready] api_contract FAILED: run make setup"
+    record api_client failed "encore CLI not installed"; echo "[ready] api_client FAILED: encore CLI not installed"
   fi
 else
-  skip_step api_contract "no contract-related changes"
+  skip_step api_client "no API-related changes"
 fi
 
 # ---------- frontend ----------
@@ -129,19 +134,6 @@ if in_scope frontend/; then
   fi
 else
   skip_step frontend "no frontend changes"
-fi
-
-# ---------- docker ----------
-if in_scope compose.yaml compose.production.yaml backend/Dockerfile frontend/Dockerfile frontend/nginx.conf; then
-  if command -v docker >/dev/null 2>&1; then
-    run_step compose_config "docker compose config (dev + production)" "$ROOT" bash -c '
-      docker compose --profile app config -q &&
-      DATABASE_URL=postgres://x REDIS_URL=redis://x docker compose -f compose.production.yaml config -q'
-  else
-    skip_step compose_config "docker not installed"
-  fi
-else
-  skip_step compose_config "no Docker changes"
 fi
 
 # ---------- summary ----------

@@ -8,8 +8,8 @@ const healthy: HealthStatus = {
   status: 'ok',
   environment: 'test',
   checks: [
-    { name: 'postgres', state: 'ok', detail: null },
-    { name: 'redis', state: 'ok', detail: null },
+    { name: 'postgres', state: 'ok' },
+    { name: 'pgvector', state: 'ok' },
   ],
 }
 
@@ -26,7 +26,7 @@ describe('HealthPage', () => {
     renderWithProviders(<HealthPage />)
 
     expect(await screen.findByText('postgres')).toBeInTheDocument()
-    expect(screen.getByText('redis')).toBeInTheDocument()
+    expect(screen.getByText('pgvector')).toBeInTheDocument()
   })
 
   it('shows a retryable error when the backend fails', async () => {

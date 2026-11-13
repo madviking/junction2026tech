@@ -1,7 +1,9 @@
-Status: active
-Last reviewed: 2026-11-13
+Status: deprecated
+Last reviewed: 2026-11-14
 
 # 0001 — Backend runtime: thin FastAPI now, Encore possible
+
+**Superseded by `0002-encore-ts-on-aiven.md`.** Kept for the reasoning only.
 
 ## Context
 

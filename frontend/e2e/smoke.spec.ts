@@ -6,5 +6,5 @@ test('home shows live service health', async ({ page }) => {
 
   await expect(page.getByRole('heading', { name: 'Service health' })).toBeVisible()
   await expect(page.getByRole('cell', { name: 'postgres' })).toBeVisible()
-  await expect(page.getByRole('cell', { name: 'redis' })).toBeVisible()
+  await expect(page.getByRole('cell', { name: 'pgvector' })).toBeVisible()
 })

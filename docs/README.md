@@ -1,5 +1,5 @@
 Status: active
-Last reviewed: 2026-11-13
+Last reviewed: 2026-11-14
 
 # Documentation Standards
 
@@ -12,7 +12,7 @@ it when it stops being true.
 | Kind | Location | Metadata header |
 | --- | --- | --- |
 | Agent entry point and hard rules | `AGENTS.md` (Claude reads it via `CLAUDE.md`) | yes |
-| How a module works, how to extend it | `README.md` in the module (`backend/app/<module>/`, `frontend/src/features/<name>/`) | no |
+| How a module works, how to extend it | `README.md` in the module (`backend/<service>/`, `frontend/src/features/<name>/`) | no |
 | Cross-cutting architecture and operations | `docs/*.md` | yes |
 | Decisions that would surprise a teammate | `docs/decisions/<nnnn>-<slug>.md` | yes |
 | Plans for multi-module or multi-session work | `docs/planning/<yyyy-mm-dd>-<slug>.md` from `_template.md` | yes |
@@ -45,8 +45,9 @@ header, module READMEs and skill references.
 ## Current docs
 
 - `architecture.md`: components, data flow, ports and boundaries.
-- `deployment.md`: how this ships through East Deploy.
-- `decisions/0001-backend-runtime.md`: FastAPI now, Encore possible later.
+- `deployment.md`: the self-hosted image, Aiven and where the app runs.
+- `decisions/0002-encore-ts-on-aiven.md`: Encore.ts, self-hosted, Aiven PostgreSQL, same-region rule.
+- `decisions/0001-backend-runtime.md`: superseded by 0002.
 - `planning/_template.md`: plan + acceptance matrix template.
 
 ## Decision records

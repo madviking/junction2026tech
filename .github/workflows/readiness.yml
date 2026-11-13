@@ -9,42 +9,36 @@ concurrency:
   group: readiness-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  ENCORE_VERSION: "1.58.1" # keep equal to encore.dev in backend/package.json
+
 jobs:
   readiness:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-    services:
-      postgres:
-        image: postgres:17-alpine
-        env:
-          POSTGRES_DB: app
-          POSTGRES_USER: app
-          POSTGRES_PASSWORD: app_ci_only
-        ports: ["5434:5432"]
-        options: >-
-          --health-cmd "pg_isready -U app -d app" --health-interval 2s --health-timeout 3s --health-retries 30
-    env:
-      DATABASE_URL: postgresql://app:app_ci_only@localhost:5434/app
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v6
-        with:
-          version: "0.9.21"
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
           cache: npm
-          cache-dependency-path: frontend/package-lock.json
-      - name: Apply migrations
+          cache-dependency-path: |
+            backend/package-lock.json
+            frontend/package-lock.json
+      - name: Install Encore CLI
         run: |
-          docker run --rm --network host -v "$PWD/db/migrations:/migrations:ro" migrate/migrate:v4.19.1 \
-            -path=/migrations -database "postgres://app:app_ci_only@localhost:5434/app?sslmode=disable" up
+          curl -fsSL https://encore.dev/install.sh | bash -s -- "$ENCORE_VERSION"
+          echo "$HOME/.encore/bin" >> "$GITHUB_PATH"
       - name: Install
         run: |
-          cd backend && uv sync --frozen
+          cd backend && npm ci
           cd ../frontend && npm ci
+      # encore test starts its own Postgres (with pgvector) in Docker and applies backend/db/migrations.
       - name: Readiness gate
         run: bash dev_readiness_check.sh --all --report-json tmp/readiness.json
+      - name: Build the self-hosted image
+        if: hashFiles('backend/infra.config.json') != ''
+        run: cd backend && encore build docker --config infra.config.json silta-api:ci
       - if: always()
         uses: actions/upload-artifact@v4
         with:

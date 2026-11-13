@@ -9,7 +9,7 @@ import noCrossFeatureImports from './eslint-rules/no-cross-feature-imports.js'
 import noLocalApiContractTypes from './eslint-rules/no-local-api-contract-types.js'
 
 export default tseslint.config(
-  { ignores: ['dist', 'coverage', 'test-results', 'playwright-report', 'src/shared/api/generated'] },
+  { ignores: ['dist', 'coverage', 'test-results', 'playwright-report', 'src/shared/api/client.ts'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
@@ -46,7 +46,7 @@ export default tseslint.config(
         'error',
         {
           patterns: [
-            { group: ['axios'], message: 'Use @/shared/api/client (typed from the OpenAPI contract).' },
+            { group: ['axios'], message: 'Use @/shared/api/api (the generated Encore client).' },
             { group: ['../../*'], message: 'Use the @/ alias instead of deep relative imports.' },
           ],
         },

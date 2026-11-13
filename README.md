@@ -1,32 +1,29 @@
-# Junction 2026 — tech
+# Silta — tech
 
-Our hackathon build. The idea is not chosen yet; this repository is the scaffold:
-FastAPI backend, React + Mantine frontend, PostgreSQL + Redis in Docker, a shared
-LLM layer, and the agent rules and readiness gate we use on our other products.
+Our Junction 2026 build: a multilingual, mobile-first web app that helps language
+minorities in Finland act on possible cancer symptoms and use screening.
+Encore.ts backend, React + Mantine frontend, PostgreSQL with pgvector (local
+through Encore, Aiven for PostgreSQL in the cloud).
 
 **Agents and humans: start with [`AGENTS.md`](AGENTS.md).**
 
 ## Quickstart
 
-Needs Docker, [`uv`](https://docs.astral.sh/uv/) and Node 24.
+Needs Docker, Node 24 and the [Encore CLI](https://encore.dev/docs/ts/install).
 
 ```bash
-make setup          # .env from .env.example, uv sync, npm ci
-make up             # PostgreSQL :5434 + Redis :6381 + migrations
-make dev-backend    # http://localhost:8300  (API under /api, docs at /docs)
+make setup          # .env from .env.example, npm ci in backend/ and frontend/
+make dev-backend    # http://localhost:8300 (API under /api), dev dashboard http://localhost:9400
 make dev-frontend   # http://localhost:5300
 ```
 
-Add `OPEN_ROUTER_API_KEY` to `.env`, then `make llm-smoke` makes one tiny paid
-call through the shared LLM layer and prints its tokens and cost.
-
-Everything in containers instead: `make up-all`. Stop with `make down` (data
-volumes are kept).
+`encore run` starts its own PostgreSQL and applies `backend/db/migrations`; there
+is nothing else to start.
 
 ## Daily loop
 
 ```bash
-make api                          # after backend route/schema changes: contract + TS types
+make api                          # after endpoint/type changes: regenerate the frontend client
 bash dev_readiness_check.sh       # before saying "done" (scoped to changed files)
 make ready                        # full gate (CI runs this on every PR)
 ```
@@ -36,8 +33,8 @@ make ready                        # full gate (CI runs this on every PR)
 | | |
 | --- | --- |
 | Rules, routing, verification | `AGENTS.md`, `.codex/skills/` |
-| Backend | `backend/` (`backend/README.md`) |
+| Backend services | `backend/` (`backend/README.md`) |
+| SQL migrations | `backend/db/migrations/` |
 | Frontend | `frontend/` (`frontend/README.md`) |
-| SQL migrations | `db/migrations/` |
-| API contract | `contracts/openapi.json` |
+| Generated API client | `frontend/src/shared/api/client.ts` |
 | Architecture, deployment, decisions | `docs/` |

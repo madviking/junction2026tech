@@ -1,54 +1,54 @@
 ---
 name: backend-module-architecture
-description: Use when changing backend code, routes, schema, migrations or workers. Keeps the router/service/repository split, migration discipline, contract regeneration and targeted backend testing.
+description: Use when changing backend code, endpoints, schema or migrations. Keeps the Encore service shape (endpoint/service/repository), migration discipline, client regeneration and targeted backend testing.
 ---
 
 # Backend Module Architecture
 
-Read `backend/README.md` once, then only the touched module's `README.md`, files
+Read `backend/README.md` once, then only the touched service's `README.md`, files
 and tests.
 
-## Module shape
+## Service shape
 
 ```text
-backend/app/<module>/
-  README.md        purpose, routes, tables it owns, how to test
-  router.py        HTTP only: parse, call service, map errors to status codes
-  schemas.py       Pydantic request/response models (become the OpenAPI contract)
-  service.py       business rules; no SQL, no HTTP
-  repository.py    SQL only (psycopg, parameterized queries)
-backend/tests/<module>/test_*.py
+backend/<service>/
+  encore.service.ts  declares the service
+  README.md          purpose, endpoints, tables it owns, how to test
+  <service>.ts       endpoints (api(...)): parse, call service.ts, nothing else
+  service.ts         business rules and types; no SQL
+  repository.ts      SQL only (SQLDatabase.named('silta'), sql tagged template)
+  <service>.test.ts  vitest, run by `encore test`
 ```
 
-Register the router in `backend/app/main.py`. Routes live under `/api`.
+Public endpoints: `expose: true`, path under `/api/<service>/`. Internal ones:
+`expose: false`, called through `~encore/clients`.
 
 ## Hard rules
 
-- Routers never touch the database; services never contain SQL.
-- Parameterized SQL only (`%s` placeholders). Never format values into SQL text.
-- Every schema change is a new `db/migrations/<n+1>_<name>.up.sql`. Applied
-  migrations are never edited.
+- Endpoints never touch the database; `service.ts` never contains SQL.
+- SQL only through the tagged template (`db.query\`...${value}\``). Never build
+  SQL text from values.
+- Every schema change is a new `backend/db/migrations/<n+1>_<name>.up.sql`.
+  Applied migrations are never edited.
 - Outbound HTTP always sets a timeout. LLM providers are reached only through
-  `backend/app/llm/` (`.codex/skills/llm-integration/SKILL.md`).
-- No broad `except Exception: pass`. Log with context and re-raise or return a
-  clear error.
-- Config comes from `app.config.get_settings()`, never from scattered `os.getenv`.
-- Python files stay under 500 lines; split by responsibility before that.
+  the `llm` service (`.codex/skills/llm-integration/SKILL.md`).
+- No empty `catch`. Log with context (`encore.dev/log`) and rethrow or return an
+  `APIError`.
+- Secrets through `secret("Name")` from `encore.dev/config`, never `process.env`.
+- TypeScript files stay under 400 lines; split by responsibility before that.
 
 ## Workflow
 
 1. Find the closest test; write the failing test first.
 2. Implement the smallest change.
-3. Migration needed? Add it, then `make migrate` and rerun tests against the
-   local database.
-4. Route or schema changed? `make api` to regenerate `contracts/openapi.json` and
-   the frontend types, and fix frontend type errors it reveals.
+3. Migration needed? Add it; `encore run` and `encore test` apply it locally.
+4. Endpoint or type changed? `make api` to regenerate the frontend client, and
+   fix the frontend type errors it reveals.
 5. `bash dev_readiness_check.sh` (add `--all` when shared code changed).
 
 ## Tests
 
-- `cd backend && uv run pytest -q tests/<module>` for the targeted run.
-- Tests that need PostgreSQL use the `db_conn` fixture in `tests/conftest.py`;
-  they skip with a clear message when the database is not up (`make up`).
-- Mock only third-party network boundaries (LLM providers, external APIs), never
-  our own services or repositories.
+- `cd backend && encore test <service>` for the targeted run. Tests use Encore's
+  test database with all migrations applied.
+- Mock only third-party network boundaries (stub `fetch` for LLM providers and
+  external APIs), never our own services or repositories.
