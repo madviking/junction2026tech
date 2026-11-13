@@ -1,0 +1,50 @@
+# Production runtime contract for East Deploy (see docs/deployment.md). Not deployed yet.
+# East Deploy renders `.env` next to this file from its catalog entry and Secret Manager.
+name: junction2026
+
+services:
+  migrations:
+    image: migrate/migrate:v4.19.1
+    command:
+      - -path=/migrations
+      - -database=${DATABASE_URL:?DATABASE_URL is required}
+      - up
+    volumes:
+      - ./db/migrations:/migrations:ro
+    networks: [east_production]
+    restart: "no"
+
+  backend:
+    build:
+      context: ./backend
+      target: production
+    image: junction2026-backend:${RELEASE:-local}
+    # Unique name: east_production is shared, and nginx in `web` proxies to it by this name.
+    container_name: junction2026-backend
+    environment:
+      ENVIRONMENT: production
+      DATABASE_URL: ${DATABASE_URL:?DATABASE_URL is required}
+      REDIS_URL: ${REDIS_URL:?REDIS_URL is required}
+      OPEN_ROUTER_API_KEY: ${OPEN_ROUTER_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      CORS_ORIGINS: ${CORS_ORIGINS:-[]}
+    depends_on:
+      migrations:
+        condition: service_completed_successfully
+    networks: [east_production]
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./frontend
+      target: production
+    image: junction2026-web:${RELEASE:-local}
+    container_name: junction2026-web
+    depends_on:
+      - backend
+    networks: [east_production]
+    restart: unless-stopped
+
+networks:
+  east_production:
+    external: true

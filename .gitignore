@@ -1,0 +1,37 @@
+# Secrets and local config
+.env
+.env.*
+!.env.example
+.claude/settings.local.json
+.claude/worktrees/
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+
+# Node / frontend
+node_modules/
+dist/
+coverage/
+test-results/
+playwright-report/
+*.tsbuildinfo
+
+# Encore (if the backend moves there)
+.encore/
+encore.gen.go
+encore.gen.cue
+
+# Scratch and local artifacts
+tmp/
+scratch/
+*.log
