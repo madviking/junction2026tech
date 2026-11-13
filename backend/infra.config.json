@@ -1,0 +1,34 @@
+{
+  "$schema": "https://encore.dev/schemas/infra.schema.json",
+  "metadata": {
+    "app_id": "silta",
+    "env_name": "aiven",
+    "env_type": "production",
+    "cloud": "gcp",
+    "base_url": "http://localhost:8300"
+  },
+  "sql_servers": [
+    {
+      "host": "silta-pg-appzio-d111.b.aivencloud.com:12944",
+      "tls_config": {
+        "ca": "-----BEGIN CERTIFICATE-----\nMIIERDCCAqygAwIBAgIUfjSSZoi2vC2Tfg/lyb6F2eBUwsswDQYJKoZIhvcNAQEM\nBQAwOjE4MDYGA1UEAwwvMGQ0ZWE3MTEtODE2My00OTk2LThjNzYtYTk3MTNlMDFl\nNjU4IFByb2plY3QgQ0EwHhcNMjYxMTEzMjEzNDE1WhcNMzYxMTEwMjEzNDE1WjA6\nMTgwNgYDVQQDDC8wZDRlYTcxMS04MTYzLTQ5OTYtOGM3Ni1hOTcxM2UwMWU2NTgg\nUHJvamVjdCBDQTCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAO68/9NM\nVL+e1vYdmm2K+sj+uIleuNtPN81Yo4kO4aThP427MLqDG9BSmp04zJHVukNSckN6\na2PgdALysGUANjybEsfqprNdhMbS1kV4uNnRIbWoRxxM6Jig6W2JIugb0M3h5uJA\nl/5eDgzJlWAgjMcySN/1/Q1+OJJ/3oah0xAMxElacJBL+maE+L+RKULLJUWolKJr\nXK/It/1fOPLR2417k0V2iIQM3LCkq/yXhyIiXSINENkTZBTHy5Qyvz1XVpr5x2tV\nZ13njKTlvXC8RjQTVAWOVWZvkvhiSkHH4LrgyQyx4W7oiVYENKAYVAVIE+Hrog7v\nyDXVah/9U/3VhH4Qxs/pJ0j+I6Rdsto2EnR6t8ZKl56eBauXZjLLhb6VtEbinvCW\nDZrmxj+VbTx7lj5QvzY3fLRyllrmaRfPyoGdWtRNzZGpDzVt7wKeUwrVHAvihFFW\nRqr7DSF2+0Hd1WI0XIqSsDtlJCzDmiO4lnbB6PthTPnwYbmkpVoR3Rv35wIDAQAB\no0IwQDAdBgNVHQ4EFgQUhzGVFAcsCDCI7uQjxZxzOD59/MIwEgYDVR0TAQH/BAgw\nBgEB/wIBADALBgNVHQ8EBAMCAQYwDQYJKoZIhvcNAQEMBQADggGBAIn5Be2RR2J1\nwMIq/jmj9WXjxdtZGc1dVl/70/39GFvAMxqpmiV6q3pnjzdBeIBXvZoYsfBNRs/Y\nEFO0FEIG9opeQ5zVrbGC4EghryHNY7yv1MHKvyliz9dKYUm+nyv1sTHKFzsncjZp\nLVA7oYyyrixO5pWOxu2B22bU+IQNdwydBr2YMUyHvVoSCOddydnLwt9lwQm7YkGH\n3HAMaAtsosG7eFL0wSe6mMNNtWQHC94K8be4vbF4vEF2+tzscgZ5BZYb1UmBq2Le\nL/2ql2XQGlw4rJ00r5wPBDXhGoO+0Vqc1HCFrnKAAPHyEWOsDYdPuun4f9sDEu7R\niy8bOnoE83XdsQgkbJaxiIkDvcGglsuZLUdyIU0MUYV6AAsNEc9Ty3nnnRy3T/Aw\nIpAJVTNeeQ3CP6yLC8ABSKKbnb2/fCHSQldngI2TYzvjiMMLHvUe+n2vsPT4k6pd\nmb08mrbqPSe6WuijT4XvSau1OeO0HoGWag1TRWl8GfZLSZA514UQHg==\n-----END CERTIFICATE-----\n"
+      },
+      "databases": {
+        "silta": {
+          "name": "silta",
+          "username": "avnadmin",
+          "password": {
+            "$env": "AIVEN_PG_PASSWORD"
+          },
+          "max_connections": 10,
+          "min_connections": 1
+        }
+      }
+    }
+  ],
+  "secrets": {
+    "GeminiApiKey": {
+      "$env": "GEMINI_API_KEY"
+    }
+  }
+}

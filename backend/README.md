@@ -46,7 +46,8 @@ encore secret set --type local,dev ElevenLabsApiKey
 ```
 
 You type the value; never print, log or commit it. In the self-hosted image they
-come from `GEMINI_API_KEY` / `ELEVENLABS_API_KEY` (see `infra.config.json`).
+come from environment variables mapped in `infra.config.json` (`GEMINI_API_KEY`;
+add a mapping there when a service declares a new secret).
 
 ## Checks
 
@@ -67,5 +68,6 @@ make migrate-aiven   # the image does NOT migrate; apply db/migrations first
 make run-image       # serves :8300 using .env, then: curl localhost:8300/api/health
 ```
 
-`.env` needs `AIVEN_PG_PASSWORD`, `AIVEN_PG_CA` and `AIVEN_SILTA_URL`
-(`.env.example`). Deployment: `docs/deployment.md`.
+`.env` needs `AIVEN_PG_PASSWORD`, `AIVEN_SILTA_URL` and `GEMINI_API_KEY`
+(`.env.example`). The database host and CA certificate are in
+`infra.config.json`. Deployment and the CI pipeline: `docs/deployment.md`.

@@ -1,0 +1,259 @@
+# Silta care-path decision tables. Content, not code: reviewed by a clinician (lanes)
+# and by someone checking the law (routes). Source notes live in the junction2026
+# brain repo: ideas/silta-service-paths.md and sources/2026-11-13-web-research-*.md.
+#
+# Equality rule: lane + route decide destination and clocks. Profiles and barriers
+# only add adaptations and steps; they never change where or how fast.
+
+lanes:
+  U0:
+    name: Emergency
+    trigger: Heavy bleeding, severe breathlessness, sudden weakness, confusion, chest pain
+    tone: One screen, one action
+    needs_clinical_review: true
+  U1:
+    name: Same day
+    trigger: New severe pain, vomiting blood, high fever during cancer treatment
+    tone: Calm and direct
+    needs_clinical_review: true
+  U2:
+    name: Alarm symptom
+    trigger: Lump, unexplained bleeding, blood in stool, cough over 3 weeks with weight loss, postmenopausal bleeding, changing mole
+    tone: Serious, not frightening; no diagnosis named
+    needs_clinical_review: true
+  U3:
+    name: Persistent unclear
+    trigger: Tiredness, vague pain, appetite loss for weeks
+    tone: Reassuring, with clear come-back rules
+    needs_clinical_review: true
+  U4:
+    name: Screening
+    trigger: Invitation letter, missed screening, positive result
+    tone: Explain what the letter means
+    needs_clinical_review: true
+  U5:
+    name: Stalled
+    trigger: Referral sent and no letter, missing result, late treatment start
+    tone: Practical, rights-based
+    needs_clinical_review: false
+
+routes:
+  A1:
+    name: Resident, public care
+    who: Home municipality in Finland
+    door: county health station
+    note: Care guarantee applies; normal client fee; fee ceiling 815 EUR a year (2026)
+    care_guarantee: true
+    needs_legal_review: false
+  A2:
+    name: Occupational health
+    who: Employed, employer provides care
+    door: occupational health clinic
+    note: Free at point of use, often faster; specialist referral scope unverified
+    care_guarantee: false
+    needs_legal_review: true
+  A3:
+    name: Student health
+    who: Higher-education students
+    door: student health service (FSHS)
+    note: Care guarantee applies; under 23 the 14-day limit applies
+    care_guarantee: true
+    needs_legal_review: false
+  A4:
+    name: Private
+    who: Pays or has insurance
+    door: private clinic
+    note: Fast but costly; referral into public specialist care unverified
+    care_guarantee: false
+    needs_legal_review: true
+  A5:
+    name: Temporary protection
+    who: Ukrainians with temporary protection
+    door: reception-centre nurse (county health station once you have a home municipality)
+    note: Same scope of health care as residents
+    care_guarantee: true
+    needs_legal_review: false
+  A6:
+    name: Asylum seeker
+    who: Living in reception
+    door: reception-centre health clinic
+    note: Adults urgent and necessary care; children and pregnant people broader care (unverified)
+    care_guarantee: false
+    needs_legal_review: true
+  A7:
+    name: Undocumented
+    who: No residence permit
+    door: county necessary-care route or a volunteer clinic
+    note: Urgent care plus necessary non-urgent care from 1.1.2026; Silta collects no identity data
+    care_guarantee: false
+    needs_legal_review: false
+    extra_step:
+      text: No name or ID collected; quick-exit button shown
+      detail: A volunteer clinic is offered as a second door
+  A8:
+    name: EU or Nordic, no home municipality
+    who: Posted or seasonal workers, visitors
+    door: county health station with EHIC, or employer care
+    note: Nordic citizens may use their own language; other details unverified
+    care_guarantee: false
+    needs_legal_review: true
+
+profiles:
+  C1:
+    name: Finnish or Swedish
+    who: Native or fluent
+    mode: Text and voice; Swedish service in bilingual counties
+    right: National languages
+    contact: Prepared call script
+    visit_card: Visit card in Finnish or Swedish
+  C2:
+    name: Other language, strong voice
+    who: Russian, Ukrainian, Estonian, Turkish, Vietnamese, Arabic, English and others
+    mode: Voice in own language, Finnish script with back-translation
+    right: Free interpreter; ask when booking
+    contact: Finnish script with back-translation; interpreter requested
+    visit_card: Bilingual visit card
+  C3:
+    name: Other language, weak voice or low literacy
+    who: Somali, Kurdish, Albanian, Tigrinya, Dari and others
+    mode: Picture cards, human-recorded audio, community worker
+    right: Free interpreter
+    contact: A helper or community worker places the call; interpreter requested
+    visit_card: Picture cards with recorded audio
+  C4:
+    name: Deaf or hard of hearing
+    who: Finnish Sign Language users
+    mode: Text and sign-language video first; never phone-only
+    right: Kela interpreting service, free
+    contact: By message, or with a Kela interpreter; never phone-only
+    visit_card: Visit card plus booked sign-language interpreter
+  C5:
+    name: Low health literacy or intellectual disability
+    who: Including people with support workers
+    mode: Easy-to-read Finnish, one step per screen, support-person mode
+    right: County accessibility duty
+    contact: Support person uses the prepared script
+    visit_card: Easy-to-read visit card with pictures
+  C6:
+    name: Older, low digital
+    who: Phone-only, living alone
+    mode: Phone-friendly, printed card, family-helper mode
+    right: Non-digital access must be ensured
+    contact: Phone call with a printed script; relative can help
+    visit_card: Printed visit card
+  C7:
+    name: Sami
+    who: Sami homeland
+    mode: Sami-language content where possible
+    right: Sami Language Act (unverified)
+    contact: Script in Sami and Finnish
+    visit_card: Bilingual visit card
+
+# Barrier steps attach at a stage: describe, route, contact, wait, visit, followup.
+barriers:
+  B1:
+    name: Cost
+    looks: Skips care fearing fees
+    fix: Show the real fee and the 815 EUR ceiling; occupational health is free; late care elsewhere costs the normal fee
+    step: {stage: route, text: Fee explainer before contact, detail: Real fee, yearly ceiling, free alternatives}
+  B2:
+    name: Time, work
+    looks: Cannot call 8-16, shift work
+    fix: Chat or message channel; prepare the call to take three minutes; occupational health
+    step: {stage: contact, text: Use the chat or message channel, detail: No need to call during office hours}
+  B3:
+    name: Distance
+    looks: Rural, no car
+    fix: Ask for a remote first visit (allowed by law); explain Kela travel reimbursement
+    step: {stage: wait, text: Ask for a remote first visit; travel reimbursement explained}
+  B4:
+    name: Distrust
+    looks: Past discrimination, felt dismissed
+    fix: Rights card; ask for another professional; escalation ladder
+    step: {stage: visit, text: Rights card at the visit, detail: You can ask for another professional}
+  B5:
+    name: Stigma
+    looks: Smoking and lung cancer, intimate symptoms, fatalism
+    fix: Neutral, no-blame wording; explain that early treatment works
+    step: {stage: describe, text: No-blame wording throughout, detail: Explains that early treatment works}
+  B6:
+    name: Gender or modesty
+    looks: Wants a female doctor
+    fix: Help request a preferred professional; it is a request, not a guarantee
+    step: {stage: contact, text: Request a female or preferred professional, detail: A request within the unit's limits, not a guarantee}
+  B7:
+    name: Child or family interprets
+    looks: A teen interprets a diagnosis
+    fix: Helper mode steers to a professional interpreter and protects the child
+    step: {stage: describe, text: "Helper mode: the family member gets a script to request a professional interpreter", detail: Diagnosis talk is not routed through a child}
+  B8:
+    name: Status fear
+    looks: Undocumented or pending asylum
+    fix: No name or ID; volunteer-clinic route; confidentiality explained; quick exit
+    step: {stage: route, text: Confidentiality explained; volunteer clinic offered, detail: Quick-exit button always visible}
+  B9:
+    name: Care duties
+    looks: Single parent, carer
+    fix: Flag in the visit summary; plan around duties
+    step: {stage: visit, text: Care duties flagged in the visit summary}
+  B10:
+    name: Anxiety, overload
+    looks: Freezes, avoids letters
+    fix: Small steps, check-ins, one-line what-happens-next
+    step: {stage: followup, text: Weekly check-in with a one-line next step}
+
+# Destination rules. A rule with a route overrides the lane default for that route.
+# {door} is replaced with the route's door. basis: legal | recommended | open.
+rules:
+  - lane: U0
+    title: Call 112 now
+    script_fi: "Hätätilanne. Osoite on [osoite]. [Kuka] vuotaa paljon verta / ei saa henkeä. Hän on hereillä / ei ole hereillä."
+    clocks:
+      - {label: Call, limit: now, basis: legal}
+  - lane: U1
+    title: Contact the {door} today; after hours call 116117
+    script_fi: "Tarvitsen apua tänään. Oireeni: [oire]. Se alkoi [milloin]."
+    clocks:
+      - {label: Assessment, limit: same day, basis: legal}
+  - lane: U2
+    title: Contact the {door} and ask for an assessment today
+    script_fi: "Minulla on ollut [oire] [N] viikkoa. Olen huolissani, että se voi olla vakavaa. Tarvitsen lääkärin arvion pian."
+    clocks:
+      - {label: Assessment of need, limit: same day, basis: legal}
+      - {label: First visit (23+), limit: 3 months, basis: legal}
+      - {label: First visit (under 23), limit: 14 days, basis: legal}
+      - {label: Silta target for alarm symptoms, limit: within days, basis: recommended}
+    clocks_without_care_guarantee:
+      - {label: Time limits for this route, limit: unverified, basis: open}
+      - {label: Silta target for alarm symptoms, limit: within days, basis: recommended}
+  - lane: U2
+    route: A5
+    title: Tell the {door} today and ask for a doctor's assessment
+    script_fi: "Minulla on ollut [oire] [N] viikkoa. Olen huolissani. Tarvitsen lääkärin arvion pian."
+    clocks:
+      - {label: Assessment of need, limit: same day, basis: legal}
+      - {label: First visit (23+), limit: 3 months, basis: legal}
+      - {label: First visit (under 23), limit: 14 days, basis: legal}
+      - {label: Silta target for alarm symptoms, limit: within days, basis: recommended}
+  - lane: U3
+    title: Book a non-urgent visit at the {door}
+    script_fi: "Minulla on ollut [oire] [N] viikkoa eikä se mene ohi. Haluaisin ajan lääkärille."
+    clocks:
+      - {label: Assessment of need, limit: same day, basis: legal}
+      - {label: First visit (23+), limit: 3 months, basis: legal}
+      - {label: First visit (under 23), limit: 14 days, basis: legal}
+    clocks_without_care_guarantee:
+      - {label: Time limits for this route, limit: unverified, basis: open}
+  - lane: U4
+    title: Book the screening or follow-up exam named in the letter
+    script_fi: "Sain seulontakirjeen / positiivisen tuloksen. Haluan varata jatkotutkimuksen."
+    clocks:
+      - {label: Screening, limit: not under the care guarantee, basis: open}
+      - {label: Positive result, limit: chase like an alarm symptom, basis: recommended}
+  - lane: U5
+    title: Call the unit that holds the referral or result
+    script_fi: "Minulle tehtiin lähete [pvm]. Onko se saapunut ja onko se merkitty kiireelliseksi? Milloin saan ajan?"
+    clocks:
+      - {label: Referral assessed, limit: 3 weeks, basis: legal}
+      - {label: Imaging and pathology reports, limit: 1 week, basis: recommended}
+      - {label: Suspected cancer, referral to treatment, limit: 6 weeks, basis: recommended}

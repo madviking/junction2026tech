@@ -1,0 +1,11 @@
+# Manifest for Aiven Runtime only (not used locally; `encore run` needs no compose).
+# The database is the existing Aiven for PostgreSQL service `silta-pg`; its host and
+# CA are in backend/infra.config.json and the password is set as AIVEN_PG_PASSWORD
+# in the Runtime application's environment variables, so no postgres service here.
+services:
+  api:
+    build:
+      context: deploy/aiven
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"

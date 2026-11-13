@@ -36,12 +36,51 @@ jobs:
       # encore test starts its own Postgres (with pgvector) in Docker and applies backend/db/migrations.
       - name: Readiness gate
         run: bash dev_readiness_check.sh --all --report-json tmp/readiness.json
-      - name: Build the self-hosted image
-        if: hashFiles('backend/infra.config.json') != ''
-        run: cd backend && encore build docker --config infra.config.json silta-api:ci
       - if: always()
         uses: actions/upload-artifact@v4
         with:
           name: readiness-report
           path: tmp/readiness.json
           if-no-files-found: ignore
+
+  # Push to main: publish the self-hosted image and migrate Aiven. Aiven Runtime then
+  # needs "Actions > Deploy latest commit" on the application (docs/deployment.md).
+  image:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: readiness
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      packages: write
+    env:
+      IMAGE: ghcr.io/${{ github.repository_owner }}/silta-api
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+      - name: Install Encore CLI
+        run: |
+          curl -fsSL https://encore.dev/install.sh | bash -s -- "$ENCORE_VERSION"
+          echo "$HOME/.encore/bin" >> "$GITHUB_PATH"
+      - name: Build image
+        run: |
+          cd backend && npm ci
+          encore build docker --config infra.config.json "$IMAGE:${{ github.sha }}"
+          docker tag "$IMAGE:${{ github.sha }}" "$IMAGE:main"
+      # The image does not migrate, so the schema goes first.
+      - name: Migrate Aiven
+        env:
+          AIVEN_SILTA_URL: ${{ secrets.AIVEN_SILTA_URL }}
+        run: |
+          test -n "$AIVEN_SILTA_URL" || { echo "::error::repository secret AIVEN_SILTA_URL is not set"; exit 1; }
+          docker run --rm -e AIVEN_SILTA_URL -v "$PWD/backend/db/migrations:/migrations:ro" --entrypoint sh \
+            migrate/migrate:v4.19.1 -c 'migrate -path /migrations -database "$AIVEN_SILTA_URL" up'
+      - name: Push image
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+          docker push "$IMAGE:${{ github.sha }}"
+          docker push "$IMAGE:main"
