@@ -1,7 +1,6 @@
 .DEFAULT_GOAL := help
 SHELL := /bin/bash
 IMAGE ?= silta-api:dev
-MIGRATE_IMAGE := migrate/migrate:v4.19.1
 # The Encore installer puts the CLI here without touching PATH.
 export PATH := $(HOME)/.encore/bin:$(PATH)
 
@@ -38,13 +37,10 @@ ready: ## Full readiness gate
 image: ## Build the self-hosted Docker image against backend/infra.config.json
 	cd backend && encore build docker --config infra.config.json $(IMAGE)
 
-# AIVEN_SILTA_URL comes from .env and is passed by name, so its value is never echoed.
 migrate-aiven: ## Apply pending migrations to Aiven (the image does not migrate)
-	@set -a && . ./.env && set +a && test -n "$$AIVEN_SILTA_URL" || { echo "AIVEN_SILTA_URL is empty in .env" >&2; exit 1; } && \
-	docker run --rm -e AIVEN_SILTA_URL -v "$$PWD/backend/db/migrations:/migrations:ro" --entrypoint sh $(MIGRATE_IMAGE) \
-	  -c 'migrate -path /migrations -database "$$AIVEN_SILTA_URL" up'
+	python3 scripts/aiven.py migrate
 
-run-image: ## Run the image locally against Aiven (:8300), env from .env
-	docker run --rm --env-file .env -p 127.0.0.1:$${BACKEND_PORT:-8300}:8080 $(IMAGE)
+run-image: ## Run the image locally against Aiven (:8300), secrets from .env
+	python3 scripts/aiven.py run $(IMAGE)
 
 .PHONY: help env setup dev-backend dev-frontend api test lint ready image migrate-aiven run-image

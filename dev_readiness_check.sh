@@ -105,7 +105,8 @@ if in_scope backend/ frontend/src/shared/api/; then
     run_step api_client "frontend/src/shared/api/client.ts is current (fix: make api)" "$ROOT" bash -c '
       tmp="$(mktemp -d)"
       (cd backend && encore gen client --lang=typescript --env=local --output="$tmp/client.ts") &&
-      diff -q "$tmp/client.ts" frontend/src/shared/api/client.ts'
+      # Line 1 names the generator version; compare the rest and show what differs.
+      diff <(tail -n +2 "$tmp/client.ts") <(tail -n +2 frontend/src/shared/api/client.ts) | head -40; test "${PIPESTATUS[0]}" -eq 0'
   else
     record api_client failed "encore CLI not installed"; echo "[ready] api_client FAILED: encore CLI not installed"
   fi

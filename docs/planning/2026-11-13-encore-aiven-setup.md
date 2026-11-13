@@ -280,9 +280,9 @@ https://encore.dev/docs/ts/self-host/configure-infra before the first build.
 | 3 | pgvector available locally | `2_init_silta.up.sql` | `SELECT extname FROM pg_extension` via `encore db shell silta` | health check `pgvector: ok` queries `pg_extension` (test + running app) | done (local app) |
 | 4 | `llm_usage` ported, Gemini call records a row | `llm` service | one ≤ €0.01 smoke call | `llm.test.ts` with `fetch` stubbed records ok and provider_error rows. No real Gemini call yet: `GeminiApiKey` is not set and the model ID in `integrations.ts` is unverified | partial (unit) |
 | 5 | Generated TS client used by the frontend | `encore gen client` | `npm run build` in `frontend/` | gate `api_client` + `frontend_build` ok; health page at `:5300` shows postgres/pgvector ok | done (browser, local) |
-| 6 | Aiven Postgres in the chosen region, `silta` db, pgvector | Aiven console + migrations | `pg_extension` query on Aiven | | todo |
-| 7 | Docker image runs against Aiven | `infra.config.json` | health returns db true | | todo |
-| 8 | App deployed in the same region as the db | Plan A or B | public `/api/health` | | todo |
+| 6 | Aiven Postgres in the chosen region, `silta` db, pgvector | Aiven console + migrations | `pg_extension` query on Aiven | 2026-11-14: `silta-pg` running (PostgreSQL 18, Hobbyist, `google-europe-north1`), database `silta` created. Migrations not applied yet, so pgvector is unproven on Aiven | partial |
+| 7 | Docker image runs against Aiven | `infra.config.json` | health returns db true | `make image` builds with the Aiven host and CA. Not run against Aiven yet: the password is not in `.env` | partial (build only) |
+| 8 | App deployed in the same region as the db | Plan A or B | public `/api/health` | Plan A prepared: `compose.aiven.yaml`, `deploy/aiven/Dockerfile`, CI job `image`; Runtime enabled and GitHub connected. Nothing deployed: needs a push to `main` | todo |
 | 9 | Docs and decision 0002 updated | step 9 | readiness gate | `bash dev_readiness_check.sh --all`: 8/8 ok. `docs/deployment.md` still lacks the chosen region/host | partial |
 
 ## Verification
@@ -330,3 +330,11 @@ https://encore.dev/docs/ts/self-host/configure-infra before the first build.
   postgres and pgvector ok. Proof level: Docker, local database, TLS disabled.
   `encore build docker` produces a `linux/amd64` image.
 - The health contract gained a `pgvector` check and lost `redis`.
+- Aiven Runtime (answers the first open question): enabled on the account. It
+  builds only from a GitHub repository (Compose file or Dockerfile) and cannot
+  run an image directly; Aiven's documented workaround is a Dockerfile that is
+  `FROM <public image>`. It has no pre-deploy step, so migrations run in CI, and
+  a push does not redeploy (manual "Deploy latest commit"). Its regions and price
+  only show after a repository with a manifest is selected.
+- Developer ($5) and Free tiers do not let us pick a region, hence Hobbyist.
+- The project is the trial's auto-created `appzio-d111`, not `silta-junction`.
