@@ -257,3 +257,111 @@ rules:
       - {label: Referral assessed, limit: 3 weeks, basis: legal}
       - {label: Imaging and pathology reports, limit: 1 week, basis: recommended}
       - {label: Suspected cancer, referral to treatment, limit: 6 weeks, basis: recommended}
+
+# ---------------------------------------------------------------------------
+# DRAFT 14 Nov 2026: journey stages and outcomes. Not reviewed, not loaded by
+# rules.py yet. Proposal for handling paths that do not run straight.
+#
+# Idea: the tables above decide WHERE (destination, clocks) and HOW a step is
+# shown (profile, barriers). This table decides WHICH step comes next.
+#   next step = journey.stages[stage].outcomes[outcome].next
+# After each stage the person taps one outcome card ("What happened?"). The
+# model never picks an outcome; it may only map voice to a card, with read-back.
+#
+# - One thread per situation (a lump and a screening letter are two threads).
+#   Threads share route, profile and barriers. They meet at the visit.
+# - The thread's history is a list of {stage, outcome, time} kept on the phone.
+#   The county gets the same list without the person: language, area, stage, outcome.
+# - card: English source text for the phrase set. then: what Silta shows next.
+# - review: clinical | legal marks wording that needs a check before a pilot.
+journey:
+  start: describe
+
+  # Reachable from every stage, always on screen.
+  interrupts:
+    emergency_sign: {card: This is an emergency, next: emergency}
+    something_changed: {card: Something changed or got worse, next: describe}
+
+  # Asked only at the stage where the answer changes the next step.
+  facts:
+    route:
+      ask_at: route
+      questions:
+        - Do you have a Kela card?
+        - Do you work in Finland?
+        - Which municipality do you live in?
+      if_unknown: {use_route: A1, then: Start at the county health station; they must assess your need for care, review: legal}
+
+  stages:
+    describe:
+      ask: What do you need help with?
+      outcomes:
+        symptom: {card: I have a symptom that worries me, next: route, sets: lane, review: clinical}
+        letter: {card: I got a letter I do not understand, next: route, sets_lane: U4}
+        waiting: {card: I am waiting and nothing is happening, next: stalled, sets_lane: U5}
+
+    route:
+      ask: Where do you get health care?
+      outcomes:
+        door_known: {card: This is my place, next: contact}
+        not_sure: {card: I do not know, next: contact, then: Use the if_unknown door above}
+
+    contact:
+      ask: What happened when you contacted them?
+      outcomes:
+        got_time: {card: I got an appointment, next: wait, records: visit_date}
+        told_to_wait: {card: They said they will contact me, next: wait}
+        no_answer: {card: Nobody answered, next: contact, then: Try the message channel or call 116117, max_tries: 2, after_max: stalled}
+        wrong_door: {card: They said this is the wrong place, next: route}
+        refused: {card: They said I cannot get care here, next: stalled, review: legal}
+        not_understood: {card: We did not understand each other, next: contact, then: Show the interpreter request script; offer helper mode}
+
+    wait:
+      ask: Any news?
+      check_ins: [3 days, 1 week, 3 weeks]
+      overdue: {when: a clock of the lane and route rule has passed, next: stalled}
+      outcomes:
+        visit_today: {card: My visit is now, next: visit}
+        nothing_heard: {card: I have heard nothing, next: wait, then: Show the clock and the day to call again}
+        stopped: {card: I do not want to continue, next: closed, then: You can come back any time, review: clinical}
+
+    visit:
+      ask: What did the doctor or nurse say?
+      # Tapped by the clinician on the answer cards where possible, otherwise by the person.
+      outcomes:
+        referral_sent: {card: Referral sent, next: followup}
+        tests_ordered: {card: Tests ordered, next: followup}
+        kit_given: {card: Self-sampling kit handed over, next: followup}
+        come_back_if: {card: Come back if it does not pass, next: followup, review: clinical}
+        nothing_more: {card: No further action needed, next: closed}
+        no_interpreter: {card: There was no interpreter and I did not understand, next: contact, then: Rebook with an interpreter request}
+        missed: {card: I could not go, next: contact}
+
+    followup:
+      ask: What has arrived?
+      check_ins: [3 days, 1 week, 3 weeks]
+      overdue: {when: a clock of the lane and route rule has passed, next: stalled}
+      outcomes:
+        invitation: {card: I got a time for the next exam, next: wait, records: visit_date}
+        result_letter: {card: I got a result or a letter, next: closed, then: Explain the letter type and whom to call; never interpret the result}
+        more_exams: {card: They want more exams, next: wait}
+        nothing_arrived: {card: Nothing has arrived, next: followup, then: Show the clock and the day to call}
+
+    # Uses the U5 rule above for the script and clocks.
+    stalled:
+      ask: What happened when you asked?
+      ladder: [Call the unit that holds the referral, Muistutus to the unit, Patient ombudsman, Kantelu]
+      outcomes:
+        got_time: {card: I got an appointment, next: wait, records: visit_date}
+        told_to_wait: {card: They said to keep waiting, next: stalled, then: Move one step up the ladder, review: legal}
+        still_nothing: {card: Still no answer, next: stalled, then: Move one step up the ladder}
+
+    # Terminal. Uses the U0 rule above. Silta shows 112 and stops; no forms.
+    emergency:
+      terminal: true
+
+    # Terminal, but the person can start again.
+    closed:
+      terminal: true
+      outcomes:
+        reopen: {card: I need help again, next: describe}
