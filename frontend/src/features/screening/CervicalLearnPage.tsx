@@ -13,6 +13,7 @@ import {
 import { useEffect } from 'react'
 import { useNavigate, useParams, useSearchParams } from 'react-router'
 import { cervicalCourse, type CoursePart, type CourseSlide } from '@/features/screening/cervicalCourse'
+import { AppointmentHelp } from '@/features/screening/components/AppointmentHelp'
 import { CardAudioButton } from '@/features/voice'
 import { useT } from '@/shared/i18n'
 import {
@@ -108,6 +109,7 @@ export function CervicalLearnPage() {
             detail: t(`${L}.timeline.${step}_detail`),
           }))}
         />
+        <AppointmentHelp lang={lang} />
         <Stack gap="sm">
           <Text variant="heading" as="h2">
             {t(`${L}.parts_title`)}

@@ -436,3 +436,54 @@ ui.screening.learn.faq.cost_q:
 ui.screening.learn.faq.cost_a:
   en: "No. Screening is free."
   fi: "Ei. Seulonta on maksuton."
+
+# --- Guide opening screen: your appointment (HUS "Laboratory booking and customer service",
+# checked 14 Nov 2026: online with bank ID or reservation key; phone 09 471 86800 weekdays 7.30–15.30) ---
+ui.screening.learn.appt.title:
+  en: "Your appointment"
+  fi: "Aikasi"
+ui.screening.learn.appt.find_title:
+  en: "Where to find your appointment details"
+  fi: "Mistä löydät ajan tiedot"
+ui.screening.learn.appt.find_body:
+  en: "Everything is in your invitation letter, in the box 'Your appointment':"
+  fi: "Kaikki on kutsukirjeessäsi, laatikossa 'Aikasi':"
+ui.screening.learn.appt.find_time:
+  en: "Time: the day and the hour booked for you"
+  fi: "Aika: sinulle varattu päivä ja kellonaika"
+ui.screening.learn.appt.find_place:
+  en: "Place: the laboratory and its address"
+  fi: "Paikka: laboratorio ja sen osoite"
+ui.screening.learn.appt.find_key:
+  en: "Reservation key and PIN: you need them to change the time"
+  fi: "Varaustunnus ja PIN-koodi: tarvitset ne ajan vaihtamiseen"
+ui.screening.learn.appt.find_form:
+  en: "The health form to fill in comes in the same envelope"
+  fi: "Täytettävä esitietolomake on samassa kirjekuoressa"
+ui.screening.learn.appt.find_button:
+  en: "Show me on the example letter"
+  fi: "Näytä esimerkkikirjeestä"
+ui.screening.learn.appt.change_title:
+  en: "How to change the time"
+  fi: "Näin vaihdat ajan"
+ui.screening.learn.appt.change_1:
+  en: "Open the HUS booking service online."
+  fi: "Avaa HUSin ajanvarauspalvelu verkossa."
+ui.screening.learn.appt.change_2:
+  en: "Log in with your bank ID, or with the reservation key and PIN from your letter."
+  fi: "Kirjaudu pankkitunnuksilla tai kirjeen varaustunnuksella ja PIN-koodilla."
+ui.screening.learn.appt.change_3:
+  en: "Pick a new time. Any HUS laboratory that takes screening samples is fine."
+  fi: "Valitse uusi aika. Mikä tahansa HUSin laboratorio, jossa otetaan seulontanäytteitä, käy."
+ui.screening.learn.appt.change_cancel:
+  en: "Not taking part? Cancel the time in the same place."
+  fi: "Etkö osallistu? Peru aika samassa paikassa."
+ui.screening.learn.appt.change_online:
+  en: "Change the time online"
+  fi: "Vaihda aika verkossa"
+ui.screening.learn.appt.change_phone:
+  en: "No internet, or need help? Call laboratory customer service on weekdays 7.30–15.30. Say your language if you need an interpreter."
+  fi: "Ei nettiä tai tarvitset apua? Soita laboratorion asiakaspalveluun arkisin klo 7.30–15.30. Kerro kielesi, jos tarvitset tulkin."
+ui.screening.learn.appt.change_call:
+  en: "Call"
+  fi: "Soita"

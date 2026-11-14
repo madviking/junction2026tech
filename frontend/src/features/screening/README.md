@@ -11,6 +11,12 @@ code opens, in every published language.
 | `/letter/cervical/:lang` | `CervicalLetterPage` | Example invitation as a Helsinki resident gets it, in the chosen language (language picker, print, "open the guide"). Stamped "example"; person, address, reservation key and PIN are fictional. |
 | `/r/:lang/learn/cervical` | `CervicalLearnPage` | Overview (timeline letter → visit → result → next in 5 years, list of parts) → five parts → done. `?part=why|visit|rights|after|faq|done` keeps the position, so the phone's back button works. |
 
+The overview also carries `AppointmentHelp`: where the appointment details are in the letter
+(time, place, reservation key + PIN, health form; button to the example letter) and how to
+change the time (HUS online booking with bank ID or reservation key, phone 09 471 86800 weekdays
+7.30–15.30, cancel in the same place). Source: hus.fi "Laboratory booking and customer service",
+checked 14 Nov 2026 (https://www.hus.fi/en/treatments-and-examinations/laboratory-booking-and-customer-service).
+
 `ScreeningEntryCard` (public) is the "I got a letter about cervical screening" card on the
 journey start screen (`features/journey/JourneyStartPage`).
 

@@ -57,6 +57,29 @@ describe('cervical screening guide', () => {
     expect(await screen.findByText('letter page')).toBeInTheDocument()
   })
 
+  it('tells on the opening screen where the appointment details are and how to change the time', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => Response.json(bundle)))
+    renderWithProviders(
+      <Routes>
+        <Route path="/r/:lang/learn/cervical" element={withContent('so', <CervicalLearnPage />)} />
+        <Route path="/letter/cervical/:lang" element={<p>letter page</p>} />
+      </Routes>,
+      { route: '/r/so/learn/cervical' },
+    )
+
+    expect(await screen.findByRole('heading', { name: 'ui.screening.learn.appt.find_title' })).toBeInTheDocument()
+    expect(screen.getByText('ui.screening.learn.appt.find_key')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'ui.screening.learn.appt.change_title' })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'ui.screening.learn.appt.change_online' })).toHaveAttribute(
+      'href',
+      'https://secure.vihta.com/public-ng/hus/#/home',
+    )
+    expect(screen.getByRole('link', { name: /ui.screening.learn.appt.change_call/ })).toHaveAttribute('href', 'tel:+358947186800')
+
+    fireEvent.click(screen.getByRole('button', { name: 'ui.screening.learn.appt.find_button' }))
+    expect(await screen.findByText('letter page')).toBeInTheDocument()
+  })
+
   it('opens a question to show its answer', async () => {
     vi.stubGlobal('fetch', vi.fn(async () => Response.json(bundle)))
     renderWithProviders(
