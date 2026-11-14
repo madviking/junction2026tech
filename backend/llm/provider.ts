@@ -44,10 +44,49 @@ export interface DecideOutput extends Usage {
   confidence?: number
 }
 
+export interface ImagePart {
+  // image/jpeg, image/png or image/webp (the caller validates the bytes).
+  mime: string
+  base64: string
+}
+
+// One user turn (text + optional image) answered as a JSON object that follows `schema`.
+export interface ExtractInput {
+  model: string
+  system?: string
+  text: string
+  image?: ImagePart
+  schemaName: string
+  schema: Record<string, unknown>
+  temperature?: number
+  maxOutputTokens?: number
+}
+
+export interface ExtractOutput extends Usage {
+  // The provider's answer, checked to be a JSON object and re-serialised.
+  json: string
+}
+
 export interface ProviderAdapter {
   name: 'openrouter' | 'gemini' | 'fake'
   complete(input: CompleteInput): Promise<CompleteOutput>
   decide(input: DecideInput): Promise<DecideOutput>
+  extract(input: ExtractInput): Promise<ExtractOutput>
+}
+
+// The schema-constrained answer must be one JSON object; anything else is unusable.
+export function jsonObjectText(text: string, provider: string, usage: Usage): string {
+  let value: unknown
+  try {
+    value = JSON.parse(text)
+  } catch (err) {
+    if (err instanceof SyntaxError) throw new InvalidOutputError(`${provider}_not_json`, usage)
+    throw err
+  }
+  if (value === null || typeof value !== 'object' || Array.isArray(value)) {
+    throw new InvalidOutputError(`${provider}_not_json_object`, usage)
+  }
+  return JSON.stringify(value)
 }
 
 // The provider could not be reached or answered with an HTTP error.

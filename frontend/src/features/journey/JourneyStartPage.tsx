@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router'
 import { useCreateVisit } from '@/features/journey/api/useVisit'
 import { JourneyFrame } from '@/features/journey/components/JourneyFrame'
 import { ResumeCode } from '@/features/journey/components/ResumeCode'
-import { ScreeningEntryCard } from '@/features/screening'
+import { LetterEntryCard } from '@/features/letter'
 import { PageAudioButton } from '@/features/voice'
 import { useT } from '@/shared/i18n'
 import { ActionButton, Banner, ChoiceCard, PageActions, Row, Stack, SurfaceCard, Text } from '@/shared/ui'
@@ -20,7 +20,7 @@ const SPOKEN_KEYS = [
 
 /**
  * /r/:lang — what Silta does and the privacy promise in one card with one "Listen" button,
- * the other ways in (screening letter, resume with a code, about), and Start (new anonymous
+ * the other ways in (photo of a letter, resume with a code, about), and Start (new anonymous
  * visit) in the bottom bar.
  */
 export function JourneyStartPage() {
@@ -60,7 +60,7 @@ export function JourneyStartPage() {
       </SurfaceCard>
       {create.isError && <Banner tone="warning" title={t('ui.journey.start.error')} />}
       <Stack gap="sm">
-        <ScreeningEntryCard lang={lang} />
+        <LetterEntryCard lang={lang} />
         <ResumeCode onResume={open} />
         <ChoiceCard label={t('ui.about.title')} icon={<IconInfoCircle size={26} />} onPress={() => navigate(`/r/${lang}/about`)} />
       </Stack>

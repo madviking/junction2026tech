@@ -63,6 +63,7 @@ Resident actions
 - `ChoiceCard` — big tappable choice; label (accessible name), detail (description), icon, trailing slot outside the button, `selected` → `aria-pressed`, `disabled`, `lang`, `layout` (`row` default, `tile` = picture on top for picture grids, listen button in the top start corner).
 - `BodyMap` — neutral (sexless) front body figure + one `aria-pressed` toggle button per region (`head chest belly skin whole`); the buttons are the accessible controls, the figure is a pointer shortcut and shows the chosen part. Only the given regions are tappable.
 - `AudioPlayButton` — listen button with a small speaker: an outlined 48px circle on its own, a flat segment at the end of a `ChoiceCard`; `idle | loading | playing | error`.
+- `PhotoButton` — takes or picks one photo through the platform (file input; `camera` opens the back camera on phones); looks like `ActionButton` `primary | secondary`.
 - `RecordButton` — 80px mic button: `idle | recording | processing | disabled`, elapsed `m:ss`; `size="sm"` is 48px without the caption, for a row next to a text field.
 - `EmergencyCallLink` — red `tel:` link; `compact` is the header pill (icon + number, label as the accessible name). One per screen.
 

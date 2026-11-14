@@ -37,6 +37,7 @@ export default class Client {
     public readonly care_paths: care_paths.ServiceClient
     public readonly content: content.ServiceClient
     public readonly health: health.ServiceClient
+    public readonly letters: letters.ServiceClient
     public readonly regions: regions.ServiceClient
     public readonly service_paths: service_paths.ServiceClient
     public readonly visits: visits.ServiceClient
@@ -60,6 +61,7 @@ export default class Client {
         this.care_paths = new care_paths.ServiceClient(base)
         this.content = new content.ServiceClient(base)
         this.health = new health.ServiceClient(base)
+        this.letters = new letters.ServiceClient(base)
         this.regions = new regions.ServiceClient(base)
         this.service_paths = new service_paths.ServiceClient(base)
         this.visits = new visits.ServiceClient(base)
@@ -714,6 +716,72 @@ export namespace health {
             // Now make the actual call to the API
             const resp = await this.baseClient.callTypedAPI("GET", `/api/health`)
             return await resp.json() as HealthStatus
+        }
+    }
+}
+
+export namespace letters {
+    export interface ExplainRequest {
+        /**
+         * The resident's language (one of the published languages).
+         */
+        lang: string
+
+        /**
+         * JPEG, PNG or WebP, base64 (a data: prefix is accepted), at most MAX_IMAGE_BYTES.
+         */
+        imageBase64: string
+
+        mime: string
+    }
+
+    export interface LetterExplanation {
+        /**
+         * `unreadable`: no letter could be read in the photo; every text field is empty.
+         */
+        status: "explained" | "unreadable"
+
+        lang: string
+        kind: prompts.LetterKind
+        /**
+         * A published guide for this kind of letter, when there is one.
+         */
+        guide?: "cervical"
+
+        /**
+         * Machine-written in `lang`.
+         */
+        title: string
+
+        summary: string
+        actions: string[]
+        /**
+         * Copied from the letter as printed (not translated); absent when not in the letter.
+         */
+        sender?: string
+
+        when?: string
+        where?: string
+        deadline?: string
+        phone?: string
+    }
+
+    export class ServiceClient {
+        private baseClient: BaseClient
+
+        constructor(baseClient: BaseClient) {
+            this.baseClient = baseClient
+            this.explain = this.explain.bind(this)
+        }
+
+        /**
+         * Explains one photo of a letter in the resident's language. Nothing about the photo or
+         * the answer is kept.
+         */
+        public async explain(params: ExplainRequest): Promise<LetterExplanation> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/letters/explain`, JSON.stringify(params))
+            return await resp.json() as LetterExplanation
         }
     }
 }
@@ -1793,6 +1861,13 @@ export namespace domain {
     }
 
     export type VsFinland = "better" | "worse" | "same"
+}
+
+export namespace prompts {
+    /**
+     * Spelled out as a union: the Encore parser does not resolve (typeof X)[number] in API types.
+     */
+    export type LetterKind = "screening_cervical" | "screening_breast" | "screening_bowel" | "appointment" | "result" | "referral" | "payment" | "other"
 }
 
 

@@ -20,6 +20,7 @@ describe('DesignSystemPage', () => {
       'ChoiceCard',
       'BodyMap and ChoiceCard layout=tile (picture symptom picker)',
       'AudioPlayButton',
+      'PhotoButton',
       'RecordButton',
       'Banner',
       'StepList',

@@ -5,6 +5,7 @@ import { secret } from 'encore.dev/config'
 import {
   DECISION_KEY,
   InvalidOutputError,
+  jsonObjectText,
   ProviderError,
   TIMEOUT_MS,
   validChoice,
@@ -12,6 +13,8 @@ import {
   type CompleteOutput,
   type DecideInput,
   type DecideOutput,
+  type ExtractInput,
+  type ExtractOutput,
   type ProviderAdapter,
 } from './provider'
 
@@ -109,4 +112,36 @@ async function decide(input: DecideInput): Promise<DecideOutput> {
   return { ...parsed, confidence: answer?.confidence, ...usage }
 }
 
-export const gemini: ProviderAdapter = { name: 'gemini', complete, decide }
+// generateContent with an inline image part and a JSON schema for the answer.
+async function extract(input: ExtractInput): Promise<ExtractOutput> {
+  const parts = [
+    { text: input.text },
+    ...(input.image ? [{ inlineData: { mimeType: input.image.mime, data: input.image.base64 } }] : []),
+  ]
+  const response = await fetch(`${GEMINI_BASE_URL}/models/${input.model}:generateContent`, {
+    method: 'POST',
+    headers: headers(),
+    body: JSON.stringify({
+      ...(input.system ? { systemInstruction: { parts: [{ text: input.system }] } } : {}),
+      contents: [{ role: 'user', parts }],
+      generationConfig: {
+        temperature: input.temperature,
+        maxOutputTokens: input.maxOutputTokens,
+        responseMimeType: 'application/json',
+        responseJsonSchema: input.schema,
+      },
+    }),
+    signal: AbortSignal.timeout(TIMEOUT_MS),
+  })
+  const data = (await readGemini(response)) as GenerateContentResponse
+  const usage = {
+    promptTokens: data.usageMetadata?.promptTokenCount,
+    completionTokens: data.usageMetadata?.candidatesTokenCount,
+    totalTokens: data.usageMetadata?.totalTokenCount,
+  }
+  const text = data.candidates?.[0]?.content?.parts?.map((p) => p.text ?? '').join('') ?? ''
+  if (!text) throw new InvalidOutputError('gemini_empty_response', usage)
+  return { json: jsonObjectText(text, 'gemini', usage), ...usage }
+}
+
+export const gemini: ProviderAdapter = { name: 'gemini', complete, decide, extract }

@@ -26,6 +26,7 @@ content/               versioned content document: live bundle, drafts, publish,
 visits/                anonymous visit codes, journey event log, clinician summary, next steps
 regions/               county figures (Helsinki) + anonymous counts
 service_paths/         service paths by area: doors, stages, screening, measured waits, compare (+ seed)
+letters/               photo of a letter -> explanation in the resident's language (llm.extract); stores nothing
 cards/                 free text / transcript -> card (llm.decide), with guard rails
 voice/                 ElevenLabs text-to-speech and speech-to-text, audio storage
 llm/                   the only LLM provider boundary (OpenRouter, Gemini) + llm_usage

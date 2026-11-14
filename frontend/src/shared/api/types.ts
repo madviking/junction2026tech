@@ -1,4 +1,4 @@
-import type { content, domain, health } from '@/shared/api/client'
+import type { content, domain, health, letters } from '@/shared/api/client'
 
 // Short names for generated types. Add aliases here, never hand-written shapes.
 export type HealthStatus = health.HealthStatus
@@ -11,3 +11,5 @@ export type JourneyView = domain.JourneyView
 export type StageView = domain.StageView
 export type OutcomeView = domain.OutcomeView
 export type ContentCards = domain.Cards
+
+export type LetterExplanation = letters.LetterExplanation

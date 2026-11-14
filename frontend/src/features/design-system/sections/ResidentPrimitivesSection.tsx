@@ -15,6 +15,7 @@ import {
   Grid,
   IconText,
   LoadingState,
+  PhotoButton,
   PlaceholderNotice,
   RecordButton,
   Row,
@@ -152,6 +153,17 @@ export function ResidentPrimitivesSection() {
           <EmergencyCallLink label="Emergency? Call" phoneNumber="112" />
         </Specimen>
       </Grid>
+
+      <Specimen title="PhotoButton">
+        <Row gap="md" align="start">
+          <PhotoButton camera onPhoto={noop}>
+            Take a photo
+          </PhotoButton>
+          <PhotoButton variant="secondary" onPhoto={noop}>
+            Choose a photo
+          </PhotoButton>
+        </Row>
+      </Specimen>
 
       <Specimen title="RecordButton">
         <Row gap="xl" align="start">

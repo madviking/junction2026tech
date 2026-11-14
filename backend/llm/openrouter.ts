@@ -4,6 +4,7 @@ import { secret } from 'encore.dev/config'
 import {
   DECISION_KEY,
   InvalidOutputError,
+  jsonObjectText,
   readJson,
   TIMEOUT_MS,
   validChoice,
@@ -11,6 +12,8 @@ import {
   type CompleteOutput,
   type DecideInput,
   type DecideOutput,
+  type ExtractInput,
+  type ExtractOutput,
   type ProviderAdapter,
 } from './provider'
 
@@ -99,4 +102,36 @@ async function decide(input: DecideInput): Promise<DecideOutput> {
   return { ...parsed, confidence: answer?.confidence, ...usage }
 }
 
-export const openrouter: ProviderAdapter = { name: 'openrouter', complete, decide }
+// Chat completion with an image part and `response_format: json_schema` (strict).
+async function extract(input: ExtractInput): Promise<ExtractOutput> {
+  const content = [
+    { type: 'text', text: input.text },
+    ...(input.image
+      ? [{ type: 'image_url', image_url: { url: `data:${input.image.mime};base64,${input.image.base64}` } }]
+      : []),
+  ]
+  const response = await fetch(OPENROUTER_CHAT_URL, {
+    method: 'POST',
+    headers: headers(),
+    body: JSON.stringify({
+      model: input.model,
+      messages: [...(input.system ? [{ role: 'system', content: input.system }] : []), { role: 'user', content }],
+      response_format: { type: 'json_schema', json_schema: { name: input.schemaName, strict: true, schema: input.schema } },
+      ...(input.temperature !== undefined ? { temperature: input.temperature } : {}),
+      ...(input.maxOutputTokens !== undefined ? { max_tokens: input.maxOutputTokens } : {}),
+    }),
+    signal: AbortSignal.timeout(TIMEOUT_MS),
+  })
+  const data = (await readJson(response, 'openrouter')) as ChatResponse
+  const usage = {
+    promptTokens: data.usage?.prompt_tokens,
+    completionTokens: data.usage?.completion_tokens,
+    totalTokens: data.usage?.total_tokens,
+    costUsd: data.usage?.cost,
+  }
+  const text = data.choices?.[0]?.message?.content ?? ''
+  if (!text) throw new InvalidOutputError('openrouter_empty_response', usage)
+  return { json: jsonObjectText(text, 'openrouter', usage), ...usage }
+}
+
+export const openrouter: ProviderAdapter = { name: 'openrouter', complete, decide, extract }

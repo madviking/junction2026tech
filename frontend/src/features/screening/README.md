@@ -17,8 +17,10 @@ change the time (HUS online booking with bank ID or reservation key, phone 09 47
 7.30–15.30, cancel in the same place). Source: hus.fi "Laboratory booking and customer service",
 checked 14 Nov 2026 (https://www.hus.fi/en/treatments-and-examinations/laboratory-booking-and-customer-service).
 
-`ScreeningEntryCard` (public) is the "I got a letter about cervical screening" card on the
-journey start screen (`features/journey/JourneyStartPage`).
+`ScreeningEntryCard` (public) is the "I got a letter about cervical screening" card. Since
+14 Nov it sits on the photo screen of `features/letter` ("No letter with you now?"); the
+start screen's letter entry is `LetterEntryCard`, which explains any letter from a photo and
+links here when the letter is a cervical screening invitation.
 
 ## Content
 

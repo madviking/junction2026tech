@@ -5,7 +5,7 @@
 // `provider`. The model ID for each provider comes from MODELS.
 
 export type ProviderName = 'openrouter' | 'gemini'
-export type IntegrationKind = 'complete' | 'decide'
+export type IntegrationKind = 'complete' | 'decide' | 'extract'
 
 interface ModelFamily {
   openrouter: string
@@ -79,6 +79,20 @@ const INTEGRATIONS: Record<string, IntegrationDef> = {
     family: 'decision',
   },
 
+  'letters.explain': {
+    description:
+      'Reads one photo of a health care letter a resident received (usually Finnish or Swedish) ' +
+      'and returns a JSON object: letter type from a closed set, the facts printed in it (when, ' +
+      'where, deadline, phone) and a short plain explanation in the resident\'s language. ' +
+      'A bad answer can mislead about an appointment, so the screen labels it machine-made and ' +
+      'tells the resident to check dates against the letter.',
+    provider: 'openrouter',
+    kind: 'extract',
+    family: 'flashLite',
+    temperature: 0.1,
+    maxOutputTokens: 1500,
+  },
+
   // Live smoke only (llm/live.smoke.test.ts): one entry per provider and kind.
   'smoke.openrouter.complete': {
     description: 'Live smoke: OpenRouter chat completion with a tiny input.',
@@ -95,6 +109,22 @@ const INTEGRATIONS: Record<string, IntegrationDef> = {
     family: 'flashLite',
     temperature: 0,
     maxOutputTokens: 20,
+  },
+  'smoke.openrouter.extract': {
+    description: 'Live smoke and tests: OpenRouter JSON-schema extraction with a tiny input.',
+    provider: 'openrouter',
+    kind: 'extract',
+    family: 'flashLite',
+    temperature: 0,
+    maxOutputTokens: 100,
+  },
+  'smoke.gemini.extract': {
+    description: 'Live smoke and tests: Gemini direct JSON-schema extraction with a tiny input.',
+    provider: 'gemini',
+    kind: 'extract',
+    family: 'flashLite',
+    temperature: 0,
+    maxOutputTokens: 100,
   },
   'smoke.openrouter.decide': {
     description: 'Live smoke: OpenRouter Decisions with a tiny input.',

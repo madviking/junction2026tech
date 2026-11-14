@@ -14,6 +14,12 @@ export const decide = api(
   (req: service.DecideRequest): Promise<service.DecideResponse> => service.decide(req),
 )
 
+// Structured extraction: text + optional image in, a JSON object following a schema out.
+export const extract = api(
+  { expose: false, method: 'POST', path: '/llm/extract' },
+  (req: service.ExtractRequest): Promise<service.ExtractResponse> => service.extract(req),
+)
+
 // For the admin usage page: last 30 days per day, provider and feature, newest first.
 export const usageSummary = api(
   { expose: false, method: 'GET', path: '/internal/llm/usage-summary' },

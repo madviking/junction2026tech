@@ -10,18 +10,24 @@ The only service that calls an LLM provider. Rules:
 | --- | --- | --- | --- |
 | POST | `/llm/complete` | `CompleteRequest { feature, messages: { role: 'user'\|'model', text }[], system?, context? }` | `CompleteResponse { text, model, provider, fake, totalTokens?, latencyMs }` |
 | POST | `/llm/decide` | `DecideRequest { feature, input, instructions, options: { id, description }[], context? }` | `DecideResponse { choice, probabilities: { id, p }[] (highest first), confidence, model, provider, fake, latencyMs }` |
+| POST | `/llm/extract` | `ExtractRequest { feature, system?, text, image?: { mime, base64 }, schemaName, schemaJson, context? }` | `ExtractResponse { json, model, provider, fake, totalTokens?, latencyMs }` |
 | GET | `/internal/llm/usage-summary` | — | `UsageSummary { rows: { day, provider, feature, calls, tokens, costUsd }[] }` (last 30 days, newest day first) |
 | GET | `/internal/llm/spend` | — | `Spend { usd }` (all-time sum of `llm_usage.cost_usd`) |
 
 `decide` is a closed-set classifier (Gemini Decision 1 through the Decisions API):
 2–255 options, ids `[A-Za-z0-9_-]{1,64}`, unique; `input` and `instructions`
 non-empty. A refusal or a choice outside the options is an `invalid_output` failure.
+`extract` is structured output: one user turn (text plus at most one image) answered as a
+JSON object that follows `schemaJson` (OpenRouter `response_format: json_schema` strict,
+Gemini `responseJsonSchema`). The adapter checks the answer is a JSON object
+(`invalid_output` otherwise); the caller validates the fields. The image is passed through
+and never stored or logged. Used by `letters.explain`.
 `context` goes to the usage row: ids only, never personal data.
 
 ## Files
 
 - `integrations.ts`: per feature key `provider` (`openrouter` | `gemini`), `kind`
-  (`complete` | `decide`), model family, temperature, token limit, and the price per
+  (`complete` | `decide` | `extract`), model family, temperature, token limit, and the price per
   1M tokens. Model IDs live only here. Switching a feature to Gemini direct is one
   line: change its `provider`. Tonight every product feature uses OpenRouter; the
   `smoke.*` entries exist for the live smoke only.

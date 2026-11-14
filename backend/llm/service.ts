@@ -1,4 +1,4 @@
-// Rules for llm.complete and llm.decide: feature lookup, provider selection (live,
+// Rules for llm.complete, llm.decide and llm.extract: feature lookup, provider selection (live,
 // fake, spend cap), one llm_usage row per attempt with cost.
 import { APIError } from 'encore.dev/api'
 import log from 'encore.dev/log'
@@ -6,7 +6,14 @@ import { fake, FAKE_MODEL } from './fake'
 import { gemini } from './gemini'
 import { resolve, type IntegrationKind, type IntegrationSpec } from './integrations'
 import { openrouter } from './openrouter'
-import { InvalidOutputError, type DecideOption, type Message, type ProviderAdapter, type Usage } from './provider'
+import {
+  InvalidOutputError,
+  type DecideOption,
+  type ImagePart,
+  type Message,
+  type ProviderAdapter,
+  type Usage,
+} from './provider'
 import { providersConfig } from './providers.config'
 import { insertUsage, totalSpendUsd } from './repository'
 
@@ -52,6 +59,29 @@ export interface DecideResponse {
   model: string
   provider: string
   fake: boolean
+  latencyMs: number
+}
+
+export interface ExtractRequest {
+  feature: string
+  system?: string
+  // The instruction for this call. Never logged or stored.
+  text: string
+  // One image (base64, no data: prefix). Passed through to the provider, never stored.
+  image?: ImagePart
+  // Name and JSON Schema (as JSON text) of the object the answer must follow.
+  schemaName: string
+  schemaJson: string
+  context?: Record<string, string>
+}
+
+export interface ExtractResponse {
+  // A JSON object that follows the schema, as JSON text. The caller validates the fields.
+  json: string
+  model: string
+  provider: string
+  fake: boolean
+  totalTokens?: number
   latencyMs: number
 }
 
@@ -194,6 +224,46 @@ export async function decide(req: DecideRequest): Promise<DecideResponse> {
     model,
     provider: adapter.name,
     fake: adapter.name === 'fake',
+    latencyMs,
+  }
+}
+
+function parseSchema(schemaJson: string): Record<string, unknown> {
+  let schema: unknown
+  try {
+    schema = JSON.parse(schemaJson)
+  } catch (err) {
+    if (err instanceof SyntaxError) throw APIError.invalidArgument('schemaJson is not JSON')
+    throw err
+  }
+  if (schema === null || typeof schema !== 'object' || Array.isArray(schema)) {
+    throw APIError.invalidArgument('schemaJson must be a JSON object')
+  }
+  return schema as Record<string, unknown>
+}
+
+export async function extract(req: ExtractRequest): Promise<ExtractResponse> {
+  const s = spec(req.feature, 'extract')
+  const schema = parseSchema(req.schemaJson)
+  if (!req.text.trim()) throw APIError.invalidArgument('extract text is empty')
+  const { result, adapter, model, latencyMs } = await attempt(s, req.context, (a, m) =>
+    a.extract({
+      model: m,
+      system: req.system,
+      text: req.text,
+      image: req.image,
+      schemaName: req.schemaName,
+      schema,
+      temperature: s.temperature,
+      maxOutputTokens: s.maxOutputTokens,
+    }),
+  )
+  return {
+    json: result.json,
+    model,
+    provider: adapter.name,
+    fake: adapter.name === 'fake',
+    totalTokens: result.totalTokens,
     latencyMs,
   }
 }
