@@ -106,3 +106,14 @@
 .adminMain {
   background: var(--silta-color-background);
 }
+
+/* Paper: no sticky chrome, only the content. */
+@media print {
+  .pageHeader,
+  .pageActions {
+    display: none;
+  }
+  .page {
+    background: none;
+  }
+}

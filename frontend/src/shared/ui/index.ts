@@ -85,3 +85,33 @@ export {
   type SelectOption,
 } from '@/shared/ui/forms/FormFields'
 
+
+// Learning (short visual courses) and documents (example letters)
+export {
+  Checklist,
+  DirectionalIcon,
+  FaqItem,
+  LessonProgress,
+  LessonScene,
+  PhraseCard,
+  PrintHidden,
+  TimelineStrip,
+  type ChecklistProps,
+  type FaqItemProps,
+  type LessonProgressProps,
+  type LessonSceneProps,
+  type PhraseCardProps,
+  type SceneTone,
+  type TimelineStripProps,
+} from '@/shared/ui/learn/Learn'
+export {
+  LetterBullets,
+  LetterFacts,
+  LetterQrBlock,
+  LetterSection,
+  LetterSheet,
+  type LetterFactsProps,
+  type LetterQrBlockProps,
+  type LetterSectionProps,
+  type LetterSheetProps,
+} from '@/shared/ui/document/LetterSheet'

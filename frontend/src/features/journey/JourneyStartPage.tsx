@@ -5,6 +5,7 @@ import { useCreateVisit } from '@/features/journey/api/useVisit'
 import { JourneyFrame } from '@/features/journey/components/JourneyFrame'
 import { ResumeCode } from '@/features/journey/components/ResumeCode'
 import { StageQuestion } from '@/features/journey/components/StageQuestion'
+import { ScreeningEntryCard } from '@/features/screening'
 import { CardAudioButton } from '@/features/voice'
 import { useT } from '@/shared/i18n'
 import { ActionButton, Banner, IconText, Row, Stack, SurfaceCard, Text } from '@/shared/ui'
@@ -47,6 +48,7 @@ export function JourneyStartPage() {
       <ActionButton fullWidth loading={create.isPending} onPress={() => create.mutate(lang, { onSuccess: (view) => open(view.code) })}>
         {t('ui.journey.start.button')}
       </ActionButton>
+      <ScreeningEntryCard lang={lang} />
       <ResumeCode onResume={open} />
     </JourneyFrame>
   )

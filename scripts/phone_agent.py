@@ -53,7 +53,13 @@ FIRST_MESSAGE = (
     + " Other languages, press 0, or just say your language."
 )
 
-_MENU_RULES = "\n".join(f"   {d} -> {code}" for d, (code, _) in MENU.items())
+# Short acknowledgements that must not cut the agent off, in the menu languages.
+BACKCHANNELS = [
+    "okay", "ok", "yes", "uh-huh", "mm", "jep", "joo", "kyllä", "niin", "ja", "precis",
+    "да", "ага", "угу", "так", "نعم", "طيب", "haa", "بله", "باشه", "jah", "vâng", "嗯", "好",
+]
+
+_MENU_RULES ="\n".join(f"   {d} -> {code}" for d, (code, _) in MENU.items())
 _MORE_RULES = ", ".join(f"{d} -> {code} ({name})" for d, (code, name) in MORE.items())
 
 PROMPT = f"""You are Silta, a calm phone guide for people in Finland who do not speak Finnish well
@@ -75,6 +81,8 @@ words in Finnish, and their rights (free interpreter, time limits).
 Speak the caller's language. If they change language later, switch again with the language
 detection tool. Short sentences. One question at a time. Warm, serious, not frightening.
 Do not assume the caller's gender; use neutral forms where the language allows.
+Voice tags: use only [slow] or [calm]. Never [happy], [excited] or [laughs]; this is a
+worried person calling about cancer.
 As soon as you know the situation and the route, call compose_care_path. No filler questions
 such as "anything else?" before it.
 
@@ -225,6 +233,14 @@ def agent_body(tool_ids: list[str]) -> dict:
             # Keypad digits arrive as one user turn; # ends it at once.
             "conversation": {
                 "dtmf_input_settings": {"dtmf_input_timeout": 1.5, "hash_terminator": True, "redact_input": False},
+            },
+            # First real call (noisy venue): every agent turn was cut by background talk and
+            # "okay"/"jep". Ignore background voices and short acknowledgements; wait longer.
+            "vad": {"background_voice_detection": True},
+            "turn": {
+                "turn_eagerness": "patient",
+                "interruption_ignore_terms": BACKCHANNELS,
+                "merge_with_default_ignore_terms": True,
             },
         },
         # Silta never stores a caller's voice.

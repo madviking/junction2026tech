@@ -3,9 +3,9 @@ Last reviewed: 2026-11-14
 
 # Phone line agent proof (2026-11-14)
 
-Proof level: **provider simulation** against the **deployed** Silta API. A Twilio number is
-attached, but no outside call has been made yet, and no spoken audio was involved: ElevenLabs
-ran text simulations of callers.
+Proof level: **provider simulation** against the **deployed** Silta API for the full care-path
+conversations, and **one live phone call** for the number, keypad menu and language switch
+(section at the end).
 
 Setup is code: `scripts/phone_agent.py sync` creates or updates the ElevenLabs agent
 "Silta phone line" (`gemini-2.5-flash` as its LLM, `eleven_v4_turbo` voice, language
@@ -64,5 +64,20 @@ The number is a Twilio US number imported into ElevenLabs (native integration, T
 webhook points to ElevenLabs). A self-call from the number to itself is rejected by Twilio
 as busy, so the phone path needs a call from an outside phone.
 
-Not yet proven: a real phone call (needs the Twilio number), speech recognition and voice
+## First real call (14 Nov, from a Finnish mobile, noisy venue)
+
+Proof level: **live phone call** (Twilio inbound → ElevenLabs native integration →
+agent), conversation `conv_4901m7cyeasaeda8tgjz0zb4j8eq`, 28 s, 253 credits, Twilio $0.0085.
+
+- The menu played; the caller pressed **1** at 9 s; the keypad digit arrived as a user turn
+  and the agent switched to Finnish with `language_detection` (`fi`).
+- Latency per turn: LLM first token 0.4–0.9 s, TTS first byte 0.07–0.09 s, audio started
+  1.5–1.7 s after the caller stopped.
+- Problem: the caller heard the sound cut. The log shows every agent turn `interrupted`:
+  background speech in the venue and "Okay" / "Jep, kyllä tässä" counted as barge-in.
+  Fix pushed (not yet re-tested on a call): `vad.background_voice_detection`,
+  `turn_eagerness: patient`, a list of short acknowledgements in the menu languages as
+  interruption ignore terms, and no `[happy]` voice tags.
+
+Not yet proven: a full care-path conversation over the phone (needs the Twilio number), speech recognition and voice
 quality on 8 kHz phone audio, Somali (expected weak), latency on a call.

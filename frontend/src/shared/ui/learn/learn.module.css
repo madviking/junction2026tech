@@ -1,0 +1,245 @@
+/* Learning primitives (LessonScene, LessonProgress, FaqItem, PhraseCard, Checklist,
+ * TimelineStrip) and the paper letter. Logical properties only (RTL). */
+
+/* ---- LessonScene ---- */
+.scene {
+  --scene-bg: var(--mantine-color-primary-0);
+  --scene-halo: var(--mantine-color-primary-1);
+  --scene-fg: var(--mantine-color-primary-7);
+  position: relative;
+  display: grid;
+  place-items: center;
+  block-size: 11rem;
+  border-radius: var(--silta-radius-lg);
+  background: linear-gradient(160deg, var(--scene-bg), var(--silta-color-surface));
+  border: 1px solid var(--silta-color-border-subtle);
+  overflow: hidden;
+}
+.scene[data-tone='success'] {
+  --scene-bg: var(--mantine-color-success-0);
+  --scene-halo: var(--mantine-color-success-1);
+  --scene-fg: var(--mantine-color-success-8);
+}
+.scene[data-tone='warning'] {
+  --scene-bg: var(--mantine-color-warning-0);
+  --scene-halo: var(--mantine-color-warning-1);
+  --scene-fg: var(--mantine-color-warning-8);
+}
+.scene[data-tone='neutral'] {
+  --scene-bg: var(--mantine-color-neutral-1);
+  --scene-halo: var(--mantine-color-neutral-2);
+  --scene-fg: var(--mantine-color-neutral-8);
+}
+.sceneHalo {
+  position: absolute;
+  inline-size: 8.5rem;
+  block-size: 8.5rem;
+  border-radius: 50%;
+  background: var(--scene-halo);
+}
+.sceneMain {
+  position: relative;
+  display: grid;
+  place-items: center;
+  inline-size: 7rem;
+  block-size: 7rem;
+  border-radius: 50%;
+  background: var(--silta-color-surface);
+  color: var(--scene-fg);
+  box-shadow: var(--mantine-shadow-sm);
+}
+.sceneAccent {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  inline-size: 3rem;
+  block-size: 3rem;
+  border-radius: 50%;
+  background: var(--silta-color-surface);
+  color: var(--scene-fg);
+  border: 1px solid var(--silta-color-border-subtle);
+  box-shadow: var(--mantine-shadow-xs);
+}
+.sceneAccent[data-slot='0'] {
+  inset-block-start: 1rem;
+  inset-inline-start: 18%;
+}
+.sceneAccent[data-slot='1'] {
+  inset-block-end: 1rem;
+  inset-inline-end: 18%;
+}
+.sceneAccent[data-slot='2'] {
+  inset-block-start: 1.25rem;
+  inset-inline-end: 14%;
+}
+.sceneBadge {
+  position: absolute;
+  inset-block-end: 0.75rem;
+  inset-inline-start: 0.75rem;
+  padding: 0.125rem 0.625rem;
+  border-radius: var(--silta-radius-full);
+  background: var(--scene-fg);
+  color: var(--silta-color-text-on-filled);
+  font-size: var(--silta-type-label-size);
+  font-weight: var(--silta-type-label-weight);
+  line-height: var(--silta-type-label-line-height);
+}
+
+/* ---- LessonProgress ---- */
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--silta-space-xs);
+}
+.progressTrack {
+  display: flex;
+  gap: var(--silta-space-xs);
+}
+.progressSegment {
+  flex: 1;
+  block-size: 0.5rem;
+  border-radius: var(--silta-radius-full);
+  background: var(--mantine-color-neutral-2);
+}
+.progressSegment[data-state='done'] {
+  background: var(--mantine-color-primary-4);
+}
+.progressSegment[data-state='current'] {
+  background: var(--silta-color-primary);
+}
+
+/* ---- FaqItem ---- */
+.faq {
+  border: 1px solid var(--silta-color-border-subtle);
+  border-radius: var(--silta-radius-md);
+  background: var(--silta-color-surface);
+}
+.faqSummary {
+  display: flex;
+  align-items: center;
+  gap: var(--silta-space-sm);
+  min-block-size: 56px;
+  padding: var(--silta-space-sm) var(--silta-space-md);
+  cursor: pointer;
+  list-style: none;
+}
+.faqSummary::-webkit-details-marker {
+  display: none;
+}
+.faqIcon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  inline-size: 2.25rem;
+  block-size: 2.25rem;
+  border-radius: 50%;
+  background: var(--mantine-color-primary-0);
+  color: var(--mantine-color-primary-7);
+}
+.faqQuestion {
+  flex: 1;
+}
+.faqChevron {
+  flex: none;
+  color: var(--silta-color-text-muted);
+  transition: transform 150ms ease;
+}
+.faq[open] .faqChevron {
+  transform: rotate(180deg);
+}
+.faqAnswer {
+  padding: 0 var(--silta-space-md) var(--silta-space-md);
+  padding-inline-start: calc(var(--silta-space-md) + 2.25rem + var(--silta-space-sm));
+}
+
+/* ---- PhraseCard ---- */
+.phrase {
+  display: flex;
+  flex-direction: column;
+  gap: var(--silta-space-xs);
+  padding: var(--silta-space-md);
+  border-radius: var(--silta-radius-md);
+  border-inline-start: 6px solid var(--silta-color-primary);
+  background: var(--mantine-color-primary-0);
+}
+.phraseHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--silta-space-sm);
+}
+
+/* ---- Checklist ---- */
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--silta-space-sm);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.checklistItem {
+  display: flex;
+  align-items: center;
+  gap: var(--silta-space-sm);
+}
+.checklistIcon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  border-radius: var(--silta-radius-md);
+  background: var(--mantine-color-primary-0);
+  color: var(--mantine-color-primary-7);
+}
+
+/* ---- TimelineStrip ---- */
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+  gap: var(--silta-space-sm);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+.timelineStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--silta-space-xs);
+  padding: var(--silta-space-sm);
+  text-align: center;
+  border-radius: var(--silta-radius-md);
+  background: var(--silta-color-surface);
+  border: 1px solid var(--silta-color-border-subtle);
+}
+.timelineIcon {
+  display: grid;
+  place-items: center;
+  inline-size: 3rem;
+  block-size: 3rem;
+  border-radius: 50%;
+  background: var(--mantine-color-primary-0);
+  color: var(--mantine-color-primary-7);
+}
+
+/* ---- Print ---- */
+@media print {
+  .printHidden {
+    display: none;
+  }
+}
+
+/* Direction-following icons (arrows): flipped in right-to-left text. */
+.mirror {
+  display: inline-flex;
+}
+[dir='rtl'] .mirror {
+  transform: scaleX(-1);
+}
+.phraseText {
+  flex: 1;
+  min-inline-size: 0;
+}

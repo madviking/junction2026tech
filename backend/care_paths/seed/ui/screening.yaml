@@ -1,0 +1,438 @@
+# UI strings of the screening-letter way into Silta (frontend/src/features/screening):
+# the example cervical screening invitation (/letter/cervical/:lang) and the visual guide its
+# QR code opens (/r/:lang/learn/cervical). en + fi here; the other eleven languages are in
+# texts.<lang>.yaml (machine-translated 14 Nov 2026, unchecked).
+# Facts: HUS "Cervical cancer screening" and City of Helsinki screening pages (checked
+# 14 Nov 2026): 25–65 every 5 years, free and voluntary, pre-booked time, reservation key + PIN,
+# HPV test from 30, ~10 min visit, not during a period, no vaginal suppositories/gels 1–2 days
+# before, Kela card/ID + health form, results by post/OmaPosti in ~2 months (not in OmaKanta
+# or Maisa), colposcopy after abnormal results. The letter's person, address and codes are fictional.
+
+# --- Entry from the journey start screen ---
+ui.screening.entry_title:
+  en: "I got a letter about cervical screening"
+  fi: "Sain kirjeen kohdunkaulasyövän seulonnasta"
+ui.screening.entry_detail:
+  en: "A 5-minute picture guide in your language"
+  fi: "Viiden minuutin kuvaopas omalla kielelläsi"
+
+# --- Example letter page ---
+ui.screening.letter.page_title:
+  en: "Example screening letter"
+  fi: "Esimerkki seulontakirjeestä"
+ui.screening.letter.page_intro:
+  en: "This is how a cervical screening invitation looks, with the Silta code at the bottom. Choose a language to see that version."
+  fi: "Tältä näyttää kutsu kohdunkaulasyövän seulontaan, alareunassa Siltan koodi. Valitse kieli nähdäksesi sen version."
+ui.screening.letter.language:
+  en: "Language of the letter"
+  fi: "Kirjeen kieli"
+ui.screening.letter.open_guide:
+  en: "Open the guide the code leads to"
+  fi: "Avaa opas, johon koodi vie"
+ui.screening.letter.print:
+  en: "Print"
+  fi: "Tulosta"
+ui.screening.letter.stamp:
+  en: "Example"
+  fi: "Esimerkki"
+ui.screening.letter.sender:
+  en: "Helsinki · Cervical cancer screening"
+  fi: "Helsinki · Kohdunkaulasyövän seulonta"
+ui.screening.letter.sender_note:
+  en: "Samples are taken at HUS Diagnostic Center laboratories"
+  fi: "Näytteet otetaan HUS Diagnostiikkakeskuksen laboratorioissa"
+ui.screening.letter.date:
+  en: "Helsinki, 10 November 2026"
+  fi: "Helsingissä 10.11.2026"
+ui.screening.letter.title:
+  en: "Invitation to cervical cancer screening"
+  fi: "Kutsu kohdunkaulasyövän seulontaan"
+ui.screening.letter.greeting:
+  en: "Dear {name},"
+  fi: "Hyvä {name},"
+ui.screening.letter.intro:
+  en: "You are invited to cervical cancer screening. All women aged 25–65 who live in Helsinki are invited every five years. The screening is free and voluntary. We have booked a time for you."
+  fi: "Sinut kutsutaan kohdunkaulasyövän seulontaan. Kaikki 25–65-vuotiaat helsinkiläiset naiset kutsutaan viiden vuoden välein. Seulonta on maksuton ja vapaaehtoinen. Olemme varanneet sinulle ajan."
+ui.screening.letter.appt_title:
+  en: "Your appointment"
+  fi: "Aikasi"
+ui.screening.letter.appt_time_label:
+  en: "Time"
+  fi: "Aika"
+ui.screening.letter.appt_time:
+  en: "Tuesday 1 December 2026 at 14:20"
+  fi: "Tiistai 1.12.2026 klo 14.20"
+ui.screening.letter.appt_place_label:
+  en: "Place"
+  fi: "Paikka"
+ui.screening.letter.appt_place:
+  en: "Laboratory, Example Health Station, Esimerkkitie 5, 00500 Helsinki"
+  fi: "Laboratorio, Esimerkin terveysasema, Esimerkkitie 5, 00500 Helsinki"
+ui.screening.letter.appt_duration_label:
+  en: "Duration"
+  fi: "Kesto"
+ui.screening.letter.appt_duration:
+  en: "About 10 minutes"
+  fi: "Noin 10 minuuttia"
+ui.screening.letter.key_label:
+  en: "Reservation key"
+  fi: "Varaustunnus"
+ui.screening.letter.pin_label:
+  en: "PIN"
+  fi: "PIN-koodi"
+ui.screening.letter.what_title:
+  en: "What happens at the visit"
+  fi: "Mitä käynnillä tapahtuu"
+ui.screening.letter.what_body:
+  en: "A nurse takes a small cell sample from your cervix with a soft brush. Taking the sample takes a couple of minutes. If you are 30 or older, the sample is tested for HPV, the virus behind almost all cervical cancers. If you are under 30, a Pap test is done."
+  fi: "Hoitaja ottaa kohdunsuulta pienen solunäytteen pehmeällä harjalla. Näytteenotto kestää pari minuuttia. Jos olet 30-vuotias tai vanhempi, näytteestä tutkitaan HPV, joka aiheuttaa lähes kaikki kohdunkaulasyövät. Alle 30-vuotiaille tehdään papakoe."
+ui.screening.letter.prepare_title:
+  en: "Before your visit"
+  fi: "Ennen käyntiä"
+ui.screening.letter.prepare_1:
+  en: "Fill in the enclosed health form and bring it with you."
+  fi: "Täytä liitteenä oleva esitietolomake ja ota se mukaan."
+ui.screening.letter.prepare_2:
+  en: "Bring your Kela card or another ID."
+  fi: "Ota mukaan Kela-kortti tai muu henkilöllisyystodistus."
+ui.screening.letter.prepare_3:
+  en: "The sample is not taken during a period. If your period falls on this day, change the time."
+  fi: "Näytettä ei oteta kuukautisten aikana. Jos kuukautisesi osuvat tälle päivälle, vaihda aika."
+ui.screening.letter.prepare_4:
+  en: "Do not use vaginal suppositories or gels for 1–2 days before the visit."
+  fi: "Älä käytä emätinpuikkoja tai -geelejä 1–2 päivään ennen käyntiä."
+ui.screening.letter.change_title:
+  en: "Change or cancel your time"
+  fi: "Ajan vaihtaminen tai peruminen"
+ui.screening.letter.change_body:
+  en: "If the time does not suit you, change it online with the reservation key and PIN above, or call laboratory customer service. If you do not want to take part, please cancel the time so that someone else can use it."
+  fi: "Jos aika ei sovi, vaihda se verkossa yllä olevalla varaustunnuksella ja PIN-koodilla tai soita laboratorion asiakaspalveluun. Jos et halua osallistua, peru aika, jotta joku muu voi käyttää sen."
+ui.screening.letter.results_title:
+  en: "Results"
+  fi: "Tulokset"
+ui.screening.letter.results_body:
+  en: "You will get the result by post or in OmaPosti within about two months. If it is normal, you will be invited again in five years. If more tests are needed, you will get instructions and a separate invitation."
+  fi: "Saat tuloksen postitse tai OmaPostiin noin kahden kuukauden kuluessa. Jos tulos on normaali, sinut kutsutaan uudelleen viiden vuoden kuluttua. Jos lisätutkimuksia tarvitaan, saat ohjeet ja erillisen kutsun."
+ui.screening.letter.signoff:
+  en: "Kind regards,"
+  fi: "Ystävällisin terveisin"
+ui.screening.letter.signature:
+  en: "Cervical cancer screening, Helsinki"
+  fi: "Kohdunkaulasyövän seulonta, Helsinki"
+ui.screening.letter.enclosure:
+  en: "Enclosed: health form for cervical cancer screening"
+  fi: "Liite: kohdunkaulasyövän seulonnan esitietolomake"
+ui.screening.letter.qr_title:
+  en: "Questions about this letter? Silta explains it in your language."
+  fi: "Kysyttävää kirjeestä? Silta selittää sen omalla kielelläsi."
+ui.screening.letter.qr_body:
+  en: "Scan the code: why screening matters, what happens at the visit, your rights and answers to common questions."
+  fi: "Skannaa koodi: miksi seulonta on tärkeää, mitä käynnillä tapahtuu, oikeutesi ja vastaukset yleisiin kysymyksiin."
+ui.screening.letter.qr_alt:
+  en: "QR code to the Silta guide about cervical screening"
+  fi: "QR-koodi Siltan kohdunkaulasyövän seulonnan oppaaseen"
+
+# --- Visual guide: frame ---
+ui.screening.learn.title:
+  en: "Cervical screening"
+  fi: "Kohdunkaulasyövän seulonta"
+ui.screening.learn.intro:
+  en: "Did you get a letter about cervical screening? This short picture guide explains it in your language, in five parts. It takes about five minutes."
+  fi: "Saitko kirjeen kohdunkaulasyövän seulonnasta? Tämä lyhyt kuvaopas selittää sen omalla kielelläsi viidessä osassa. Siihen menee noin viisi minuuttia."
+ui.screening.learn.parts_title:
+  en: "What you will learn"
+  fi: "Mitä opit"
+ui.screening.learn.start:
+  en: "Start"
+  fi: "Aloita"
+ui.screening.learn.next:
+  en: "Next"
+  fi: "Seuraava"
+ui.screening.learn.back:
+  en: "Back"
+  fi: "Takaisin"
+ui.screening.learn.part_of:
+  en: "Part {n} of {total}"
+  fi: "Osa {n}/{total}"
+ui.screening.learn.timeline.letter:
+  en: "Letter"
+  fi: "Kirje"
+ui.screening.learn.timeline.letter_detail:
+  en: "Time and place"
+  fi: "Aika ja paikka"
+ui.screening.learn.timeline.visit:
+  en: "Visit"
+  fi: "Käynti"
+ui.screening.learn.timeline.visit_detail:
+  en: "About 10 minutes"
+  fi: "Noin 10 minuuttia"
+ui.screening.learn.timeline.result:
+  en: "Result"
+  fi: "Tulos"
+ui.screening.learn.timeline.result_detail:
+  en: "In about 2 months"
+  fi: "Noin 2 kuukaudessa"
+ui.screening.learn.timeline.next:
+  en: "Next time"
+  fi: "Seuraava kerta"
+ui.screening.learn.timeline.next_detail:
+  en: "In 5 years"
+  fi: "5 vuoden päästä"
+ui.screening.learn.done_title:
+  en: "You are ready"
+  fi: "Olet valmis"
+ui.screening.learn.done_body:
+  en: "Keep your letter. Go at your time, or change it if it does not suit you. You can come back to this guide at any time."
+  fi: "Säilytä kirjeesi. Mene varattuna aikana tai vaihda aika, jos se ei sovi. Voit palata tähän oppaaseen milloin tahansa."
+ui.screening.learn.to_letter:
+  en: "Look at the letter again"
+  fi: "Katso kirjettä uudelleen"
+ui.screening.learn.to_silta:
+  en: "Other health worries: go to Silta"
+  fi: "Muut terveyshuolet: siirry Siltaan"
+ui.screening.learn.restart:
+  en: "Start the guide again"
+  fi: "Aloita opas alusta"
+
+# --- Part 1: why ---
+ui.screening.learn.why.title:
+  en: "Why it matters"
+  fi: "Miksi se on tärkeää"
+ui.screening.learn.why.lead:
+  en: "A short test that protects you for years."
+  fi: "Lyhyt testi, joka suojaa sinua vuosiksi."
+ui.screening.learn.why.early_title:
+  en: "It finds changes early"
+  fi: "Se löytää muutokset ajoissa"
+ui.screening.learn.why.early_body:
+  en: "Cervical cancer grows slowly, over many years. The test finds cell changes long before they turn into cancer. Early changes are easy to treat."
+  fi: "Kohdunkaulasyöpä kehittyy hitaasti, monen vuoden aikana. Testi löytää solumuutokset kauan ennen kuin niistä tulee syöpää. Varhaiset muutokset on helppo hoitaa."
+ui.screening.learn.why.no_symptoms_title:
+  en: "You can feel well and still need it"
+  fi: "Voit voida hyvin ja silti tarvita sitä"
+ui.screening.learn.why.no_symptoms_body:
+  en: "HPV and early cell changes cause no symptoms. That is why the test is for women who feel healthy."
+  fi: "HPV ja varhaiset solumuutokset eivät aiheuta oireita. Siksi testi on tarkoitettu naisille, jotka voivat hyvin."
+ui.screening.learn.why.hpv_title:
+  en: "HPV is very common"
+  fi: "HPV on hyvin yleinen"
+ui.screening.learn.why.hpv_body:
+  en: "Most people get HPV at some point in life. It usually goes away by itself. Having HPV is not a sign of unfaithfulness, and it says nothing bad about you or your partner."
+  fi: "Useimmat saavat HPV:n jossain vaiheessa elämäänsä. Se häviää yleensä itsestään. HPV ei ole merkki uskottomuudesta, eikä se kerro mitään pahaa sinusta tai kumppanistasi."
+ui.screening.learn.why.works_title:
+  en: "Screening saves lives"
+  fi: "Seulonta pelastaa henkiä"
+ui.screening.learn.why.works_body:
+  en: "Since screening began in Finland, cervical cancer has become much rarer. Taking part every time you are invited gives you the best protection."
+  fi: "Seulontojen alettua kohdunkaulasyöpä on Suomessa harvinaistunut paljon. Paras suoja on osallistua aina, kun sinut kutsutaan."
+ui.screening.learn.why.works_badge:
+  en: "Every 5 years"
+  fi: "5 vuoden välein"
+
+# --- Part 2: the visit ---
+ui.screening.learn.visit.title:
+  en: "What happens at the visit"
+  fi: "Mitä käynnillä tapahtuu"
+ui.screening.learn.visit.lead:
+  en: "From the door to the sample, step by step."
+  fi: "Ovelta näytteeseen, vaihe vaiheelta."
+ui.screening.learn.visit.before_title:
+  en: "Before the visit"
+  fi: "Ennen käyntiä"
+ui.screening.learn.visit.before_body:
+  en: "Get these ready:"
+  fi: "Valmistaudu näin:"
+ui.screening.learn.visit.prep_form:
+  en: "Fill in the health form that came with the letter."
+  fi: "Täytä kirjeen mukana tullut esitietolomake."
+ui.screening.learn.visit.prep_id:
+  en: "Bring your Kela card or another ID."
+  fi: "Ota mukaan Kela-kortti tai muu henkilöllisyystodistus."
+ui.screening.learn.visit.prep_period:
+  en: "Not during your period. Change the time if needed."
+  fi: "Ei kuukautisten aikana. Vaihda aika tarvittaessa."
+ui.screening.learn.visit.prep_gel:
+  en: "No vaginal medicines or gels 1–2 days before."
+  fi: "Ei emätinlääkkeitä tai -geelejä 1–2 päivään ennen."
+ui.screening.learn.visit.arrive_title:
+  en: "At the laboratory"
+  fi: "Laboratoriossa"
+ui.screening.learn.visit.arrive_body:
+  en: "Register at the desk or the check-in machine. A nurse calls you into a private room. The whole visit takes about 10 minutes."
+  fi: "Ilmoittaudu tiskillä tai ilmoittautumisautomaatilla. Hoitaja kutsuu sinut omaan huoneeseen. Koko käynti kestää noin 10 minuuttia."
+ui.screening.learn.visit.arrive_badge:
+  en: "10 min"
+  fi: "10 min"
+ui.screening.learn.visit.sample_title:
+  en: "Taking the sample"
+  fi: "Näytteenotto"
+ui.screening.learn.visit.sample_body:
+  en: "You undress from the waist down and lie on an examination bed. You can keep a long top or skirt on. The nurse gently opens the vagina with a small instrument (speculum) and takes cells with a soft brush. It takes a couple of minutes."
+  fi: "Riisuudut vyötäröstä alaspäin ja asetut tutkimuspöydälle. Pitkän paidan tai hameen voi pitää päällä. Hoitaja avaa emättimen varovasti pienellä välineellä (spekulumilla) ja ottaa soluja pehmeällä harjalla. Se kestää pari minuuttia."
+ui.screening.learn.visit.feel_title:
+  en: "How it feels"
+  fi: "Miltä se tuntuu"
+ui.screening.learn.visit.feel_body:
+  en: "It may feel a little uncomfortable, but it should not hurt. Breathe slowly and let your legs relax. Tell the nurse if it hurts. You can ask for a pause."
+  fi: "Se voi tuntua hieman epämukavalta, mutta sen ei pitäisi sattua. Hengitä rauhallisesti ja rentouta jalat. Kerro hoitajalle, jos sattuu. Voit pyytää taukoa."
+
+# --- Part 3: rights ---
+ui.screening.learn.rights.title:
+  en: "Your rights"
+  fi: "Oikeutesi"
+ui.screening.learn.rights.lead:
+  en: "You are in charge of your body and your visit."
+  fi: "Sinä päätät kehostasi ja käynnistäsi."
+ui.screening.learn.rights.intro_title:
+  en: "You decide"
+  fi: "Sinä päätät"
+ui.screening.learn.rights.intro_body:
+  en: "These are your rights at the screening visit. You can ask for any of them."
+  fi: "Nämä ovat oikeutesi seulontakäynnillä. Voit pyytää mitä tahansa näistä."
+ui.screening.learn.rights.female:
+  en: "You can ask for a woman to take the sample. Most sample takers are women."
+  fi: "Voit pyytää, että näytteen ottaa nainen. Useimmat näytteenottajat ovat naisia."
+ui.screening.learn.rights.interpreter:
+  en: "You can ask for an interpreter. Tell customer service your language when you call."
+  fi: "Voit pyytää tulkin. Kerro kielesi asiakaspalveluun soittaessasi."
+ui.screening.learn.rights.companion:
+  en: "You can bring someone you trust with you."
+  fi: "Voit ottaa mukaan luotetun ihmisen."
+ui.screening.learn.rights.stop:
+  en: "You can ask the nurse to stop or pause at any time."
+  fi: "Voit pyytää hoitajaa lopettamaan tai pitämään tauon milloin tahansa."
+ui.screening.learn.rights.choice:
+  en: "Taking part is free and your own choice. You can change the time or say no."
+  fi: "Osallistuminen on maksutonta ja oma valintasi. Voit vaihtaa ajan tai kieltäytyä."
+ui.screening.learn.rights.private:
+  en: "Staff must keep your information confidential."
+  fi: "Henkilökunnan on pidettävä tietosi salassa."
+ui.screening.learn.phrase.title:
+  en: "Show this at the desk"
+  fi: "Näytä tämä tiskillä"
+ui.screening.learn.phrase.lead:
+  en: "Short sentences in Finnish. Show the screen or press play."
+  fi: "Lyhyitä lauseita suomeksi. Näytä ruutu tai paina toista."
+# The Finnish sentences are the same in every language (en holds the Finnish too, so the
+# English fallback shows Finnish). Only the meaning is translated.
+ui.screening.learn.phrase.female_fi:
+  en: "Toivoisin, että näytteen ottaa nainen."
+  fi: "Toivoisin, että näytteen ottaa nainen."
+ui.screening.learn.phrase.female_meaning:
+  en: "I would like a woman to take the sample."
+  fi: "Toivoisin, että näytteen ottaa nainen."
+ui.screening.learn.phrase.interpreter_fi:
+  en: "Tarvitsen tulkin."
+  fi: "Tarvitsen tulkin."
+ui.screening.learn.phrase.interpreter_meaning:
+  en: "I need an interpreter."
+  fi: "Tarvitsen tulkin."
+ui.screening.learn.phrase.slow_fi:
+  en: "Jännittää. Voisitko edetä hitaasti?"
+  fi: "Jännittää. Voisitko edetä hitaasti?"
+ui.screening.learn.phrase.slow_meaning:
+  en: "I am nervous. Could you go slowly?"
+  fi: "Jännittää. Voisitko edetä hitaasti?"
+
+# --- Part 4: after ---
+ui.screening.learn.after.title:
+  en: "After the visit"
+  fi: "Käynnin jälkeen"
+ui.screening.learn.after.lead:
+  en: "When the result comes and what it means."
+  fi: "Milloin tulos tulee ja mitä se tarkoittaa."
+ui.screening.learn.after.home_title:
+  en: "Right after the visit"
+  fi: "Heti käynnin jälkeen"
+ui.screening.learn.after.home_body:
+  en: "You can go back to your day straight away. A little spotting is normal."
+  fi: "Voit jatkaa päivääsi heti. Pieni tiputteluvuoto on normaalia."
+ui.screening.learn.after.results_title:
+  en: "The result comes by post"
+  fi: "Tulos tulee postitse"
+ui.screening.learn.after.results_body:
+  en: "The result comes by post or to OmaPosti within about two months. It is not shown in OmaKanta or Maisa. If nothing has come after three months, call laboratory customer service."
+  fi: "Tulos tulee postitse tai OmaPostiin noin kahden kuukauden kuluessa. Se ei näy OmaKannassa eikä Maisassa. Jos mitään ei ole tullut kolmen kuukauden kuluttua, soita laboratorion asiakaspalveluun."
+ui.screening.learn.after.results_badge:
+  en: "About 2 months"
+  fi: "Noin 2 kk"
+ui.screening.learn.after.normal_title:
+  en: "Normal result"
+  fi: "Normaali tulos"
+ui.screening.learn.after.normal_body:
+  en: "Nothing more to do. You will get a new invitation in about five years."
+  fi: "Sinun ei tarvitse tehdä mitään. Saat uuden kutsun noin viiden vuoden kuluttua."
+ui.screening.learn.after.more_title:
+  en: "If you need more tests"
+  fi: "Jos tarvitset lisätutkimuksia"
+ui.screening.learn.after.more_body:
+  en: "You get a letter with instructions. Small changes are checked with a new sample within two years. Other changes are looked at by a doctor with a magnifying instrument (colposcopy). This does not mean you have cancer: changes often heal by themselves, and the rest are easy to treat."
+  fi: "Saat kirjeen, jossa on ohjeet. Lievät muutokset tarkistetaan uudella näytteellä kahden vuoden kuluessa. Muut muutokset lääkäri tutkii suurentavalla laitteella (kolposkopia). Se ei tarkoita, että sinulla on syöpä: muutokset paranevat usein itsestään, ja loput on helppo hoitaa."
+
+# --- Part 5: questions ---
+ui.screening.learn.faq.title:
+  en: "Common questions"
+  fi: "Yleisiä kysymyksiä"
+ui.screening.learn.faq.lead:
+  en: "Tap a question to see the answer."
+  fi: "Napauta kysymystä nähdäksesi vastauksen."
+ui.screening.learn.faq.hurt_q:
+  en: "Does it hurt?"
+  fi: "Sattuuko se?"
+ui.screening.learn.faq.hurt_a:
+  en: "Usually not. It can feel uncomfortable for a moment. Tell the nurse if it hurts, and they will stop or go more slowly."
+  fi: "Yleensä ei. Se voi tuntua hetken epämukavalta. Kerro hoitajalle, jos sattuu, niin hän pysähtyy tai etenee hitaammin."
+ui.screening.learn.faq.hpv_q:
+  en: "Does a positive HPV result mean I have cancer?"
+  fi: "Tarkoittaako positiivinen HPV-tulos, että minulla on syöpä?"
+ui.screening.learn.faq.hpv_a:
+  en: "No. HPV is very common and usually goes away by itself. A positive result only means you need another test."
+  fi: "Ei. HPV on hyvin yleinen ja häviää yleensä itsestään. Positiivinen tulos tarkoittaa vain, että tarvitset uuden tutkimuksen."
+ui.screening.learn.faq.period_q:
+  en: "My period started. What do I do?"
+  fi: "Kuukautiseni alkoivat. Mitä teen?"
+ui.screening.learn.faq.period_a:
+  en: "Change your time. The sample is not taken during a period. Other discharge is not a problem."
+  fi: "Vaihda aika. Näytettä ei oteta kuukautisten aikana. Muu vuoto ei haittaa."
+ui.screening.learn.faq.pregnant_q:
+  en: "I am pregnant or breastfeeding."
+  fi: "Olen raskaana tai imetän."
+ui.screening.learn.faq.pregnant_a:
+  en: "You can usually take part until week 35 of pregnancy, and while breastfeeding. After giving birth, wait until the bleeding has stopped."
+  fi: "Voit yleensä osallistua raskausviikolle 35 asti ja imetyksen aikana. Synnytyksen jälkeen odota, kunnes jälkivuoto on loppunut."
+ui.screening.learn.faq.never_q:
+  en: "I have never had sex. Do I need the test?"
+  fi: "En ole koskaan ollut yhdynnässä. Tarvitsenko testin?"
+ui.screening.learn.faq.never_a:
+  en: "Your risk is very low, because HPV spreads through sexual contact. You can still take part: tell the nurse, who can use a small speculum. You can also cancel the time."
+  fi: "Riskisi on hyvin pieni, koska HPV tarttuu seksikontaktissa. Voit silti osallistua: kerro hoitajalle, joka voi käyttää pientä spekulumia. Voit myös perua ajan."
+ui.screening.learn.faq.cutting_q:
+  en: "I have been circumcised (female genital cutting). Can I take part?"
+  fi: "Minut on ympärileikattu. Voinko osallistua?"
+ui.screening.learn.faq.cutting_a:
+  en: "Yes. Tell the nurse before the sample. The nurse can go slowly and use a smaller speculum. You can also ask for a doctor's appointment first."
+  fi: "Kyllä. Kerro hoitajalle ennen näytteenottoa. Hoitaja voi edetä hitaasti ja käyttää pienempää spekulumia. Voit myös pyytää ensin lääkärin vastaanottoa."
+ui.screening.learn.faq.removed_q:
+  en: "My uterus has been removed."
+  fi: "Kohtuni on poistettu."
+ui.screening.learn.faq.removed_a:
+  en: "Still come. The sample is then taken from the vagina."
+  fi: "Tule silti. Näyte otetaan silloin emättimestä."
+ui.screening.learn.faq.time_q:
+  en: "The time does not suit me."
+  fi: "Aika ei sovi minulle."
+ui.screening.learn.faq.time_a:
+  en: "Change it online with the reservation key and PIN in your letter, or call laboratory customer service. You can choose any HUS laboratory that takes screening samples."
+  fi: "Vaihda aika verkossa kirjeen varaustunnuksella ja PIN-koodilla tai soita laboratorion asiakaspalveluun. Voit valita minkä tahansa HUSin laboratorion, jossa otetaan seulontanäytteitä."
+ui.screening.learn.faq.letter_q:
+  en: "I lost my letter, or it never came."
+  fi: "Kadotin kirjeen, tai sitä ei tullut."
+ui.screening.learn.faq.letter_a:
+  en: "Call laboratory customer service. If no letter came in your screening year, you can book a time yourself."
+  fi: "Soita laboratorion asiakaspalveluun. Jos kirjettä ei tullut seulontavuotenasi, voit varata ajan itse."
+ui.screening.learn.faq.cost_q:
+  en: "Does it cost anything?"
+  fi: "Maksaako se jotain?"
+ui.screening.learn.faq.cost_a:
+  en: "No. Screening is free."
+  fi: "Ei. Seulonta on maksuton."

@@ -5,6 +5,7 @@ import { ClinicianLookupPage, ClinicianPage } from '@/features/clinician'
 import { HealthPage } from '@/features/health'
 import { JourneyPage, JourneyStartPage } from '@/features/journey'
 import { LanguagePage } from '@/features/language'
+import { CervicalLearnPage, CervicalLetterPage } from '@/features/screening'
 import { VisitCardPage } from '@/features/visit-card'
 
 // Staff screen, lazy: it may use admin table primitives without growing the resident chunk.
@@ -19,6 +20,8 @@ export const residentRoutes: AppRoute[] = [
   { path: '/', element: <WithLanguage lang="en"><LanguagePage /></WithLanguage> },
   { path: '/r/:lang', element: <WithLanguage><JourneyStartPage /></WithLanguage> },
   { path: '/r/:lang/v/:code', element: <WithLanguage><JourneyPage /></WithLanguage> },
+  { path: '/r/:lang/learn/cervical', element: <WithLanguage><CervicalLearnPage /></WithLanguage> },
+  { path: '/letter/cervical/:lang', element: <WithLanguage><CervicalLetterPage /></WithLanguage> },
   { path: '/r/:lang/v/:code/card', element: <WithLanguage><VisitCardPage /></WithLanguage> },
   { path: '/clinic', element: <WithLanguage lang="fi"><ClinicianLookupPage /></WithLanguage> },
   { path: '/clinic/:code', element: <WithLanguage lang="fi"><ClinicianPage /></WithLanguage> },
