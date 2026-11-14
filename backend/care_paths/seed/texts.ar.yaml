@@ -217,6 +217,7 @@ journey.outcome.contact.refused.card: "قالوا إنني لا أستطيع ا�
 journey.outcome.contact.not_understood.card: "لم نفهم بعضنا"
 journey.stage.wait.ask: "هل من جديد؟"
 journey.outcome.wait.visit_today.card: "زيارتي الآن"
+journey.outcome.wait.got_time.card: "حصلت على موعد لزيارتي"
 journey.outcome.wait.nothing_heard.card: "لم أسمع شيئًا"
 journey.outcome.wait.stopped.card: "لا أريد المتابعة"
 journey.stage.visit.ask: "ماذا قال الطبيب أو الممرض؟"

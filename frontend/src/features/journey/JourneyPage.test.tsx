@@ -94,15 +94,21 @@ describe('JourneyPage', () => {
     expect(screen.getByText(/show this card at the reception/)).toBeInTheDocument()
     expect(screen.queryByText('Say this in Finnish')).not.toBeInTheDocument()
     // The code stands on its own line; the help text has no placeholder, so it can have audio.
-    expect(screen.getAllByText(CODE)).toHaveLength(2) // page header + the card (the header is not printed)
-    expect(screen.getByText('Enter this code on the Silta start page to come back here.')).toBeInTheDocument()
+    // The code stands out in its own labelled box: large groups, read letter by letter, with what to do with it.
+    const codeBox = screen.getByRole('group', { name: 'Your code' })
+    for (const group of CODE.split('-')) expect(within(codeBox).getByText(group)).toBeInTheDocument()
+    expect(within(codeBox).getByText('S L T T E S T 0 0 0 1')).toBeInTheDocument()
+    expect(within(codeBox).getByText('Enter this code on the Silta start page to come back here.')).toBeInTheDocument()
     // Every text on the card can be listened to: the three header texts and every script line,
     // "Kieleni on englanti." included.
     expect(await screen.findAllByRole('button', { name: 'Listen' })).toHaveLength(3)
     expect(screen.getAllByRole('button', { name: 'Play the Finnish phrase' })).toHaveLength(8)
     const print = vi.fn()
     vi.stubGlobal('print', print)
-    fireEvent.click(screen.getByRole('button', { name: 'Save as PDF' }))
+    // One button, right under the last phrase.
+    const save = screen.getByRole('button', { name: 'Save card as PDF' })
+    expect(screen.getByText('Kiitos.').compareDocumentPosition(save) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    fireEvent.click(save)
     expect(print).toHaveBeenCalledTimes(1)
   })
 

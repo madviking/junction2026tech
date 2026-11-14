@@ -7,7 +7,7 @@ import {
   IconInfoCircle,
   IconLanguage,
 } from '@tabler/icons-react'
-import { useEffect, useRef, type ReactNode } from 'react'
+import { useEffect, useId, useRef, type ReactNode } from 'react'
 import { ActionButton } from '@/shared/ui/actions/ActionButton'
 import type { Tone } from '@/shared/ui/tokens'
 import { Text } from '@/shared/ui/typography/Text'
@@ -183,6 +183,39 @@ export function ReadingMark({ active, children }: ReadingMarkProps) {
   }, [active])
   return (
     <div ref={ref} className={classes.reading} data-active={active || undefined}>
+      {children}
+    </div>
+  )
+}
+
+export interface HighlightBoxProps {
+  /** Short visible label; it also names the box for screen readers. */
+  label: ReactNode
+  /** Leading icon next to the label. */
+  icon?: ReactNode
+  children: ReactNode
+}
+
+/**
+ * A tinted, outlined box for the one thing on a screen the person must not miss (their code).
+ * A labelled group, so screen readers announce what it holds.
+ */
+export function HighlightBox({ label, icon, children }: HighlightBoxProps) {
+  const labelId = useId()
+  return (
+    <div role="group" aria-labelledby={labelId} className={classes.highlight}>
+      <div className={classes.highlightLabel}>
+        {icon && (
+          <span className={classes.highlightIcon} aria-hidden="true">
+            {icon}
+          </span>
+        )}
+        <span id={labelId}>
+          <Text as="span" variant="label">
+            {label}
+          </Text>
+        </span>
+      </div>
       {children}
     </div>
   )

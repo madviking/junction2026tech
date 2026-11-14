@@ -1,4 +1,4 @@
-/* Banner, StatusBadge, PlaceholderNotice, LoadingState, EmptyState, ErrorState, ReadingMark. */
+/* Banner, StatusBadge, PlaceholderNotice, LoadingState, EmptyState, ErrorState, ReadingMark, HighlightBox. */
 
 .banner {
   display: flex;
@@ -152,4 +152,25 @@
   .reading {
     transition: none;
   }
+}
+
+/* ---- HighlightBox: the one thing not to miss (the visit code) ---- */
+.highlight {
+  display: flex;
+  flex-direction: column;
+  gap: var(--silta-space-sm);
+  padding: var(--silta-space-md);
+  border: 2px solid var(--silta-tone-info-border);
+  border-radius: var(--silta-radius-md);
+  background: var(--silta-tone-info-bg);
+  color: var(--silta-color-text);
+}
+.highlightLabel {
+  display: flex;
+  gap: var(--silta-space-xs);
+  align-items: center;
+}
+.highlightIcon {
+  display: flex;
+  color: var(--silta-tone-info-fg);
 }

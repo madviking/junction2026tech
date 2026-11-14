@@ -217,6 +217,7 @@ journey.outcome.contact.refused.card: "Waxay yidhaahdeen ma helo karo daryeel ha
 journey.outcome.contact.not_understood.card: "Isma fahmin"
 journey.stage.wait.ask: "War ma jiraa?"
 journey.outcome.wait.visit_today.card: "Booqashadaydu waa hadda"
+journey.outcome.wait.got_time.card: "Waxaan helay waqti booqashadayda"
 journey.outcome.wait.nothing_heard.card: "Waxba ma maqlin"
 journey.outcome.wait.stopped.card: "Ma rabo inaan sii wado"
 journey.stage.visit.ask: "Maxay yidhaahdeen dhakhtarka ama kalkaaliyaha?"

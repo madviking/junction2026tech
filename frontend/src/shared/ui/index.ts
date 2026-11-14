@@ -62,6 +62,7 @@ export {
   EmptyState,
   ErrorState,
   FloatingNotice,
+  HighlightBox,
   LoadingState,
   PlaceholderNotice,
   ReadingMark,
@@ -71,6 +72,7 @@ export {
   type EmptyStateProps,
   type ErrorStateProps,
   type FloatingNoticeProps,
+  type HighlightBoxProps,
   type ReadingMarkProps,
   type StatusBadgeProps,
 } from '@/shared/ui/feedback/Feedback'

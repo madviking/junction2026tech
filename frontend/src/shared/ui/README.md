@@ -73,6 +73,7 @@ Feedback
 - `LoadingState`, `EmptyState` (title, description, icon, action), `ErrorState` (what failed, message, retry).
 - `PlaceholderNotice` — "unchecked translation" style marker; text passed in.
 - `StatusBadge` — `neutral | info | success | warning | danger` pill.
+- `HighlightBox` — tinted, outlined labelled group (`role="group"`, named by `label`, optional icon) for the one thing on a screen not to miss, e.g. the visit code on the Finnish card.
 - `ReadingMark` — wraps a block a page "Listen" button reads; `active` gives it a soft info highlight and scrolls it into view, without moving the layout.
 
 Data display

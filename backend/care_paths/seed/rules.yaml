@@ -324,6 +324,8 @@ journey:
       overdue: {when: a clock of the lane and route rule has passed, next: stalled}
       outcomes:
         visit_today: {card: My visit is now, next: visit}
+        # Records the visit date, also for people who skipped it when they got the appointment.
+        got_time: {card: I got a time for my visit, next: wait, records: visit_date}
         nothing_heard: {card: I have heard nothing, next: wait, then: Show the clock and the day to call again}
         stopped: {card: I do not want to continue, next: closed, then: You can come back any time, review: clinical}
 

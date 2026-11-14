@@ -210,6 +210,7 @@ journey.outcome.contact.refused.card: "He sanoivat, etten voi saada hoitoa tää
 journey.outcome.contact.not_understood.card: "Emme ymmärtäneet toisiamme"
 journey.stage.wait.ask: "Onko uutisia?"
 journey.outcome.wait.visit_today.card: "Käyntini on nyt"
+journey.outcome.wait.got_time.card: "Sain ajan käynnilleni"
 journey.outcome.wait.nothing_heard.card: "En ole kuullut mitään"
 journey.outcome.wait.stopped.card: "En halua jatkaa"
 journey.stage.visit.ask: "Mitä lääkäri tai hoitaja sanoi?"

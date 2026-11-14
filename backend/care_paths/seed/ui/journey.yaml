@@ -259,10 +259,10 @@ ui.journey.contact.card_code:
   so: "Ku qor koodkan bogga bilowga ee Silta si aad halkan ugu soo noqoto."
   ar: "أدخل هذا الرمز في صفحة بداية Silta للعودة إلى هنا."
 ui.journey.contact.save_pdf:
-  en: "Save as PDF"
-  fi: "Tallenna PDF:nä"
-  so: "Kaydi PDF ahaan"
-  ar: "حفظ كملف PDF"
+  en: "Save card as PDF"
+  fi: "Tallenna kortti PDF:nä"
+  so: "Kaarka u kaydi PDF ahaan"
+  ar: "احفظ البطاقة كملف PDF"
 ui.journey.contact.script_meaning:
   en: "What it means"
   fi: "Mitä se tarkoittaa"

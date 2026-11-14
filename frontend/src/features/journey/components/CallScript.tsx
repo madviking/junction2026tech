@@ -1,9 +1,9 @@
-import { IconFileDownload } from '@tabler/icons-react'
+import { IconFileDownload, IconKey } from '@tabler/icons-react'
 import { Fragment } from 'react'
 import { CardAudioButton } from '@/features/voice'
 import type { ScriptLine, ScriptPart } from '@/features/journey/types'
 import { useContent } from '@/shared/i18n'
-import { ActionButton, DirectionScope, Divider, FaqItem, PrintHidden, PrintOnly, Row, Stack, SurfaceCard, Text, type TextProps } from '@/shared/ui'
+import { ActionButton, DirectionScope, Divider, FaqItem, HighlightBox, PrintHidden, PrintOnly, Row, Stack, SurfaceCard, Text, VisuallyHidden, type TextProps } from '@/shared/ui'
 
 export interface CallScriptProps {
   parts: ScriptPart[]
@@ -27,7 +27,8 @@ function saveAsPdf(code: string) {
  * The whole phone call in Finnish, line by line, each with its meaning in the person's
  * language: greeting, interpreter, the checked symptoms, the request, what they may ask,
  * closing. Lines with a text key play in Finnish and in the person's language. The header
- * says what the card is, gives the code to come back with, and saves the card as a PDF.
+ * says what the card is and gives the code to come back with; the button under the last
+ * phrase saves the card as a PDF.
  */
 export function CallScript({ parts, code }: CallScriptProps) {
   const { t } = useContent()
@@ -55,22 +56,25 @@ export function CallScript({ parts, code }: CallScriptProps) {
             </div>
             <CardAudioButton textKey="ui.journey.contact.card_intro" />
           </Row>
-          {/* The code stands alone (read letter by letter by screen readers), so the help text has
-              no placeholder and can have audio. */}
-          <DirectionScope dir="ltr" lang="zxx">
-            <Text variant="heading" as="p">
-              {code}
-            </Text>
-          </DirectionScope>
-          <Row gap="sm" align="center" justify="between" wrap={false}>
-            <Text tone="muted">{t('ui.journey.contact.card_code')}</Text>
-            <CardAudioButton textKey="ui.journey.contact.card_code" />
-          </Row>
-          <PrintHidden>
-            <ActionButton variant="secondary" icon={<IconFileDownload size={20} aria-hidden="true" />} onPress={() => saveAsPdf(code)}>
-              {t('ui.journey.contact.save_pdf')}
-            </ActionButton>
-          </PrintHidden>
+          {/* The code is the way back to this card: it stands out in its own box, large and in groups
+              like on the visit card, read letter by letter by screen readers. The help text has no
+              placeholder, so it has audio. */}
+          <HighlightBox label={t('ui.journey.start.code_label')} icon={<IconKey size={22} />}>
+            <DirectionScope dir="ltr" lang="zxx">
+              <Row gap="md">
+                {code.split('-').map((group, i) => (
+                  <Text key={i} variant="title" as="span">
+                    {group}
+                  </Text>
+                ))}
+              </Row>
+              <VisuallyHidden>{[...code.replace(/-/g, '')].join(' ')}</VisuallyHidden>
+            </DirectionScope>
+            <Row gap="sm" align="center" justify="between" wrap={false}>
+              <Text>{t('ui.journey.contact.card_code')}</Text>
+              <CardAudioButton textKey="ui.journey.contact.card_code" />
+            </Row>
+          </HighlightBox>
         </Stack>
         <Divider />
         {parts.map((part, i) => {
@@ -89,6 +93,12 @@ export function CallScript({ parts, code }: CallScriptProps) {
             </Fragment>
           )
         })}
+        {/* Right under the last phrase: the person has read the card, now they keep it. */}
+        <PrintHidden>
+          <ActionButton variant="secondary" icon={<IconFileDownload size={20} aria-hidden="true" />} onPress={() => saveAsPdf(code)}>
+            {t('ui.journey.contact.save_pdf')}
+          </ActionButton>
+        </PrintHidden>
       </Stack>
     </SurfaceCard>
   )
