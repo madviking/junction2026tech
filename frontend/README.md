@@ -45,5 +45,7 @@ style props (lint rule `local/no-raw-styles`). Gallery: `/design-system`.
 | `npm run test:e2e` | Playwright against `E2E_BASE_URL` (default `http://localhost:5300`); first run `npx playwright install chromium` |
 
 `Dockerfile` has a `dev` target (Vite) and a `production` target (static build
-served by nginx). Its `/api` proxy target in `nginx.conf` is a placeholder until the
-deploy host is chosen (`docs/deployment.md`).
+served by nginx). `nginx.conf` is a template: at startup nginx proxies `/api/` to
+`API_UPSTREAM` (default: the API on Aiven), so the browser talks to one origin and the
+API needs no CORS entry. Deployed as the Aiven Runtime app `silta-web` from
+`compose.web.yaml` (`docs/deployment.md`).

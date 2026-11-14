@@ -98,6 +98,8 @@ that is the reason for the same-region rule, not a database problem.
 
 ## Open
 
-- The frontend is not deployed yet (second Runtime application from
-  `frontend/Dockerfile`, or a static host).
+- The frontend runs as a third Runtime application, `silta-web`, from `compose.web.yaml`
+  (nginx serves the static build and proxies `/api/` to the API, so no CORS entry is
+  needed). It only works once the API image is current: the API on Aiven still runs the
+  last image CI pushed, and CI has been red since "Initial build".
 - Redeploying Runtime from CI instead of by hand.
