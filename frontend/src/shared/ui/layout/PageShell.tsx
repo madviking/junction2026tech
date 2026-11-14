@@ -101,8 +101,13 @@ export function PageShell({ title, subtitle, back, headerAction, emergency, prog
                 </Text>
               )}
             </div>
-            {headerAction}
-            {emergency}
+            {(headerAction || emergency) && (
+              /* One group: when a long label leaves the title too narrow, the group moves under it (CSS). */
+              <div className={classes.pageHeaderActions}>
+                {headerAction}
+                {emergency}
+              </div>
+            )}
           </div>
           {progress && <div className={classes.pageProgress}>{progress}</div>}
         </header>

@@ -298,4 +298,13 @@ button.emergencyLink {
   border: 0;
   cursor: pointer;
   font-family: inherit;
+  text-align: center;
+}
+/* In the header group: keeps its label on one line while it fits, wraps it rather than overflow the row. */
+button.emergencyLink[data-compact] {
+  flex: 0 1 auto;
+  min-inline-size: 0;
+}
+button.emergencyLink > svg {
+  flex: none;
 }
