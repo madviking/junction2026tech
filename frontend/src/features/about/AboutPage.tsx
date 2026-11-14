@@ -2,7 +2,8 @@ import { IconBan, IconBook2, IconHeartHandshake, IconMessageChatbot, IconShieldL
 import { useMemo } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import { useT } from '@/shared/i18n'
-import { EmergencyCallLink, PageShell, Row, Stack, SurfaceCard, Text } from '@/shared/ui'
+import { PageShell, Row, Stack, SurfaceCard, Text } from '@/shared/ui'
+import { UrgentHelp } from '@/features/urgent'
 
 /** One section per trust question; texts are `ui.about.<id>.title|text`. */
 const SECTIONS = [
@@ -27,7 +28,7 @@ export function AboutPage() {
   )
 
   return (
-    <PageShell title={t('ui.about.title')} back={back} emergency={<EmergencyCallLink compact label={t('ui.journey.emergency_call')} phoneNumber="112" />}>
+    <PageShell title={t('ui.about.title')} back={back} emergency={<UrgentHelp />}>
       <Stack gap="md">
         {SECTIONS.map(({ id, Icon }) => (
           <SurfaceCard key={id} as="section">

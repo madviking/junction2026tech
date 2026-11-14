@@ -69,6 +69,9 @@ export const bundle: LiveBundle = {
     'journey.interrupt.emergency_sign.card': text('This is an emergency'),
     'journey.interrupt.something_changed.card': text('Something changed'),
     'ui.journey.emergency.title': text('Call 112 now'),
+    'ui.journey.emergency.text': text('These signs need help right away:'),
+    'ui.urgent.button': text('Urgent help'),
+    'ui.urgent.cancel': text('Cancel'),
     'ui.journey.error.send': text('Your answer was not saved.'),
   },
   journey: {

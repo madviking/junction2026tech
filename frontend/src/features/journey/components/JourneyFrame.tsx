@@ -1,15 +1,16 @@
 import { useMemo, type ReactNode } from 'react'
 import { useContent } from '@/shared/i18n'
-import { EmergencyCallLink, PageShell, Stack } from '@/shared/ui'
+import { UrgentHelp } from '@/features/urgent'
+import { PageShell, Stack } from '@/shared/ui'
 
 export interface JourneyFrameProps {
   /** The visit code, shown under the title so it is always at hand. */
   code?: string
-  /** Neutral header control next to the call link (the way to the emergency signs). */
+  /** Neutral header control next to "Urgent help". */
   headerAction?: ReactNode
   /** Header progress strip (a `PageProgress`). */
   progress?: ReactNode
-  /** The emergency screen has its own large call link; hide the header pill there. */
+  /** The emergency screen has its own large call link; hide "Urgent help" there. */
   hideCall?: boolean
   /** Shows a back arrow that calls this. */
   onBack?: () => void
@@ -28,7 +29,7 @@ export function JourneyFrame({ code, headerAction, progress, hideCall, onBack, c
       back={back}
       headerAction={headerAction}
       progress={progress}
-      emergency={hideCall ? undefined : <EmergencyCallLink compact label={t('ui.journey.emergency_call')} phoneNumber="112" />}
+      emergency={hideCall ? undefined : <UrgentHelp />}
     >
       <Stack gap="lg">{children}</Stack>
     </PageShell>

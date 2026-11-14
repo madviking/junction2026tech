@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react'
+import { fireEvent, screen, within } from '@testing-library/react'
 import { Route, Routes } from 'react-router'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { AboutPage } from '@/features/about/AboutPage'
@@ -19,6 +19,9 @@ const bundle = {
     'ui.about.not.text': text('Silta is not a doctor and does not diagnose.'),
     'ui.about.privacy.title': text('Your privacy'),
     'ui.journey.emergency_call': text('Emergency? Call'),
+    'ui.journey.emergency.title': text('Call 112 now'),
+    'ui.urgent.button': text('Urgent help'),
+    'ui.urgent.cancel': text('Cancel'),
   },
   journey: { start: 'describe', interrupts: [], routeFact: { askAt: 'route', questions: 0, ifUnknownRoute: 'A1', ifUnknownReview: null }, stages: [] },
   cards: { symptoms: [], emergencySigns: [], clinicianStage: 'visit', clinician: [] },
@@ -29,7 +32,7 @@ const bundle = {
 describe('AboutPage', () => {
   afterEach(() => vi.unstubAllGlobals())
 
-  it('shows what Silta is not, the privacy promise and the 112 link', async () => {
+  it('shows what Silta is not, the privacy promise and urgent help with the 112 link', async () => {
     vi.stubGlobal('fetch', vi.fn(async () => Response.json(bundle)))
     renderWithProviders(
       <Routes>
@@ -48,6 +51,9 @@ describe('AboutPage', () => {
     expect(screen.getByRole('heading', { name: 'What Silta does not do' })).toBeInTheDocument()
     expect(screen.getByText('Silta is not a doctor and does not diagnose.')).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Your privacy' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /Emergency\? Call\s*112/ })).toHaveAttribute('href', 'tel:112')
+    // The red header control opens urgent help; the call to 112 is inside it.
+    fireEvent.click(screen.getByRole('button', { name: 'Urgent help' }))
+    const sheet = await screen.findByRole('dialog', { name: 'Call 112 now' })
+    expect(within(sheet).getByRole('link', { name: /Emergency\? Call\s*112/ })).toHaveAttribute('href', 'tel:112')
   })
 })

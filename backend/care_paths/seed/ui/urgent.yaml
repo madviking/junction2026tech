@@ -1,0 +1,33 @@
+# UI strings of urgent help (frontend/src/features/urgent): the red header control on every
+# resident page and the Cancel of its panel. en + fi by the team; the other languages are
+# machine-translated (14 Nov 2026, unchecked until a fluent reviewer checks them in the admin).
+ui.urgent.button:
+  en: "Urgent help"
+  fi: "Kiireellinen apu"
+  sv: "Akut hjälp"
+  ru: "Срочная помощь"
+  et: "Kiire abi"
+  uk: "Термінова допомога"
+  ar: "مساعدة عاجلة"
+  so: "Caawimaad degdeg ah"
+  fa: "کمک فوری"
+  zh: "紧急求助"
+  yue: "緊急求助"
+  vi: "Trợ giúp khẩn cấp"
+  th: "ความช่วยเหลือเร่งด่วน"
+  bg: "Спешна помощ"
+ui.urgent.cancel:
+  en: "Cancel"
+  fi: "Peruuta"
+  sv: "Avbryt"
+  ru: "Отмена"
+  et: "Tühista"
+  uk: "Скасувати"
+  ar: "إلغاء"
+  so: "Jooji"
+  fa: "لغو"
+  zh: "取消"
+  yue: "取消"
+  vi: "Hủy"
+  th: "ยกเลิก"
+  bg: "Отказ"

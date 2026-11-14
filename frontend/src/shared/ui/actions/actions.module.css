@@ -290,3 +290,12 @@
     display: none;
   }
 }
+
+/* EmergencyButton reuses .emergencyLink: reset the native button look. */
+button.emergencyLink {
+  /* A little lower than the 48px default so the header stays slim; still a 44px touch target. */
+  min-block-size: 44px;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+}

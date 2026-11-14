@@ -55,6 +55,8 @@ export { PhotoButton, type PhotoButtonProps } from '@/shared/ui/actions/PhotoBut
 export { RecordButton, type RecordButtonProps, type RecordState } from '@/shared/ui/actions/RecordButton'
 export { formatElapsed } from '@/shared/ui/actions/formatElapsed'
 export { EmergencyCallLink, type EmergencyCallLinkProps } from '@/shared/ui/actions/EmergencyCallLink'
+export { EmergencyButton, type EmergencyButtonProps } from '@/shared/ui/actions/EmergencyButton'
+export { FullScreenSheet, type FullScreenSheetProps } from '@/shared/ui/overlays/FullScreenSheet'
 
 // Feedback
 export {

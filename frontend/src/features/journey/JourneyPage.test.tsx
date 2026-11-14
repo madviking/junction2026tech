@@ -193,33 +193,63 @@ describe('JourneyPage', () => {
     expect(calls.some((c) => c.path.endsWith('/events'))).toBe(false)
   })
 
-  it('shows the emergency screen at once and keeps it when the event cannot be saved', async () => {
+  it('opens urgent help from the one red header button; Cancel leaves the visit where it was', async () => {
     const calls = stubBackend({
       'GET /api/content/live': bundle,
-      [`GET ${visitPath}`]: visitView(),
-      [`POST ${visitPath}/events`]: new Response('offline', { status: 503 }),
+      [`GET ${visitPath}`]: visitView({ canGoBack: true }),
+      [`POST ${visitPath}/back`]: visitView({ canGoBack: false }),
+      'GET /api/voice/capabilities': { languages: [{ lang: 'en', mode: 'full_voice', voiceInput: true, audioOutput: true, generatedAudioReview: 'approved' }] },
     })
 
     renderJourney()
-    // One red control: the 112 link dials directly; the neutral button opens the emergency signs.
-    const urgent = await screen.findByRole('button', { name: 'Urgent?' })
-    expect(screen.getByRole('link', { name: /112/ })).toHaveAttribute('href', 'tel:112')
+    await screen.findByRole('heading', { name: 'What do you need help with?' })
+    // One red control in the header: "Urgent help". No separate "Urgent?" button and no direct-dial pill.
+    const urgent = screen.getByRole('button', { name: 'Urgent help' })
+    expect(screen.queryByRole('button', { name: 'Urgent?' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('link', { name: /112/ })).not.toBeInTheDocument()
     fireEvent.click(urgent)
 
-    // Shown before the server answered, from the loaded content.
-    expect(screen.getByText('Call 112 now')).toBeInTheDocument()
-    expect(screen.getByText('Chest pain')).toBeInTheDocument()
-    expect(screen.queryByRole('heading', { name: 'What do you need help with?' })).not.toBeInTheDocument()
-    expect(screen.queryByRole('button', { name: 'Urgent?' })).not.toBeInTheDocument()
-    expect(screen.getAllByRole('link', { name: /112/ })).toHaveLength(1)
+    // The urgent help panel: title and subtitle with listen buttons, the signs, and the call to 112.
+    const sheet = await screen.findByRole('dialog', { name: 'Call 112 now' })
+    expect(within(sheet).getByText('These signs need help right away:')).toBeInTheDocument()
+    expect(within(sheet).getByText('Chest pain')).toBeInTheDocument()
+    expect(within(sheet).getByRole('link', { name: /112/ })).toHaveAttribute('href', 'tel:112')
+    expect(await within(sheet).findAllByRole('button', { name: 'Listen' })).toHaveLength(2 + bundle.cards.emergencySigns.length)
 
-    await waitFor(() => expect(calls.find((c) => c.method === 'POST')?.body).toEqual({ lang: 'en', outcome: 'emergency_sign' }))
-    await waitFor(() => expect(screen.getByRole('button', { name: 'Something changed' })).toBeEnabled())
-    expect(screen.getByText('Call 112 now')).toBeInTheDocument()
-    expect(screen.queryByText('Your answer was not saved.')).not.toBeInTheDocument()
+    // Cancel closes it; nothing is recorded on the visit.
+    fireEvent.click(within(sheet).getByRole('button', { name: 'Cancel' }))
+    await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument())
+    expect(screen.getByRole('heading', { name: 'What do you need help with?' })).toBeInTheDocument()
+    expect(calls.filter((c) => c.method === 'POST')).toHaveLength(0)
+
+    // Back follows the person's steps (one step back on the path), never to the urgent panel.
+    fireEvent.click(screen.getByRole('button', { name: 'Go back one step' }))
+    await waitFor(() => expect(calls.filter((c) => c.method === 'POST').map((c) => c.path)).toEqual([`${visitPath}/back`]))
   })
 
-  it('offers "something changed" on the emergency screen to go back', async () => {
+  it('has a clear Cancel on the emergency step that undoes it, so back keeps following the steps', async () => {
+    const emergency = {
+      stage: { id: 'emergency', outcomes: [], terminal: true, ladder: 0, checkIns: [], overdueNext: null },
+      ask: null,
+      outcomes: [],
+      interrupts: [{ id: 'something_changed', text: 'Something changed' }],
+    }
+    const calls = stubBackend({
+      'GET /api/content/live': bundle,
+      [`GET ${visitPath}`]: visitView({ ...emergency, canGoBack: true }),
+      [`POST ${visitPath}/back`]: visitView(),
+    })
+
+    renderJourney()
+    expect(await screen.findByText('Call 112 now')).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Something changed' })).not.toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'Cancel' }))
+
+    await waitFor(() => expect(calls.filter((c) => c.method === 'POST').map((c) => c.path)).toEqual([`${visitPath}/back`]))
+    expect(await screen.findByRole('heading', { name: 'What do you need help with?' })).toBeInTheDocument()
+  })
+
+  it('Cancel on an emergency step with nothing to undo starts over with the first question', async () => {
     const calls = stubBackend({
       'GET /api/content/live': bundle,
       [`GET ${visitPath}`]: visitView({
@@ -227,15 +257,14 @@ describe('JourneyPage', () => {
         ask: null,
         outcomes: [],
         interrupts: [{ id: 'something_changed', text: 'Something changed' }],
+        canGoBack: false,
       }),
       [`POST ${visitPath}/events`]: visitView(),
     })
 
     renderJourney()
-    fireEvent.click(await screen.findByRole('button', { name: 'Something changed' }))
-
+    fireEvent.click(await screen.findByRole('button', { name: 'Cancel' }))
     await waitFor(() => expect(calls.find((c) => c.method === 'POST')?.body).toEqual({ lang: 'en', outcome: 'something_changed' }))
-    expect(await screen.findByRole('heading', { name: 'What do you need help with?' })).toBeInTheDocument()
   })
 
   it('opens the care path overview from any stage and marks the current step', async () => {

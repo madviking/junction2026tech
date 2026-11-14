@@ -28,3 +28,29 @@
   border-block-start: 1px solid var(--silta-color-border-subtle);
   background: var(--silta-color-surface);
 }
+
+/* ---- FullScreenSheet (resident): a panel over the whole page ---- */
+.sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  background: var(--silta-color-background);
+  color: var(--silta-color-text);
+}
+.sheetBody {
+  flex: 1;
+  overflow-y: auto;
+  padding-block: var(--silta-space-xl);
+  padding-inline: var(--silta-space-lg);
+}
+.sheetFooter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--silta-space-sm);
+  padding: var(--silta-space-md);
+  padding-block-end: max(var(--silta-space-md), env(safe-area-inset-bottom));
+  border-block-start: 1px solid var(--silta-color-border-subtle);
+  background: var(--silta-color-surface);
+}

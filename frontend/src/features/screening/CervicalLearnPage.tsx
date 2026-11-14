@@ -10,18 +10,18 @@ import {
   IconRefresh,
   IconRoute,
 } from '@tabler/icons-react'
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import { useNavigate, useParams, useSearchParams } from 'react-router'
 import { cervicalCourse, type CoursePart, type CourseSlide } from '@/features/screening/cervicalCourse'
 import { AppointmentHelp } from '@/features/screening/components/AppointmentHelp'
 import { CardAudioButton } from '@/features/voice'
 import { useT } from '@/shared/i18n'
+import { UrgentHelp } from '@/features/urgent'
 import {
   ActionButton,
   Checklist,
   DirectionalIcon,
   ChoiceCard,
-  EmergencyCallLink,
   FaqItem,
   LessonProgress,
   LessonScene,
@@ -59,12 +59,24 @@ export function CervicalLearnPage() {
 
   const go = (next: string | null) => setParams(next ? { part: next } : {})
   const goIndex = (i: number) => go(i < 0 ? null : (cervicalCourse[i]?.id ?? 'done'))
+  // Header back: one part back, or to the start page from the overview.
+  const back = useMemo(
+    () => ({
+      label: t(`${L}.back`),
+      onPress: () => {
+        if (!part && !done) return navigate(`/r/${lang}`)
+        const i = done ? cervicalCourse.length - 1 : index - 1
+        setParams(i < 0 ? {} : { part: cervicalCourse[i]?.id ?? 'done' })
+      },
+    }),
+    [t, part, done, index, lang, navigate, setParams],
+  )
 
   const shell = (content: React.ReactNode, bottom?: React.ReactNode) => (
     <PageShell
       title={t(`${L}.title`)}
-      back={{ label: t(`${L}.back`), onPress: () => (part || done ? goIndex(done ? cervicalCourse.length - 1 : index - 1) : navigate(`/r/${lang}`)) }}
-      emergency={<EmergencyCallLink compact label={t('ui.language.emergency_call')} phoneNumber="112" />}
+      back={back}
+      emergency={<UrgentHelp />}
       bottomActions={bottom}
     >
       {content}

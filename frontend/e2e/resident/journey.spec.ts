@@ -37,9 +37,9 @@ test('(a) happy path: language → start → symptom → route → door → wait
   await page.getByRole('button', { name: 'Start' }).click()
   await expect(page).toHaveURL(/\/r\/en\/v\/SLT-[0-9A-Z]{4}-[0-9A-Z]{4}$/)
   await expect(page.getByRole('heading', { name: 'What do you need help with?' })).toBeVisible()
-  // One red control (112, direct dial) and a neutral way to the emergency signs.
-  await expect(page.getByRole('button', { name: 'Urgent?' })).toBeVisible()
-  await expect(page.locator('a[href="tel:112"]')).toHaveCount(1)
+  // One red control: "Urgent help" opens the emergency signs and the call to 112.
+  await expect(page.getByRole('button', { name: 'Urgent help' })).toBeVisible()
+  await expect(page.getByRole('button', { name: 'Urgent?' })).toHaveCount(0)
   await shot(page, 'journey-describe')
 
   await page.getByRole('button', { name: 'I have a symptom that worries me' }).click()
@@ -60,7 +60,7 @@ test('(a) happy path: language → start → symptom → route → door → wait
   await page.getByRole('button', { name: 'I live in Finland and have a home municipality' }).click()
 
   await expect(page.getByText('Minulla on nämä oireet:')).toBeVisible()
-  await expect(page.getByText('Say this in Finnish')).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Your card in Finnish' })).toBeVisible()
   await expect(page.getByText('Time limits')).toBeVisible()
   await shot(page, 'journey-contact')
   // The care path overview is one tap away and marks the current step.
@@ -109,39 +109,43 @@ test('(b) "Nobody answered" twice → stalled with the escalation ladder', async
   await shot(page, 'journey-stalled')
 })
 
-test('(c) emergency interrupt from the contact stage → 112 screen, and back via "something changed"', async ({ page, request }) => {
+test('(c) urgent help from the contact stage: the signs and 112, Cancel returns, back follows the steps', async ({ page, request }) => {
   const code = await visitAt(request, TO_CONTACT)
   await page.goto(`/r/en/v/${code}`)
   await expect(page.getByText('Minulla on nämä oireet:')).toBeVisible()
 
-  await page.getByRole('button', { name: 'Urgent?' }).click()
-  await expect(page.getByText('Call 112 now')).toBeVisible()
-  await expect(page.locator('a[href="tel:112"]')).toHaveCount(1)
-  await expect(page.getByText('Chest pain')).toBeVisible()
-  // One action only: no cards, no fields; the only other control is the way back.
-  await expect(page.getByRole('textbox')).toHaveCount(0)
-  await expect(page.getByRole('button', { name: 'Urgent?' })).toHaveCount(0)
-  const back = page.getByRole('button', { name: 'Something changed or got worse' })
-  await expect(back).toBeEnabled()
+  await page.getByRole('button', { name: 'Urgent help' }).click()
+  const sheet = page.getByRole('dialog', { name: 'Call 112 now' })
+  await expect(sheet).toBeVisible()
+  await expect(sheet.locator('a[href="tel:112"]')).toHaveCount(1)
+  await expect(sheet.getByText('Chest pain')).toBeVisible()
+  // One action only: no cards, no fields; the only other control is Cancel.
+  await expect(sheet.getByRole('textbox')).toHaveCount(0)
   await shot(page, 'journey-emergency')
 
-  await back.click()
-  await expect(page.getByRole('heading', { name: 'What do you need help with?' })).toBeVisible()
+  await sheet.getByRole('button', { name: 'Cancel' }).click()
+  await expect(sheet).toHaveCount(0)
+  await expect(page.getByText('Minulla on nämä oireet:')).toBeVisible()
+  // Nothing was recorded, and back goes one step back on the path (the route question), never to 112.
+  expect((await (await request.get(`/api/visits/${code}?lang=en`)).json()).state.stage).toBe('contact')
+  await page.getByRole('button', { name: 'Go back one step' }).click()
+  await expect(page.getByRole('heading', { name: 'Where do you get health care?' })).toBeVisible()
+  await expect(page.getByText('Call 112 now')).toHaveCount(0)
 })
 
-test('(c2) emergency screen shows at once and stays when the event cannot be sent (offline)', async ({ page, request }) => {
+test('(c2) urgent help works offline: it never waits for the server', async ({ page, request }) => {
   const code = await visitAt(request, TO_CONTACT)
   await page.goto(`/r/en/v/${code}`)
   await expect(page.getByText('Minulla on nämä oireet:')).toBeVisible()
 
-  await page.route('**/api/visits/*/events', (route) => route.abort('internetdisconnected'))
-  await page.getByRole('button', { name: 'Urgent?' }).click()
-  await expect(page.getByText('Call 112 now')).toBeVisible()
-  await expect(page.locator('a[href="tel:112"]')).toHaveCount(1)
-  await expect(page.getByText('Chest pain')).toBeVisible()
-  await expect(page.getByRole('button', { name: 'Something changed or got worse' })).toBeEnabled()
+  await page.route('**/api/**', (route) => route.abort('internetdisconnected'))
+  await page.getByRole('button', { name: 'Urgent help' }).click()
+  const sheet = page.getByRole('dialog', { name: 'Call 112 now' })
+  await expect(sheet.locator('a[href="tel:112"]')).toHaveCount(1)
+  await expect(sheet.getByText('Chest pain')).toBeVisible()
   await expect(page.getByText('Your answer was not saved. Please try again.')).toHaveCount(0)
   await shot(page, 'journey-emergency-offline')
+  await page.unroute('**/api/**')
   const saved = await (await request.get(`/api/visits/${code}?lang=en`)).json()
   expect(saved.state.stage).toBe('contact')
 })
@@ -173,7 +177,7 @@ test('(d) free text: confident match read back and confirmed; vague text keeps t
 test('(h) back one step from the header, and restart from the path overview', async ({ page, request }) => {
   const code = await visitAt(request, TO_CONTACT)
   await page.goto(`/r/en/v/${code}`)
-  await expect(page.getByText('Say this in Finnish')).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Your card in Finnish' })).toBeVisible()
 
   await page.getByRole('button', { name: 'Go back one step' }).click()
   await expect(page.getByRole('heading', { name: 'Where do you get health care?' })).toBeVisible()

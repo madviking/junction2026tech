@@ -66,6 +66,8 @@ Resident actions
 - `PhotoButton` — takes or picks one photo through the platform (file input; `camera` opens the back camera on phones); looks like `ActionButton` `primary | secondary`.
 - `RecordButton` — 80px mic button: `idle | recording | processing | disabled`, elapsed `m:ss`; `size="sm"` is 48px without the caption, for a row next to a text field.
 - `EmergencyCallLink` — red `tel:` link; `compact` is the header pill (icon + number, label as the accessible name). One per screen.
+- `EmergencyButton` — the red header control ("Urgent help", always-visible label) that opens urgent help; same look as the compact `EmergencyCallLink`.
+- `FullScreenSheet` — resident panel over the whole page (`role="dialog"`, named by `labelledBy`, focus trapped, Escape closes, footer pinned at the bottom). Not a page: closing it returns to where the person was and adds nothing to the history.
 
 Feedback
 - `Banner` — `info | warning | emergency | success`, title, text, optional action (`emergency` is solid red, `role="alert"`).
