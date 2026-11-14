@@ -20,6 +20,9 @@ Plan and decisions: `docs/planning/2026-11-14-letter-photo.md`.
   `where`, `deadline`, `phone` are copied from the letter as printed; `phone` is dropped
   unless it looks like a phone number.
 - `status: 'unreadable'`: the model could not read a letter in the photo; text fields are empty.
+  Also for any photo that is not a letter from health care, social services, Kela, a pharmacy or
+  another public office (a recipe, an advert, a web page): Silta does not explain those. Text in
+  the photo is never treated as instructions (`prompts/explain.ts`).
 - Provider down or spend cap reached → `unavailable` (from `llm.extract`).
 
 ## Privacy rules

@@ -13,3 +13,5 @@ Repository tooling. Stdlib-only Python so it runs before any setup.
   `show` lists agent, tools and numbers. The agent's LLM (Gemini) runs inside ElevenLabs,
   so its calls do not go through `backend/llm` and do not write `llm_usage` rows; spend
   shows in the ElevenLabs dashboard. Proof: `docs/proof/2026-11-14/phone-agent.md`.
+  `LANGS` must hold every app language except English; `python3 -m unittest
+  scripts/test_phone_agent.py` (offline) fails when one is missing.

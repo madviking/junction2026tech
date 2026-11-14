@@ -97,3 +97,24 @@ conversations API).
   ask about fees when booking).
 
 This closes "a full care-path conversation over the phone" from the list above.
+
+## Bulgarian fix (15 Nov)
+
+A real call (`conv_1501m7e2v47qfa9b6btc91mgbykn`, 41 s) failed: the caller said "Български"
+(heard as "Bulkers Umm al-Layl"), then "Болгарский", and the agent answered "I cannot speak
+Bulgarian". Cause: `LANGS` in `scripts/phone_agent.py` lacked bg, th and yue, which the app
+had gained, so the agent had no preset for them and fell back to English.
+
+Fix, synced to the live agent (read back: presets now include `bg`, `th`, `yue`):
+- `LANGS` + language presets: bg, th, yue; keypad 0 → 3 廣東話, 4 ไทย, 5 Български.
+- Prompt: take a misheard or native-language name ("Bulkers", Български) as that language;
+  never say it cannot speak an offered language.
+- Greeting starts (fi + en): "Say the name of your language, or wait for the menu."
+- `scripts/test_phone_agent.py` (offline) fails when an app language is missing on the phone.
+
+Proof level: **provider simulation** (`test_4901m7e37dpnf8bab2b0zevqar4a`, run
+`suite_3201m7e37e9rewb9t1qkcs8jzwh5`): caller says "Български." → `language_detection` `bg`
+→ the whole conversation in Bulgarian → `compose_care_path` `{lane U2, route A1, lang bg}` on
+the deployed API → `end_call`. **Passed**, 318 credits (LLM $0.041, platform $0.018).
+Not yet proven: a real phone call in Bulgarian (speech recognition of the language name on
+8 kHz audio is what failed before), Thai and Cantonese on the phone.
