@@ -5,8 +5,10 @@ Last reviewed: 2026-11-14
 
 The backend ships as a self-hosted Encore image that talks to Aiven for
 PostgreSQL. **The app and the database run in the same cloud and region**
-(`docs/decisions/0002-encore-ts-on-aiven.md`): Google Cloud `europe-north1`
-(Finland).
+(`docs/decisions/0002-encore-ts-on-aiven.md`): Google Cloud `europe-west4`
+(Netherlands). Aiven Runtime does not run in Finland, so the database follows it.
+
+**API:** https://easily-smart-aphid.eur-1.aiven.app (`GET /api/health`).
 
 ## What exists on Aiven
 
@@ -14,12 +16,14 @@ Project `appzio-d111` (trial credits, no payment method).
 
 | Thing | Value |
 | --- | --- |
-| PostgreSQL service | `silta-pg`, PostgreSQL 18, Hobbyist plan (~$19/month), `google-europe-north1`, connection limit 25 |
+| PostgreSQL service | `silta-pg`, PostgreSQL 18, Hobbyist plan (~$19/month), `google-europe-west4` (created in `europe-north1`, moved 2026-11-14), connection limit 25 |
 | Database | `silta` (user `avnadmin`), migrations 1–2 applied, `vector` extension installed |
 | Network | public, IP allowlist open, TLS required |
-| Runtime | enabled; GitHub account `madviking` connected |
+| Runtime application | `silta-api`, Startup-50-1024 (0.5 vCPU, 1 GB, ~$28/month), `google-europe-west4`, port 8080, built from `main` / `compose.aiven.yaml` |
+| GitHub link | account `madviking`, repository `junction2026tech` |
 
-Power the service off after the event (service page → Actions).
+Together about $47/month against the $50 trial credit. Power both off after the
+event (service page → Actions).
 
 ## Pipeline
 
@@ -33,12 +37,14 @@ push to main
 
 - Aiven Runtime builds only from a repository file, so `compose.aiven.yaml`
   points at `deploy/aiven/Dockerfile`, which is just `FROM` the GHCR image.
-- A push does not redeploy on Aiven. Redeploy by hand after the `image` job is
-  green.
+- A push does not redeploy on Aiven. After the `image` job is green: Runtime →
+  `silta-api` → **Deploy latest commit**. The application then pulls the new
+  `:main` image. If `readiness` fails, no image is published and the running
+  version stays as it is.
 - The image does not migrate. CI applies `backend/db/migrations` before it
   pushes the image; from a laptop use `make migrate-aiven`.
 
-## One-time setup
+## One-time setup (done 2026-11-14; kept for a rebuild)
 
 1. GitHub repository secret `AIVEN_SILTA_URL`, set without showing the value:
    `python3 scripts/aiven.py url | gh secret set AIVEN_SILTA_URL`.
@@ -47,7 +53,8 @@ push to main
 3. Aiven console → Runtime → Deploy application → account `madviking`,
    repository `junction2026tech`, branch `main`, manifest `compose.aiven.yaml`.
 4. In the application's environment variables set `AIVEN_PG_PASSWORD` and
-   `GEMINI_API_KEY`.
+   `GEMINI_API_KEY`, marked as secret. A new Encore secret needs a mapping in
+   `infra.config.json` and a variable here.
 5. Put the application's public URL into `metadata.base_url` in
    `backend/infra.config.json`, and the frontend's origin into
    `global_cors` in `backend/encore.app`.
@@ -80,7 +87,7 @@ that is the reason for the same-region rule, not a database problem.
 
 ## Fallbacks
 
-- **B.** Cloud Run in `europe-north1` running the same GHCR image.
+- **B.** Cloud Run in the database's region running the same GHCR image.
 - **C.** East Deploy: only with explicit approval for that target.
 
 ## Rules

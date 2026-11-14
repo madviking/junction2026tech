@@ -1,0 +1,432 @@
+# Kymenlaakso service-path seed. Facts from the brain source
+# sources/2026-11-14-web-research-service-paths-kymenlaakso.md (web research, 2026-11-14).
+county: kymenlaakso
+name: Kymenlaakson hyvinvointialue
+specialist_provider: Kymenlaakson keskussairaala (Kotka)
+sotkanet_region_id: 967
+
+sources:
+  contact:
+    url: https://kymenhva.fi/palvelut-ja-ajanvaraus/terveydenhuolto/yhteydenotto-terveysasemalle/
+    title: Contacting a health station
+    publisher: Kymenlaakson hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-kymenlaakso.md
+  digital:
+    url: https://kymenhva.fi/palvelut-ja-ajanvaraus/digitaaliset-palvelut/kymenhva-hoitopolut/
+    title: Digital services and care paths (Oma Kymenlaakso)
+    publisher: Kymenlaakson hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-kymenlaakso.md
+  omaolo:
+    url: https://kymenhva.fi/uutiset/oma-kymenlaakso-korvaa-omaolon/
+    title: Oma Kymenlaakso replaces Omaolo
+    publisher: Kymenlaakson hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-kymenlaakso.md
+  emergency:
+    url: https://kymenhva.fi/palvelut-ja-ajanvaraus/paivystys-ja-kiireellinen-apu/paivystys/
+    title: Emergency duty
+    publisher: Kymenlaakson hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-kymenlaakso.md
+  syopa:
+    url: https://kymenhva.fi/palvelut-ja-ajanvaraus/erikoissairaanhoito/poliklinikat-ja-erikoisalat/syopa/
+    title: Cancer care and screening
+    publisher: Kymenlaakson hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-kymenlaakso.md
+  oncology:
+    url: https://kymenhva.fi/kymenlaakson-keskussairaala/syopatautien-poliklinikka/
+    title: Oncology outpatient clinic
+    publisher: Kymenlaakson hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-kymenlaakso.md
+  referrals:
+    url: https://kymenhva.fi/tietoa-meista/ammattilaiset/lahetekaytannot/
+    title: Referral practices
+    publisher: Kymenlaakson hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-kymenlaakso.md
+  fees:
+    url: https://kymenhva.fi/meilla-asiakkaana/asiakasmaksut/
+    title: Client fees
+    publisher: Kymenlaakson hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-kymenlaakso.md
+  sotkanet-6103:
+    url: https://sotkanet.fi/rest/1.1/json?indicator=6103&years=2024&genders=total
+    title: Sotkanet 6103, colorectal screening participation
+    publisher: THL / Sotkanet
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-kymenlaakso.md
+  yle-stations:
+    url: https://yle.fi/a/74-20229406
+    title: Plan to close health stations in Kymenlaakso
+    publisher: Yle
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-kymenlaakso.md
+  yle-savings:
+    url: https://yle.fi/a/74-20239286
+    title: Kymenlaakso co-operation negotiations and savings
+    publisher: Yle
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-kymenlaakso.md
+  sttinfo-omalaakari:
+    url: https://www.sttinfo.fi/tiedote/72220247/ensimmaiset-omalaakarit-ja-omahoitajat-aloittavat-kymenlaaksossa-syyskuussa?lang=fi
+    title: First personal doctors and nurses start in Kymenlaakso in September
+    publisher: Kymenlaakson hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-kymenlaakso.md
+  kela-occupational:
+    url: https://www.kela.fi/tyoterveyshuolto
+    title: Occupational health care
+    publisher: Kela
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-kymenlaakso.md
+  yths:
+    url: https://www.yths.fi/en/using-services/for-new-student/
+    title: Using YTHS services as a new student
+    publisher: YTHS
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-kymenlaakso.md
+  migri:
+    url: https://migri.fi/health-and-social-services
+    title: Health and social services for asylum seekers
+    publisher: Finnish Immigration Service
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-kymenlaakso.md
+  kela-private:
+    url: https://www.kela.fi/ajankohtaista/yksityislaakarikayntien-kela-korvaukset-pienenevat-1.1.2026
+    title: Kela reimbursements for private doctor visits fall from 1 Jan 2026
+    publisher: Kela
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-kymenlaakso.md
+
+points:
+  - key: booking-line
+    kind: phone_service
+    routes: [A1, A8]
+    name_fi: Terveysasemien yhteinen ajanvaraus- ja neuvontanumero
+    name_en: Shared booking and advice line
+    phone: 05 220 2000
+    hours: Mon–Fri 7–20
+    contact_note: "One number serves all health stations in the county. Leave a callback request through the recorded menu and listen to the recording to the end, otherwise it does not register. Hidden numbers cannot leave a request. Text service for people with hearing impairment 040 181 3036 (Mon–Fri 7–20); cancellation SMS 040 1810 961."
+    callback: true
+    url: https://kymenhva.fi/palvelut-ja-ajanvaraus/terveydenhuolto/yhteydenotto-terveysasemalle/
+    status: published
+    verified_on: 2026-11-14
+    source: contact
+
+  - key: health-stations
+    kind: health_station
+    routes: [A1, A8]
+    name_fi: Kymenlaakson terveysasemat (10)
+    name_en: Kymenlaakso health stations (10)
+    contact_note: "Hamina, Karhula, Katajaharju, Keltakangas, Kouvola (Ratamokeskus), Kotkansaari, Länsi-Kotka, Pyhtää, Valkeala, Virolahti. Any resident may use any station in the county."
+    fee_note: "2026: doctor visit 30.20 EUR, charged for at most the first 3 visits per calendar year; nurse visit free; annual ceiling 815 EUR."
+    url: https://kymenhva.fi/palvelut-ja-ajanvaraus/terveydenhuolto/yhteydenotto-terveysasemalle/
+    status: published
+    verified_on: 2026-11-14
+    source: contact
+
+  - key: oma-kymenlaakso
+    kind: digital_service
+    routes: [A1, A8]
+    name_fi: Oma Kymenlaakso
+    name_en: Oma Kymenlaakso (app and web)
+    hours: Nurse chat Mon–Fri 7–20, without an appointment
+    contact_note: "Nurse chat, booking of nurse, pharmacist and wellbeing-coach visits and vaccinations. The symptom questionnaire is in the service chat (Omaolo is no longer used in the county). The care-path section is still Finnish only."
+    digital_channel: Oma Kymenlaakso app and web
+    digital_login: Suomi.fi strong identification (bank codes or mobile certificate)
+    service_languages: [fi, sv, en]
+    url: https://kymenhva.fi/palvelut-ja-ajanvaraus/digitaaliset-palvelut/kymenhva-hoitopolut/
+    status: published
+    verified_on: 2026-11-14
+    source: digital
+
+  - key: after-hours-116117
+    kind: after_hours
+    routes: [A1, A8]
+    name_fi: Päivystysapu 116117
+    name_en: Emergency advice line 116117
+    phone: "116117"
+    hours: 24/7
+    contact_note: "Free of charge. Päivystysapu chat in Oma Kymenlaakso daily 8–20. HUS runs a text service for people who cannot hear or speak. Call 112 in an emergency."
+    callback: true
+    fee_note: Call is free; callback possible except with a hidden number.
+    url: https://kymenhva.fi/palvelut-ja-ajanvaraus/paivystys-ja-kiireellinen-apu/paivystys/
+    status: published
+    verified_on: 2026-11-14
+    source: emergency
+
+  - key: emergency-kotka
+    kind: emergency
+    routes: [A1, A8]
+    name_fi: Kymenlaakson keskussairaalan päivystys
+    name_en: Central hospital emergency department, Kotka
+    city: Kotka
+    hours: 24/7
+    url: https://kymenhva.fi/palvelut-ja-ajanvaraus/paivystys-ja-kiireellinen-apu/paivystys/
+    status: published
+    verified_on: 2026-11-14
+    source: emergency
+
+  - key: emergency-kouvola
+    kind: emergency
+    routes: [A1, A8]
+    name_fi: Ratamokeskuksen päivystys
+    name_en: Ratamokeskus emergency department, Kouvola
+    city: Kouvola
+    hours: 24/7
+    url: https://kymenhva.fi/palvelut-ja-ajanvaraus/paivystys-ja-kiireellinen-apu/paivystys/
+    status: published
+    verified_on: 2026-11-14
+    source: emergency
+
+  - key: central-hospital
+    kind: specialist_hospital
+    routes: [A1, A8]
+    name_fi: Kymenlaakson keskussairaala
+    name_en: Kymenlaakso Central Hospital
+    city: Kotka
+    contact_note: "Kotkantie 41, Kotka. Specialist care is run by the county itself; Ratamokeskus in Kouvola also provides specialist services (colonoscopy)."
+    url: https://kymenhva.fi/palvelut-ja-ajanvaraus/paivystys-ja-kiireellinen-apu/paivystys/
+    status: published
+    verified_on: 2026-11-14
+    source: emergency
+
+  - key: oncology-clinic
+    kind: cancer_centre
+    routes: [A1, A8]
+    name_fi: Syöpätautien poliklinikka
+    name_en: Oncology outpatient clinic
+    city: Kotka
+    phone: 05 220 2409
+    hours: Mon–Fri 8–15
+    contact_note: "Cancer care is centralised at the central hospital in Kotka: oncology clinic, treatment centre (day unit and ward) and a separate radiotherapy unit. Drug therapy for adults with solid tumours except lung and gynaecological cancers. Lung cancer surgery is done at Meilahti hospital, Helsinki."
+    url: https://kymenhva.fi/kymenlaakson-keskussairaala/syopatautien-poliklinikka/
+    status: published
+    verified_on: 2026-11-14
+    source: oncology
+
+  - key: terveystalo-breast-screening
+    kind: screening_provider
+    routes: [A1]
+    name_fi: Terveystalo, rintasyövän seulonta
+    name_en: Terveystalo, breast cancer screening
+    city: Kouvola, Kotka
+    phone: 045 7734 9976
+    hours: Tue–Fri 9–16
+    contact_note: "Private provider under contract. Screening units in Kouvola (for Kouvola residents) and Kotka (for Hamina, Kotka, Miehikkälä, Pyhtää and Virolahti residents). The number is the address-change line."
+    url: https://kymenhva.fi/palvelut-ja-ajanvaraus/erikoissairaanhoito/poliklinikat-ja-erikoisalat/syopa/
+    status: published
+    verified_on: 2026-11-14
+    source: syopa
+
+  - key: hus-screening
+    kind: screening_provider
+    routes: [A1]
+    name_fi: HUS Diagnostiikkakeskus, kohdunkaulan ja suolistosyövän seulonta
+    name_en: HUS Diagnostic Centre, cervical and colorectal screening
+    phone: 09 471 86800
+    contact_note: "HUS laboratory customer service (press 4). HUS invites for cervical screening and posts the colorectal home test kit."
+    fee_note: Cervical and colorectal screening are free of charge.
+    url: https://kymenhva.fi/palvelut-ja-ajanvaraus/erikoissairaanhoito/poliklinikat-ja-erikoisalat/syopa/
+    status: published
+    verified_on: 2026-11-14
+    source: syopa
+
+  - key: colorectal-nurse
+    kind: screening_nurse
+    routes: [A1]
+    name_fi: Seulontahoitaja, suolistosyövän seulonta
+    name_en: Screening nurse, colorectal screening
+    phone: 040 688 3831
+    hours: Fridays only, 9–11 and 12–14
+    contact_note: "A person with a positive colorectal test must phone this nurse. The colonoscopy is done at Kymenlaakso central hospital or Ratamokeskus."
+    fee_note: An outpatient clinic fee applies to the colonoscopy (71.30 EUR in 2026).
+    url: https://kymenhva.fi/palvelut-ja-ajanvaraus/erikoissairaanhoito/poliklinikat-ja-erikoisalat/syopa/
+    status: published
+    verified_on: 2026-11-14
+    source: syopa
+
+  - key: occupational-health
+    kind: occupational
+    routes: [A2]
+    name_fi: Työterveyshuolto
+    name_en: Occupational health care
+    contact_note: "No Kymenlaakso-specific page; national rules apply (employer-arranged, medical care voluntary). Private providers in the area were not researched."
+    url: https://www.kela.fi/tyoterveyshuolto
+    status: draft
+    source: kela-occupational
+
+  - key: student-health
+    kind: student
+    routes: [A3]
+    name_fi: Ylioppilaiden terveydenhoitosäätiö (YTHS)
+    name_en: Finnish Student Health Service (YTHS)
+    contact_note: "No Kymenlaakso-specific page checked; national YTHS rules for degree students of higher education apply."
+    url: https://www.yths.fi/en/using-services/for-new-student/
+    status: draft
+    source: yths
+
+  - key: private-terveystalo
+    kind: private
+    routes: [A4]
+    name_fi: Terveystalo (Kotka, Kouvola)
+    name_en: Terveystalo (Kotka, Kouvola)
+    city: Kotka, Kouvola
+    contact_note: "Terveystalo has screening units in Kotka and Kouvola. Other private clinics in the area were not mapped."
+    fee_note: Kela reimbursement is 8 EUR per private doctor visit (from 1 Jan 2026).
+    url: https://www.kela.fi/ajankohtaista/yksityislaakarikayntien-kela-korvaukset-pienenevat-1.1.2026
+    status: draft
+    source: kela-private
+
+  - key: reception-centre
+    kind: reception_centre
+    routes: [A5, A6]
+    name_fi: Vastaanottokeskus
+    name_en: Reception centre
+    contact_note: "Reception services are run by operators contracted by Migri. Which reception centres are open in Kymenlaakso in 2026 and how their health service links to the county was not found. National route: tell the reception centre nurse."
+    url: https://migri.fi/health-and-social-services
+    status: draft
+    source: migri
+
+steps:
+  - stage: contact
+    point: booking-line
+    informed_by: phone
+    portal: Oma Kymenlaakso
+    if_nothing_heard: "The county tries a callback at most twice, so keep the phone on and do not hide your number."
+    status: published
+    verified_on: 2026-11-14
+    source: contact
+
+  - stage: assessment
+    point: health-stations
+    informed_by: phone
+    status: draft
+    source: contact
+
+  - stage: referral_processing
+    point: central-hospital
+    status: draft
+    source: referrals
+
+  - stage: treatment_start
+    point: oncology-clinic
+    status: published
+    verified_on: 2026-11-14
+    source: oncology
+
+  - stage: screening_invitation
+    informed_by: letter
+    status: published
+    verified_on: 2026-11-14
+    source: syopa
+
+  - stage: screening_followup
+    point: colorectal-nurse
+    informed_by: phone
+    status: published
+    verified_on: 2026-11-14
+    source: syopa
+
+screening:
+  - cancer: breast
+    ages: 50–68
+    provider: Terveystalo (Kouvola and Kotka)
+    invitation_channel: letter
+    status: draft
+    source: syopa
+
+  - cancer: cervical
+    ages: 25–65, every 5 years
+    provider: HUS Diagnostic Centre
+    status: published
+    verified_on: 2026-11-14
+    source: syopa
+
+  - cancer: colorectal
+    ages: 60–70 (2024 cohorts)
+    provider: HUS Diagnostic Centre
+    invitation_channel: home test kit by post
+    followup_point: colorectal-nurse
+    status: published
+    verified_on: 2026-11-14
+    source: syopa
+
+findings:
+  - key: friday-nurse-line
+    stage: screening_followup
+    barrier: B2
+    finding: A person with a positive colorectal test must phone the screening nurse, who is reachable only on Fridays 9–11 and 12–14 (about 4 hours a week).
+    status: published
+    verified_on: 2026-11-14
+    source: syopa
+
+  - key: colorectal-followup-gap-hypothesis
+    stage: screening_followup
+    barrier: B1
+    finding: Hypothesis only; a reported 38% of positive colorectal tests without a colonoscopy could not be confirmed, and the Friday-only nurse line and the 71.30 EUR colonoscopy clinic fee may contribute.
+    status: draft
+    source: syopa
+
+  - key: low-colorectal-participation
+    stage: screening_invitation
+    finding: Colorectal screening participation in Kymenlaakso was 70.0% in 2024 against 73.5% in Finland.
+    status: published
+    verified_on: 2026-11-14
+    source: sotkanet-6103
+
+  - key: omaolo-switched-off
+    stage: contact
+    finding: Omaolo use ended in the county on 30 Oct 2025, so the symptom questionnaire now sits in the Oma Kymenlaakso chat, which needs Suomi.fi strong identification and supports only Finnish, Swedish and English.
+    status: published
+    verified_on: 2026-11-14
+    source: omaolo
+
+  - key: phone-first-callback
+    stage: contact
+    barrier: B2
+    finding: Contact is by phone first through one recorded menu, hidden numbers cannot leave a callback request and only two callback attempts are made.
+    status: published
+    verified_on: 2026-11-14
+    source: contact
+
+  - key: interpreter-route-undocumented
+    stage: contact
+    barrier: B7
+    finding: No page on kymenhva.fi describes interpreting for patients, so the right to a free interpreter in this county is unverified.
+    status: draft
+    source: contact
+
+  - key: station-closures-planned
+    stage: primary_visit
+    barrier: B3
+    finding: The June 2026 base proposal would close the Virolahti and Pyhtää stations by 2027 and Länsi-Kotka and Katajaharju by 2030; the county board voted 8–5 on 2 June 2026 not to decide yet and the county council decides.
+    status: published
+    verified_on: 2026-11-14
+    source: yle-stations
+
+  - key: staff-cuts-2027
+    stage: primary_visit
+    finding: The county board started co-operation negotiations on 4 Aug 2026 covering up to about 280 person-years of cuts and 40 million EUR of savings for 2027, with hiring only by permit.
+    status: published
+    verified_on: 2026-11-14
+    source: yle-savings
+
+  - key: omalaakari-transition
+    stage: primary_visit
+    finding: The personal doctor and nurse model starts in September 2026 at Hamina and Kotkansaari and reaches all residents by end of 2027, and the county calls it a major effort and asks residents for patience.
+    status: published
+    verified_on: 2026-11-14
+    source: sttinfo-omalaakari
+
+  - key: no-show-fee-conflict
+    stage: primary_visit
+    barrier: B1
+    finding: The fee page shows a no-show fee of 73.70 EUR while the December 2025 fee-list PDF shows 60.60 EUR with a note that a law change would raise it to 73.70 EUR.
+    status: disputed
+    source: fees

@@ -49,7 +49,7 @@ An unknown, malformed or expired code returns `not_found`.
   `invalid_argument`. Interrupts (`emergency_sign`, `something_changed`) use the same
   endpoint. A `JourneyError` from the engine returns `invalid_argument`. `visitDate` is
   `YYYY-MM-DD`. The request `lang` also becomes the visit's language, which the summary
-  uses for the interpreter line.
+  uses for the interpreter line (`interpreterNeeded()` in `views.ts`: not for Finnish or Swedish).
 - **Clinician answers.** Answers are validated against `cards.clinician`, and each one is
   recorded as a `clinician_answer` event (actor `clinician`). On the first post of a
   clinician visit the journey moves once:

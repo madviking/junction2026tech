@@ -1,0 +1,556 @@
+# Service-path seed for Helsinki. Source: junction2026 brain
+# sources/2026-11-13-web-research-service-paths.md (web research captured 2026-11-13).
+county: helsinki
+name: "Helsingin kaupunki / City of Helsinki"
+specialist_provider: HUS
+collaboration_area: "HUS yhteistyöalue"
+sotkanet_region_id: 960
+
+sources:
+  hel-assessment:
+    url: https://www.hel.fi/en/health-and-social-services/health-care/health-stations/care-needs-assessment-and-booking-an-appointment-at-the-health-station
+    title: Care needs assessment and booking an appointment at the health station
+    publisher: City of Helsinki
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  hel-phone:
+    url: https://www.hel.fi/en/health-and-social-services/health-care/health-stations/how-the-health-stations-telephone-service-works
+    title: How the health stations' telephone service works
+    publisher: City of Helsinki
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  hel-suomi-116117:
+    url: https://www.suomi.fi/services/phoneservice/medical-helpline-medical-helpline-city-of-helsinki-the-social-services-health-care-and-rescue-services-division/a41291d7-9c32-4797-ba08-389762dc4ae3
+    title: Medical Helpline, City of Helsinki
+    publisher: Suomi.fi
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  hel-urgent:
+    url: https://hel.fi/en/health-and-social-services/health-care/urgent-and-emergency-care?page=1
+    title: Urgent and emergency care
+    publisher: City of Helsinki
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  hus-malmi:
+    url: https://www.hus.fi/en/patient/hospitals-and-other-units/malmi-hospital/malmi-emergency-department
+    title: Malmi Emergency Department
+    publisher: HUS
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  hus-meilahti:
+    url: https://www.hus.fi/en/node/1741/meilahti-joint-emergency-department
+    title: Meilahti Joint Emergency Department
+    publisher: HUS
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  hus-access:
+    url: https://www.hus.fi/en/patient/patient-guide/your-rights-patient/access-treatment-specialist-medical-care
+    title: Access to treatment in specialist medical care
+    publisher: HUS
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  hus-pathway:
+    url: https://www.hus.fi/en/node/6383.md
+    title: HUS cancer pathway (referral review, letter and Maisa notice, team meeting)
+    publisher: HUS
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  hel-language-rights:
+    url: https://www.hel.fi/en/health-and-social-services/data-and-the-rights-of-the-client/right-to-receive-services-in-your-own-language
+    title: Right to receive services in your own language
+    publisher: City of Helsinki
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  hel-fees:
+    url: https://www.hel.fi/static/sotepe/asiakasmaksut/asiakasmaksuhinnasto.pdf
+    title: Client fee list for social and health services (updated 28 May 2026)
+    publisher: City of Helsinki
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  hel-breast-screening:
+    url: https://hel.fi/en/health-and-social-services/health-care/other-health-care-services/breast-cancer-screening
+    title: Breast cancer screening
+    publisher: City of Helsinki
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  hel-colorectal:
+    url: https://www.hel.fi/fi/sosiaali-ja-terveyspalvelut/terveydenhoito/seulontatutkimukset-ja-muita-terveyspalveluja/suolistosyovan-seulonta
+    title: Suolistosyövän seulonta
+    publisher: Helsingin kaupunki
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  hel-kalasatama:
+    url: https://www.hel.fi/fi/sosiaali-ja-terveyspalvelut/terveydenhoito/terveys-ja-hyvinvointikeskukset/kalasatama/paperittomat
+    title: Paperittomat, Kalasataman terveys- ja hyvinvointikeskus
+    publisher: Helsingin kaupunki
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  hel-welcome:
+    url: https://www.hel.fi/en/health-and-social-services/welcome-helsinki-tips-for-health-and-social-services/welcome-helsinki-health-services
+    title: Welcome Helsinki health services
+    publisher: City of Helsinki
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  kela-occupational:
+    url: https://www.kela.fi/tyoterveyshuolto
+    title: Työterveyshuolto
+    publisher: Kela
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  kela-eu:
+    url: https://www.kela.fi/yhteistyokumppanit-terveydenhuolto-kansainvaliset-tilanteet-oikeus-hoitoon
+    title: Oikeus hoitoon kansainvälisissä tilanteissa
+    publisher: Kela
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  kela-student-fee:
+    url: https://www.kela.fi/healthcare-fee
+    title: Student healthcare fee
+    publisher: Kela
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  yths-faq:
+    url: https://www.yths.fi/en/services/student-healthcare-services/frequently-asked-questions/
+    title: Student healthcare services, frequently asked questions
+    publisher: YTHS (Finnish Student Health Service)
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  migri-health:
+    url: https://migri.fi/health-and-social-services
+    title: Health and social services
+    publisher: Finnish Immigration Service (Migri)
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  kela-private:
+    url: https://www.kela.fi/ajankohtaista/yksityislaakarikayntien-kela-korvaukset-pienenevat-1.1.2026
+    title: Yksityislääkärikäyntien Kela-korvaukset pienenevät 1.1.2026
+    publisher: Kela
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  luvn-screening:
+    url: https://www.luvn.fi/en/services/health-services/health-stations/cancer-screening
+    title: Cancer screening (statement that screening invitations are letters)
+    publisher: Länsi-Uudenmaan hyvinvointialue
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  fimlab-self-sampling:
+    url: https://fimlab.fi/en/ajankohtaista/cervical-cancer-screening-testing-of-self-sampling-method-continues-in-2026/
+    title: Cervical cancer screening, testing of self-sampling method continues in 2026
+    publisher: Fimlab
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  sotkanet-6411:
+    url: https://sotkanet.fi/rest/1.1/json?indicator=6411&years=2025&genders=total
+    title: Sotkanet 6411, non-urgent doctor visits waiting over 7 days from needs assessment
+    publisher: THL / Sotkanet
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  sotkanet-6410:
+    url: https://sotkanet.fi/rest/1.1/json?indicator=6410&years=2025&genders=total
+    title: Sotkanet 6410, non-urgent doctor visits waiting over 3 months from needs assessment
+    publisher: THL / Sotkanet
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  soste-hoitotakuu:
+    url: https://www.soste.fi/wp-content/uploads/2026/06/SOSTE-2027-eduskuntavaalitavoitekori-2-hoitotakuu.pdf
+    title: SOSTE 2027 eduskuntavaalitavoitekori 2, hoitotakuu
+    publisher: SOSTE Suomen sosiaali ja terveys ry
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  solita-interpreting:
+    url: https://www.solita.fi/wp-content/uploads/2025/05/S4_Reipas_tulkkaus-1.pdf
+    title: Reipas tulkkaus (interpreting presentation)
+    publisher: Solita
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  sttinfo-delay-survey:
+    url: https://www.sttinfo.fi/tiedote/70972938/kyselyselvitys-joka-kolmas-syopapotilas-kokee-diagnoosin-viivastyneen?publisherId=69820264
+    title: Kyselyselvitys, joka kolmas syöpäpotilas kokee diagnoosin viivästyneen
+    publisher: STT Info press release
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  sttinfo-visits-week:
+    url: https://www.sttinfo.fi/tiedote/69981865/terveysasemien-kiireettomista-laakarikaynneista-vain-puolet-toteutui-viikossa-kevaalla-2023?publisherId=69817778
+    title: Terveysasemien kiireettomista lääkärikäynneistä vain puolet toteutui viikossa keväällä 2023
+    publisher: STT Info press release
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+
+points:
+  - key: hel-phone-service
+    kind: phone_service
+    routes: [A1]
+    name_fi: Terveysaseman puhelinpalvelu
+    name_en: Health station telephone service
+    city: Helsinki
+    hours: "Mon–Thu 8–16, Fri and holiday eves 8–15"
+    contact_note: "Each health station has its own number. Menu: 1 urgent, 2 non-urgent. Use one channel only."
+    callback: true
+    service_languages: [fi, sv]
+    status: published
+    verified_on: 2026-11-13
+    source: hel-phone
+  - key: hel-health-station
+    kind: health_station
+    routes: [A1]
+    name_fi: Oma terveysasema
+    name_en: Your own health station
+    city: Helsinki
+    contact_note: "Assigned by address; you may ask to change. Needs assessment by a professional."
+    walk_in: "Walk in without an appointment: queue, seen by urgency. Use one channel only."
+    interpreter_how: "If your mother tongue is not Finnish or Swedish, state it when booking. The interpreter service is free of charge for you."
+    fee_note: "Health-station doctor and nurse visits free (2026). No-show or cancellation under 24 h before: 60.60 EUR for 18+, also for free visits (from 1 Mar 2026). Annual payment ceiling 815 EUR."
+    url: https://www.hel.fi/en/health-and-social-services/health-care/health-stations/care-needs-assessment-and-booking-an-appointment-at-the-health-station
+    status: published
+    verified_on: 2026-11-13
+    source: hel-assessment
+  - key: hel-omaolo
+    kind: digital_service
+    routes: [A1]
+    name_fi: Omaolo-oirearvio
+    name_en: Omaolo symptom assessment
+    city: Helsinki
+    hours: "24/7; urgent: contact within 2 h; non-urgent: by next weekday"
+    contact_note: "Assessment is sent to a professional. Age 15+."
+    digital_channel: Omaolo
+    digital_login: Strong e-ID
+    service_languages: [fi, sv, en]
+    fee_note: ~
+    status: published
+    verified_on: 2026-11-13
+    source: hel-assessment
+  - key: hel-maisa
+    kind: digital_service
+    routes: [A1]
+    name_fi: Maisa (Apotti-potilasportaali)
+    name_en: Maisa patient portal
+    city: Helsinki
+    contact_note: "Non-urgent messages about current treatment, answered within 2 weekdays."
+    digital_channel: Maisa
+    digital_login: Strong e-ID
+    service_languages: [fi, sv, en]
+    status: published
+    verified_on: 2026-11-13
+    source: hel-assessment
+  - key: hel-116117
+    kind: after_hours
+    routes: [A1]
+    name_fi: Päivystysapu 116117
+    name_en: Medical Helpline 116117
+    city: Helsinki
+    phone: "116117"
+    hours: "24/7; call when the health station is closed, before going to an emergency department"
+    contact_note: "Free of charge. Works in Finnish, Swedish and partly English."
+    service_languages: [fi, sv, en]
+    status: published
+    verified_on: 2026-11-13
+    source: hel-urgent
+  - key: hel-112
+    kind: emergency
+    routes: [A1]
+    name_fi: Hätänumero 112
+    name_en: Emergency number 112
+    phone: "112"
+    contact_note: "Life-threatening situations (chest pain, breathlessness, paralysis, unconsciousness). 112 Suomi app and SMS to 112 exist."
+    status: published
+    verified_on: 2026-11-13
+    source: hel-urgent
+  - key: hel-emergency-malmi
+    kind: emergency
+    routes: [A1]
+    name_fi: Malmin päivystys
+    name_en: Malmi Emergency Department
+    city: Helsinki
+    contact_note: "Adult (16+) emergency department for east and north Helsinki."
+    status: published
+    verified_on: 2026-11-13
+    source: hus-malmi
+  - key: hel-emergency-meilahti
+    kind: emergency
+    routes: [A1]
+    name_fi: Meilahden yhteispäivystys
+    name_en: Meilahti Emergency Department
+    city: Helsinki
+    contact_note: "Adult (16+) emergency department. Entrance via Bridge Hospital, Paciuksenkatu 3. Psychiatric emergency for Helsinki is at Haartman."
+    status: published
+    verified_on: 2026-11-13
+    source: hus-meilahti
+  - key: hel-hus-specialist
+    kind: specialist_hospital
+    routes: [A1]
+    name_fi: HUS erikoissairaanhoito
+    name_en: HUS specialist care
+    contact_note: "A referral (lähete) is sent electronically by the doctor. The referring unit stays responsible until HUS accepts the referral. A HUS specialist reviews every referral and sets its urgency."
+    digital_channel: Maisa
+    url: https://www.hus.fi/en/patient/patient-guide/your-rights-patient/access-treatment-specialist-medical-care
+    status: published
+    verified_on: 2026-11-13
+    source: hus-access
+  - key: hel-screening-breast
+    kind: screening_provider
+    routes: [A1]
+    name_fi: Unilabs, Kamppi (rintasyövän seulonta)
+    name_en: Unilabs Kamppi (breast cancer screening)
+    city: Helsinki
+    contact_note: "Results and any follow-up invitation by SMS if you consented, otherwise by letter. Screening is free; no no-show fee for missed screening invitations."
+    status: published
+    verified_on: 2026-11-13
+    source: hel-breast-screening
+  - key: hel-screening-colorectal
+    kind: screening_provider
+    routes: [A1]
+    name_fi: HUS-laboratorio (suolistosyövän seulonnan näytepakkaukset)
+    name_en: HUS laboratory (colorectal screening kits)
+    city: Helsinki
+    contact_note: "HUS laboratory sends the kits. Result by letter within about 1 month, not by phone. A positive result means blood was found; follow-up is explained in the letter."
+    status: published
+    verified_on: 2026-11-13
+    source: hel-colorectal
+  - key: hel-occupational
+    kind: occupational
+    routes: [A2]
+    name_fi: Työterveyshuolto
+    name_en: Occupational health care
+    contact_note: "Preventive care is mandatory, arranged and paid by the employer. Medical care (sairaanhoito) is voluntary for the employer: ask your workplace what is covered. Entrepreneurs must arrange it for employees, not for themselves."
+    fee_note: Free for the employee.
+    status: published
+    verified_on: 2026-11-13
+    source: kela-occupational
+  - key: hel-yths
+    kind: student
+    routes: [A3]
+    name_fi: YTHS Ylioppilaiden terveydenhoitosäätiö
+    name_en: YTHS student health service
+    contact_note: "Degree students in higher education who are registered as attending. Exchange and doctoral students are not covered. Upper-secondary and vocational students use the municipal student health care (free)."
+    digital_channel: YTHSDigi SelfChat
+    interpreter_how: ~
+    fee_note: "Student healthcare fee paid to Kela every term (no bill is sent). Students insured in another EU/EEA country, Switzerland or the UK can be exempt with an EHIC."
+    url: https://www.yths.fi/en/services/student-healthcare-services/frequently-asked-questions/
+    status: published
+    verified_on: 2026-11-13
+    source: yths-faq
+  - key: hel-reception-centre
+    kind: reception_centre
+    routes: [A5, A6]
+    name_fi: Vastaanottokeskuksen terveydenhoitaja
+    name_en: Reception centre nurse
+    contact_note: "While in the reception system, contact an employee of your reception centre or the reception centre nurse. 112 in urgent situations. After about 1 year of residence a home municipality can be applied for (DVV); care then moves to the health station."
+    status: published
+    verified_on: 2026-11-13
+    source: migri-health
+  - key: hel-kalasatama
+    kind: health_station
+    routes: [A7]
+    name_fi: Kalasataman terveys- ja hyvinvointikeskus, paperittomat
+    name_en: Kalasatama health and wellbeing centre, undocumented people
+    city: Helsinki
+    hours: "Mon–Fri 8–11"
+    walk_in: Walk-in needs assessment.
+    contact_note: "Helsinki keeps necessary care for adults like residents. Under-18s and pregnant people get full resident services."
+    fee_note: "Doctor and nurse visits free; emergency and dental care are charged."
+    status: published
+    verified_on: 2026-11-13
+    source: hel-kalasatama
+  - key: hel-global-clinic
+    kind: volunteer_clinic
+    routes: [A7]
+    name_fi: Global Clinic
+    name_en: Global Clinic
+    city: Helsinki
+    contact_note: "Free, confidential, volunteer-run advice and guidance (Helsinki and Turku). It does not report clients to the authorities."
+    status: published
+    verified_on: 2026-11-13
+    source: hel-welcome
+  - key: hel-private
+    kind: private
+    routes: [A4]
+    name_fi: Yksityinen lääkäriasema
+    name_en: Private clinic
+    contact_note: "Faster to book but much more expensive. Kela's share can be deducted at the cash desk if you show your Kela card. The doctor can refer you to HUS."
+    fee_note: "Kela reimburses 8 EUR per private doctor visit (from 1 Jan 2026). Lab or imaging tests ordered on a private referral do not count towards the 815 EUR public payment ceiling."
+    status: published
+    verified_on: 2026-11-13
+    source: kela-private
+  - key: hel-ehic
+    kind: health_station
+    routes: [A8]
+    name_fi: Terveysasema (EHIC tai hoito-oikeustodistus)
+    name_en: Health station with EHIC or right-to-care certificate
+    city: Helsinki
+    contact_note: "With an EHIC or a right-to-care certificate, medically necessary care at the resident's client fee; without one, in principle urgent care only at full cost. Nordic citizens: same terms and prices as Finns. Use the health station like route A1."
+    status: draft
+    source: kela-eu
+
+steps:
+  - stage: contact
+    point: hel-phone-service
+    informed_by: phone
+    if_nothing_heard: "You are called back at most twice. Use one channel only."
+    status: published
+    verified_on: 2026-11-13
+    source: hel-phone
+  - stage: assessment
+    point: hel-omaolo
+    portal: Omaolo
+    if_nothing_heard: "Omaolo: urgent assessments contacted within 2 h, non-urgent by the next weekday."
+    status: published
+    verified_on: 2026-11-13
+    source: hel-assessment
+  - stage: primary_visit
+    point: hel-health-station
+    informed_by: phone
+    status: draft
+    source: hel-assessment
+  - stage: referral_processing
+    point: hel-hus-specialist
+    informed_by: letter
+    portal: Maisa
+    if_nothing_heard: "Non-urgent referral is processed within 3 weeks. If no letter or Maisa message by then, call the unit that wrote the referral or the HUS unit. For an urgent referral, call after a few days (Silta read, not an official rule)."
+    status: draft
+    source: hus-access
+  - stage: specialist_first_visit
+    point: hel-hus-specialist
+    informed_by: letter
+    portal: Maisa
+    status: published
+    verified_on: 2026-11-13
+    source: hus-pathway
+  - stage: diagnostics
+    point: hel-hus-specialist
+    informed_by: letter
+    portal: Maisa
+    status: published
+    verified_on: 2026-11-13
+    source: hus-pathway
+  - stage: treatment_start
+    point: hel-hus-specialist
+    status: published
+    verified_on: 2026-11-13
+    source: hus-pathway
+  - stage: screening_invitation
+    informed_by: letter
+    status: draft
+    source: luvn-screening
+  - stage: screening_result
+    point: hel-screening-breast
+    informed_by: sms
+    status: published
+    verified_on: 2026-11-13
+    source: hel-breast-screening
+  - stage: screening_followup
+    point: hel-screening-breast
+    informed_by: sms
+    status: published
+    verified_on: 2026-11-13
+    source: hel-breast-screening
+
+screening:
+  - cancer: breast
+    ages: "not in source"
+    provider: Unilabs, Kamppi
+    invitation_channel: "letter; results and follow-up invitation by SMS if consented, otherwise letter"
+    status: draft
+    source: hel-breast-screening
+  - cancer: cervical
+    ages: "not in source"
+    provider: "not named in source (Pap test is free)"
+    invitation_channel: letter
+    self_sampling: false
+    status: draft
+    source: fimlab-self-sampling
+  - cancer: colorectal
+    ages: "not in source"
+    provider: HUS laboratory
+    invitation_channel: "letter; kit sent by post, result by letter within about 1 month"
+    status: draft
+    source: hel-colorectal
+
+findings:
+  - key: hel-wait-over-week
+    stage: primary_visit
+    barrier: B2
+    finding: "In 2025, 75.9% of non-urgent doctor visits in Helsinki waited over 7 days from the needs assessment, up from 66.6% in 2023 (Finland 54.7%)."
+    status: published
+    verified_on: 2026-11-13
+    source: sotkanet-6411
+  - key: hel-wait-over-three-months
+    stage: primary_visit
+    barrier: B2
+    finding: "In 2025, 5.7% of non-urgent doctor visits in Helsinki waited over 3 months, beyond the legal limit, up from 0.7% in 2023 (Finland 1.7%)."
+    status: published
+    verified_on: 2026-11-13
+    source: sotkanet-6410
+  - key: hel-limit-relaxed
+    stage: primary_visit
+    finding: "The legal limit for non-urgent primary care was relaxed from 14 days to 3 months on 1 Jan 2025, and SOSTE reports somewhat weaker access since."
+    status: published
+    verified_on: 2026-11-13
+    source: soste-hoitotakuu
+  - key: hel-phone-first-callback
+    stage: contact
+    barrier: B2
+    finding: "Helsinki health-station phone lines are short (Mon–Thu 8–16, Fri 8–15), the callback comes from an unknown number and is tried at most twice."
+    status: published
+    verified_on: 2026-11-13
+    source: hel-phone
+  - key: hel-digital-eid
+    stage: contact
+    finding: "Omaolo and Maisa need strong e-ID, so people without Finnish bank codes or mobile ID cannot use them."
+    status: published
+    verified_on: 2026-11-13
+    source: hel-assessment
+  - key: hel-digital-languages
+    stage: contact
+    finding: "Omaolo, Maisa and 116117 work in Finnish, Swedish and only partly English."
+    status: published
+    verified_on: 2026-11-13
+    source: hel-suomi-116117
+  - key: hel-interpreter-ask
+    stage: contact
+    barrier: B7
+    finding: "A free interpreter is a right in Helsinki, but the patient has to state the language when booking."
+    status: published
+    verified_on: 2026-11-13
+    source: hel-language-rights
+  - key: hel-rare-language-interpreters
+    stage: primary_visit
+    barrier: B7
+    finding: "Interpreters for rarer languages are hard to get, and state targeted funding for interpreting changed in 2025."
+    status: draft
+    source: solita-interpreting
+  - key: hel-letters-finnish
+    stage: screening_invitation
+    finding: "Screening, HUS appointment and colorectal result letters and Maisa notices come in Finnish; no other-language versions were found, which is not confirmed."
+    status: draft
+    source: hus-pathway
+  - key: hel-no-electronic-screening-invites
+    stage: screening_invitation
+    finding: "Fimlab's electronic screening invitations and home HPV self-sampling pilot do not cover Uusimaa, so invitations here stay letters."
+    status: draft
+    source: fimlab-self-sampling
+  - key: hel-noshow-fee
+    stage: primary_visit
+    barrier: B1
+    finding: "A missed or under-24-h cancelled Helsinki visit costs 60.60 EUR for adults even when the visit itself is free; missed screening invitations carry no fee."
+    status: published
+    verified_on: 2026-11-13
+    source: hel-fees
+  - key: hel-eligibility-confusion
+    stage: contact
+    barrier: B8
+    finding: "EU citizens without an EHIC, people waiting for a home municipality and undocumented people (narrower national law from 2026) face full charges or urgent care only."
+    status: published
+    verified_on: 2026-11-13
+    source: kela-eu
+  - key: hel-continuity
+    stage: primary_visit
+    finding: "Nationally only about half of non-urgent health-station doctor visits happened within a week in spring 2023, and continuity of care is poor."
+    status: published
+    verified_on: 2026-11-13
+    source: sttinfo-visits-week
+  - key: hel-diagnostic-delay
+    stage: diagnostics
+    finding: "About one in three cancer patients felt their diagnosis was delayed (patient survey)."
+    status: published
+    verified_on: 2026-11-13
+    source: sttinfo-delay-survey

@@ -38,6 +38,7 @@ export default class Client {
     public readonly content: content.ServiceClient
     public readonly health: health.ServiceClient
     public readonly regions: regions.ServiceClient
+    public readonly service_paths: service_paths.ServiceClient
     public readonly visits: visits.ServiceClient
     public readonly voice: voice.ServiceClient
     private readonly options: ClientOptions
@@ -60,6 +61,7 @@ export default class Client {
         this.content = new content.ServiceClient(base)
         this.health = new health.ServiceClient(base)
         this.regions = new regions.ServiceClient(base)
+        this.service_paths = new service_paths.ServiceClient(base)
         this.visits = new visits.ServiceClient(base)
         this.voice = new voice.ServiceClient(base)
     }
@@ -753,6 +755,365 @@ export namespace regions {
     }
 }
 
+export namespace service_paths {
+    export interface AdminAreaView {
+        sources: SourceView[]
+        area: AreaRow
+        stages: domain.Stage[]
+        points: PointRow[]
+        steps: StepRow[]
+        screening: ScreeningRow[]
+        metrics: MetricRow[]
+        findings: FindingRow[]
+    }
+
+    export interface AreaPath {
+        area: AreaRow
+        stages: domain.Stage[]
+        points: PointRow[]
+        steps: StepRow[]
+        screening: ScreeningRow[]
+        metrics: MetricRow[]
+        findings: FindingRow[]
+    }
+
+    export interface AreaRow {
+        id: string
+        name: string
+        specialistProvider: string | null
+        collaborationArea: string | null
+        sotkanetRegionId: number | null
+    }
+
+    export interface AreaSummary {
+        counts: StatusCounts
+        id: string
+        name: string
+        specialistProvider: string | null
+        collaborationArea: string | null
+        sotkanetRegionId: number | null
+    }
+
+    export interface FindingInput {
+        id: number | null
+        county: string
+        key: string
+        stage: domain.StageCode
+        barrier: string | null
+        finding: string
+        status: domain.FactStatus
+        verifiedOn: string | null
+        sourceId: number | null
+    }
+
+    export interface FindingRow {
+        id: number
+        county: string
+        key: string
+        stage: domain.StageCode
+        barrier: string | null
+        finding: string
+        status: domain.FactStatus
+        verifiedOn: string | null
+        source: domain.SourceRef
+    }
+
+    export interface MetricInput {
+        area: string
+        stage: domain.StageCode
+        metric: string
+        definition: string
+        value: number
+        unit: string
+        period: string
+        better: domain.Better
+        scope: domain.MetricScope
+        status: domain.FactStatus
+        sourceId: number
+    }
+
+    export interface MetricRow {
+        id: number
+        area: string
+        stage: domain.StageCode
+        metric: string
+        definition: string
+        value: number
+        unit: string
+        period: string
+        better: domain.Better
+        scope: domain.MetricScope
+        status: domain.FactStatus
+        source: domain.SourceRef
+    }
+
+    export interface PointInput {
+        id: number | null
+        county: string
+        key: string
+        kind: domain.PointKind
+        routes: string[]
+        nameFi: string
+        nameEn: string | null
+        city: string | null
+        phone: string | null
+        hours: string | null
+        contactNote: string | null
+        callback: boolean | null
+        walkIn: string | null
+        digitalChannel: string | null
+        digitalLogin: string | null
+        serviceLanguages: string[] | null
+        interpreterHow: string | null
+        feeNote: string | null
+        url: string | null
+        status: domain.FactStatus
+        verifiedOn: string | null
+        sourceId: number | null
+    }
+
+    export interface PointRow {
+        id: number
+        county: string
+        key: string
+        kind: domain.PointKind
+        routes: string[]
+        nameFi: string
+        nameEn: string | null
+        city: string | null
+        phone: string | null
+        hours: string | null
+        contactNote: string | null
+        callback: boolean | null
+        walkIn: string | null
+        digitalChannel: string | null
+        digitalLogin: string | null
+        serviceLanguages: string[] | null
+        interpreterHow: string | null
+        feeNote: string | null
+        url: string | null
+        status: domain.FactStatus
+        verifiedOn: string | null
+        source: domain.SourceRef | null
+        updatedBy: string
+    }
+
+    export interface ScreeningInput {
+        county: string
+        cancer: domain.Cancer
+        ages: string
+        provider: string | null
+        invitationChannel: string | null
+        infoLanguages: string[] | null
+        followupPointId: number | null
+        selfSampling: boolean | null
+        status: domain.FactStatus
+        verifiedOn: string | null
+        sourceId: number | null
+    }
+
+    export interface ScreeningRow {
+        county: string
+        cancer: domain.Cancer
+        ages: string
+        provider: string | null
+        invitationChannel: string | null
+        infoLanguages: string[] | null
+        followupPointId: number | null
+        followupPointName: string | null
+        selfSampling: boolean | null
+        status: domain.FactStatus
+        verifiedOn: string | null
+        source: domain.SourceRef | null
+    }
+
+    export interface SourceInput {
+        url: string
+        title: string
+        publisher: string
+        capturedOn: string
+        brainRef: string | null
+    }
+
+    export interface SourceView {
+        id: number
+        url: string
+        title: string
+        publisher: string
+        capturedOn: string
+        brainRef: string | null
+    }
+
+    export interface StatusCounts {
+        draft: number
+        published: number
+        disputed: number
+        stale: number
+    }
+
+    export type StatusKind = "point" | "finding" | "metric" | "step" | "screening"
+
+    export interface StatusRequest {
+        kind: StatusKind
+        /**
+         * point, finding, metric
+         */
+        id?: number
+
+        /**
+         * step, screening
+         */
+        county?: string
+
+        /**
+         * stage (step) or cancer (screening)
+         */
+        ref?: string
+
+        status: domain.FactStatus
+        /**
+         * Stamp verified_on with today.
+         */
+        verify?: boolean
+    }
+
+    export interface StepInput {
+        county: string
+        stage: domain.StageCode
+        pointId: number | null
+        informedBy: domain.InformedBy | null
+        portal: string | null
+        ifNothingHeard: string | null
+        status: domain.FactStatus
+        verifiedOn: string | null
+        sourceId: number | null
+    }
+
+    export interface StepRow {
+        county: string
+        stage: domain.StageCode
+        pointId: number | null
+        pointName: string | null
+        informedBy: domain.InformedBy | null
+        portal: string | null
+        ifNothingHeard: string | null
+        status: domain.FactStatus
+        verifiedOn: string | null
+        source: domain.SourceRef | null
+    }
+
+    export class ServiceClient {
+        private baseClient: BaseClient
+
+        constructor(baseClient: BaseClient) {
+            this.baseClient = baseClient
+            this.adminAddSource = this.adminAddSource.bind(this)
+            this.adminArea = this.adminArea.bind(this)
+            this.adminSaveFinding = this.adminSaveFinding.bind(this)
+            this.adminSaveMetric = this.adminSaveMetric.bind(this)
+            this.adminSavePoint = this.adminSavePoint.bind(this)
+            this.adminSaveScreening = this.adminSaveScreening.bind(this)
+            this.adminSaveStep = this.adminSaveStep.bind(this)
+            this.adminSetStatus = this.adminSetStatus.bind(this)
+            this.area = this.area.bind(this)
+            this.areas = this.areas.bind(this)
+            this.compare = this.compare.bind(this)
+            this.stages = this.stages.bind(this)
+        }
+
+        public async adminAddSource(params: SourceInput): Promise<{
+    id: number
+}> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/service-paths/admin/sources`, JSON.stringify(params))
+            return await resp.json() as {
+    id: number
+}
+        }
+
+        public async adminArea(id: string): Promise<AdminAreaView> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/service-paths/admin/areas/${encodeURIComponent(id)}`)
+            return await resp.json() as AdminAreaView
+        }
+
+        public async adminSaveFinding(params: FindingInput): Promise<{
+    id: number
+}> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("PUT", `/api/service-paths/admin/findings`, JSON.stringify(params))
+            return await resp.json() as {
+    id: number
+}
+        }
+
+        public async adminSaveMetric(params: MetricInput): Promise<void> {
+            await this.baseClient.callTypedAPI("PUT", `/api/service-paths/admin/metrics`, JSON.stringify(params))
+        }
+
+        public async adminSavePoint(params: PointInput): Promise<{
+    id: number
+}> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("PUT", `/api/service-paths/admin/points`, JSON.stringify(params))
+            return await resp.json() as {
+    id: number
+}
+        }
+
+        public async adminSaveScreening(params: ScreeningInput): Promise<void> {
+            await this.baseClient.callTypedAPI("PUT", `/api/service-paths/admin/screening`, JSON.stringify(params))
+        }
+
+        public async adminSaveStep(params: StepInput): Promise<void> {
+            await this.baseClient.callTypedAPI("PUT", `/api/service-paths/admin/steps`, JSON.stringify(params))
+        }
+
+        public async adminSetStatus(params: StatusRequest): Promise<void> {
+            await this.baseClient.callTypedAPI("POST", `/api/service-paths/admin/status`, JSON.stringify(params))
+        }
+
+        public async area(id: string, params: {
+    route?: string
+}): Promise<AreaPath> {
+            // Convert our params into the objects we need for the request
+            const query = makeRecord<string, string | string[]>({
+                route: params.route,
+            })
+
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/service-paths/areas/${encodeURIComponent(id)}`, undefined, {query})
+            return await resp.json() as AreaPath
+        }
+
+        public async areas(): Promise<{
+    areas: AreaSummary[]
+}> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/service-paths/areas`)
+            return await resp.json() as {
+    areas: AreaSummary[]
+}
+        }
+
+        public async compare(): Promise<domain.CompareView> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/service-paths/compare`)
+            return await resp.json() as domain.CompareView
+        }
+
+        public async stages(): Promise<{
+    stages: domain.Stage[]
+}> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/service-paths/stages`)
+            return await resp.json() as {
+    stages: domain.Stage[]
+}
+        }
+    }
+}
+
 export namespace visits {
     export interface ClinicianSummary {
         code: string
@@ -844,6 +1205,11 @@ export namespace visits {
     export interface VisitView {
         code: string
         lang: string
+        /**
+         * False for Finnish and Swedish (national languages).
+         */
+        interpreterNeeded: boolean
+
         county: string
         state: VisitState
         stage: domain.StageView
@@ -1098,6 +1464,10 @@ export namespace voice {
 }
 
 export namespace domain {
+    export type Better = "lower" | "higher"
+
+    export type Cancer = "breast" | "cervical" | "colorectal"
+
     export interface Cards {
         symptoms: SymptomCard[]
         emergencySigns: string[]
@@ -1141,6 +1511,20 @@ export namespace domain {
 
     export type ClockBasis = "legal" | "recommended" | "open"
 
+    export interface CompareView {
+        areas: {
+            id: string
+            name: string
+        }[]
+        stages: Stage[]
+        metrics: MetricRow[]
+        steps: StepRow[]
+    }
+
+    export type FactStatus = "draft" | "published" | "disputed" | "stale"
+
+    export type InformedBy = "letter" | "portal" | "sms" | "phone" | "in_person"
+
     export interface InterruptView {
         id: string
         next: string
@@ -1155,8 +1539,9 @@ export namespace domain {
 
     /**
      * Literal unions written out: the Encore type parser does not support typeof X[number].
+     * Order is the language picker order: national languages, then by speakers in Finland.
      */
-    export type Lang = "en" | "fi" | "so" | "ar"
+    export type Lang = "en" | "fi" | "sv" | "ru" | "et" | "uk" | "ar" | "so" | "fa" | "zh" | "yue" | "vi" | "th"
 
     export interface LanguageDef {
         code: Lang
@@ -1172,6 +1557,30 @@ export namespace domain {
          */
         profile: string
     }
+
+    export type LimitBasis = "legal" | "recommended" | "open"
+
+    export interface MetricCell {
+        area: string
+        value: number | null
+        period: string | null
+        scope: MetricScope | null
+        vsFinland: VsFinland | null
+        source: SourceRef | null
+    }
+
+    export interface MetricRow {
+        metric: string
+        stage: StageCode
+        definition: string
+        unit: string
+        better: Better
+        period: string
+        finland: MetricCell
+        cells: MetricCell[]
+    }
+
+    export type MetricScope = "area" | "hospital_district" | "national"
 
     /**
      * How an outcome changes the journey state besides moving to `next`.
@@ -1216,6 +1625,8 @@ export namespace domain {
         adaptation: string | null
     }
 
+    export type PointKind = "health_station" | "phone_service" | "digital_service" | "after_hours" | "emergency" | "specialist_hospital" | "cancer_centre" | "screening_provider" | "screening_nurse" | "occupational" | "student" | "reception_centre" | "volunteer_clinic" | "private"
+
     export interface ResolvedText {
         text: string
         /**
@@ -1243,6 +1654,37 @@ export namespace domain {
         ifUnknownReview: ReviewKind | null
     }
 
+    export interface SourceRef {
+        id: number
+        url: string
+        title: string
+        publisher: string
+        capturedOn: string
+    }
+
+    export interface Stage {
+        code: StageCode
+        /**
+         * Journey stage in care_paths this stage belongs to (CARE_STEP_STAGES).
+         */
+        journeyStage: string
+
+        name: string
+        limits: StageLimit[]
+    }
+
+    /**
+     * Literal unions written out: the Encore type parser does not support typeof X[number].
+     */
+    export type StageCode = "contact" | "assessment" | "primary_visit" | "referral_processing" | "specialist_first_visit" | "diagnostics" | "treatment_start" | "screening_invitation" | "screening_result" | "screening_followup"
+
+    export interface StageLimit {
+        label: string
+        limit: string
+        basis: LimitBasis
+        ref: string
+    }
+
     export interface StageView {
         id: string
         outcomes: OutcomeView[]
@@ -1250,6 +1692,19 @@ export namespace domain {
         ladder: number
         checkIns: string[]
         overdueNext: string | null
+    }
+
+    export interface StepCell {
+        area: string
+        pointName: string | null
+        informedBy: InformedBy | null
+        ifNothingHeard: string | null
+        source: SourceRef | null
+    }
+
+    export interface StepRow {
+        stage: StageCode
+        cells: StepCell[]
     }
 
     export interface SymptomCard {
@@ -1262,6 +1717,8 @@ export namespace domain {
         path: string
         message: string
     }
+
+    export type VsFinland = "better" | "worse" | "same"
 }
 
 

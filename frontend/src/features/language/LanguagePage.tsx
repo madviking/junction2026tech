@@ -24,7 +24,6 @@ export function LanguagePage() {
                 label={language.name}
                 lang={language.code}
                 icon={<IconLanguage size={24} />}
-                detail={language.placeholder ? t('ui.language.unchecked') : undefined}
                 onPress={() => navigate(`/r/${language.code}`)}
               />
             ))}

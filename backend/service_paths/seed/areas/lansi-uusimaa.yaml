@@ -1,0 +1,548 @@
+# Service-path seed for Länsi-Uusimaa. Source: junction2026 brain
+# sources/2026-11-13-web-research-service-paths.md (web research captured 2026-11-13).
+county: lansi-uusimaa
+name: "Länsi-Uudenmaan hyvinvointialue"
+specialist_provider: HUS
+collaboration_area: "HUS yhteistyöalue"
+sotkanet_region_id: 969
+
+sources:
+  luvn-health-centre:
+    url: https://www.luvn.fi/en/services/health-services/health-centre
+    title: Health centre
+    publisher: Länsi-Uudenmaan hyvinvointialue
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  luvn-appointments:
+    url: https://www.luvn.fi/en/services/health-services/health-stations/health-centres-and-appointment-services
+    title: Health centres and appointment services
+    publisher: Länsi-Uudenmaan hyvinvointialue
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  espoo-booking:
+    url: https://www.espoo.fi/en/contacts/booking-appointment-health-care-centre
+    title: Booking an appointment at the health care centre
+    publisher: City of Espoo
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  luvn-urgent-weekdays:
+    url: https://www.luvn.fi/en/services/health-services/health-stations/emergency-and-urgent-care-on-weekdays-health-stations
+    title: Emergency and urgent care on weekdays, health stations
+    publisher: Länsi-Uudenmaan hyvinvointialue
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  sttinfo-lunna:
+    url: https://www.sttinfo.fi/tiedote/72061567/kaikki-lansiuusimaalaiset-nakevat-omat-terveystietonsa-lunnassa-215-alkaen?lang=fi
+    title: Kaikki länsiuusimaalaiset näkevät omat terveystietonsa Lunnassa 21.5. alkaen
+    publisher: Länsi-Uudenmaan hyvinvointialue (STT Info press release)
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  espoo-hello:
+    url: https://www.espoo.fi/en/hello-espoo-welcome-espoo/health-ageing-and-disabilities
+    title: Hello Espoo, health, ageing and disabilities
+    publisher: City of Espoo
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  luvn-oireapuri:
+    url: https://www.luvn.fi/en/news/2026/06/check-your-symptoms-easily-new-digital-service-helps-guide-you-right-care
+    title: Check your symptoms easily, new digital service helps guide you to the right care
+    publisher: Länsi-Uudenmaan hyvinvointialue
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  hus-jorvi:
+    url: https://www.hus.fi/en/hospitals-and-other-units/jorvi-emergency-department
+    title: Jorvi Emergency Department
+    publisher: HUS
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  hus-access:
+    url: https://www.hus.fi/en/patient/patient-guide/your-rights-patient/access-treatment-specialist-medical-care
+    title: Access to treatment in specialist medical care
+    publisher: HUS
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  hus-pathway:
+    url: https://www.hus.fi/en/node/6383.md
+    title: HUS cancer pathway (referral review, letter and Maisa notice, team meeting)
+    publisher: HUS
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  luvn-fees:
+    url: https://admin.luvn.fi/sites/default/files/2025-12/Sosiaali-%20ja%20terveydenhuollon%20asiakasmaksut%201.1.2026%20alkaen.pdf
+    title: Sosiaali- ja terveydenhuollon asiakasmaksut 1.1.2026 alkaen
+    publisher: Länsi-Uudenmaan hyvinvointialue
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  luvn-screening:
+    url: https://www.luvn.fi/en/services/health-services/health-stations/cancer-screening
+    title: Cancer screening
+    publisher: Länsi-Uudenmaan hyvinvointialue
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  fimlab-self-sampling:
+    url: https://fimlab.fi/en/ajankohtaista/cervical-cancer-screening-testing-of-self-sampling-method-continues-in-2026/
+    title: Cervical cancer screening, testing of self-sampling method continues in 2026
+    publisher: Fimlab
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  luvn-ai-interpreting:
+    url: https://www.luvn.fi/en/news/2025/11/easy-use-ai-interpreting-promotes-equality-while-saving-time-and-money
+    title: Easy-to-use AI interpreting promotes equality while saving time and money
+    publisher: Länsi-Uudenmaan hyvinvointialue
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  solita-interpreting:
+    url: https://www.solita.fi/wp-content/uploads/2025/05/S4_Reipas_tulkkaus-1.pdf
+    title: Reipas tulkkaus (interpreting presentation)
+    publisher: Solita
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  kela-occupational:
+    url: https://www.kela.fi/tyoterveyshuolto
+    title: Työterveyshuolto
+    publisher: Kela
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  kela-eu:
+    url: https://www.kela.fi/yhteistyokumppanit-terveydenhuolto-kansainvaliset-tilanteet-oikeus-hoitoon
+    title: Oikeus hoitoon kansainvälisissä tilanteissa
+    publisher: Kela
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  yths-faq:
+    url: https://www.yths.fi/en/services/student-healthcare-services/frequently-asked-questions/
+    title: Student healthcare services, frequently asked questions
+    publisher: YTHS (Finnish Student Health Service)
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  migri-health:
+    url: https://migri.fi/health-and-social-services
+    title: Health and social services
+    publisher: Finnish Immigration Service (Migri)
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  kela-private:
+    url: https://www.kela.fi/ajankohtaista/yksityislaakarikayntien-kela-korvaukset-pienenevat-1.1.2026
+    title: Yksityislääkärikäyntien Kela-korvaukset pienenevät 1.1.2026
+    publisher: Kela
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  valtioneuvosto-undocumented:
+    url: https://valtioneuvosto.fi/-/1271139/laittomasti-maassa-oleskelevalle-tarjottava-seka-kiireellinen-etta-yksilolliseen-tarpeeseen-perustuva-valttamaton-kiireeton-hoito
+    title: Laittomasti maassa oleskelevalle tarjottava sekä kiireellinen että yksilölliseen tarpeeseen perustuva välttämätön kiireetön hoito
+    publisher: Valtioneuvosto
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  kirkkonummen-sanomat:
+    url: https://www.kirkkonummensanomat.fi/lukijan-kommentti-rintasyopaseulonnan-saavutettavuutta-on-parannettava-6.175.84699.bd0d9e9163
+    title: Lukijan kommentti, rintasyöpäseulonnan saavutettavuutta on parannettava
+    publisher: Kirkkonummen Sanomat
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  sotkanet-6411:
+    url: https://sotkanet.fi/rest/1.1/json?indicator=6411&years=2025&genders=total
+    title: Sotkanet 6411, non-urgent doctor visits waiting over 7 days from needs assessment
+    publisher: THL / Sotkanet
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  sotkanet-6410:
+    url: https://sotkanet.fi/rest/1.1/json?indicator=6410&years=2025&genders=total
+    title: Sotkanet 6410, non-urgent doctor visits waiting over 3 months from needs assessment
+    publisher: THL / Sotkanet
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  soste-hoitotakuu:
+    url: https://www.soste.fi/wp-content/uploads/2026/06/SOSTE-2027-eduskuntavaalitavoitekori-2-hoitotakuu.pdf
+    title: SOSTE 2027 eduskuntavaalitavoitekori 2, hoitotakuu
+    publisher: SOSTE Suomen sosiaali ja terveys ry
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  sttinfo-delay-survey:
+    url: https://www.sttinfo.fi/tiedote/70972938/kyselyselvitys-joka-kolmas-syopapotilas-kokee-diagnoosin-viivastyneen?publisherId=69820264
+    title: Kyselyselvitys, joka kolmas syöpäpotilas kokee diagnoosin viivästyneen
+    publisher: STT Info press release
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+  sttinfo-visits-week:
+    url: https://www.sttinfo.fi/tiedote/69981865/terveysasemien-kiireettomista-laakarikaynneista-vain-puolet-toteutui-viikossa-kevaalla-2023?publisherId=69817778
+    title: Terveysasemien kiireettomista lääkärikäynneistä vain puolet toteutui viikossa keväällä 2023
+    publisher: STT Info press release
+    captured_on: 2026-11-13
+    brain_ref: sources/2026-11-13-web-research-service-paths.md
+
+points:
+  - key: luvn-health-centre
+    kind: health_station
+    routes: [A1]
+    name_fi: Kunnan terveysasema
+    name_en: Your municipality's health centre
+    contact_note: "Choose your municipality on luvn.fi for the health-centre number. Need for care may be assessed by phone; final assessment no later than the 3rd working day."
+    callback: true
+    fee_note: "Doctor visit 30.20 EUR for each of the first 3 doctor visits per calendar year (remote visits count), nurse visits free (2026). No-show 56.70 EUR for 18+ unless cancelled by 12:00 on the previous working day. Annual payment ceiling 815 EUR."
+    url: https://www.luvn.fi/en/services/health-services/health-stations/health-centres-and-appointment-services
+    status: published
+    verified_on: 2026-11-13
+    source: luvn-appointments
+  - key: luvn-booking-espoo
+    kind: phone_service
+    routes: [A1]
+    name_fi: Espoon terveysasemien ajanvaraus
+    name_en: Espoo health centre booking
+    city: Espoo
+    phone: "+358 9 4763 6400"
+    hours: "Mon–Fri 8–15:30"
+    contact_note: "Example for Espoo; other municipalities have their own numbers on luvn.fi. A nurse calls back."
+    callback: true
+    interpreter_how: You can ask for an interpreter to join the call.
+    status: published
+    verified_on: 2026-11-13
+    source: espoo-booking
+  - key: luvn-lunna
+    kind: digital_service
+    routes: [A1]
+    name_fi: Lunna
+    name_en: Lunna digital clinic
+    hours: "Digital clinic 8–20"
+    contact_note: "Chat, non-urgent messages, own records and lab results, limited self-booking. All 10 municipalities since 21 May 2026. HUS records still appear in Maisa."
+    digital_channel: Lunna
+    digital_login: "Finnish online-banking codes or mobile ID; without them Lunna cannot be used"
+    service_languages: [fi, sv, en]
+    url: https://www.luvn.fi/en/services/health-services/health-stations/emergency-and-urgent-care-on-weekdays-health-stations
+    status: published
+    verified_on: 2026-11-13
+    source: sttinfo-lunna
+  - key: luvn-oireapuri
+    kind: digital_service
+    routes: [A1]
+    name_fi: Lunna OireApuri
+    name_en: Lunna OireApuri symptom checker
+    hours: "8–20"
+    contact_note: "CE-marked symptom checker, pilot (June 2026) for Kirkkonummi residents aged 18+. Omaolo is mentioned for evenings and weekends."
+    digital_channel: Lunna OireApuri
+    service_languages: [fi, en]
+    status: published
+    verified_on: 2026-11-13
+    source: luvn-oireapuri
+  - key: luvn-urgent-clinics
+    kind: health_station
+    routes: [A1]
+    name_fi: Kiireellinen vastaanotto arkisin
+    name_en: Weekday urgent care
+    hours: "Weekdays 8–16 at your own health station; local urgent clinics 8–20 in Kirkkonummi, Raasepori and Lohja (Vihti and Karkkila at set hours)"
+    contact_note: "Choose the urgent option and ask for a callback."
+    callback: true
+    fee_note: "Urgent clinic 30.20 EUR weekdays, 41.40 EUR weekends and holidays."
+    status: published
+    verified_on: 2026-11-13
+    source: luvn-urgent-weekdays
+  - key: luvn-116117
+    kind: after_hours
+    routes: [A1]
+    name_fi: Päivystysapu 116117
+    name_en: Medical Helpline 116117
+    phone: "116117"
+    hours: Evenings and weekends, when health centres are closed
+    contact_note: "Call 116117 first, before going to an emergency department."
+    callback: true
+    interpreter_how: "Ask the nurse for an interpreter on the callback and name the language."
+    status: published
+    verified_on: 2026-11-13
+    source: luvn-urgent-weekdays
+  - key: luvn-emergency-jorvi
+    kind: emergency
+    routes: [A1]
+    name_fi: Jorvin päivystys
+    name_en: Jorvi Emergency Department
+    city: Espoo
+    hours: "24/7"
+    contact_note: "Emergency department for Espoo, Kauniainen and Kirkkonummi, age 16+. Everyone gets urgent care regardless of residence."
+    status: published
+    verified_on: 2026-11-13
+    source: hus-jorvi
+  - key: luvn-emergency-lohja
+    kind: emergency
+    routes: [A1]
+    name_fi: Lohjan päivystys
+    name_en: Lohja Emergency Department (HUS)
+    city: Lohja
+    hours: "24/7"
+    status: published
+    verified_on: 2026-11-13
+    source: luvn-urgent-weekdays
+  - key: luvn-hus-specialist
+    kind: specialist_hospital
+    routes: [A1]
+    name_fi: HUS erikoissairaanhoito
+    name_en: HUS specialist care
+    contact_note: "A referral (lähete) is sent electronically by the doctor. The referring unit stays responsible until HUS accepts the referral. A HUS specialist reviews every referral and sets its urgency. HUS records of Länsi-Uusimaa residents are in Maisa, not Lunna."
+    digital_channel: Maisa
+    url: https://www.hus.fi/en/patient/patient-guide/your-rights-patient/access-treatment-specialist-medical-care
+    status: published
+    verified_on: 2026-11-13
+    source: hus-access
+  - key: luvn-screening-arvoterveys
+    kind: screening_provider
+    routes: [A1]
+    name_fi: ArvoTerveys (Espoo, Kauniainen)
+    name_en: ArvoTerveys breast screening (Espoo, Kauniainen)
+    city: Espoo
+    contact_note: "Breast screening provider in 2026 for Espoo and Kauniainen."
+    status: published
+    verified_on: 2026-11-13
+    source: luvn-screening
+  - key: luvn-screening-terveystalo
+    kind: screening_provider
+    routes: [A1]
+    name_fi: Terveystalo (muut kunnat)
+    name_en: Terveystalo breast screening (other municipalities)
+    contact_note: "Breast screening provider in 2026 for the other municipalities."
+    status: published
+    verified_on: 2026-11-13
+    source: luvn-screening
+  - key: luvn-occupational
+    kind: occupational
+    routes: [A2]
+    name_fi: Työterveyshuolto
+    name_en: Occupational health care
+    contact_note: "Preventive care is mandatory, arranged and paid by the employer. Medical care (sairaanhoito) is voluntary for the employer: ask your workplace what is covered. Entrepreneurs must arrange it for employees, not for themselves."
+    fee_note: Free for the employee.
+    status: published
+    verified_on: 2026-11-13
+    source: kela-occupational
+  - key: luvn-yths
+    kind: student
+    routes: [A3]
+    name_fi: YTHS Ylioppilaiden terveydenhoitosäätiö
+    name_en: YTHS student health service
+    contact_note: "Degree students in higher education who are registered as attending. Exchange and doctoral students are not covered."
+    digital_channel: YTHSDigi SelfChat
+    fee_note: "Student healthcare fee paid to Kela every term (no bill is sent). Students insured in another EU/EEA country, Switzerland or the UK can be exempt with an EHIC."
+    url: https://www.yths.fi/en/services/student-healthcare-services/frequently-asked-questions/
+    status: published
+    verified_on: 2026-11-13
+    source: yths-faq
+  - key: luvn-reception-centre
+    kind: reception_centre
+    routes: [A5, A6]
+    name_fi: Vastaanottokeskuksen terveydenhoitaja
+    name_en: Reception centre nurse
+    contact_note: "While in the reception system, contact an employee of your reception centre or the reception centre nurse. 112 in urgent situations. After about 1 year of residence a home municipality can be applied for (DVV); care then moves to the health centre."
+    status: published
+    verified_on: 2026-11-13
+    source: migri-health
+  - key: luvn-private
+    kind: private
+    routes: [A4]
+    name_fi: Yksityinen lääkäriasema
+    name_en: Private clinic
+    contact_note: "Faster to book but much more expensive. The doctor can refer you to HUS."
+    fee_note: "Kela reimburses 8 EUR per private doctor visit (from 1 Jan 2026). Private lab bills do not count towards the 815 EUR public payment ceiling."
+    status: published
+    verified_on: 2026-11-13
+    source: kela-private
+  - key: luvn-ehic
+    kind: health_station
+    routes: [A8]
+    name_fi: Terveysasema (EHIC tai hoito-oikeustodistus)
+    name_en: Health centre with EHIC or right-to-care certificate
+    contact_note: "With an EHIC or a right-to-care certificate, medically necessary care at the resident's client fee; without one, in principle urgent care only at full cost. Nordic citizens: same terms and prices as Finns. Use the health centre like route A1."
+    status: draft
+    source: kela-eu
+  - key: luvn-global-clinic
+    kind: volunteer_clinic
+    routes: [A7]
+    name_fi: Global Clinic
+    name_en: Global Clinic
+    city: Helsinki
+    contact_note: "Länsi-Uusimaa has no public decision or page for undocumented people that we found. Urgent care at Jorvi or Lohja; Global Clinic gives free, confidential guidance and does not report clients to the authorities."
+    status: draft
+    source: valtioneuvosto-undocumented
+
+steps:
+  - stage: contact
+    point: luvn-booking-espoo
+    informed_by: phone
+    if_nothing_heard: "A nurse calls back."
+    status: published
+    verified_on: 2026-11-13
+    source: espoo-booking
+  - stage: assessment
+    point: luvn-health-centre
+    informed_by: phone
+    if_nothing_heard: "The final needs assessment is due no later than the 3rd working day."
+    status: published
+    verified_on: 2026-11-13
+    source: luvn-appointments
+  - stage: primary_visit
+    point: luvn-health-centre
+    informed_by: phone
+    status: draft
+    source: luvn-appointments
+  - stage: referral_processing
+    point: luvn-hus-specialist
+    informed_by: letter
+    portal: Maisa
+    if_nothing_heard: "Non-urgent referral is processed within 3 weeks. If no letter or Maisa message by then, call the unit that wrote the referral or the HUS unit. For an urgent referral, call after a few days (Silta read, not an official rule)."
+    status: draft
+    source: hus-access
+  - stage: specialist_first_visit
+    point: luvn-hus-specialist
+    informed_by: letter
+    portal: Maisa
+    status: published
+    verified_on: 2026-11-13
+    source: hus-pathway
+  - stage: diagnostics
+    point: luvn-hus-specialist
+    informed_by: letter
+    portal: Maisa
+    status: published
+    verified_on: 2026-11-13
+    source: hus-pathway
+  - stage: treatment_start
+    point: luvn-hus-specialist
+    status: published
+    verified_on: 2026-11-13
+    source: hus-pathway
+  - stage: screening_invitation
+    informed_by: letter
+    status: published
+    verified_on: 2026-11-13
+    source: luvn-screening
+
+screening:
+  - cancer: breast
+    ages: "not in source"
+    provider: "ArvoTerveys (Espoo, Kauniainen), Terveystalo (other municipalities)"
+    invitation_channel: letter
+    info_languages: [en, ar, so]
+    status: draft
+    source: luvn-screening
+  - cancer: cervical
+    ages: "not in source"
+    provider: "not named in source"
+    invitation_channel: letter
+    self_sampling: false
+    status: draft
+    source: fimlab-self-sampling
+  - cancer: colorectal
+    ages: "not in source"
+    provider: "not named in source (kit by post)"
+    invitation_channel: "letter; kit by post"
+    info_languages: [en, ar, so]
+    status: draft
+    source: luvn-screening
+
+findings:
+  - key: luvn-wait-over-week
+    stage: primary_visit
+    barrier: B2
+    finding: "In 2025, 40.0% of non-urgent doctor visits in Länsi-Uusimaa waited over 7 days from the needs assessment (Espoo 33.9%, Finland 54.7%)."
+    status: published
+    verified_on: 2026-11-13
+    source: sotkanet-6411
+  - key: luvn-wait-over-three-months
+    stage: primary_visit
+    barrier: B2
+    finding: "In 2025, 0.1% of non-urgent doctor visits in Länsi-Uusimaa waited over 3 months, against 1.7% in Finland."
+    status: published
+    verified_on: 2026-11-13
+    source: sotkanet-6410
+  - key: luvn-limit-relaxed
+    stage: primary_visit
+    finding: "The legal limit for non-urgent primary care was relaxed from 14 days to 3 months on 1 Jan 2025, and SOSTE reports somewhat weaker access since."
+    status: published
+    verified_on: 2026-11-13
+    source: soste-hoitotakuu
+  - key: luvn-phone-callback
+    stage: contact
+    barrier: B2
+    finding: "Booking at the Espoo health centre is by phone on weekdays 8–15:30 with a nurse callback."
+    status: published
+    verified_on: 2026-11-13
+    source: espoo-booking
+  - key: luvn-lunna-bank-codes
+    stage: contact
+    finding: "Lunna cannot be used without Finnish online-banking codes or mobile ID."
+    status: published
+    verified_on: 2026-11-13
+    source: espoo-hello
+  - key: luvn-lunna-languages
+    stage: contact
+    finding: "Lunna works in Finnish, Swedish and English only."
+    status: published
+    verified_on: 2026-11-13
+    source: sttinfo-lunna
+  - key: luvn-interpreter-procedure
+    stage: contact
+    barrier: B7
+    finding: "No luvn.fi page describes the interpreter right, cost or booking procedure; callers can ask for an interpreter on the booking call and the 116117 callback, and it is free by the national rule, which is not confirmed for Länsi-Uusimaa."
+    status: draft
+    source: espoo-hello
+  - key: luvn-ai-interpreting-scope
+    stage: contact
+    barrier: B7
+    finding: "Länsi-Uusimaa's real-time AI interpreting is described for maternity and child clinics, integration social services and youth services."
+    status: published
+    verified_on: 2026-11-13
+    source: luvn-ai-interpreting
+  - key: luvn-rare-language-interpreters
+    stage: primary_visit
+    barrier: B7
+    finding: "Interpreters for rarer languages are hard to get, and state targeted funding for interpreting changed in 2025."
+    status: draft
+    source: solita-interpreting
+  - key: luvn-letters-finnish
+    stage: screening_invitation
+    finding: "Screening, HUS appointment and colorectal result letters and Maisa notices come in Finnish; no other-language versions were found, which is not confirmed."
+    status: draft
+    source: hus-pathway
+  - key: luvn-no-electronic-screening-invites
+    stage: screening_invitation
+    finding: "Fimlab's electronic screening invitations and home HPV self-sampling pilot do not cover Uusimaa, so invitations here stay letters."
+    status: draft
+    source: fimlab-self-sampling
+  - key: luvn-doctor-fee-noshow
+    stage: primary_visit
+    barrier: B1
+    finding: "A Länsi-Uusimaa doctor visit costs 30.20 EUR for each of the first 3 visits a year, and a no-show costs 56.70 EUR unless cancelled by 12:00 on the previous working day."
+    status: published
+    verified_on: 2026-11-13
+    source: luvn-health-centre
+  - key: luvn-noshow-understanding
+    stage: primary_visit
+    finding: "A no-show fee may be charged only if the booking said so and gave cancellation instructions the client sufficiently understands (Client Fees Act section 3, quoted in the LUVN fee list)."
+    status: published
+    verified_on: 2026-11-13
+    source: luvn-fees
+  - key: luvn-eligibility-confusion
+    stage: contact
+    barrier: B8
+    finding: "EU citizens without an EHIC, people waiting for a home municipality and undocumented people (narrower national law from 2026) face full charges or urgent care only."
+    status: published
+    verified_on: 2026-11-13
+    source: kela-eu
+  - key: luvn-undocumented-unknown
+    stage: contact
+    barrier: B8
+    finding: "No public decision or page on care for undocumented people was found for Länsi-Uusimaa, so local rules beyond the national urgent-care duty are unverified."
+    status: draft
+    source: valtioneuvosto-undocumented
+  - key: luvn-continuity
+    stage: primary_visit
+    finding: "Nationally only about half of non-urgent health-station doctor visits happened within a week in spring 2023, and continuity of care is poor."
+    status: published
+    verified_on: 2026-11-13
+    source: sttinfo-visits-week
+  - key: luvn-diagnostic-delay
+    stage: diagnostics
+    finding: "About one in three cancer patients felt their diagnosis was delayed (patient survey)."
+    status: published
+    verified_on: 2026-11-13
+    source: sttinfo-delay-survey
+  - key: luvn-fewer-screening-sites
+    stage: screening_invitation
+    barrier: B3
+    finding: "A reader's letter says LUVN mammography has been offered in only three places since 2025, which conflicts with the provider list on luvn.fi."
+    status: disputed
+    source: kirkkonummen-sanomat

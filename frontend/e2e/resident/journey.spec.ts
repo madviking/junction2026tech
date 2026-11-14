@@ -26,7 +26,7 @@ const TO_CONTACT = [
 test('(a) happy path: language → start → symptom → route → door → wait → visit → visit card', async ({ page }) => {
   await page.goto('/')
   await expect(page.getByRole('button', { name: 'English' })).toBeVisible()
-  await expect(page.getByRole('button', { name: 'العربية' })).toHaveAccessibleDescription(/not yet checked/)
+  await expect(page.getByRole('button', { name: 'العربية' })).not.toHaveAccessibleDescription(/not yet checked/)
   await shot(page, 'language-picker')
 
   await page.getByRole('button', { name: 'English' }).click()

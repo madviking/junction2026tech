@@ -6,11 +6,6 @@ ui.journey.title:
   fi: "Silta"
   so: "Silta"
   ar: "سيلتا"
-ui.journey.placeholder:
-  en: "This translation has not been checked yet."
-  fi: "Tätä käännöstä ei ole vielä tarkistettu."
-  so: "Tarjumaaddan weli lama hubin."
-  ar: "لم تتم مراجعة هذه الترجمة بعد."
 ui.journey.loading:
   en: "Loading"
   fi: "Ladataan"

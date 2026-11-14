@@ -5,6 +5,7 @@ import { appMeta } from 'encore.dev'
 import { APIError } from 'encore.dev/api'
 import log from 'encore.dev/log'
 import { exportRulesYaml } from '../care_paths/domain/export'
+import { addMissingSeedContent } from '../care_paths/domain/merge'
 import { buildSeedDoc } from '../care_paths/domain/seed'
 import { textsFor, type ResolvedText } from '../care_paths/domain/texts'
 import type { Cards, ContentDoc, Lang, LanguageDef, ReviewStatus, ValidationIssue } from '../care_paths/domain/types'
@@ -107,36 +108,22 @@ async function syncSeed(): Promise<void> {
     const live = (await repo.getRelease(tx, liveId))!
     if (live.seedFingerprint === fingerprint) return
     // Live content made purely by the seed (also after a rollback to it) follows the seed
-    // files. Admin-made or merged content only gets missing texts added (below).
+    // files. Admin-made or merged content only gets missing languages and texts added.
     if (live.createdBy === SEED_ACTOR) {
       const r = await repo.insertPublished(tx, { doc: seedDoc, createdBy: SEED_ACTOR, note: 'Seed files changed', seedFingerprint: fingerprint, basedOn: live.id })
       await repo.setLive(tx, r.id, SEED_ACTOR)
       log.info('content reseeded', { version: r.version })
       return
     }
-    const merged = addMissingTexts(live.doc, seedDoc)
+    const merged = addMissingSeedContent(live.doc, seedDoc)
     if (!merged) return
     failOnErrors(validateDoc(merged), 'seed merge')
-    const r = await repo.insertPublished(tx, { doc: merged, createdBy: SEED_MERGE_ACTOR, note: 'New seed texts added', seedFingerprint: fingerprint, basedOn: live.id })
+    const r = await repo.insertPublished(tx, { doc: merged, createdBy: SEED_MERGE_ACTOR, note: 'New seed languages or texts added', seedFingerprint: fingerprint, basedOn: live.id })
     await repo.setLive(tx, r.id, SEED_MERGE_ACTOR)
     const draft = await repo.getDraft(tx)
-    if (draft) await repo.saveDraft(tx, addMissingTexts(draft.doc, seedDoc) ?? draft.doc, r.id, draft.createdBy)
+    if (draft) await repo.saveDraft(tx, addMissingSeedContent(draft.doc, seedDoc) ?? draft.doc, r.id, draft.createdBy)
     log.info('content seed texts merged', { version: r.version })
   })
-}
-
-// Adds seed text entries that the document lacks; never overwrites. Null when nothing is missing.
-function addMissingTexts(doc: ContentDoc, seed: ContentDoc): ContentDoc | null {
-  let added = 0
-  const texts = structuredClone(doc.texts)
-  for (const [key, byLang] of Object.entries(seed.texts)) {
-    for (const [lang, entry] of Object.entries(byLang)) {
-      if (texts[key]?.[lang]) continue
-      texts[key] = { ...texts[key], [lang]: entry }
-      added++
-    }
-  }
-  return added ? { ...doc, texts } : null
 }
 
 function failOnErrors(issues: ValidationIssue[], what: string) {

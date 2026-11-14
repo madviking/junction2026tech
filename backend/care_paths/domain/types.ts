@@ -3,8 +3,9 @@
 // flags and links only (keys for wording come from keys.ts).
 
 // Literal unions written out: the Encore type parser does not support typeof X[number].
-export type Lang = 'en' | 'fi' | 'so' | 'ar'
-export const LANGS: readonly Lang[] = ['en', 'fi', 'so', 'ar']
+// Order is the language picker order: national languages, then by speakers in Finland.
+export type Lang = 'en' | 'fi' | 'sv' | 'ru' | 'et' | 'uk' | 'ar' | 'so' | 'fa' | 'zh' | 'yue' | 'vi' | 'th'
+export const LANGS: readonly Lang[] = ['en', 'fi', 'sv', 'ru', 'et', 'uk', 'ar', 'so', 'fa', 'zh', 'yue', 'vi', 'th']
 
 // Stages a barrier step can attach to (the care-path overview), from rules.yaml.
 export const CARE_STEP_STAGES = ['describe', 'route', 'contact', 'wait', 'visit', 'followup'] as const

@@ -5,7 +5,7 @@
     "env_name": "aiven",
     "env_type": "production",
     "cloud": "gcp",
-    "base_url": "http://localhost:8300"
+    "base_url": "https://easily-smart-aphid.eur-1.aiven.app"
   },
   "sql_servers": [
     {

@@ -41,7 +41,7 @@ export const bundle: LiveBundle = {
     'ui.journey.symptom.confirm': text('Continue'),
     'ui.journey.error.not_found': text('We could not find this code.'),
     'ui.journey.error.back_start': text('Back to start'),
-    'ui.language.unchecked': text('Translation not yet checked'),
+    'ui.journey.placeholder': text('Translation not yet checked'),
     'card.symptom.lump.card': text('A new lump'),
     'card.symptom.cough.card': text('A long cough'),
     'card.emergency.chest_pain': text('Chest pain'),
@@ -70,6 +70,7 @@ export function visitView(overrides: Partial<VisitView> = {}): VisitView {
   return {
     code: CODE,
     lang: 'en',
+    interpreterNeeded: true,
     county: 'helsinki',
     state: { stage: 'describe', lane: null, route: null, ladderStep: 0, visitDate: null, tries: [] },
     stage: describeStage,

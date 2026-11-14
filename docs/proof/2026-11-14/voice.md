@@ -66,3 +66,24 @@ seconds and transcript length only.
 | tts.resident | 4 | 83 | 0 | 0.00664 |
 | tts.fixture | 2 | 66 | 0 | 0.00528 |
 | stt.resident | 2 | 0 | 4.88 | 0.00027 |
+
+## 9 added languages (14 Nov, later)
+
+Proof level: **local app**, real ElevenLabs calls (`voiceProviderConfig.mode = 'live'`).
+Published text `ui.language.title` (machine-translated placeholder, "Choose your language"),
+`GET /api/voice/clip?key=ui.language.title&lang=<lang>` then `GET` the blob URL.
+
+| Lang | Blob HTTP | Content type | Bytes | Source | Review |
+| --- | --- | --- | --- | --- | --- |
+| sv | 200 | audio/mpeg | 26,792 | generated | unchecked |
+| ru | 200 | audio/mpeg | 21,358 | generated | unchecked |
+| et | 200 | audio/mpeg | 26,792 | generated | unchecked |
+| uk | 200 | audio/mpeg | 26,792 | generated | unchecked |
+| fa | 200 | audio/mpeg | 33,061 | generated | unchecked |
+| zh | 200 | audio/mpeg | 28,046 | generated | unchecked |
+| yue | 200 | audio/mpeg | 21,358 | generated | unchecked |
+| vi | 200 | audio/mpeg | 24,284 | generated | unchecked |
+| th | 200 | audio/mpeg | 25,538 | generated | unchecked |
+
+132 characters in total ≈ $0.011 at $0.08/1K (computed from the texts; `voice_usage` not
+re-read). Not checked: pronunciation (nobody has listened), speech-to-text in these languages.

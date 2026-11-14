@@ -1,0 +1,1450 @@
+# Measured values for every area plus Finland. Source: junction2026 brain
+# sources/2026-11-14-sotkanet-thl-service-path-waits-five-areas.md (Sotkanet API, Cancer Registry).
+sources:
+  sotkanet-6411:
+    url: https://sotkanet.fi/rest/1.1/json?indicator=6411&years=2023&years=2025&genders=total
+    title: Sotkanet indicator 6411
+    publisher: THL / Sotkanet
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-sotkanet-thl-service-path-waits-five-areas.md
+  sotkanet-6410:
+    url: https://sotkanet.fi/rest/1.1/json?indicator=6410&years=2023&years=2025&genders=total
+    title: Sotkanet indicator 6410
+    publisher: THL / Sotkanet
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-sotkanet-thl-service-path-waits-five-areas.md
+  sotkanet-6412:
+    url: https://sotkanet.fi/rest/1.1/json?indicator=6412&years=2024&years=2025&genders=total
+    title: Sotkanet indicator 6412
+    publisher: THL / Sotkanet
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-sotkanet-thl-service-path-waits-five-areas.md
+  sotkanet-13:
+    url: https://sotkanet.fi/rest/1.1/json?indicator=13&years=2023&years=2025&genders=total
+    title: Sotkanet indicator 13
+    publisher: THL / Sotkanet
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-sotkanet-thl-service-path-waits-five-areas.md
+  sotkanet-5033:
+    url: https://sotkanet.fi/rest/1.1/json?indicator=5033&years=2025&years=2025&genders=total
+    title: Sotkanet indicator 5033
+    publisher: THL / Sotkanet
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-sotkanet-thl-service-path-waits-five-areas.md
+  sotkanet-3336:
+    url: https://sotkanet.fi/rest/1.1/json?indicator=3336&years=2023&years=2025&genders=total
+    title: Sotkanet indicator 3336
+    publisher: THL / Sotkanet
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-sotkanet-thl-service-path-waits-five-areas.md
+  sotkanet-3621:
+    url: https://sotkanet.fi/rest/1.1/json?indicator=3621&years=2023&years=2024&genders=total
+    title: Sotkanet indicator 3621
+    publisher: THL / Sotkanet
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-sotkanet-thl-service-path-waits-five-areas.md
+  sotkanet-3620:
+    url: https://sotkanet.fi/rest/1.1/json?indicator=3620&years=2023&years=2024&genders=total
+    title: Sotkanet indicator 3620
+    publisher: THL / Sotkanet
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-sotkanet-thl-service-path-waits-five-areas.md
+  sotkanet-6103:
+    url: https://sotkanet.fi/rest/1.1/json?indicator=6103&years=2023&years=2024&genders=total
+    title: Sotkanet indicator 6103
+    publisher: THL / Sotkanet
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-sotkanet-thl-service-path-waits-five-areas.md
+  cancer-registry-colorectal:
+    url: https://stats.cancerregistry.fi/joukkistilastot/colorectal.html
+    title: Colorectal cancer screening statistics by wellbeing services county
+    publisher: Finnish Cancer Registry
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-sotkanet-thl-service-path-waits-five-areas.md
+metrics:
+  - area: helsinki
+    stage: primary_visit
+    metric: sotkanet:6411
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 7 days'
+    value: 66.6
+    unit: '%'
+    period: '2023'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6411
+  - area: lansi-uusimaa
+    stage: primary_visit
+    metric: sotkanet:6411
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 7 days'
+    value: 48.8
+    unit: '%'
+    period: '2023'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6411
+  - area: kymenlaakso
+    stage: primary_visit
+    metric: sotkanet:6411
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 7 days'
+    value: 56.6
+    unit: '%'
+    period: '2023'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6411
+  - area: etela-pohjanmaa
+    stage: primary_visit
+    metric: sotkanet:6411
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 7 days'
+    value: 26.1
+    unit: '%'
+    period: '2023'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6411
+  - area: pohjois-pohjanmaa
+    stage: primary_visit
+    metric: sotkanet:6411
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 7 days'
+    value: 63.0
+    unit: '%'
+    period: '2023'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6411
+  - area: finland
+    stage: primary_visit
+    metric: sotkanet:6411
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 7 days'
+    value: 48.5
+    unit: '%'
+    period: '2023'
+    better: lower
+    scope: national
+    status: published
+    source: sotkanet-6411
+  - area: helsinki
+    stage: primary_visit
+    metric: sotkanet:6411
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 7 days'
+    value: 66.5
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6411
+  - area: lansi-uusimaa
+    stage: primary_visit
+    metric: sotkanet:6411
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 7 days'
+    value: 36.3
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6411
+  - area: kymenlaakso
+    stage: primary_visit
+    metric: sotkanet:6411
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 7 days'
+    value: 47.8
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6411
+  - area: etela-pohjanmaa
+    stage: primary_visit
+    metric: sotkanet:6411
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 7 days'
+    value: 38.6
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6411
+  - area: pohjois-pohjanmaa
+    stage: primary_visit
+    metric: sotkanet:6411
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 7 days'
+    value: 60.9
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6411
+  - area: finland
+    stage: primary_visit
+    metric: sotkanet:6411
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 7 days'
+    value: 43.4
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: national
+    status: published
+    source: sotkanet-6411
+  - area: helsinki
+    stage: primary_visit
+    metric: sotkanet:6411
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 7 days'
+    value: 75.9
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6411
+  - area: lansi-uusimaa
+    stage: primary_visit
+    metric: sotkanet:6411
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 7 days'
+    value: 40.0
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6411
+  - area: kymenlaakso
+    stage: primary_visit
+    metric: sotkanet:6411
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 7 days'
+    value: 61.8
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6411
+  - area: etela-pohjanmaa
+    stage: primary_visit
+    metric: sotkanet:6411
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 7 days'
+    value: 67.8
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6411
+  - area: pohjois-pohjanmaa
+    stage: primary_visit
+    metric: sotkanet:6411
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 7 days'
+    value: 63.3
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6411
+  - area: finland
+    stage: primary_visit
+    metric: sotkanet:6411
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 7 days'
+    value: 54.7
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: national
+    status: published
+    source: sotkanet-6411
+  - area: helsinki
+    stage: primary_visit
+    metric: sotkanet:6410
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 3 months'
+    value: 0.7
+    unit: '%'
+    period: '2023'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6410
+  - area: lansi-uusimaa
+    stage: primary_visit
+    metric: sotkanet:6410
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 3 months'
+    value: 0.4
+    unit: '%'
+    period: '2023'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6410
+  - area: kymenlaakso
+    stage: primary_visit
+    metric: sotkanet:6410
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 3 months'
+    value: 0.0
+    unit: '%'
+    period: '2023'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6410
+  - area: etela-pohjanmaa
+    stage: primary_visit
+    metric: sotkanet:6410
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 3 months'
+    value: 0.0
+    unit: '%'
+    period: '2023'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6410
+  - area: pohjois-pohjanmaa
+    stage: primary_visit
+    metric: sotkanet:6410
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 3 months'
+    value: 7.3
+    unit: '%'
+    period: '2023'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6410
+  - area: finland
+    stage: primary_visit
+    metric: sotkanet:6410
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 3 months'
+    value: 0.9
+    unit: '%'
+    period: '2023'
+    better: lower
+    scope: national
+    status: published
+    source: sotkanet-6410
+  - area: helsinki
+    stage: primary_visit
+    metric: sotkanet:6410
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 3 months'
+    value: 4.5
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6410
+  - area: lansi-uusimaa
+    stage: primary_visit
+    metric: sotkanet:6410
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 3 months'
+    value: 0.1
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6410
+  - area: kymenlaakso
+    stage: primary_visit
+    metric: sotkanet:6410
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 3 months'
+    value: 0.0
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6410
+  - area: etela-pohjanmaa
+    stage: primary_visit
+    metric: sotkanet:6410
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 3 months'
+    value: 0.1
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6410
+  - area: pohjois-pohjanmaa
+    stage: primary_visit
+    metric: sotkanet:6410
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 3 months'
+    value: 6.3
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6410
+  - area: finland
+    stage: primary_visit
+    metric: sotkanet:6410
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 3 months'
+    value: 0.9
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: national
+    status: published
+    source: sotkanet-6410
+  - area: helsinki
+    stage: primary_visit
+    metric: sotkanet:6410
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 3 months'
+    value: 5.7
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6410
+  - area: lansi-uusimaa
+    stage: primary_visit
+    metric: sotkanet:6410
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 3 months'
+    value: 0.1
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6410
+  - area: kymenlaakso
+    stage: primary_visit
+    metric: sotkanet:6410
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 3 months'
+    value: 0.0
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6410
+  - area: etela-pohjanmaa
+    stage: primary_visit
+    metric: sotkanet:6410
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 3 months'
+    value: 0.0
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6410
+  - area: pohjois-pohjanmaa
+    stage: primary_visit
+    metric: sotkanet:6410
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 3 months'
+    value: 11.1
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6410
+  - area: finland
+    stage: primary_visit
+    metric: sotkanet:6410
+    definition: 'Share of completed non-urgent primary-care doctor visits where the wait from needs assessment was over 3 months'
+    value: 1.7
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: national
+    status: published
+    source: sotkanet-6410
+  - area: helsinki
+    stage: primary_visit
+    metric: sotkanet:6412
+    definition: 'Share of completed non-urgent nurse and public-health nurse visits where the wait from needs assessment was over 7 days'
+    value: 1.6
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6412
+  - area: lansi-uusimaa
+    stage: primary_visit
+    metric: sotkanet:6412
+    definition: 'Share of completed non-urgent nurse and public-health nurse visits where the wait from needs assessment was over 7 days'
+    value: 11.3
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6412
+  - area: kymenlaakso
+    stage: primary_visit
+    metric: sotkanet:6412
+    definition: 'Share of completed non-urgent nurse and public-health nurse visits where the wait from needs assessment was over 7 days'
+    value: 6.8
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6412
+  - area: etela-pohjanmaa
+    stage: primary_visit
+    metric: sotkanet:6412
+    definition: 'Share of completed non-urgent nurse and public-health nurse visits where the wait from needs assessment was over 7 days'
+    value: 9.3
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6412
+  - area: pohjois-pohjanmaa
+    stage: primary_visit
+    metric: sotkanet:6412
+    definition: 'Share of completed non-urgent nurse and public-health nurse visits where the wait from needs assessment was over 7 days'
+    value: 17.3
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6412
+  - area: finland
+    stage: primary_visit
+    metric: sotkanet:6412
+    definition: 'Share of completed non-urgent nurse and public-health nurse visits where the wait from needs assessment was over 7 days'
+    value: 8.9
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: national
+    status: published
+    source: sotkanet-6412
+  - area: helsinki
+    stage: primary_visit
+    metric: sotkanet:6412
+    definition: 'Share of completed non-urgent nurse and public-health nurse visits where the wait from needs assessment was over 7 days'
+    value: 2.1
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6412
+  - area: lansi-uusimaa
+    stage: primary_visit
+    metric: sotkanet:6412
+    definition: 'Share of completed non-urgent nurse and public-health nurse visits where the wait from needs assessment was over 7 days'
+    value: 16.0
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6412
+  - area: kymenlaakso
+    stage: primary_visit
+    metric: sotkanet:6412
+    definition: 'Share of completed non-urgent nurse and public-health nurse visits where the wait from needs assessment was over 7 days'
+    value: 6.0
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6412
+  - area: etela-pohjanmaa
+    stage: primary_visit
+    metric: sotkanet:6412
+    definition: 'Share of completed non-urgent nurse and public-health nurse visits where the wait from needs assessment was over 7 days'
+    value: 13.1
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6412
+  - area: pohjois-pohjanmaa
+    stage: primary_visit
+    metric: sotkanet:6412
+    definition: 'Share of completed non-urgent nurse and public-health nurse visits where the wait from needs assessment was over 7 days'
+    value: 5.0
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-6412
+  - area: finland
+    stage: primary_visit
+    metric: sotkanet:6412
+    definition: 'Share of completed non-urgent nurse and public-health nurse visits where the wait from needs assessment was over 7 days'
+    value: 8.9
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: national
+    status: published
+    source: sotkanet-6412
+  - area: kymenlaakso
+    stage: referral_processing
+    metric: sotkanet:13
+    definition: 'Share of arrived specialised-care referrals processed within 3 days'
+    value: 77.3
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-13
+  - area: etela-pohjanmaa
+    stage: referral_processing
+    metric: sotkanet:13
+    definition: 'Share of arrived specialised-care referrals processed within 3 days'
+    value: 74.2
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-13
+  - area: pohjois-pohjanmaa
+    stage: referral_processing
+    metric: sotkanet:13
+    definition: 'Share of arrived specialised-care referrals processed within 3 days'
+    value: 76.9
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-13
+  - area: finland
+    stage: referral_processing
+    metric: sotkanet:13
+    definition: 'Share of arrived specialised-care referrals processed within 3 days'
+    value: 74.8
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: national
+    status: published
+    source: sotkanet-13
+  - area: kymenlaakso
+    stage: referral_processing
+    metric: sotkanet:13
+    definition: 'Share of arrived specialised-care referrals processed within 3 days'
+    value: 79.4
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-13
+  - area: etela-pohjanmaa
+    stage: referral_processing
+    metric: sotkanet:13
+    definition: 'Share of arrived specialised-care referrals processed within 3 days'
+    value: 69.3
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-13
+  - area: pohjois-pohjanmaa
+    stage: referral_processing
+    metric: sotkanet:13
+    definition: 'Share of arrived specialised-care referrals processed within 3 days'
+    value: 77.9
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-13
+  - area: finland
+    stage: referral_processing
+    metric: sotkanet:13
+    definition: 'Share of arrived specialised-care referrals processed within 3 days'
+    value: 75.9
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: national
+    status: published
+    source: sotkanet-13
+  - area: helsinki
+    stage: referral_processing
+    metric: sotkanet:13
+    definition: 'Share of arrived specialised-care referrals processed within 3 days'
+    value: 76.8
+    unit: '%'
+    period: '2025'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-13
+  - area: kymenlaakso
+    stage: referral_processing
+    metric: sotkanet:13
+    definition: 'Share of arrived specialised-care referrals processed within 3 days'
+    value: 82.0
+    unit: '%'
+    period: '2025'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-13
+  - area: etela-pohjanmaa
+    stage: referral_processing
+    metric: sotkanet:13
+    definition: 'Share of arrived specialised-care referrals processed within 3 days'
+    value: 68.9
+    unit: '%'
+    period: '2025'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-13
+  - area: pohjois-pohjanmaa
+    stage: referral_processing
+    metric: sotkanet:13
+    definition: 'Share of arrived specialised-care referrals processed within 3 days'
+    value: 78.0
+    unit: '%'
+    period: '2025'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-13
+  - area: finland
+    stage: referral_processing
+    metric: sotkanet:13
+    definition: 'Share of arrived specialised-care referrals processed within 3 days'
+    value: 76.8
+    unit: '%'
+    period: '2025'
+    better: higher
+    scope: national
+    status: published
+    source: sotkanet-13
+  - area: helsinki
+    stage: referral_processing
+    metric: sotkanet:5033
+    definition: 'Share of arrived specialised-care referrals processed after more than 21 days (legal limit 3 weeks)'
+    value: 1
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-5033
+  - area: kymenlaakso
+    stage: referral_processing
+    metric: sotkanet:5033
+    definition: 'Share of arrived specialised-care referrals processed after more than 21 days (legal limit 3 weeks)'
+    value: 2
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-5033
+  - area: etela-pohjanmaa
+    stage: referral_processing
+    metric: sotkanet:5033
+    definition: 'Share of arrived specialised-care referrals processed after more than 21 days (legal limit 3 weeks)'
+    value: 2
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-5033
+  - area: pohjois-pohjanmaa
+    stage: referral_processing
+    metric: sotkanet:5033
+    definition: 'Share of arrived specialised-care referrals processed after more than 21 days (legal limit 3 weeks)'
+    value: 1
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-5033
+  - area: finland
+    stage: referral_processing
+    metric: sotkanet:5033
+    definition: 'Share of arrived specialised-care referrals processed after more than 21 days (legal limit 3 weeks)'
+    value: 1
+    unit: '%'
+    period: '2025'
+    better: lower
+    scope: national
+    status: published
+    source: sotkanet-5033
+  - area: kymenlaakso
+    stage: treatment_start
+    metric: sotkanet:3336
+    definition: 'Patients who waited over 6 months for specialised care during the year, per 10 000 inhabitants'
+    value: 6.4
+    unit: per 10 000
+    period: '2023'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-3336
+  - area: etela-pohjanmaa
+    stage: treatment_start
+    metric: sotkanet:3336
+    definition: 'Patients who waited over 6 months for specialised care during the year, per 10 000 inhabitants'
+    value: 10.8
+    unit: per 10 000
+    period: '2023'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-3336
+  - area: pohjois-pohjanmaa
+    stage: treatment_start
+    metric: sotkanet:3336
+    definition: 'Patients who waited over 6 months for specialised care during the year, per 10 000 inhabitants'
+    value: 74.2
+    unit: per 10 000
+    period: '2023'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-3336
+  - area: finland
+    stage: treatment_start
+    metric: sotkanet:3336
+    definition: 'Patients who waited over 6 months for specialised care during the year, per 10 000 inhabitants'
+    value: 39.8
+    unit: per 10 000
+    period: '2023'
+    better: lower
+    scope: national
+    status: published
+    source: sotkanet-3336
+  - area: kymenlaakso
+    stage: treatment_start
+    metric: sotkanet:3336
+    definition: 'Patients who waited over 6 months for specialised care during the year, per 10 000 inhabitants'
+    value: 28.2
+    unit: per 10 000
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-3336
+  - area: etela-pohjanmaa
+    stage: treatment_start
+    metric: sotkanet:3336
+    definition: 'Patients who waited over 6 months for specialised care during the year, per 10 000 inhabitants'
+    value: 18.6
+    unit: per 10 000
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-3336
+  - area: pohjois-pohjanmaa
+    stage: treatment_start
+    metric: sotkanet:3336
+    definition: 'Patients who waited over 6 months for specialised care during the year, per 10 000 inhabitants'
+    value: 79.5
+    unit: per 10 000
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-3336
+  - area: finland
+    stage: treatment_start
+    metric: sotkanet:3336
+    definition: 'Patients who waited over 6 months for specialised care during the year, per 10 000 inhabitants'
+    value: 45.4
+    unit: per 10 000
+    period: '2024'
+    better: lower
+    scope: national
+    status: published
+    source: sotkanet-3336
+  - area: helsinki
+    stage: treatment_start
+    metric: sotkanet:3336
+    definition: 'Patients who waited over 6 months for specialised care during the year, per 10 000 inhabitants'
+    value: 1.4
+    unit: per 10 000
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-3336
+  - area: kymenlaakso
+    stage: treatment_start
+    metric: sotkanet:3336
+    definition: 'Patients who waited over 6 months for specialised care during the year, per 10 000 inhabitants'
+    value: 7.9
+    unit: per 10 000
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-3336
+  - area: etela-pohjanmaa
+    stage: treatment_start
+    metric: sotkanet:3336
+    definition: 'Patients who waited over 6 months for specialised care during the year, per 10 000 inhabitants'
+    value: 15.6
+    unit: per 10 000
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-3336
+  - area: pohjois-pohjanmaa
+    stage: treatment_start
+    metric: sotkanet:3336
+    definition: 'Patients who waited over 6 months for specialised care during the year, per 10 000 inhabitants'
+    value: 89.5
+    unit: per 10 000
+    period: '2025'
+    better: lower
+    scope: area
+    status: published
+    source: sotkanet-3336
+  - area: finland
+    stage: treatment_start
+    metric: sotkanet:3336
+    definition: 'Patients who waited over 6 months for specialised care during the year, per 10 000 inhabitants'
+    value: 36.0
+    unit: per 10 000
+    period: '2025'
+    better: lower
+    scope: national
+    status: published
+    source: sotkanet-3336
+  - area: helsinki
+    stage: screening_result
+    metric: sotkanet:3621
+    definition: 'Breast screening (mammography): share of invitees who attended'
+    value: 72.4
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-3621
+  - area: lansi-uusimaa
+    stage: screening_result
+    metric: sotkanet:3621
+    definition: 'Breast screening (mammography): share of invitees who attended'
+    value: 76.2
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-3621
+  - area: kymenlaakso
+    stage: screening_result
+    metric: sotkanet:3621
+    definition: 'Breast screening (mammography): share of invitees who attended'
+    value: 83.5
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-3621
+  - area: etela-pohjanmaa
+    stage: screening_result
+    metric: sotkanet:3621
+    definition: 'Breast screening (mammography): share of invitees who attended'
+    value: 85.0
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-3621
+  - area: pohjois-pohjanmaa
+    stage: screening_result
+    metric: sotkanet:3621
+    definition: 'Breast screening (mammography): share of invitees who attended'
+    value: 84.6
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-3621
+  - area: finland
+    stage: screening_result
+    metric: sotkanet:3621
+    definition: 'Breast screening (mammography): share of invitees who attended'
+    value: 81.4
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: national
+    status: published
+    source: sotkanet-3621
+  - area: helsinki
+    stage: screening_result
+    metric: sotkanet:3621
+    definition: 'Breast screening (mammography): share of invitees who attended'
+    value: 74.3
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-3621
+  - area: lansi-uusimaa
+    stage: screening_result
+    metric: sotkanet:3621
+    definition: 'Breast screening (mammography): share of invitees who attended'
+    value: 76.1
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-3621
+  - area: kymenlaakso
+    stage: screening_result
+    metric: sotkanet:3621
+    definition: 'Breast screening (mammography): share of invitees who attended'
+    value: 82.0
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-3621
+  - area: etela-pohjanmaa
+    stage: screening_result
+    metric: sotkanet:3621
+    definition: 'Breast screening (mammography): share of invitees who attended'
+    value: 85.0
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-3621
+  - area: pohjois-pohjanmaa
+    stage: screening_result
+    metric: sotkanet:3621
+    definition: 'Breast screening (mammography): share of invitees who attended'
+    value: 85.6
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-3621
+  - area: finland
+    stage: screening_result
+    metric: sotkanet:3621
+    definition: 'Breast screening (mammography): share of invitees who attended'
+    value: 81.6
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: national
+    status: published
+    source: sotkanet-3621
+  - area: helsinki
+    stage: screening_result
+    metric: sotkanet:3620
+    definition: 'Cervical screening (Pap): share of invitees who attended'
+    value: 71.7
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-3620
+  - area: lansi-uusimaa
+    stage: screening_result
+    metric: sotkanet:3620
+    definition: 'Cervical screening (Pap): share of invitees who attended'
+    value: 73.2
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-3620
+  - area: kymenlaakso
+    stage: screening_result
+    metric: sotkanet:3620
+    definition: 'Cervical screening (Pap): share of invitees who attended'
+    value: 76.5
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-3620
+  - area: etela-pohjanmaa
+    stage: screening_result
+    metric: sotkanet:3620
+    definition: 'Cervical screening (Pap): share of invitees who attended'
+    value: 78.7
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-3620
+  - area: pohjois-pohjanmaa
+    stage: screening_result
+    metric: sotkanet:3620
+    definition: 'Cervical screening (Pap): share of invitees who attended'
+    value: 73.6
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-3620
+  - area: finland
+    stage: screening_result
+    metric: sotkanet:3620
+    definition: 'Cervical screening (Pap): share of invitees who attended'
+    value: 72.8
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: national
+    status: published
+    source: sotkanet-3620
+  - area: helsinki
+    stage: screening_result
+    metric: sotkanet:3620
+    definition: 'Cervical screening (Pap): share of invitees who attended'
+    value: 71.4
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-3620
+  - area: lansi-uusimaa
+    stage: screening_result
+    metric: sotkanet:3620
+    definition: 'Cervical screening (Pap): share of invitees who attended'
+    value: 73.6
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-3620
+  - area: kymenlaakso
+    stage: screening_result
+    metric: sotkanet:3620
+    definition: 'Cervical screening (Pap): share of invitees who attended'
+    value: 76.5
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-3620
+  - area: etela-pohjanmaa
+    stage: screening_result
+    metric: sotkanet:3620
+    definition: 'Cervical screening (Pap): share of invitees who attended'
+    value: 82.3
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-3620
+  - area: pohjois-pohjanmaa
+    stage: screening_result
+    metric: sotkanet:3620
+    definition: 'Cervical screening (Pap): share of invitees who attended'
+    value: 73.6
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-3620
+  - area: finland
+    stage: screening_result
+    metric: sotkanet:3620
+    definition: 'Cervical screening (Pap): share of invitees who attended'
+    value: 73.4
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: national
+    status: published
+    source: sotkanet-3620
+  - area: helsinki
+    stage: screening_result
+    metric: sotkanet:6103
+    definition: 'Colorectal screening (FIT): share of invitees who attended'
+    value: 69.7
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-6103
+  - area: lansi-uusimaa
+    stage: screening_result
+    metric: sotkanet:6103
+    definition: 'Colorectal screening (FIT): share of invitees who attended'
+    value: 72.7
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-6103
+  - area: kymenlaakso
+    stage: screening_result
+    metric: sotkanet:6103
+    definition: 'Colorectal screening (FIT): share of invitees who attended'
+    value: 69.5
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-6103
+  - area: etela-pohjanmaa
+    stage: screening_result
+    metric: sotkanet:6103
+    definition: 'Colorectal screening (FIT): share of invitees who attended'
+    value: 74.9
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-6103
+  - area: pohjois-pohjanmaa
+    stage: screening_result
+    metric: sotkanet:6103
+    definition: 'Colorectal screening (FIT): share of invitees who attended'
+    value: 76.1
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-6103
+  - area: finland
+    stage: screening_result
+    metric: sotkanet:6103
+    definition: 'Colorectal screening (FIT): share of invitees who attended'
+    value: 74.4
+    unit: '%'
+    period: '2023'
+    better: higher
+    scope: national
+    status: published
+    source: sotkanet-6103
+  - area: helsinki
+    stage: screening_result
+    metric: sotkanet:6103
+    definition: 'Colorectal screening (FIT): share of invitees who attended'
+    value: 69.6
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-6103
+  - area: lansi-uusimaa
+    stage: screening_result
+    metric: sotkanet:6103
+    definition: 'Colorectal screening (FIT): share of invitees who attended'
+    value: 71.5
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-6103
+  - area: kymenlaakso
+    stage: screening_result
+    metric: sotkanet:6103
+    definition: 'Colorectal screening (FIT): share of invitees who attended'
+    value: 70.0
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-6103
+  - area: etela-pohjanmaa
+    stage: screening_result
+    metric: sotkanet:6103
+    definition: 'Colorectal screening (FIT): share of invitees who attended'
+    value: 74.6
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-6103
+  - area: pohjois-pohjanmaa
+    stage: screening_result
+    metric: sotkanet:6103
+    definition: 'Colorectal screening (FIT): share of invitees who attended'
+    value: 75.6
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: area
+    status: published
+    source: sotkanet-6103
+  - area: finland
+    stage: screening_result
+    metric: sotkanet:6103
+    definition: 'Colorectal screening (FIT): share of invitees who attended'
+    value: 73.5
+    unit: '%'
+    period: '2024'
+    better: higher
+    scope: national
+    status: published
+    source: sotkanet-6103
+  - area: helsinki
+    stage: screening_followup
+    metric: cancer_registry:fit_no_colonoscopy
+    definition: 'Share of FIT-positive screening participants with no colonoscopy in the screening programme'
+    value: 31.5
+    unit: '%'
+    period: '2023'
+    better: lower
+    scope: area
+    status: published
+    source: cancer-registry-colorectal
+  - area: lansi-uusimaa
+    stage: screening_followup
+    metric: cancer_registry:fit_no_colonoscopy
+    definition: 'Share of FIT-positive screening participants with no colonoscopy in the screening programme'
+    value: 23.0
+    unit: '%'
+    period: '2023'
+    better: lower
+    scope: area
+    status: published
+    source: cancer-registry-colorectal
+  - area: kymenlaakso
+    stage: screening_followup
+    metric: cancer_registry:fit_no_colonoscopy
+    definition: 'Share of FIT-positive screening participants with no colonoscopy in the screening programme'
+    value: 26.6
+    unit: '%'
+    period: '2023'
+    better: lower
+    scope: area
+    status: published
+    source: cancer-registry-colorectal
+  - area: etela-pohjanmaa
+    stage: screening_followup
+    metric: cancer_registry:fit_no_colonoscopy
+    definition: 'Share of FIT-positive screening participants with no colonoscopy in the screening programme'
+    value: 15.9
+    unit: '%'
+    period: '2023'
+    better: lower
+    scope: area
+    status: published
+    source: cancer-registry-colorectal
+  - area: pohjois-pohjanmaa
+    stage: screening_followup
+    metric: cancer_registry:fit_no_colonoscopy
+    definition: 'Share of FIT-positive screening participants with no colonoscopy in the screening programme'
+    value: 18.8
+    unit: '%'
+    period: '2023'
+    better: lower
+    scope: area
+    status: published
+    source: cancer-registry-colorectal
+  - area: helsinki
+    stage: screening_followup
+    metric: cancer_registry:fit_no_colonoscopy
+    definition: 'Share of FIT-positive screening participants with no colonoscopy in the screening programme'
+    value: 32.2
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: cancer-registry-colorectal
+  - area: lansi-uusimaa
+    stage: screening_followup
+    metric: cancer_registry:fit_no_colonoscopy
+    definition: 'Share of FIT-positive screening participants with no colonoscopy in the screening programme'
+    value: 25.5
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: cancer-registry-colorectal
+  - area: kymenlaakso
+    stage: screening_followup
+    metric: cancer_registry:fit_no_colonoscopy
+    definition: 'Share of FIT-positive screening participants with no colonoscopy in the screening programme'
+    value: 37.9
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: cancer-registry-colorectal
+  - area: etela-pohjanmaa
+    stage: screening_followup
+    metric: cancer_registry:fit_no_colonoscopy
+    definition: 'Share of FIT-positive screening participants with no colonoscopy in the screening programme'
+    value: 18.2
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: cancer-registry-colorectal
+  - area: pohjois-pohjanmaa
+    stage: screening_followup
+    metric: cancer_registry:fit_no_colonoscopy
+    definition: 'Share of FIT-positive screening participants with no colonoscopy in the screening programme'
+    value: 26.4
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: area
+    status: published
+    source: cancer-registry-colorectal
+  - area: finland
+    stage: screening_followup
+    metric: cancer_registry:fit_no_colonoscopy
+    definition: 'Share of FIT-positive screening participants with no colonoscopy in the screening programme'
+    value: 27.3
+    unit: '%'
+    period: '2024'
+    better: lower
+    scope: national
+    status: published
+    source: cancer-registry-colorectal

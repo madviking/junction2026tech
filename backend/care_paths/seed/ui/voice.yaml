@@ -4,7 +4,6 @@ ui.voice.play: {en: Listen, fi: Kuuntele, so: Dhagayso, ar: استمع}
 ui.voice.stop: {en: Stop listening, fi: Lopeta kuuntelu, so: Jooji dhegaysiga, ar: أوقف الاستماع}
 ui.voice.loading: {en: Loading audio, fi: Ääntä ladataan, so: Codka waa la soo dejinayaa, ar: جارٍ تحميل الصوت}
 ui.voice.error: {en: "Audio did not work. Tap to try again.", fi: "Ääni ei toiminut. Yritä uudelleen napauttamalla.", so: "Codku ma shaqayn. Taabo si aad mar kale isku daydo.", ar: "لم يعمل الصوت. اضغط للمحاولة مرة أخرى."}
-ui.voice.unchecked: {en: "audio not yet checked by a person", fi: "ääntä ei ole vielä tarkistettu", so: "cod aan weli qof hubin", ar: "صوت لم يراجعه شخص بعد"}
 ui.voice.record: {en: Tap to speak, fi: Puhu napauttamalla, so: Taabo oo hadal, ar: اضغط وتحدث}
 ui.voice.recording: {en: "Recording. Tap to stop.", fi: "Nauhoitetaan. Lopeta napauttamalla.", so: "Waa la duubayaa. Taabo si aad u joojiso.", ar: "جارٍ التسجيل. اضغط للإيقاف."}
 ui.voice.processing: {en: Listening to your answer, fi: Vastaustasi kuunnellaan, so: Jawaabtaada waa la dhegaysanayaa, ar: نستمع إلى إجابتك}

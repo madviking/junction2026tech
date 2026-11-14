@@ -7,12 +7,12 @@ import { VisitCodeBlock } from '@/features/visit-card/components/VisitCodeBlock'
 import { VisitSummary } from '@/features/visit-card/components/VisitSummary'
 import { APIError, ErrCode } from '@/shared/api/client'
 import { useContent } from '@/shared/i18n'
-import { EmergencyCallLink, ErrorState, LoadingState, PageShell, PlaceholderNotice, Stack } from '@/shared/ui'
+import { EmergencyCallLink, ErrorState, LoadingState, PageShell, Stack } from '@/shared/ui'
 
 /** /r/:lang/v/:code/card — the resident's visit card in their own language. */
 export function VisitCardPage() {
   const { code = '' } = useParams()
-  const { t, lang, placeholder } = useContent()
+  const { t, lang } = useContent()
   const navigate = useNavigate()
   const visit = useVisitCard(code, lang)
   const remove = useDeleteVisit(code)
@@ -31,7 +31,6 @@ export function VisitCardPage() {
       emergency={<EmergencyCallLink label={t('ui.visit.emergency')} phoneNumber="112" />}
     >
       <Stack gap="lg">
-        {placeholder && <PlaceholderNotice>{t('ui.visit.placeholder')}</PlaceholderNotice>}
         {visit.isPending && <LoadingState label={t('ui.visit.loading')} />}
         {visit.isError && (
           <ErrorState

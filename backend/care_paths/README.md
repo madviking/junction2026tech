@@ -46,7 +46,8 @@ structure only holds codes, flags and links.
   admin has published, the next start publishes the changed seed as a new version;
   after admin edits only missing text keys are merged (see `content/service.ts`).
 - Add a UI string: a `ui.<feature>.<name>` key in `seed/ui/<feature>.yaml` with `en` and
-  `fi` (and `so`/`ar` placeholders). Outside production the backend re-checks the seed
+  `fi` (and `so`/`ar` placeholders; the other languages keep their texts, `ui.*` included,
+  in `seed/texts.<lang>.yaml`). Outside production the backend re-checks the seed
   files at most every 5 s, so the key appears without a restart.
 
 Changes to the seed's journey draft (14 Nov): `door_known` has `sets: route`,

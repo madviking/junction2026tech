@@ -1,0 +1,512 @@
+# Service-path seed: Etelä-Pohjanmaa. Facts from the brain source
+# sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md (web research, 2026-11-14).
+county: etela-pohjanmaa
+name: Etelä-Pohjanmaan hyvinvointialue
+specialist_provider: Seinäjoen keskussairaala (Seinäjoki central hospital)
+collaboration_area: Sisä-Suomi
+sotkanet_region_id: 958
+
+sources:
+  seulonnat:
+    url: https://www.hyvaep.fi/palvelu/seulonnat/
+    title: Seulonnat (screenings)
+    publisher: Etelä-Pohjanmaan hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  odotusajat:
+    url: https://www.hyvaep.fi/tietoa-ja-ohjeita/hoitoonpaasy-ja-odotusajat/
+    title: Hoitoonpääsy ja odotusajat
+    publisher: Etelä-Pohjanmaan hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  fee-doc:
+    url: https://www.hyvaep.fi/uploads/2026/06/asiakasmaksuasiakirja-2026-002.pdf
+    title: Asiakasmaksuasiakirja 2026
+    publisher: Etelä-Pohjanmaan hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  thl-hoitotakuu:
+    url: https://www.hyvaep.fi/uploads/2026/11/hyvaep_thl-hoitotakuu-10-2026.pdf
+    title: THL hoitotakuuraportti 31.10.2026
+    publisher: Etelä-Pohjanmaan hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  urgent-care:
+    url: https://www.hyvaep.fi/palvelut/kiireellinen-hoito-ja-paivystys/
+    title: Kiireellinen hoito ja päivystys
+    publisher: Etelä-Pohjanmaan hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  sotkanet-6411:
+    url: https://sotkanet.fi/rest/1.1/json?indicator=6411&years=2025&genders=total
+    title: Sotkanet indicator 6411
+    publisher: THL / Sotkanet
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  seinajoki-brochure:
+    url: https://www.hyvaep.fi/uploads/2026/06/seinajoen-sosiaali-ja-terveyskeskuksen-yhteystietoesite_052026.pdf
+    title: Seinäjoen sosiaali- ja terveyskeskuksen yhteystietoesite
+    publisher: Etelä-Pohjanmaan hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  lapua-brochure:
+    url: https://www.hyvaep.fi/uploads/2026/06/lapuan-sosiaali-ja-terveyskeskuksen-yhteystiedot_052026.pdf
+    title: Lapuan sosiaali- ja terveyskeskuksen yhteystiedot
+    publisher: Etelä-Pohjanmaan hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  kauhava-plan:
+    url: https://www.hyvaep.fi/uploads/2026/05/omavalvontasuunnitelma-kauhavan-vastaanottopalvelut-2026.pdf
+    title: Omavalvontasuunnitelma, Kauhavan vastaanottopalvelut 2026
+    publisher: Etelä-Pohjanmaan hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  omaep:
+    url: https://www.hyvaep.fi/digitaaliset-palvelut/omaep-digipalvelu/
+    title: OmaEP-digipalvelu
+    publisher: Etelä-Pohjanmaan hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  in-english:
+    url: https://www.hyvaep.fi/in-english/
+    title: In English
+    publisher: Etelä-Pohjanmaan hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  suomi-cancer:
+    url: https://www.suomi.fi/palvelut/syopatautien-palvelut-etela-pohjanmaan-hyvinvointialue/2759fa61-0e65-414f-b424-543f5be9e339
+    title: Syöpätautien palvelut, Etelä-Pohjanmaan hyvinvointialue
+    publisher: Suomi.fi
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  vatu-plan:
+    url: https://www.hyvaep.fi/uploads/2026/05/vatu-omavalvonta-suunnitelma-11.5-vatu.pdf
+    title: Vatsatautien poliklinikan omavalvontasuunnitelma
+    publisher: Etelä-Pohjanmaan hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  tays-cancer-centre:
+    url: https://www.tayssyopakeskus.fi/potilaalle/
+    title: Tays Syöpäkeskus, potilaalle
+    publisher: Tays Syöpäkeskus
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  fimlab-colorectal:
+    url: https://fimlab.fi/en/colorectal-cancer-screening/suolistosyovan-seulonta-etela-pohjanmaan-alueen-yhteystiedot-eng/
+    title: Colorectal cancer screening, South Ostrobothnia contact details
+    publisher: Fimlab
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  breast-notice:
+    url: https://www.hyvaep.fi/tiedote/rintasyopaseulontoja-jarjestetaan-yhdeksalla-paikkakunnalla/
+    title: Rintasyöpäseulontoja järjestetään yhdeksällä paikkakunnalla
+    publisher: Etelä-Pohjanmaan hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  cervical-notice:
+    url: https://www.hyvaep.fi/tiedote/kohdunkaulan-syopaa-ehkaisevien-seulontojen-naytteenotto-laajenee/
+    title: Kohdunkaulan syöpää ehkäisevien seulontojen näytteenotto laajenee
+    publisher: Etelä-Pohjanmaan hyvinvointialue
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  yths:
+    url: https://www.yths.fi/en/service-units/seinajoki-5/
+    title: YTHS Seinäjoki service unit
+    publisher: YTHS (Finnish Student Health Service)
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  yle-sote:
+    url: https://yle.fi/a/74-20209360
+    title: Etelä-Pohjanmaan sote-keskusverkko (Yle, 10 Feb 2026)
+    publisher: Yle
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  yle-reception:
+    url: https://yle.fi/a/74-20042637
+    title: Vastaanottopalvelut Etelä-Pohjanmaalla (Yle, older report)
+    publisher: Yle
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  migri-health:
+    url: https://migri.fi/health-and-social-services
+    title: Health and social services
+    publisher: Finnish Immigration Service (Migri)
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+  kela-occupational:
+    url: https://www.kela.fi/tyoterveyshuolto
+    title: Työterveyshuolto
+    publisher: Kela
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-etela-pohjanmaa.md
+
+points:
+  - key: seinajoki-sote-keskus
+    kind: health_station
+    routes: [A1, A8]
+    name_fi: Seinäjoen sosiaali- ja terveyskeskus
+    name_en: Seinäjoki health centre
+    city: Seinäjoki
+    phone: 06 230 7210–7240
+    hours: "Non-urgent Mon–Thu 8–15:30, Fri 8–15; urgent Mon–Fri 8–18, Sat–Sun 9–18"
+    contact_note: "Call the team for your surname initial: Aa–Kan 06 230 7210, Kao–Man 06 230 7220, Mao–Rim 06 230 7230, Rin–Öö 06 230 7240"
+    fee_note: "2026: doctor visit €30.20 for each of the first 3 visits a year (18+), nurse visit free, urgent clinic €41.40 weekdays after 20:00 and weekends/holidays, no-show €73.70, payment ceiling €815"
+    url: https://www.hyvaep.fi/uploads/2026/06/seinajoen-sosiaali-ja-terveyskeskuksen-yhteystietoesite_052026.pdf
+    status: published
+    verified_on: 2026-11-14
+    source: seinajoki-brochure
+
+  - key: lapua-sote-keskus
+    kind: health_station
+    routes: [A1, A8]
+    name_fi: Lapuan sosiaali- ja terveyskeskus
+    name_en: Lapua health centre
+    city: Lapua
+    phone: 06 438 4844
+    hours: "Non-urgent doctor/nurse Mon–Thu 8–15:30, Fri 8–15; urgent Mon–Fri 8–18"
+    contact_note: "Example of a smaller centre: weekend urgent care is at the shared Seinäjoki clinic, reached through this centre's number"
+    url: https://www.hyvaep.fi/uploads/2026/06/lapuan-sosiaali-ja-terveyskeskuksen-yhteystiedot_052026.pdf
+    status: published
+    verified_on: 2026-11-14
+    source: lapua-brochure
+
+  - key: omaep
+    kind: digital_service
+    routes: [A1]
+    name_fi: OmaEP-digipalvelu
+    name_en: OmaEP digital service
+    digital_channel: "OmaEP app and omaep.fi: chat with professionals, remote appointments, booking, forms"
+    contact_note: "Login method and chat languages are not stated on the page"
+    url: https://www.hyvaep.fi/digitaaliset-palvelut/omaep-digipalvelu/
+    status: published
+    verified_on: 2026-11-14
+    source: omaep
+
+  - key: after-hours-116117
+    kind: after_hours
+    routes: [A1, A8]
+    name_fi: Päivystysapu 116117
+    name_en: After-hours medical advice 116117
+    phone: "116117"
+    hours: 24 h; evenings, nights and weekdays after 18 for urgent matters
+    contact_note: "112 for danger"
+    url: https://www.hyvaep.fi/palvelut/kiireellinen-hoito-ja-paivystys/
+    status: published
+    verified_on: 2026-11-14
+    source: urgent-care
+
+  - key: seinajoki-weekend-urgent-clinic
+    kind: after_hours
+    routes: [A1]
+    name_fi: Seinäjoen viikonlopun kiireellisen hoidon vastaanotto
+    name_en: Weekend urgent clinic, Seinäjoki
+    city: Seinäjoki
+    hours: Sat–Sun 9–18
+    contact_note: "One shared clinic for the Alajärvi, Ilmajoki, Kauhajoki, Kauhava, Kurikka, Lapua and Seinäjoki areas; call your own centre's number, it is routed automatically at weekends"
+    url: https://www.hyvaep.fi/palvelut/kiireellinen-hoito-ja-paivystys/
+    status: published
+    verified_on: 2026-11-14
+    source: urgent-care
+
+  - key: seinajoki-emergency
+    kind: emergency
+    routes: [A1, A8]
+    name_fi: Seinäjoen keskussairaalan päivystys
+    name_en: Emergency department, Seinäjoki central hospital
+    city: Seinäjoki
+    hours: 24 h
+    contact_note: "The only emergency department in the county. Y-talo, 1st floor, Koskenalantie 18, entrance Y10 (red cross). Relatives' line 06 415 3077"
+    url: https://www.hyvaep.fi/palvelut/kiireellinen-hoito-ja-paivystys/
+    status: published
+    verified_on: 2026-11-14
+    source: urgent-care
+
+  - key: seinajoki-emergency-undocumented
+    kind: emergency
+    routes: [A7]
+    name_fi: Seinäjoen keskussairaalan päivystys (paperittomat)
+    name_en: Emergency department, Seinäjoki (undocumented people)
+    city: Seinäjoki
+    contact_note: "Practical door for urgent care only; no Hyvaep decision, page or local clinic for undocumented people was found"
+    status: draft
+    source: urgent-care
+
+  - key: seinajoki-central-hospital
+    kind: specialist_hospital
+    routes: [A1, A2, A4]
+    name_fi: Seinäjoen keskussairaala
+    name_en: Seinäjoki central hospital
+    city: Seinäjoki
+    phone: 06 415 4111
+    hours: Switchboard Mon–Fri 7–18
+    contact_note: "Hanneksenrinne 7. Treatment needs a doctor's referral from a health centre, occupational health, private doctor or hospital clinic. Phone is the county switchboard"
+    url: https://www.hyvaep.fi/in-english/
+    status: published
+    verified_on: 2026-11-14
+    source: in-english
+
+  - key: seinajoki-cancer-clinic
+    kind: cancer_centre
+    routes: [A1, A2, A4]
+    name_fi: Syöpätautien poliklinikka, Seinäjoen keskussairaala
+    name_en: Cancer outpatient clinic, Seinäjoki central hospital
+    city: Seinäjoki
+    phone: "+358 6 415 4628"
+    contact_note: "Appointments line; haematology +358 6 415 4061. At the start of the call choose appointment or treatment. Team: doctor and nurse, multidisciplinary planning, cancer rehabilitation counsellor and social worker"
+    callback: true
+    service_languages: [fi, sv, en]
+    url: https://www.suomi.fi/palvelut/syopatautien-palvelut-etela-pohjanmaan-hyvinvointialue/2759fa61-0e65-414f-b424-543f5be9e339
+    status: published
+    verified_on: 2026-11-14
+    source: suomi-cancer
+
+  - key: radiotherapy-site
+    kind: cancer_centre
+    routes: [A1]
+    name_fi: Sädehoito (Vaasa tai Tays)
+    name_en: Radiotherapy (Vaasa or Tays)
+    contact_note: "Not given in Seinäjoki. The county's plan says it buys radiotherapy from Vaasa central hospital and sends patients to university hospitals (Tays, HUS); Tays Cancer Centre says Tays covers the whole cancer chain including radiotherapy. Exact site to confirm with the county"
+    url: https://www.hyvaep.fi/uploads/2026/05/vatu-omavalvonta-suunnitelma-11.5-vatu.pdf
+    status: disputed
+    source: vatu-plan
+
+  - key: terveystalo-breast-screening
+    kind: screening_provider
+    routes: [A1]
+    name_fi: Terveystalo, rintasyöpäseulonta
+    name_en: Terveystalo, breast screening
+    city: Seinäjoki
+    contact_note: "Sites in 9 towns: Alajärvi, Alavus, Ilmajoki, Kauhajoki, Kauhava, Kurikka, Lapua, Seinäjoki, Teuva (2025). Reschedule by link or phone Tue–Fri 9–16"
+    url: https://www.hyvaep.fi/tiedote/rintasyopaseulontoja-jarjestetaan-yhdeksalla-paikkakunnalla/
+    fee_note: "Screening is free (2026)"
+    status: published
+    verified_on: 2026-11-14
+    source: breast-notice
+
+  - key: mehilainen-cervical-screening
+    kind: screening_provider
+    routes: [A1]
+    name_fi: Mehiläinen, kohdunkaulan syöpäseulonta
+    name_en: Mehiläinen, cervical screening
+    city: Seinäjoki
+    contact_note: "Sampling in Seinäjoki, Alavus, Alajärvi, Kurikka, Kauhajoki (temporary), Kauhava. A missed time gets a new invitation, at most twice"
+    url: https://www.hyvaep.fi/tiedote/kohdunkaulan-syopaa-ehkaisevien-seulontojen-naytteenotto-laajenee/
+    fee_note: "Screening is free (2026)"
+    status: published
+    verified_on: 2026-11-14
+    source: cervical-notice
+
+  - key: fimlab-colorectal-screening
+    kind: screening_provider
+    routes: [A1]
+    name_fi: Fimlab, suolistosyöpäseulonta
+    name_en: Fimlab, colorectal screening
+    contact_note: "Home stool kit comes with the invitation and is returned by post"
+    service_languages: [fi, sv, en]
+    url: https://fimlab.fi/en/colorectal-cancer-screening/suolistosyovan-seulonta-etela-pohjanmaan-alueen-yhteystiedot-eng/
+    fee_note: "Screening is free (2026)"
+    status: published
+    verified_on: 2026-11-14
+    source: fimlab-colorectal
+
+  - key: gastro-clinic
+    kind: specialist_hospital
+    routes: [A1]
+    name_fi: Vatsatautien poliklinikka, Seinäjoen keskussairaala
+    name_en: Gastro outpatient clinic, Seinäjoki central hospital
+    city: Seinäjoki
+    phone: 050 474 2816
+    hours: "Screening nurse line weekdays 12–14"
+    contact_note: "Follows up positive colorectal screens. Has had a dedicated colorectal-screening nurse since 2024 and nurse-led phone consultations; endoscopy, lab and imaging are in the same building. The phone number is the screening nurse line listed on Fimlab's county page"
+    url: https://www.hyvaep.fi/uploads/2026/05/vatu-omavalvonta-suunnitelma-11.5-vatu.pdf
+    status: published
+    verified_on: 2026-11-14
+    source: vatu-plan
+
+  - key: occupational-health
+    kind: occupational
+    routes: [A2]
+    name_fi: Työterveyshuolto
+    name_en: Occupational health
+    contact_note: "No Hyvaep-specific page found. Employer arranges it; whether it covers medical care depends on the employer. A referral from occupational health is accepted by the cancer clinic"
+    url: https://www.kela.fi/tyoterveyshuolto
+    status: draft
+    source: kela-occupational
+
+  - key: yths-seinajoki
+    kind: student
+    routes: [A3]
+    name_fi: YTHS Seinäjoki
+    name_en: YTHS Seinäjoki (student health service)
+    city: Seinäjoki
+    hours: "Needs assessment Mon–Thu 8–15, Fri 8–14"
+    contact_note: "Simunantie 10, 60200 Seinäjoki. Temporary reduced phone hours (8–11) and chat hours noted on the page. Lab via Synlab, imaging via Terveystalo Seinäjoki"
+    url: https://www.yths.fi/en/service-units/seinajoki-5/
+    status: published
+    verified_on: 2026-11-14
+    source: yths
+
+  - key: private-seinajoki
+    kind: private
+    routes: [A4]
+    name_fi: Yksityiset lääkäriasemat Seinäjoella (Terveystalo, Mehiläinen)
+    name_en: Private clinics in Seinäjoki (Terveystalo, Mehiläinen)
+    city: Seinäjoki
+    contact_note: "Both exist in Seinäjoki; Terveystalo does imaging and breast screening, Mehiläinen cervical screening. Kela reimbursement is in the national model file"
+    url: https://www.hyvaep.fi/palvelu/seulonnat/
+    status: draft
+    source: seulonnat
+
+  - key: reception-kotokunta
+    kind: reception_centre
+    routes: [A5, A6]
+    name_fi: Vastaanottopalvelut (Kotokunta Oy)
+    name_en: Reception services (Kotokunta Oy)
+    contact_note: "Tell the reception-centre nurse. Kotokunta Oy is the operator in the area per an older report; a 2023 Migri tender listed Terveystalo as health-service provider for reception units. Current sites and arrangement are not verified. After getting a home municipality use the health centre"
+    url: https://yle.fi/a/74-20042637
+    status: draft
+    source: yle-reception
+
+steps:
+  - stage: contact
+    point: seinajoki-sote-keskus
+    informed_by: phone
+    portal: omaep
+    status: published
+    verified_on: 2026-11-14
+    source: kauhava-plan
+  - stage: assessment
+    point: seinajoki-sote-keskus
+    informed_by: phone
+    status: published
+    verified_on: 2026-11-14
+    source: kauhava-plan
+  - stage: referral_processing
+    point: seinajoki-central-hospital
+    status: published
+    verified_on: 2026-11-14
+    source: thl-hoitotakuu
+  - stage: specialist_first_visit
+    point: seinajoki-cancer-clinic
+    status: published
+    verified_on: 2026-11-14
+    source: suomi-cancer
+  - stage: diagnostics
+    point: gastro-clinic
+    status: published
+    verified_on: 2026-11-14
+    source: vatu-plan
+  - stage: treatment_start
+    point: seinajoki-cancer-clinic
+    status: published
+    verified_on: 2026-11-14
+    source: tays-cancer-centre
+  - stage: screening_invitation
+    informed_by: letter
+    status: published
+    verified_on: 2026-11-14
+    source: seulonnat
+  - stage: screening_result
+    informed_by: letter
+    status: published
+    verified_on: 2026-11-14
+    source: seulonnat
+  - stage: screening_followup
+    point: gastro-clinic
+    status: published
+    verified_on: 2026-11-14
+    source: fimlab-colorectal
+
+screening:
+  - cancer: breast
+    ages: "50–69, about every 2 years (20–26 months)"
+    provider: Terveystalo
+    invitation_channel: "Letter with a fixed personal time; results by post"
+    info_languages: [fi]
+    status: published
+    verified_on: 2026-11-14
+    source: breast-notice
+  - cancer: cervical
+    ages: "30–65, every 5 years"
+    provider: Mehiläinen
+    invitation_channel: "Postal invitation in birth-date order; results by letter within about 2 months"
+    info_languages: [fi]
+    status: published
+    verified_on: 2026-11-14
+    source: cervical-notice
+  - cancer: colorectal
+    ages: "Turning 60, 62, 64, 66, 68, 70, 72 in 2026, every 2 years; expands to 56–74 by 2031"
+    provider: Fimlab
+    invitation_channel: "Letter with a home stool kit returned by post; result by post about 1 month after return"
+    info_languages: [fi, sv, en]
+    followup_point: gastro-clinic
+    status: published
+    verified_on: 2026-11-14
+    source: fimlab-colorectal
+
+findings:
+  - key: waits-over-7-days-worsening
+    stage: primary_visit
+    barrier: B2
+    finding: "Non-urgent doctor visits waiting over 7 days rose from 26.1% in 2023 to 38.6% in 2024 and 67.8% in 2025 (Finland 54.7%), though waits over 3 months stay near 0%."
+    status: published
+    verified_on: 2026-11-14
+    source: sotkanet-6411
+  - key: specialist-first-visit-90-days
+    stage: specialist_first_visit
+    finding: "On 31 Oct 2026, 1,556 of 3,609 people (43%) waiting for a first specialist visit had waited over 90 days, median 72 days, while oncology had 0 over 90 days."
+    status: published
+    verified_on: 2026-11-14
+    source: thl-hoitotakuu
+  - key: screening-pages-finnish-only
+    stage: screening_invitation
+    finding: "The county's screening pages are in Finnish only, and no translated invitations or videos were found."
+    status: published
+    verified_on: 2026-11-14
+    source: seulonnat
+  - key: no-interpreter-procedure
+    stage: contact
+    barrier: B7
+    finding: "No county page was found on ordering an interpreter, its cost, or remote interpreting."
+    status: draft
+    source: in-english
+  - key: phone-first-callback
+    stage: contact
+    barrier: B2
+    finding: "Access is phone-first with a callback, split into surname-initial lines in Seinäjoki, with office hours ending 15:30 (Fri 15:00); this is likely hard for people with little Finnish."
+    status: draft
+    source: seinajoki-brochure
+  - key: omaep-login-unstated
+    stage: contact
+    barrier: B10
+    finding: "OmaEP login method, chat languages and chat opening hours are not stated on the county page."
+    status: draft
+    source: omaep
+  - key: service-cuts-and-distance
+    stage: contact
+    barrier: B3
+    finding: "A deficit of about €130 million, ward closures and 14 needs-based sote-piste points leave emergency, weekend urgent, specialist and cancer care only in Seinäjoki."
+    status: draft
+    source: yle-sote
+  - key: no-show-fee-wording
+    stage: primary_visit
+    barrier: B1
+    finding: "The county fee document gives a €73.70 no-show fee but words it as conditional on a pending law change, so the true figure may be €56.70."
+    status: disputed
+    source: fee-doc
+  - key: radiotherapy-site-conflict
+    stage: treatment_start
+    barrier: B3
+    finding: "Radiotherapy is not given in Seinäjoki; the county plan says Vaasa is purchased from while Tays Cancer Centre names Tays, so the exact site is unclear."
+    status: disputed
+    source: vatu-plan
+  - key: no-cancer-timelines
+    stage: treatment_start
+    finding: "The county waiting-time page publishes no cancer-specific timelines from referral to diagnosis to treatment."
+    status: draft
+    source: odotusajat
+  - key: colorectal-followup-nurse-hypothesis
+    stage: screening_followup
+    finding: "Hypothesis: the dedicated gastro screening nurse owning the positive-result list explains why only 18% of positive colorectal screens lack a colonoscopy; no source documents this."
+    status: draft
+    source: vatu-plan

@@ -37,7 +37,7 @@ export function VisitSummary({ view }: VisitSummaryProps) {
 
   return (
     <Stack gap="md">
-      {view.lang !== 'fi' && (
+      {view.interpreterNeeded && (
         <Banner tone="info" title={t('ui.visit.interpreter_title')}>
           {t('ui.visit.interpreter_text', { language: languageName })}
         </Banner>

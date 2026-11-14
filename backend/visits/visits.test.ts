@@ -161,6 +161,15 @@ describe('visit privacy and validation', () => {
     expect((await get({ code: sloppy })).code).toBe(code)
     const fi = await summary({ code })
     expect(fi.interpreter.needed).toBe(false)
+    expect((await get({ code })).interpreterNeeded).toBe(false)
+  })
+
+  it('Finnish and Swedish speakers need no interpreter; other languages do', async () => {
+    for (const [lang, needed] of [['sv', false], ['en', true], ['th', true]] as const) {
+      const { code } = await create({ lang })
+      expect((await summary({ code })).interpreter.needed, lang).toBe(needed)
+      expect((await get({ code })).interpreterNeeded, lang).toBe(needed)
+    }
   })
 
   it('delete removes the visit and its events', async () => {

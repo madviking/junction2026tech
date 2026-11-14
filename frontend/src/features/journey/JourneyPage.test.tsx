@@ -51,6 +51,13 @@ describe('JourneyPage', () => {
     await waitFor(() => expect(calls.find((c) => c.method === 'POST')?.body).toEqual({ lang: 'en', outcome: 'fine' }))
   })
 
+  it('shows no "translation not yet checked" notice in a placeholder language', async () => {
+    stubBackend({ 'GET /api/content/live': { ...bundle, placeholder: true }, [`GET ${visitPath}`]: visitView() })
+    renderJourney()
+    expect(await screen.findByRole('heading')).toBeInTheDocument()
+    expect(screen.queryByText('Translation not yet checked')).not.toBeInTheDocument()
+  })
+
   it('opens the symptom picker for the lane outcome and sends the chosen symptom ids', async () => {
     const calls = stubBackend({
       'GET /api/content/live': bundle,

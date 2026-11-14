@@ -21,9 +21,10 @@ import { ContentError, LANGS } from './types'
 export interface SeedFiles {
   rulesYaml: string
   cardsYaml: string
-  // ui/*.yaml: key -> { en, fi?, so?, ar? }
+  // ui/*.yaml: key -> { en, fi?, so?, ar? } (any LANGS code is accepted)
   uiYamls: string[]
-  // texts.<lang>.yaml: key -> text (translations of keys defined elsewhere)
+  // texts.<lang>.yaml: key -> text (translations of keys defined elsewhere, ui.* keys
+  // included; the languages added on 14 Nov keep all their texts here)
   translations: Partial<Record<Lang, string>>
 }
 
@@ -32,8 +33,17 @@ type Raw = Record<string, unknown>
 export const SEED_LANGUAGES: LanguageDef[] = [
   { code: 'en', name: 'English', dir: 'ltr', placeholder: false, profile: 'C2' },
   { code: 'fi', name: 'Suomi', dir: 'ltr', placeholder: false, profile: 'C1' },
-  { code: 'so', name: 'Soomaali', dir: 'ltr', placeholder: true, profile: 'C3' },
+  { code: 'sv', name: 'Svenska', dir: 'ltr', placeholder: true, profile: 'C1' },
+  { code: 'ru', name: 'Русский', dir: 'ltr', placeholder: true, profile: 'C2' },
+  { code: 'et', name: 'Eesti', dir: 'ltr', placeholder: true, profile: 'C2' },
+  { code: 'uk', name: 'Українська', dir: 'ltr', placeholder: true, profile: 'C2' },
   { code: 'ar', name: 'العربية', dir: 'rtl', placeholder: true, profile: 'C2' },
+  { code: 'so', name: 'Soomaali', dir: 'ltr', placeholder: true, profile: 'C3' },
+  { code: 'fa', name: 'فارسی', dir: 'rtl', placeholder: true, profile: 'C2' },
+  { code: 'zh', name: '中文（普通话）', dir: 'ltr', placeholder: true, profile: 'C2' },
+  { code: 'yue', name: '廣東話', dir: 'ltr', placeholder: true, profile: 'C2' },
+  { code: 'vi', name: 'Tiếng Việt', dir: 'ltr', placeholder: true, profile: 'C2' },
+  { code: 'th', name: 'ไทย', dir: 'ltr', placeholder: true, profile: 'C2' },
 ]
 
 const obj = (v: unknown, where: string): Raw => {

@@ -9,7 +9,7 @@ readers) with "show this code or this screen at your visit", a link to the clini
 view `/clinic/<code>`, the next steps from the clinician's taps (`VisitView.nextSteps`,
 refetched on window focus and with a refresh button), the resident's summary (selected
 symptom cards, door, visit date, history as "stage question → answer" from the
-`journey.*` content keys), an interpreter line when the language is not Finnish, and
+`journey.*` content keys), an interpreter line when `interpreterNeeded` (not Finnish or Swedish), and
 "Delete my data" (inline confirm, `DELETE /api/visits/:code`, then `/`).
 
 | File | Role |

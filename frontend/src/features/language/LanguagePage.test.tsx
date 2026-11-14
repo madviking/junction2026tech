@@ -25,7 +25,7 @@ const bundle = {
 describe('LanguagePage', () => {
   afterEach(() => vi.unstubAllGlobals())
 
-  it('lists the published languages, marks unchecked ones and opens the journey in the tapped one', async () => {
+  it('lists the published languages without unchecked marks and opens the journey in the tapped one', async () => {
     vi.stubGlobal('fetch', vi.fn(async () => Response.json(bundle)))
     renderWithProviders(
       <Routes>
@@ -43,7 +43,7 @@ describe('LanguagePage', () => {
 
     expect(await screen.findByRole('button', { name: 'English' })).not.toHaveAccessibleDescription()
     const arabic = screen.getByRole('button', { name: 'العربية' })
-    expect(arabic).toHaveAccessibleDescription('Translation not yet checked')
+    expect(arabic).not.toHaveAccessibleDescription('Translation not yet checked')
 
     fireEvent.click(arabic)
     expect(await screen.findByText('journey start')).toBeInTheDocument()

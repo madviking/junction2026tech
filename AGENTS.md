@@ -70,6 +70,23 @@ Before planning implementation, apply this filter:
 Local ports: backend `8300`, frontend `5300`, Encore dev dashboard `9400`. Encore
 runs its own local PostgreSQL container; nothing uses the shared East dev containers.
 
+## Live URLs
+
+Checked 2026-11-14. The same table is in the `AGENTS.md` of all three repos
+(`junction2026`, `junction2026tech`, `junction2026-presentation`); update all three together.
+
+| What | URL | Notes |
+| --- | --- | --- |
+| Project site: landing, data, deck, video, printouts, tech-partner pages | https://mostly-awaited-flounder.eur-1.aiven.app | Aiven Runtime app `site` from `junction2026-presentation`; redeploys on every push to `main`; `/team` needs the team password (any username) |
+| Silta API | https://easily-smart-aphid.eur-1.aiven.app | Aiven Runtime app `silta-api` from `junction2026tech`; health check `/api/health`; redeploy by hand (Runtime → Deploy latest commit) |
+| Silta app for residents, clinic, county view, admin (frontend) | not deployed yet | Local only: http://localhost:5300 (`/`, `/clinic/<code>`, `/county/helsinki`, `/admin`). When it is deployed, add it here and set `SILTA_CONSUMER_URL`, `SILTA_COUNTY_URL`, `SILTA_ADMIN_URL` on the `site` app |
+| Database | Aiven for PostgreSQL `silta-pg`, Google `europe-west4` | Connection details: password manager / `.env`, never in a repo |
+| Aiven console | https://console.aiven.io, project `appzio-d111` | Runtime apps and the database; trial credit |
+| Code (app) | https://github.com/madviking/junction2026tech | |
+| Knowledge base (brain) | https://github.com/madviking/junction2026 | |
+| Project site source | https://github.com/madviking/junction2026-presentation | |
+| Local ports | site `8400`, frontend `5300`, backend `8300`, Encore dashboard `9400` | |
+
 ## Hard rules
 
 - **Git.** Read-only inspection is always fine. Commit, push, branch, stash,
@@ -136,6 +153,24 @@ Two agents never edit the same files at the same time.
   using `docs/planning/_template.md`, and stay current while the work is active.
 - Decisions that would surprise a teammate go in `docs/decisions/`.
 - Delete obsolete docs instead of leaving competing truths.
+- Team artefacts that are not code or repo docs (pages, reports, charts, deck,
+  printouts) go to the project-site repo `../presentation`
+  (`content/materials/` by default); see its `AGENTS.md`.
+- **Tech-partner pages follow the code.** Whenever a change adds, widens,
+  narrows or removes how Silta uses a tech partner (Aiven, ElevenLabs, Gemini, or
+  a new one), update that partner's page in
+  `../presentation/content/tech-challenges/<slug>.md` in the same task: the
+  journey steps it touches (`fit.steps`), the key numbers, the live/planned
+  lists and the use-case description in the details. A new partner gets a new
+  page. Only claim what this repo proves (file paths, `docs/proof/`); move an
+  item from planned to live only with that proof. Page format: the
+  "Tech-partner pages" section of `../presentation/AGENTS.md`.
+- **Writing for judges.** Anything from this repo that reaches the site, the deck
+  or a printout (partner pages, proof, screenshots, architecture notes) follows
+  the "Build for judges" section of `../presentation/AGENTS.md`. Lead with one
+  visual point and a one-sentence takeaway, keep the detail one click away, and
+  tell it as a narrative where each claim points to a file or a proof in this repo.
+  Keep it focused, with no AI slop.
 
 ## Verification
 

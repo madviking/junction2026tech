@@ -17,14 +17,13 @@ export interface CardAudioButtonProps {
 
 /**
  * Plays the published audio for a text key through the one shared player. Renders nothing
- * when the language has no audio output. Somali generated audio is marked as unchecked in
- * the accessible name.
+ * when the language has no audio output.
  */
 export function CardAudioButton({ textKey, label, lang }: CardAudioButtonProps) {
   const { lang: contentLang, t } = useContent()
   const audioLang = lang ?? contentLang
   const caps = useVoiceCapabilities(audioLang)
-  const { clip, fetchClip } = useClip(audioLang, textKey)
+  const { fetchClip } = useClip(audioLang, textKey)
   const owner = useId()
   const state = usePlayerState(owner)
 
@@ -33,10 +32,8 @@ export function CardAudioButton({ textKey, label, lang }: CardAudioButtonProps) 
 
   if (!caps?.audioOutput) return null
 
-  const review = clip?.review ?? caps.generatedAudioReview
   const base =
     state === 'playing' ? t('ui.voice.stop') : state === 'loading' ? t('ui.voice.loading') : state === 'error' ? t('ui.voice.error') : (label ?? t('ui.voice.play'))
-  const accessibleLabel = review === 'unchecked' ? `${base} (${t('ui.voice.unchecked')})` : base
 
   const onPress = () => {
     if (state === 'playing' || state === 'loading') {
@@ -46,5 +43,5 @@ export function CardAudioButton({ textKey, label, lang }: CardAudioButtonProps) 
     void play(owner, async () => blobUrl((await fetchClip()).url))
   }
 
-  return <AudioPlayButton state={state} label={accessibleLabel} onPress={onPress} />
+  return <AudioPlayButton state={state} label={base} onPress={onPress} />
 }

@@ -48,6 +48,8 @@ export interface HistoryItem {
 export interface VisitView {
   code: string
   lang: string
+  // False for Finnish and Swedish (national languages).
+  interpreterNeeded: boolean
   county: string
   state: VisitState
   stage: StageView
@@ -81,6 +83,11 @@ export interface VisitMeta {
   county: string
 }
 
+// Finnish and Swedish are the national languages: services must serve both, so no interpreter.
+export function interpreterNeeded(lang: Lang): boolean {
+  return lang !== 'fi' && lang !== 'sv'
+}
+
 export function nextSteps(doc: ContentDoc, r: Replay, lang: Lang): NextStep[] {
   return r.answers.map((outcome) => ({ outcome, text: textOf(doc, k.clinicianNextKey(outcome), lang) }))
 }
@@ -96,6 +103,7 @@ export function visitView(doc: ContentDoc, meta: VisitMeta, r: Replay, lang: Lan
   return {
     code: meta.code,
     lang,
+    interpreterNeeded: interpreterNeeded(meta.lang),
     county: meta.county,
     state: {
       stage: s.stage,
@@ -150,7 +158,7 @@ export function clinicianSummary(doc: ContentDoc, meta: VisitMeta, r: Replay): C
   return {
     code: meta.code,
     language: { code: meta.lang, name },
-    interpreter: { needed: meta.lang !== 'fi', language: name },
+    interpreter: { needed: interpreterNeeded(meta.lang), language: name },
     situation: s.lane ? fi(k.laneKey(s.lane, 'name')) : null,
     symptoms: r.symptoms.map((id) => fi(k.symptomKey(id, 'card'))),
     route: s.route ? { name: fi(k.routeKey(s.route, 'name')), door: fi(k.routeKey(s.route, 'door')) } : null,

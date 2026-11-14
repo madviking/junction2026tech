@@ -3,7 +3,7 @@ import { SideDrawer } from '@/shared/ui/admin'
 import { LanguageEditor } from '@/features/admin-content/components/LanguageEditor'
 import type { ContentLanguage, TextRow } from '@/features/admin-content/types'
 
-const RTL_LANGS = new Set(['ar'])
+const RTL_LANGS = new Set(['ar', 'fa'])
 
 export interface TextDrawerProps {
   row: TextRow | null

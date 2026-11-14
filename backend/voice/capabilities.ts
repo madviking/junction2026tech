@@ -8,6 +8,10 @@
 // - Generated Somali audio stays `unchecked`; only an approved human recording replaces it.
 // - Arabic is a placeholder language (texts unchecked), so generated Arabic audio starts
 //   `unchecked` too; an admin may approve it after listening.
+// - Added 14 Nov (models page + speech-to-text page checked that day): eleven_v4 speaks
+//   sv, ru, et, uk, fa, zh, yue, vi and th. Scribe v2 accuracy: sv, ru, et, uk, vi excellent
+//   (<=5% WER); fa, zh (Mandarin), yue high (5-10%); th good (10-20%). All get full voice.
+//   Their texts are unchecked placeholders, so generated audio starts `unchecked` like Arabic.
 
 export type VoiceMode = 'full_voice' | 'cards_with_audio'
 export type AudioReview = 'unchecked' | 'approved'
@@ -21,7 +25,7 @@ export interface LanguageVoice {
   generatedAudioReview: AudioReview
   // False when only a human recording can become approved audio (Somali).
   generatedApprovable: boolean
-  // ISO 639-1 code sent to the provider (language_code).
+  // Language code sent to the provider (language_code): ISO 639-1, or 639-3 where none exists.
   providerLang: string
 }
 
@@ -38,8 +42,18 @@ export const STT_USD_PER_HOUR = 0.2
 export const LANGUAGE_VOICE: LanguageVoice[] = [
   { lang: 'en', mode: 'full_voice', voiceInput: true, audioOutput: true, generatedAudioReview: 'approved', generatedApprovable: true, providerLang: 'en' },
   { lang: 'fi', mode: 'full_voice', voiceInput: true, audioOutput: true, generatedAudioReview: 'approved', generatedApprovable: true, providerLang: 'fi' },
-  { lang: 'so', mode: 'cards_with_audio', voiceInput: false, audioOutput: true, generatedAudioReview: 'unchecked', generatedApprovable: false, providerLang: 'so' },
+  { lang: 'sv', mode: 'full_voice', voiceInput: true, audioOutput: true, generatedAudioReview: 'unchecked', generatedApprovable: true, providerLang: 'sv' },
+  { lang: 'ru', mode: 'full_voice', voiceInput: true, audioOutput: true, generatedAudioReview: 'unchecked', generatedApprovable: true, providerLang: 'ru' },
+  { lang: 'et', mode: 'full_voice', voiceInput: true, audioOutput: true, generatedAudioReview: 'unchecked', generatedApprovable: true, providerLang: 'et' },
+  { lang: 'uk', mode: 'full_voice', voiceInput: true, audioOutput: true, generatedAudioReview: 'unchecked', generatedApprovable: true, providerLang: 'uk' },
   { lang: 'ar', mode: 'full_voice', voiceInput: true, audioOutput: true, generatedAudioReview: 'unchecked', generatedApprovable: true, providerLang: 'ar' },
+  { lang: 'so', mode: 'cards_with_audio', voiceInput: false, audioOutput: true, generatedAudioReview: 'unchecked', generatedApprovable: false, providerLang: 'so' },
+  { lang: 'fa', mode: 'full_voice', voiceInput: true, audioOutput: true, generatedAudioReview: 'unchecked', generatedApprovable: true, providerLang: 'fa' },
+  { lang: 'zh', mode: 'full_voice', voiceInput: true, audioOutput: true, generatedAudioReview: 'unchecked', generatedApprovable: true, providerLang: 'zh' },
+  // Cantonese has no ISO 639-1 code; ElevenLabs uses the ISO 639-3 code yue.
+  { lang: 'yue', mode: 'full_voice', voiceInput: true, audioOutput: true, generatedAudioReview: 'unchecked', generatedApprovable: true, providerLang: 'yue' },
+  { lang: 'vi', mode: 'full_voice', voiceInput: true, audioOutput: true, generatedAudioReview: 'unchecked', generatedApprovable: true, providerLang: 'vi' },
+  { lang: 'th', mode: 'full_voice', voiceInput: true, audioOutput: true, generatedAudioReview: 'unchecked', generatedApprovable: true, providerLang: 'th' },
 ]
 
 export function languageVoice(lang: string): LanguageVoice | null {

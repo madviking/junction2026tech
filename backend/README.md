@@ -25,6 +25,7 @@ care_paths/            content model, journey engine, care-path composition (+ s
 content/               versioned content document: live bundle, drafts, publish, rollback, export
 visits/                anonymous visit codes, journey event log, clinician summary, next steps
 regions/               county figures (Helsinki) + anonymous counts
+service_paths/         service paths by area: doors, stages, screening, measured waits, compare (+ seed)
 cards/                 free text / transcript -> card (llm.decide), with guard rails
 voice/                 ElevenLabs text-to-speech and speech-to-text, audio storage
 llm/                   the only LLM provider boundary (OpenRouter, Gemini) + llm_usage

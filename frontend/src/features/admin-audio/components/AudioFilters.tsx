@@ -3,7 +3,21 @@ import { SelectField, TextField, type SelectOption } from '@/shared/ui'
 import { Toolbar } from '@/shared/ui/admin'
 import type { ServedFilter, VoiceLanguage } from '@/features/admin-audio/types'
 
-const LANGUAGE_NAMES: Record<string, string> = { en: 'English', fi: 'Suomi', so: 'Soomaali', ar: 'العربية' }
+const LANGUAGE_NAMES: Record<string, string> = {
+  en: 'English',
+  fi: 'Suomi',
+  sv: 'Svenska',
+  ru: 'Русский',
+  et: 'Eesti',
+  uk: 'Українська',
+  ar: 'العربية',
+  so: 'Soomaali',
+  fa: 'فارسی',
+  zh: '中文（普通话）',
+  yue: '廣東話',
+  vi: 'Tiếng Việt',
+  th: 'ไทย',
+}
 
 const SHOW_OPTIONS: SelectOption[] = [
   { value: 'all', label: 'All texts' },

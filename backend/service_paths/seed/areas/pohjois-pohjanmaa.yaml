@@ -1,0 +1,534 @@
+# Seed: Pohjois-Pohjanmaa (Pohde) service paths. Brain sources:
+# sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md, sources/2026-11-14-sttinfo-oys-bladder-cancer-digital-care-path.md
+county: pohjois-pohjanmaa
+name: "Pohjois-Pohjanmaan hyvinvointialue"
+specialist_provider: "Oulun yliopistollinen sairaala (OYS)"
+collaboration_area: "Pohjois-Suomen yhteistyöalue (Kainuu, Keski-Pohjanmaa, Lappi, Pohjois-Pohjanmaa)"
+sotkanet_region_id: 973
+
+sources:
+  pohde-reception:
+    url: https://pohde.fi/palvelut/laakarin-ja-sairaanhoitajan-vastaanotto/
+    title: "Lääkärin ja sairaanhoitajan vastaanotto"
+    publisher: Pohde
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  pohde-customer:
+    url: https://pohde.fi/meilla-asiakkaana/
+    title: "Meillä asiakkaana (OmaPohde, interpreter on request)"
+    publisher: Pohde
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  pohde-immigrants:
+    url: https://pohde.fi/palvelumme/maahanmuuttaneille-ja-vieraskielisille/
+    title: "Maahanmuuttaneille ja vieraskielisille"
+    publisher: Pohde
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  pohde-fees:
+    url: https://pohde.fi/meilla-asiakkaana/asiakasmaksut-ja-laskut/hinnasto/
+    title: "Hinnasto (client fees 2026)"
+    publisher: Pohde
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  pohde-emergency:
+    url: https://pohde.fi/palvelut/paivystys/
+    title: "Päivystys"
+    publisher: Pohde
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  pohde-contacts:
+    url: https://pohde.fi/yhteystiedot/terveyskeskukset/
+    title: "Yhteystiedot: terveyskeskukset"
+    publisher: Pohde
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  pohde-pudasjarvi:
+    url: https://pohde.fi/terveyskeskus/pudasjarven-terveysasema/
+    title: "Pudasjärven terveysasema"
+    publisher: Pohde
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  pohde-breast:
+    url: https://pohde.fi/palvelut/rintasyopaseulonta/
+    title: "Rintasyöpäseulonta"
+    publisher: Pohde
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  pohde-cervical:
+    url: https://pohde.fi/palvelut/kohdunkaulan-syovan-seulonta
+    title: "Kohdunkaulan syövän seulonta"
+    publisher: Pohde
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  pohde-colorectal:
+    url: https://pohde.fi/palvelut/suolistosyovan-seulonta/
+    title: "Suolistosyövän seulonta"
+    publisher: Pohde
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  oys-patients:
+    url: https://oys.fi/en/front-page/services/information-for-patients/
+    title: "Information for patients"
+    publisher: OYS
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  sttinfo-primary-care:
+    url: https://www.sttinfo.fi/tiedote/72466922/pohde-jatkaa-perusterveydenhuollon-ja-suun-terveydenhuollon-puutteiden-korjaamista?lang=fi
+    title: "Pohde jatkaa perusterveydenhuollon ja suun terveydenhuollon puutteiden korjaamista"
+    publisher: Pohde (STT Info release, 3 Nov 2026)
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  sttinfo-urgent-booking:
+    url: https://www.sttinfo.fi/tiedote/72340511/oulun-ja-kempeleen-kiirevastaanotoilla-kayttoon-ajanvaraus?lang=fi
+    title: "Oulun ja Kempeleen kiirevastaanotoilla käyttöön ajanvaraus"
+    publisher: Pohde (STT Info release)
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  sttinfo-specialist-queue:
+    url: https://www.sttinfo.fi/tiedote/72175412/pohde-onnistui-kiireettoman-erikoissairaanhoidon-jonojen-purkamisessa-valvonta-paattyy?lang=fi
+    title: "Pohde onnistui kiireettömän erikoissairaanhoidon jonojen purkamisessa, valvonta päättyy"
+    publisher: Pohde (STT Info release)
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  sttinfo-network:
+    url: https://www.sttinfo.fi/tiedote/70538190/pohteen-sosiaali-ja-terveyskeskusten-verkkoa-tarkastellaan-syksyn-aikana-asukastilaisuus-etayhteydella-210?lang=fi
+    title: "Pohteen sosiaali- ja terveyskeskusten verkkoa tarkastellaan syksyn aikana"
+    publisher: Pohde (STT Info release, 26 Sep 2024)
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  sttinfo-bladder:
+    url: https://www.sttinfo.fi/tiedote/70122778/uusi-digitaalinen-hoitopolku-virtsarakkosyopapotilaan-hoidon-tukena?publisherId=69817636&lang=fi
+    title: "Uusi digitaalinen hoitopolku virtsarakkosyöpäpotilaan hoidon tukena"
+    publisher: Pohde (STT Info release, 20 Mar 2024)
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-sttinfo-oys-bladder-cancer-digital-care-path.md
+  sotkanet-6411:
+    url: https://sotkanet.fi/rest/1.1/json?indicator=6411&years=2025&genders=total
+    title: "Sotkanet indicator 6411 (non-urgent doctor visit waited over 7 days)"
+    publisher: THL / Sotkanet
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  sotkanet-6410:
+    url: https://sotkanet.fi/rest/1.1/json?indicator=6410&years=2025&genders=total
+    title: "Sotkanet indicator 6410 (non-urgent doctor visit waited over 3 months)"
+    publisher: THL / Sotkanet
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  kaleva-digital-sote:
+    url: https://www.kaleva.fi/pohde-laajentaa-digitaalisen-sote-keskuksen-ouluun/6266973
+    title: "Pohde laajentaa digitaalisen sote-keskuksen Ouluun (2024 article)"
+    publisher: Kaleva
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  kaleva-oys-breast:
+    url: https://www.kaleva.fi/oysista-saa-apua-rintasyopapotilas-ei-jaa-jonottam/13646781
+    title: "OYS:sta saa apua, rintasyöpäpotilas ei jää jonottamaan (opinion letter by an OYS manager, 2 Sep 2026)"
+    publisher: Kaleva
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  yths-oulu:
+    url: https://www.yths.fi/en/service-units/oulu-2/
+    title: "YTHS Oulu service unit"
+    publisher: YTHS
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  kela-occupational:
+    url: https://www.kela.fi/tyoterveyshuolto
+    title: "Työterveyshuolto"
+    publisher: Kela
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  mehilainen-linnanmaa:
+    url: https://www.mehilainen.fi/en/locations/mehilainen-oulu-linnanmaa
+    title: "Mehiläinen Oulu Linnanmaa"
+    publisher: Mehiläinen
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+  lsv-undocumented:
+    url: https://lsv.fi/wp-content/uploads/2026/07/Koulutusdiat_Paperittomien-oikeudet-palveluihin.pptx-1.pdf
+    title: "Paperittomien oikeudet palveluihin (training slides, July 2026)"
+    publisher: Lupa- ja valvontavirasto
+    captured_on: 2026-11-14
+    brain_ref: sources/2026-11-14-web-research-service-paths-pohjois-pohjanmaa.md
+
+points:
+  # A1: resident with home municipality
+  - key: oulu-health-stations
+    kind: health_station
+    routes: [A1]
+    name_fi: "Oma sosiaali- ja terveyskeskus / terveysasema"
+    name_en: "Your own social and health centre"
+    city: Oulu
+    contact_note: "Contact the clinic primarily by phone or by the chat in OmaPohde's digital sote-keskus, or visit in person. Local phone numbers appear only after choosing your municipality on the Pohde page. Oulu centres: Haukiputaan, Kaakkurin, Kiimingin, Kontinkankaan, Oulunsalon, Ruukin, Tuiran."
+    interpreter_how: "Tell the clinic when you book that you need an interpreter. Interpreters keep confidentiality and only interpret."
+    fee_note: "2026: doctor EUR 30.20 per visit, at most three visits per calendar year (remote doctor visit EUR 25.70); nurse free when the nurse holds main responsibility; under-18s exempt."
+    url: https://pohde.fi/yhteystiedot/terveyskeskukset/
+    status: published
+    verified_on: 2026-11-14
+    source: pohde-reception
+  - key: pudasjarvi-health-station
+    kind: health_station
+    routes: [A1]
+    name_fi: "Pudasjärven terveysasema"
+    city: Pudasjärvi
+    hours: "Phone Mon–Thu 8–16, Fri 8–15; patient office Mon–Thu 8–15, Fri 8–14"
+    contact_note: "Example of a rural station; hours were not checked for other stations."
+    callback: true
+    digital_channel: "Booking by phone or online"
+    url: https://pohde.fi/terveyskeskus/pudasjarven-terveysasema/
+    status: published
+    verified_on: 2026-11-14
+    source: pohde-pudasjarvi
+  - key: oulu-kempele-urgent-reception
+    kind: health_station
+    routes: [A1]
+    name_fi: "Oulun ja Kempeleen kiirevastaanotto"
+    name_en: "Urgent reception in Oulu and Kempele"
+    city: Oulu
+    contact_note: "Since 21 Sep 2026 Pohde recommends booking weekday daytime urgent visits by phone or the digital sote-keskus chat. Queueing in arrival order was replaced by ranking on a needs assessment. Queue information was removed from the website."
+    walk_in: "Walk-ins are still accepted; if there is no same-day slot a professional advises."
+    status: published
+    verified_on: 2026-11-14
+    source: sttinfo-urgent-booking
+  - key: pohde-phone-service
+    kind: phone_service
+    routes: [A1]
+    name_fi: "Pohden puhelinpalvelu"
+    name_en: "Pohde phone service"
+    phone: "08 669 9500"
+    contact_note: "08 669 9500 is the Pohde central switchboard; 08 669 9600 is the advice line (neuvontapalvelu), Mon–Fri 8–18 and Sat–Sun 8–16 per OYS's page. Station-specific numbers appear only after choosing a municipality."
+    url: https://pohde.fi/yhteystiedot/terveyskeskukset/
+    status: published
+    verified_on: 2026-11-14
+    source: pohde-contacts
+  - key: omapohde-digital-sote
+    kind: digital_service
+    routes: [A1]
+    name_fi: "OmaPohde ja digitaalinen sote-keskus"
+    name_en: "OmaPohde and the digital sote-keskus"
+    contact_note: "Online booking is being introduced gradually; some local booking systems still differ."
+    digital_channel: "Chat in OmaPohde's digital sote-keskus; online booking being introduced gradually"
+    url: https://pohde.fi/meilla-asiakkaana/
+    status: published
+    verified_on: 2026-11-14
+    source: pohde-customer
+  - key: digital-sote-keskus-oulu
+    kind: digital_service
+    routes: [A1]
+    name_fi: "Digitaalinen sote-keskus (Oulu, 2024 laajennus)"
+    name_en: "Digital sote-keskus (Oulu expansion 2024)"
+    hours: "Chat staffed by professionals, evenings and weekends too; mental-health chat (16+) Mon–Fri 8–20 (2024 article, hours may have changed)"
+    contact_note: "Handles conditions not needing a physical exam. Entered through the Pohde website or Omaolo. Expanded to Oulu on 25 Mar 2024. Service languages are not stated."
+    digital_channel: "Professional-staffed chat; separate mental-health chat"
+    digital_login: "Strong authentication (bank codes or mobile ID)"
+    status: draft
+    source: kaleva-digital-sote
+  - key: paivystysapu-116117
+    kind: after_hours
+    routes: [A1]
+    name_fi: "Päivystysapu 116117"
+    name_en: "After-hours advice 116117"
+    phone: "116117"
+    hours: "24 h, free"
+    contact_note: "Call first when the health centre is closed; a backup number is on the Pohde page. 112 for life-threatening situations."
+    url: https://pohde.fi/palvelut/paivystys/
+    status: published
+    verified_on: 2026-11-14
+    source: pohde-emergency
+  - key: oys-emergency
+    kind: emergency
+    routes: [A1]
+    name_fi: "Oulun seudun yhteispäivystys (OYS)"
+    name_en: "Oulu area joint emergency department (OYS)"
+    city: Oulu
+    hours: "24 h"
+    contact_note: "OYS building B, 1st floor, Kajaanintie 50. Under-16s go to the children's emergency unit. No separate call needed if your health centre refers you. Since 21 Sep 2026 urgent reception in Oulu and Kempele is booked by phone or chat (walk-ins still accepted). Raahe and Oulainen urgent clinics are open daily 8–22; Kuusamo health-centre emergency at all hours. 112 for life-threatening situations."
+    fee_note: "2026: specialist doctor at the Oulu-area joint emergency EUR 71.30 at any time; under-18s free (effective dates not stated on the page)."
+    url: https://pohde.fi/palvelut/paivystys/
+    status: published
+    verified_on: 2026-11-14
+    source: pohde-emergency
+  - key: oys
+    kind: specialist_hospital
+    routes: [A1, A2, A4]
+    name_fi: "Oulun yliopistollinen sairaala (OYS)"
+    name_en: "Oulu University Hospital (OYS)"
+    city: Oulu
+    contact_note: "Specialist care mainly by referral from a health centre, occupational health or a private doctor. The referral is processed within three weeks, then an appointment letter says when, where and how to prepare. Patient Billing Unit for international patients Mon–Thu 9:00–14:30."
+    service_languages: [en]
+    interpreter_how: "Interpreter arranged whenever possible; state the need when booking. Customer service in English."
+    fee_note: "2026: specialist outpatient visit EUR 71.30; under-18s exempt; remote visits 15% cheaper."
+    url: https://oys.fi/en/front-page/services/information-for-patients/
+    status: published
+    verified_on: 2026-11-14
+    source: oys-patients
+  - key: oys-cancer-centre
+    kind: cancer_centre
+    routes: [A1, A2, A4]
+    name_fi: "OYS Syöpäkeskus"
+    name_en: "OYS Cancer Centre"
+    city: Oulu
+    contact_note: "OYS Syöpäkeskus works with the urology and oncology clinics and the Vatsakeskus. Other digital care paths were developed with several company partners."
+    digital_channel: "Digital care path for bladder cancer in Terveyskylä's Syöpätalo (since 20 Mar 2024): path models, texts and videos on diagnosis, treatment and follow-up"
+    digital_login: "A doctor or nurse enrols the patient on the path; the patient then signs in with strong authentication"
+    url: https://www.terveyskyla.fi/omapolku/digihoitopolut
+    status: published
+    verified_on: 2026-11-14
+    source: sttinfo-bladder
+  - key: breast-screening
+    kind: screening_provider
+    routes: [A1]
+    name_fi: "Rintasyöpäseulonta (Pohde)"
+    name_en: "Breast cancer screening (Pohde)"
+    contact_note: "Mammography. Some municipalities are served by a private provider and Pohde cannot change those times; the page does not say which. Contacts appear after choosing a municipality."
+    fee_note: "2026: screening is free."
+    url: https://pohde.fi/palvelut/rintasyopaseulonta/
+    status: published
+    verified_on: 2026-11-14
+    source: pohde-breast
+  - key: cervical-screening
+    kind: screening_provider
+    routes: [A1]
+    name_fi: "Kohdunkaulan syövän seulonta (Fimlab)"
+    name_en: "Cervical cancer screening (Fimlab)"
+    contact_note: "Fimlab Laboratoriot Oy sends the invitation by letter. Booking per municipality."
+    fee_note: "2026: screening is free."
+    url: https://pohde.fi/palvelut/kohdunkaulan-syovan-seulonta
+    status: published
+    verified_on: 2026-11-14
+    source: pohde-cervical
+  - key: colorectal-screening
+    kind: screening_provider
+    routes: [A1]
+    name_fi: "Suolistosyöpäseulonta (Pohde)"
+    name_en: "Colorectal cancer screening (Pohde)"
+    contact_note: "The letter contains the stool test kit and a prepaid return envelope."
+    fee_note: "2026: screening is free."
+    url: https://pohde.fi/palvelut/suolistosyovan-seulonta/
+    status: published
+    verified_on: 2026-11-14
+    source: pohde-colorectal
+
+  # A2-A8 doors
+  - key: occupational-health
+    kind: occupational
+    routes: [A2]
+    name_fi: "Työterveyshuolto"
+    name_en: "Occupational health"
+    contact_note: "Not covered on Pohde's pages. National rules apply: employer-arranged preventive care, medical care voluntary for the employer. No local OYS or Oulu rule found."
+    url: https://www.kela.fi/tyoterveyshuolto
+    status: draft
+    source: kela-occupational
+  - key: yths-oulu
+    kind: student
+    routes: [A3]
+    name_fi: "YTHS Oulu (Linnanmaa)"
+    name_en: "Student health service YTHS, Oulu"
+    city: Oulu
+    hours: "Mon–Thu 8–15, Fri 8–14 (from search snippets, unverified)"
+    contact_note: "Yliopistokatu 1 A, Linnanmaa campus. Booking through a needs assessment; cancel at least 24 h ahead. Run by Pihlajalinna on behalf of YTHS. Vocational and upper-secondary students use municipal student health care (no Pohde page found)."
+    digital_channel: YTHSDigi
+    url: https://www.yths.fi/en/service-units/oulu-2/
+    status: draft
+    source: yths-oulu
+  - key: private-oulu
+    kind: private
+    routes: [A4]
+    name_fi: "Mehiläinen Oulu Linnanmaa"
+    city: Oulu
+    contact_note: "Existence only; the full list of private clinics in Oulu was not researched."
+    url: https://www.mehilainen.fi/en/locations/mehilainen-oulu-linnanmaa
+    status: published
+    verified_on: 2026-11-14
+    source: mehilainen-linnanmaa
+  - key: reception-centre-health
+    kind: reception_centre
+    routes: [A6]
+    name_fi: "Vastaanottokeskuksen terveydenhoito"
+    name_en: "Reception centre health care"
+    contact_note: "Pohde: asylum seekers get care through the reception centre; adults get urgent and necessary care (for example the maternity clinic). No current page on the Oulu reception centre's health service was found."
+    url: https://pohde.fi/palvelumme/maahanmuuttaneille-ja-vieraskielisille/
+    status: published
+    verified_on: 2026-11-14
+    source: pohde-immigrants
+  - key: eu-ehic-care
+    kind: health_station
+    routes: [A8]
+    name_fi: "Hoito EU/ETA-alueelta ilman kotikuntaa"
+    name_en: "Care for EU/EEA residents without a home municipality"
+    contact_note: "With an EHIC (EU/EEA/Swiss) necessary care is available. Without a home municipality entitlement is possible, for example through work, proved with a Kela right-to-care certificate. Visitors: eu-terveydenhoito.fi."
+    interpreter_how: "You have the right to interpreter help, also at health appointments."
+    url: https://pohde.fi/palvelumme/maahanmuuttaneille-ja-vieraskielisille/
+    status: published
+    verified_on: 2026-11-14
+    source: pohde-immigrants
+  - key: oys-emergency-undocumented
+    kind: emergency
+    routes: [A7]
+    name_fi: "Oulun seudun yhteispäivystys (paperittomat)"
+    name_en: "OYS joint emergency for people without a residence permit"
+    city: Oulu
+    contact_note: "Draft navigation text: urgent care at the OYS joint emergency. No Pohde decision on continuing necessary care after the 1 Jan 2026 law change was found, so the local rule is unverified. Pohde's immigrant social services advise on services and arrange legal advice but publish no health-care rule."
+    status: draft
+    source: lsv-undocumented
+
+steps:
+  - stage: contact
+    point: oulu-health-stations
+    informed_by: phone
+    portal: "OmaPohde digital sote-keskus chat"
+    status: published
+    verified_on: 2026-11-14
+    source: pohde-reception
+  - stage: assessment
+    point: oulu-kempele-urgent-reception
+    portal: "Digital sote-keskus chat"
+    status: published
+    verified_on: 2026-11-14
+    source: sttinfo-urgent-booking
+  - stage: primary_visit
+    point: oulu-health-stations
+    portal: "OmaPohde (online booking introduced gradually; some local booking systems still differ)"
+    status: published
+    verified_on: 2026-11-14
+    source: pohde-reception
+  - stage: referral_processing
+    point: oys
+    status: published
+    verified_on: 2026-11-14
+    source: oys-patients
+  - stage: specialist_first_visit
+    point: oys
+    informed_by: letter
+    status: published
+    verified_on: 2026-11-14
+    source: oys-patients
+  - stage: diagnostics
+    point: oys-cancer-centre
+    status: draft
+    source: kaleva-oys-breast
+  - stage: treatment_start
+    point: oys-cancer-centre
+    status: draft
+    source: kaleva-oys-breast
+  - stage: screening_invitation
+    informed_by: letter
+    status: published
+    verified_on: 2026-11-14
+    source: pohde-breast
+  - stage: screening_result
+    informed_by: letter
+    if_nothing_heard: "The page gives no time frame for the result letter."
+    status: published
+    verified_on: 2026-11-14
+    source: pohde-breast
+  - stage: screening_followup
+    informed_by: phone
+    status: published
+    verified_on: 2026-11-14
+    source: pohde-breast
+
+screening:
+  - cancer: breast
+    ages: "50–69, about every two years (20–26 months)"
+    provider: "Pohde (mammography); some municipalities are served by a private provider"
+    invitation_channel: letter
+    status: published
+    verified_on: 2026-11-14
+    source: pohde-breast
+  - cancer: cervical
+    ages: "30–65, every five years"
+    provider: "Fimlab Laboratoriot Oy"
+    invitation_channel: letter
+    status: published
+    verified_on: 2026-11-14
+    source: pohde-cervical
+  - cancer: colorectal
+    ages: "60–72 (invitations at ages 60, 62, 64, 66, 68, 70 and 72), expanding step by step to 56–74; the overview page says 60–70"
+    provider: "Pohde"
+    invitation_channel: "letter with stool test kit and prepaid return envelope"
+    status: disputed
+    verified_on: 2026-11-14
+    source: pohde-colorectal
+
+findings:
+  - key: regulator-order-2026-10-27
+    stage: primary_visit
+    finding: "The regulator Lupa- ja valvontavirasto ordered Pohde on 27 Oct 2026 to make primary-care contact and non-urgent access lawful in the whole county by 31 Mar 2027 (dental care by 30 Apr 2027)."
+    status: published
+    verified_on: 2026-11-14
+    source: sttinfo-primary-care
+  - key: oulu-over-3-months-2025
+    stage: primary_visit
+    finding: "In Oulu 16.9% of non-urgent doctor visits waited over 3 months in 2025, up from 12.1% in 2024 (Pohde 11.1%, Finland 1.7%)."
+    status: published
+    verified_on: 2026-11-14
+    source: sotkanet-6410
+  - key: oulu-over-7-days-2025
+    stage: primary_visit
+    finding: "In Oulu 76.1% of non-urgent doctor visits waited over 7 days in 2025 (Pohde 63.3%, Finland 54.7%)."
+    status: published
+    verified_on: 2026-11-14
+    source: sotkanet-6411
+  - key: urgent-booking-oulu-kempele
+    stage: assessment
+    finding: "From 21 Sep 2026 urgent reception in Oulu and Kempele ranks patients by a needs assessment and recommends booking by phone or chat instead of queueing in arrival order."
+    status: published
+    verified_on: 2026-11-14
+    source: sttinfo-urgent-booking
+  - key: phone-first-short-hours
+    stage: contact
+    barrier: B2
+    finding: "At Pudasjärvi health station phone hours end at 15–16 and a callback request is tried twice; hours were not checked for other stations."
+    status: published
+    verified_on: 2026-11-14
+    source: pohde-pudasjarvi
+  - key: digital-finnish-only
+    stage: contact
+    barrier: B10
+    finding: "The digital sote-keskus needs bank codes or mobile ID and no language list is published for OmaPohde or the chat (2024 article, hours and languages may have changed)."
+    status: draft
+    source: kaleva-digital-sote
+  - key: interpreter-no-procedure
+    stage: contact
+    barrier: B7
+    finding: "Interpreter access is a hint on the booking page, not a procedure: no phone line, remote option, language list or fee statement is published."
+    status: draft
+    source: pohde-customer
+  - key: no-show-fee
+    stage: primary_visit
+    barrier: B1
+    finding: "The no-show fee on Pohde's 2026 price list is EUR 73.70, charged only if the county gave the fee and cancellation instructions at booking; not re-checked against other areas."
+    status: draft
+    source: pohde-fees
+  - key: network-thinning
+    stage: contact
+    barrier: B3
+    finding: "Siikajoenkylä station, Yli-Ii and Kuivaniemi wellbeing points closed in 2024 across a 30-municipality area; newer network decisions were not checked."
+    status: draft
+    source: sttinfo-network
+  - key: digital-path-needs-enrolment
+    stage: treatment_start
+    finding: "The OYS bladder cancer digital path shows its content only after a doctor or nurse enrols the patient and the patient signs in with strong authentication."
+    status: published
+    verified_on: 2026-11-14
+    source: sttinfo-bladder
+  - key: specialist-backlog-reduced
+    stage: treatment_start
+    finding: "Patients waiting over 6 months for non-urgent somatic specialist care fell from 4,506 (28.5%) in Sep 2025 to 46 (0.5%) on 30 Apr 2026, and supervision ended on 1 Jul 2026."
+    status: published
+    verified_on: 2026-11-14
+    source: sttinfo-specialist-queue
+  - key: screening-info-finnish-only
+    stage: screening_invitation
+    barrier: B10
+    finding: "The three Pohde screening pages are in Finnish only and no other-language letters or videos were found (not confirmed that none exist)."
+    status: draft
+    source: pohde-breast
+  - key: undocumented-no-local-rule
+    stage: contact
+    barrier: B8
+    finding: "No Pohde decision on continuing necessary care for people without a residence permit was found; July 2026 training slides name only Helsinki and Varsinais-Suomi as having decided."
+    status: draft
+    source: lsv-undocumented

@@ -3,7 +3,6 @@
 ui.visit.title: {en: Your visit card, fi: Käyntikorttisi, so: Kaarkaaga booqashada, ar: بطاقة زيارتك}
 ui.visit.emergency: {en: "Emergency? Call", fi: "Hätätilanne? Soita", so: "Xaalad degdeg ah? Wac", ar: "حالة طارئة؟ اتصل"}
 ui.visit.back: {en: Back to your steps, fi: Takaisin vaiheisiin, so: Ku noqo tallaabooyinkaaga, ar: العودة إلى خطواتك}
-ui.visit.placeholder: {en: This translation has not been checked yet., fi: Tätä käännöstä ei ole vielä tarkistettu., so: Turjumaaddan weli lama hubin., ar: لم تتم مراجعة هذه الترجمة بعد.}
 ui.visit.loading: {en: Loading your visit card, fi: Käyntikorttia ladataan, so: Kaarkaaga waa la soo rarayaa, ar: جارٍ تحميل بطاقة زيارتك}
 ui.visit.error_title: {en: Your visit card could not be loaded, fi: Käyntikorttia ei voitu ladata, so: Kaarkaaga lama soo rari karin, ar: تعذر تحميل بطاقة زيارتك}
 ui.visit.not_found: {en: "This code was not found. It may be mistyped, deleted or older than 90 days.", fi: "Koodia ei löytynyt. Se voi olla kirjoitettu väärin, poistettu tai yli 90 päivää vanha.", so: "Koodkan lama helin. Waxaa laga yaabaa in si khaldan loo qoray, la tirtiray ama uu ka weyn yahay 90 maalmood.", ar: "لم يتم العثور على هذا الرمز. ربما كُتب بشكل خاطئ أو حُذف أو مضى عليه أكثر من 90 يومًا."}

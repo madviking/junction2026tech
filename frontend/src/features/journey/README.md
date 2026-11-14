@@ -45,7 +45,7 @@ component (taking `StageProps`) plus one line in `stageComponents`.
 Every screen: the then-text of the last tap in a `Banner` (with its audio when a key
 holds it), the emergency interrupt (interrupt whose `next` is `emergency`) in the
 PageShell emergency slot under the 112 link, other interrupts ("something changed") as
-secondary actions, the visit code at the bottom, `PlaceholderNotice` for so/ar.
+secondary actions, the visit code at the bottom.
 Interrupts come from `VisitView.interrupts` (the server lists the ones available on its
 stage); the client also drops any whose `next` is the stage already shown.
 

@@ -127,10 +127,10 @@ describe('CardAudioButton', () => {
     expect(await screen.findByRole('button', { name: 'Audio did not work' })).toBeInTheDocument()
   })
 
-  it('marks unchecked (Somali generated) audio in the accessible name', async () => {
+  it('does not mark unchecked (generated) audio in the accessible name', async () => {
     stubBackend()
     renderIn('so', <CardAudioButton textKey="card.symptom.lump.card" />)
-    expect(await screen.findByRole('button', { name: 'Listen (audio not yet checked)' })).toBeInTheDocument()
+    expect(await screen.findByRole('button', { name: 'Listen' })).toBeInTheDocument()
   })
 
   it('renders nothing for a language without audio output', async () => {

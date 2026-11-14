@@ -18,10 +18,11 @@ const texts = {
   'journey.outcome.contact.got_time.card': 'I got an appointment',
 }
 
-function visitView(nextSteps: VisitView['nextSteps']): VisitView {
+function visitView(nextSteps: VisitView['nextSteps'], interpreterNeeded = true): VisitView {
   return {
     code: CODE,
     lang: 'en',
+    interpreterNeeded,
     county: 'helsinki',
     state: { stage: 'wait', lane: 'U2', route: 'A1', ladderStep: 0, visitDate: '2026-11-20', tries: [] },
     stage: { id: 'wait', outcomes: [], terminal: false, ladder: 0, checkIns: [], overdueNext: null },
@@ -65,6 +66,12 @@ describe('VisitCardPage', () => {
     expect(screen.getByText('What happened when you contacted them? → I got an appointment')).toBeInTheDocument()
     expect(screen.getByText('You have the right to an interpreter')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /clinician/i })).toHaveAttribute('href', `/clinic/${CODE}`)
+  })
+
+  it('shows no interpreter notice when none is needed (Finnish, Swedish)', async () => {
+    renderCard(visitView([], false))
+    expect(await screen.findByText('GZDQ')).toBeInTheDocument()
+    expect(screen.queryByText('You have the right to an interpreter')).not.toBeInTheDocument()
   })
 
   it('lists the next steps from the clinician', async () => {

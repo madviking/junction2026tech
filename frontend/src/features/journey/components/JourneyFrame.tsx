@@ -1,6 +1,6 @@
 import { useMemo, type ReactNode } from 'react'
 import { useContent } from '@/shared/i18n'
-import { EmergencyCallLink, PageShell, PlaceholderNotice, Stack } from '@/shared/ui'
+import { EmergencyCallLink, PageShell, Stack } from '@/shared/ui'
 
 export interface JourneyFrameProps {
   /** Extra emergency action under the call link (the emergency interrupt). */
@@ -12,7 +12,7 @@ export interface JourneyFrameProps {
 
 /** Resident page frame of the journey: title, 112 always visible, the unchecked-translation marker. */
 export function JourneyFrame({ emergencyAction, onBack, children }: JourneyFrameProps) {
-  const { t, placeholder } = useContent()
+  const { t } = useContent()
   const backLabel = t('ui.journey.back')
   const back = useMemo(() => (onBack ? { label: backLabel, onPress: onBack } : undefined), [onBack, backLabel])
   return (
@@ -27,7 +27,6 @@ export function JourneyFrame({ emergencyAction, onBack, children }: JourneyFrame
       }
     >
       <Stack gap="lg">
-        {placeholder && <PlaceholderNotice>{t('ui.journey.placeholder')}</PlaceholderNotice>}
         {children}
       </Stack>
     </PageShell>
