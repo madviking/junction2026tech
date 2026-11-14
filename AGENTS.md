@@ -78,8 +78,8 @@ Checked 2026-11-14. The same table is in the `AGENTS.md` of all three repos
 | What | URL | Notes |
 | --- | --- | --- |
 | Project site: landing, data, deck, video, printouts, tech-partner pages | https://mostly-awaited-flounder.eur-1.aiven.app | Aiven Runtime app `site` from `junction2026-presentation`; redeploys on every push to `main`; `/team` needs the team password (any username) |
-| Silta API | https://easily-smart-aphid.eur-1.aiven.app | Aiven Runtime app `silta-api` from `junction2026tech`; health check `/api/health`; redeploy by hand (Runtime → Deploy latest commit) |
-| Silta app for residents, clinic, county view, admin (frontend) | https://fond-useful-corgi.eur-1.aiven.app | Aiven Runtime app `silta-web` from `junction2026tech` (`compose.web.yaml`); nginx proxies `/api/` to the API. Routes: `/`, `/clinic/<code>`, `/county/helsinki`, `/admin`. Redeploy by hand. Works only as far as the deployed API image is current |
+| Silta API | https://easily-smart-aphid.eur-1.aiven.app | Aiven Runtime app `silta-api` from `junction2026tech`; health check `/api/health`; redeploys on every green push to `main` (`.github/workflows/readiness.yml`, job `deploy`) |
+| Silta app for residents, clinic, county view, admin (frontend) | https://fond-useful-corgi.eur-1.aiven.app | Aiven Runtime app `silta-web` from `junction2026tech` (`compose.web.yaml`); nginx proxies `/api/` to the API. Routes: `/`, `/clinic/<code>`, `/county/helsinki`, `/admin`. Redeploys with the API on every green push to `main` |
 | Database | Aiven for PostgreSQL `silta-pg`, Google `europe-west4` | Connection details: password manager / `.env`, never in a repo |
 | Aiven console | https://console.aiven.io, project `appzio-d111` | Runtime apps and the database; trial credit |
 | Code (app) | https://github.com/madviking/junction2026tech | |

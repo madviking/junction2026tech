@@ -32,15 +32,21 @@ push to main
   └─ GitHub Actions (.github/workflows/readiness.yml)
        1. readiness   the full gate (policy, encore test, client is current, frontend build)
        2. image       encore build docker → migrate Aiven → push ghcr.io/madviking/silta-api:{sha,main}
-  └─ Aiven Runtime    Runtime → application → Actions → Deploy latest commit   (manual)
+       3. deploy      Aiven API redeploy of silta-api, then silta-web → wait for 200s
+  └─ Aiven Runtime    rebuilds both applications from this commit
 ```
 
 - Aiven Runtime builds only from a repository file, so `compose.aiven.yaml`
   points at `deploy/aiven/Dockerfile`, which is just `FROM` the GHCR image.
-- A push does not redeploy on Aiven. After the `image` job is green: Runtime →
-  `silta-api` → **Deploy latest commit**. The application then pulls the new
-  `:main` image. If `readiness` fails, no image is published and the running
-  version stays as it is.
+- Runtime does not deploy on push by itself. The `deploy` job calls the endpoint
+  behind the console's **Deploy latest commit** button
+  (`POST /v1/project/appzio-d111/service/<app>/application/redeploy`) for
+  `silta-api` (pulls the new `:main` image) and `silta-web` (rebuilds the
+  frontend). It needs the repository secret `AIVEN_TOKEN`: Aiven Console → user
+  menu → **Tokens** → Generate token, then `gh secret set AIVEN_TOKEN -R
+  madviking/junction2026tech` and paste it at the prompt.
+- If `readiness` fails, no image is published and nothing is redeployed.
+- Manual fallback: Runtime → application → **Deploy latest commit**.
 - The image does not migrate. CI applies `backend/db/migrations` before it
   pushes the image; from a laptop use `make migrate-aiven`.
 
@@ -103,8 +109,4 @@ that is the reason for the same-region rule, not a database problem.
 
 - The frontend runs as a third Runtime application, `silta-web`, from `compose.web.yaml`
   (nginx serves the static build and proxies `/api/` to the API, so no CORS entry is
-  needed). It only works once the API image is current: the API on Aiven runs the last
-  image CI pushed. CI was red from "Initial build" to 94b95ea (no generated Encore types and
-  no test secrets in CI); the readiness job now writes placeholder test secrets and runs
-  `encore check` before the gate.
-- Redeploying Runtime from CI instead of by hand.
+  needed). CI deploys it together with the API (see Pipeline).

@@ -93,3 +93,46 @@ jobs:
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
           docker push "$IMAGE:${{ github.sha }}"
           docker push "$IMAGE:main"
+
+  # Push to main, after the image is published: redeploy both Runtime applications through
+  # the API endpoint behind the console's "Deploy latest commit" button (same as the
+  # presentation site). Needs the repository secret AIVEN_TOKEN (docs/deployment.md).
+  # silta-api rebuilds deploy/aiven/Dockerfile (FROM the :main image pushed above);
+  # silta-web rebuilds the frontend from this commit.
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: image
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: deploy
+      cancel-in-progress: true
+    env:
+      AIVEN_PROJECT: appzio-d111
+      API_URL: https://easily-smart-aphid.eur-1.aiven.app
+      WEB_URL: https://fond-useful-corgi.eur-1.aiven.app
+    steps:
+      - name: Redeploy silta-api and silta-web on Aiven Runtime
+        env:
+          AIVEN_TOKEN: ${{ secrets.AIVEN_TOKEN }}
+        run: |
+          test -n "$AIVEN_TOKEN" || { echo "::error::repository secret AIVEN_TOKEN is not set; see docs/deployment.md"; exit 1; }
+          for service in silta-api silta-web; do
+            status=$(curl -sS -o response.txt -w '%{http_code}' -X POST \
+              -H "Authorization: aivenv1 $AIVEN_TOKEN" \
+              "https://api.aiven.io/v1/project/$AIVEN_PROJECT/service/$service/application/redeploy")
+            echo "$service: Aiven answered HTTP $status"
+            if [ "$status" -ge 300 ]; then cat response.txt; exit 1; fi
+          done
+      - name: Check both applications still answer
+        run: |
+          # The old version keeps serving while the new one builds; this only catches a broken app.
+          for url in "$API_URL/api/health" "$WEB_URL/" "$WEB_URL/api/health"; do
+            ok=
+            for i in $(seq 1 30); do
+              code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 10 "$url" || true)
+              if [ "$code" = "200" ]; then ok=1; echo "$url 200"; break; fi
+              sleep 10
+            done
+            [ -n "$ok" ] || { echo "::error::$url did not answer 200"; exit 1; }
+          done
