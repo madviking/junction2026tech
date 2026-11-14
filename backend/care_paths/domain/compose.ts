@@ -34,6 +34,8 @@ export interface PathStep {
   text: string
   detail: string | null
   adaptation: string | null
+  // Journey stage this step belongs to, so a screen can mark "you are here".
+  stage: string
 }
 
 // One line of the call script: Finnish to say or hear, and its meaning in the person's
@@ -192,39 +194,39 @@ function steps(doc: ContentDoc, input: ComposeInput, title: string): PathStep[] 
   const { lane, route, profile, barriers, lang } = input
   const t = (key: string) => textOf(doc, key, lang)
   const out: PathStep[] = []
-  const add = (key: string, detail: string | null = null, adaptation: string | null = null) =>
-    out.push({ text: t(key).replaceAll('{title}', title), detail, adaptation })
+  const add = (stage: string, key: string, detail: string | null = null, adaptation: string | null = null) =>
+    out.push({ text: t(key).replaceAll('{title}', title), detail, adaptation, stage })
   const barrierSteps = (stage: string) => {
     for (const b of barriers) {
       if (doc.structure.barriers[b]!.stepStage === stage) {
-        out.push({ text: t(k.barrierStepKey(b, 'text')), detail: optionalText(doc, k.barrierStepKey(b, 'detail'), lang), adaptation: b })
+        out.push({ text: t(k.barrierStepKey(b, 'text')), detail: optionalText(doc, k.barrierStepKey(b, 'detail'), lang), adaptation: b, stage })
       }
     }
   }
 
-  add('step.describe', t(k.profileKey(profile, 'mode')), profile)
+  add('describe', 'step.describe', t(k.profileKey(profile, 'mode')), profile)
   barrierSteps('describe')
   if (lane === 'U0') {
-    add('step.emergency')
+    add('emergency', 'step.emergency')
     return out
   }
-  add('step.route', t(k.laneKey(lane, 'tone')))
+  add('route', 'step.route', t(k.laneKey(lane, 'tone')))
   if (doc.structure.routes[route]!.extraStep) {
-    out.push({ text: t(k.routeExtraKey(route, 'text')), detail: optionalText(doc, k.routeExtraKey(route, 'detail'), lang), adaptation: route })
+    out.push({ text: t(k.routeExtraKey(route, 'text')), detail: optionalText(doc, k.routeExtraKey(route, 'detail'), lang), adaptation: route, stage: 'route' })
   }
   barrierSteps('route')
-  add('step.contact', t(k.profileKey(profile, 'contact')), profile)
+  add('contact', 'step.contact', t(k.profileKey(profile, 'contact')), profile)
   barrierSteps('contact')
   if (lane === 'U5') {
-    add('step.stalled_clock')
-    add('step.stalled_escalate')
+    add('stalled', 'step.stalled_clock')
+    add('stalled', 'step.stalled_escalate')
     return out
   }
-  add(lane === 'U4' ? 'step.wait_screening' : 'step.wait')
+  add('wait', lane === 'U4' ? 'step.wait_screening' : 'step.wait')
   barrierSteps('wait')
-  add('step.visit', t(k.profileKey(profile, 'visit_card')), profile)
+  add('visit', 'step.visit', t(k.profileKey(profile, 'visit_card')), profile)
   barrierSteps('visit')
-  add('step.followup')
+  add('followup', 'step.followup')
   barrierSteps('followup')
   return out
 }

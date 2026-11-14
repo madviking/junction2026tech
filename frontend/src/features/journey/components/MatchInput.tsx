@@ -70,13 +70,15 @@ export function MatchInput({ set, stage, match, onChosen, disabled }: MatchInput
 
   return (
     <Stack gap="sm">
-      <TextField label={t('ui.journey.match.label')} value={text} onChange={setText} disabled={disabled} />
-      <Row gap="md" align="center">
-        <ActionButton variant="secondary" loading={phase.kind === 'pending'} disabled={busy || !text.trim()} onPress={() => void run(text)}>
+      <Row gap="sm" align="end" wrap={false} growFirst>
+        <TextField label={t('ui.journey.match.label')} value={text} onChange={setText} disabled={disabled} />
+        <RecordAnswerButton compact onTranscript={onTranscript} disabled={busy} />
+      </Row>
+      {(text.trim() || phase.kind === 'pending') && (
+        <ActionButton variant="secondary" fullWidth loading={phase.kind === 'pending'} disabled={busy} onPress={() => void run(text)}>
           {t('ui.journey.match.submit')}
         </ActionButton>
-        <RecordAnswerButton onTranscript={onTranscript} disabled={busy} />
-      </Row>
+      )}
       <div role="status" aria-live="polite">
         {phase.kind === 'readback' && (
           <SurfaceCard tone="muted">

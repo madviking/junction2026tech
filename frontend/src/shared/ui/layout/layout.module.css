@@ -39,6 +39,7 @@
 [data-justify='between'] { justify-content: space-between; }
 
 .grow > * { flex: 1 1 0; min-width: 0; }
+.growFirst > :first-child { flex: 1 1 0; min-width: 0; }
 
 .container {
   inline-size: 100%;

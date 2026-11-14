@@ -28,7 +28,7 @@ export function VisitCardPage() {
     <PageShell
       title={t('ui.visit.title')}
       back={back}
-      emergency={<EmergencyCallLink label={t('ui.visit.emergency')} phoneNumber="112" />}
+      emergency={<EmergencyCallLink compact label={t('ui.visit.emergency')} phoneNumber="112" />}
     >
       <Stack gap="lg">
         {visit.isPending && <LoadingState label={t('ui.visit.loading')} />}

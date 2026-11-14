@@ -49,6 +49,7 @@ export function JourneyPage() {
       sendFailed={event.isError}
       match={match}
       visitCardPath={`/r/${lang}/v/${code}/card`}
+      aboutPath={`/r/${lang}/about`}
     />
   )
 }

@@ -1656,6 +1656,10 @@ export namespace domain {
         text: string
         detail: string | null
         adaptation: string | null
+        /**
+         * Journey stage this step belongs to, so a screen can mark "you are here".
+         */
+        stage: string
     }
 
     export type PointKind = "health_station" | "phone_service" | "digital_service" | "after_hours" | "emergency" | "specialist_hospital" | "cancer_centre" | "screening_provider" | "screening_nurse" | "occupational" | "student" | "reception_centre" | "volunteer_clinic" | "private"

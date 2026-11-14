@@ -31,14 +31,16 @@ export interface RowProps {
   wrap?: boolean
   /** Children share the row equally. */
   grow?: boolean
+  /** The first child takes the free space (a field with a button after it). */
+  growFirst?: boolean
   children: ReactNode
 }
 
 /** Horizontal flow with a token gap. Follows the writing direction. */
-export function Row({ gap = 'sm', align = 'center', justify = 'start', wrap = true, grow, children }: RowProps) {
+export function Row({ gap = 'sm', align = 'center', justify = 'start', wrap = true, grow, growFirst, children }: RowProps) {
   return (
     <div
-      className={grow ? `${classes.row} ${classes.grow}` : classes.row}
+      className={grow ? `${classes.row} ${classes.grow}` : growFirst ? `${classes.row} ${classes.growFirst}` : classes.row}
       data-gap={gap}
       data-align={align}
       data-justify={justify}

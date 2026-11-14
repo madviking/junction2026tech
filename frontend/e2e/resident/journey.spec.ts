@@ -37,7 +37,9 @@ test('(a) happy path: language → start → symptom → route → door → wait
   await page.getByRole('button', { name: 'Start' }).click()
   await expect(page).toHaveURL(/\/r\/en\/v\/SLT-[0-9A-Z]{4}-[0-9A-Z]{4}$/)
   await expect(page.getByRole('heading', { name: 'What do you need help with?' })).toBeVisible()
-  await expect(page.getByRole('button', { name: 'This is an emergency' })).toBeVisible()
+  // One red control (112, direct dial) and a neutral way to the emergency signs.
+  await expect(page.getByRole('button', { name: 'Urgent?' })).toBeVisible()
+  await expect(page.locator('a[href="tel:112"]')).toHaveCount(1)
   await shot(page, 'journey-describe')
 
   await page.getByRole('button', { name: 'I have a symptom that worries me' }).click()
@@ -45,9 +47,14 @@ test('(a) happy path: language → start → symptom → route → door → wait
   await page.getByRole('button', { name: 'A new lump or swelling' }).click()
   await expect(page.getByRole('button', { name: 'A new lump or swelling' })).toHaveAttribute('aria-pressed', 'true')
   await shot(page, 'journey-symptoms')
+  // Continue stays in view at the bottom of the screen; "how long" is its own step.
+  await expect(page.getByRole('button', { name: 'Continue' })).toBeInViewport()
+  await page.getByRole('button', { name: 'Continue' }).click()
+  await expect(page.getByRole('heading', { name: 'How long have you had them?' })).toBeVisible()
   await page.getByRole('button', { name: 'Continue' }).click()
 
   await expect(page.getByRole('heading', { name: 'Where do you get health care?' })).toBeVisible()
+  await page.getByText('These questions help you choose:').click()
   await expect(page.getByText('Do you have a Kela card?')).toBeVisible()
   await shot(page, 'journey-route')
   await page.getByRole('button', { name: 'I live in Finland and have a home municipality' }).click()
@@ -56,6 +63,13 @@ test('(a) happy path: language → start → symptom → route → door → wait
   await expect(page.getByText('Say this in Finnish')).toBeVisible()
   await expect(page.getByText('Time limits')).toBeVisible()
   await shot(page, 'journey-contact')
+  // The care path overview is one tap away and marks the current step.
+  await page.getByRole('button', { name: 'Your path' }).click()
+  await expect(page.locator('li[aria-current="step"]')).toContainText('Contact the county health station')
+  await shot(page, 'journey-path')
+  await page.getByRole('button', { name: 'Back to my step' }).click()
+  await expect(page.getByRole('button', { name: 'I contacted them' })).toBeInViewport()
+  await page.getByRole('button', { name: 'I contacted them' }).click()
   await page.getByRole('button', { name: 'I got an appointment' }).click()
   // The outcome records the visit date (optional); fill it in.
   await page.getByLabel('When is your appointment?').fill('2026-11-20')
@@ -79,11 +93,13 @@ test('(b) "Nobody answered" twice → stalled with the escalation ladder', async
   const code = await visitAt(request, TO_CONTACT)
   await page.goto(`/r/en/v/${code}`)
 
+  await page.getByRole('button', { name: 'I contacted them' }).click()
   await page.getByRole('button', { name: 'Nobody answered' }).click()
   await expect(page.getByText('Try the message channel or call 116117')).toBeVisible()
   await expect(page.getByText('Minulla on nämä oireet:')).toBeVisible()
   await shot(page, 'journey-then-text')
 
+  await page.getByRole('button', { name: 'I contacted them' }).click()
   await page.getByRole('button', { name: 'Nobody answered' }).click()
   await expect(page.getByRole('heading', { name: 'Steps if nothing happens' })).toBeVisible()
   const rungs = page.getByRole('listitem').filter({ hasText: /Call the unit that holds the referral|Muistutus|Patient ombudsman|Kantelu/ })
@@ -98,13 +114,13 @@ test('(c) emergency interrupt from the contact stage → 112 screen, and back vi
   await page.goto(`/r/en/v/${code}`)
   await expect(page.getByText('Minulla on nämä oireet:')).toBeVisible()
 
-  await page.getByRole('button', { name: 'This is an emergency' }).click()
+  await page.getByRole('button', { name: 'Urgent?' }).click()
   await expect(page.getByText('Call 112 now')).toBeVisible()
   await expect(page.locator('a[href="tel:112"]')).toHaveCount(1)
   await expect(page.getByText('Chest pain')).toBeVisible()
   // One action only: no cards, no fields; the only other control is the way back.
   await expect(page.getByRole('textbox')).toHaveCount(0)
-  await expect(page.getByRole('button', { name: 'This is an emergency' })).toHaveCount(0)
+  await expect(page.getByRole('button', { name: 'Urgent?' })).toHaveCount(0)
   const back = page.getByRole('button', { name: 'Something changed or got worse' })
   await expect(back).toBeEnabled()
   await shot(page, 'journey-emergency')
@@ -119,7 +135,7 @@ test('(c2) emergency screen shows at once and stays when the event cannot be sen
   await expect(page.getByText('Minulla on nämä oireet:')).toBeVisible()
 
   await page.route('**/api/visits/*/events', (route) => route.abort('internetdisconnected'))
-  await page.getByRole('button', { name: 'This is an emergency' }).click()
+  await page.getByRole('button', { name: 'Urgent?' }).click()
   await expect(page.getByText('Call 112 now')).toBeVisible()
   await expect(page.locator('a[href="tel:112"]')).toHaveCount(1)
   await expect(page.getByText('Chest pain')).toBeVisible()
@@ -149,7 +165,7 @@ test('(d) free text: confident match read back and confirmed; vague text keeps t
   await field.fill('hmm')
   await page.getByRole('button', { name: 'Check' }).click()
   await expect(page.getByText('We are not sure what you meant. Please choose a card.')).toBeVisible({ timeout: 20_000 })
-  await expect(page.getByRole('group')).toHaveCount(0)
+  await expect(page.getByRole('group', { name: /Did you mean/ })).toHaveCount(0)
   await expect(page.getByRole('button', { name: 'Bleeding I cannot explain' })).toHaveAttribute('aria-pressed', 'false')
   await shot(page, 'journey-match-choose')
 })

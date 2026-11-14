@@ -57,3 +57,5 @@ store either.
   card. The WAV is played into `getUserMedia` through Web Audio by default, because Chrome's
   fake audio capture hangs on hosts whose terminal app lacks macOS microphone permission;
   `E2E_CHROME_FAKE_MIC=1` uses Chrome's own fake capture instead.
+
+`RecordAnswerButton compact` renders the 48px microphone without its caption, for the one-row free-text input of the journey (`MatchInput`).

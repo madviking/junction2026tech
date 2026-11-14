@@ -1,6 +1,7 @@
 import { lazy } from 'react'
 import type { AppRoute } from '@/app/routeTypes'
 import { WithLanguage } from '@/app/resident/WithLanguage'
+import { AboutPage } from '@/features/about'
 import { ClinicianLookupPage, ClinicianPage } from '@/features/clinician'
 import { HealthPage } from '@/features/health'
 import { JourneyPage, JourneyStartPage } from '@/features/journey'
@@ -19,6 +20,7 @@ const CountyPage = lazy(() => import('@/features/county').then((m) => ({ default
 export const residentRoutes: AppRoute[] = [
   { path: '/', element: <WithLanguage lang="en"><LanguagePage /></WithLanguage> },
   { path: '/r/:lang', element: <WithLanguage><JourneyStartPage /></WithLanguage> },
+  { path: '/r/:lang/about', element: <WithLanguage><AboutPage /></WithLanguage> },
   { path: '/r/:lang/v/:code', element: <WithLanguage><JourneyPage /></WithLanguage> },
   { path: '/r/:lang/learn/cervical', element: <WithLanguage><CervicalLearnPage /></WithLanguage> },
   { path: '/letter/cervical/:lang', element: <WithLanguage><CervicalLetterPage /></WithLanguage> },

@@ -1,0 +1,4910 @@
+[
+ {
+  "id": "01-language-picker",
+  "url": "/",
+  "note": "",
+  "pageH": 1197,
+  "items": [
+   {
+    "tag": "a",
+    "text": "Emergency? Call 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "English",
+    "y": 212,
+    "h": 64,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Suomi",
+    "y": 286,
+    "h": 64,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Svenska",
+    "y": 360,
+    "h": 64,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Русский",
+    "y": 434,
+    "h": 64,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Eesti",
+    "y": 508,
+    "h": 64,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Українська",
+    "y": 582,
+    "h": 64,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "العربية",
+    "y": 656,
+    "h": 64,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Soomaali",
+    "y": 730,
+    "h": 64,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "فارسی",
+    "y": 804,
+    "h": 64,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "中文（普通话）",
+    "y": 878,
+    "h": 64,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "廣東話",
+    "y": 952,
+    "h": 64,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Tiếng Việt",
+    "y": 1026,
+    "h": 64,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "ไทย",
+    "y": 1100,
+    "h": 64,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 121
+   }
+  ],
+  "h": [
+   "Choose your language"
+  ]
+ },
+ {
+  "id": "02-start",
+  "url": "/r/en",
+  "note": "",
+  "pageH": 852,
+  "items": [
+   {
+    "tag": "button",
+    "text": "Back",
+    "y": 8,
+    "h": 48,
+    "w": 48,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "a",
+    "text": "Emergency? Call 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 137,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 210,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 283,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 373,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 438,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Start",
+    "y": 541,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "I got a letter about cervical screening A 5-minute picture g",
+    "y": 614,
+    "h": 133,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "I have a code",
+    "y": 772,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 121
+   }
+  ],
+  "h": [
+   "Silta",
+   "Find the right care"
+  ]
+ },
+ {
+  "id": "03-describe",
+  "url": "/r/en/v/SLT-C3C3-D55C",
+  "note": "",
+  "pageH": 833,
+  "items": [
+   {
+    "tag": "a",
+    "text": "Emergency? Call 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "This is an emergency",
+    "y": 116,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 195,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "I have a symptom that worries me",
+    "y": 266,
+    "h": 82,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 283,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "I got a letter I do not understand",
+    "y": 358,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 366,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "I am waiting and nothing is happening",
+    "y": 432,
+    "h": 82,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 448,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "y": 556,
+    "h": 44,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Check",
+    "y": 641,
+    "h": 48,
+    "w": 98,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(116, 126, 138)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Tap to speak",
+    "y": 608,
+    "h": 80,
+    "w": 80,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 173
+   }
+  ],
+  "h": [
+   "Silta",
+   "What do you need help with?"
+  ]
+ },
+ {
+  "id": "04-symptoms-pictures",
+  "url": "/r/en/v/SLT-C3C3-D55C",
+  "note": "",
+  "pageH": 2267,
+  "items": [
+   {
+    "tag": "a",
+    "text": "Emergency? Call 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "This is an emergency",
+    "y": 116,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 189,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Head and neck",
+    "y": 323,
+    "h": 48,
+    "w": 207,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Chest, breast and armpit",
+    "y": 375,
+    "h": 55,
+    "w": 207,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Belly and lower body",
+    "y": 433,
+    "h": 48,
+    "w": 207,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Skin",
+    "y": 485,
+    "h": 48,
+    "w": 207,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Whole body",
+    "y": 537,
+    "h": 48,
+    "w": 207,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "A new lump or swelling",
+    "y": 602,
+    "h": 154,
+    "w": 166,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 756,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Bleeding I cannot explain",
+    "y": 602,
+    "h": 154,
+    "w": 166,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 756,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Blood in stool or a change in bowel habits",
+    "y": 822,
+    "h": 178,
+    "w": 166,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1000,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "A cough for over 3 weeks",
+    "y": 822,
+    "h": 178,
+    "w": 166,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1000,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Bleeding after menopause",
+    "y": 1066,
+    "h": 178,
+    "w": 166,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1245,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "A mole or skin spot that changes",
+    "y": 1066,
+    "h": 178,
+    "w": 166,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1245,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Tiredness that does not pass",
+    "y": 1311,
+    "h": 154,
+    "w": 166,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1464,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Pain that keeps coming back",
+    "y": 1311,
+    "h": 154,
+    "w": 166,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1464,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Weight loss or poor appetite",
+    "y": 1530,
+    "h": 154,
+    "w": 166,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1684,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Show as a list",
+    "y": 1765,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "y": 1862,
+    "h": 44,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Check",
+    "y": 1948,
+    "h": 48,
+    "w": 98,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(116, 126, 138)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Tap to speak",
+    "y": 1914,
+    "h": 80,
+    "w": 80,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Continue",
+    "y": 2061,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(221, 225, 229)",
+    "color": "rgb(116, 126, 138)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Back to the question",
+    "y": 2117,
+    "h": 48,
+    "w": 343,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(7, 55, 70)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 173
+   }
+  ],
+  "h": [
+   "Silta",
+   "What worries you?"
+  ]
+ },
+ {
+  "id": "05-symptoms-selected",
+  "url": "/r/en/v/SLT-C3C3-D55C",
+  "note": "",
+  "pageH": 2647,
+  "items": [
+   {
+    "tag": "a",
+    "text": "Emergency? Call 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "This is an emergency",
+    "y": 116,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 189,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Head and neck",
+    "y": 323,
+    "h": 48,
+    "w": 207,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Chest, breast and armpit",
+    "y": 375,
+    "h": 55,
+    "w": 207,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Belly and lower body",
+    "y": 433,
+    "h": 48,
+    "w": 207,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Skin",
+    "y": 485,
+    "h": 48,
+    "w": 207,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Whole body",
+    "y": 537,
+    "h": 48,
+    "w": 207,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "A new lump or swelling",
+    "y": 602,
+    "h": 154,
+    "w": 166,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 756,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Bleeding I cannot explain",
+    "y": 602,
+    "h": 154,
+    "w": 166,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 756,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Blood in stool or a change in bowel habits",
+    "y": 822,
+    "h": 178,
+    "w": 166,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1000,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "A cough for over 3 weeks",
+    "y": 822,
+    "h": 178,
+    "w": 166,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1000,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Bleeding after menopause",
+    "y": 1066,
+    "h": 178,
+    "w": 166,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1245,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "A mole or skin spot that changes",
+    "y": 1066,
+    "h": 178,
+    "w": 166,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1245,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Tiredness that does not pass",
+    "y": 1311,
+    "h": 154,
+    "w": 166,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1464,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Pain that keeps coming back",
+    "y": 1311,
+    "h": 154,
+    "w": 166,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1464,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Weight loss or poor appetite",
+    "y": 1530,
+    "h": 154,
+    "w": 166,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1684,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Show as a list",
+    "y": 1765,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "y": 1862,
+    "h": 44,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Check",
+    "y": 1948,
+    "h": 48,
+    "w": 98,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(116, 126, 138)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Tap to speak",
+    "y": 1914,
+    "h": 80,
+    "w": 80,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2067,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Less than 2 weeks",
+    "y": 2130,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2138,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "2 to 4 weeks",
+    "y": 2204,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2212,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "1 to 3 months",
+    "y": 2278,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2286,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "More than 3 months",
+    "y": 2352,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2360,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Continue",
+    "y": 2441,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Back to the question",
+    "y": 2497,
+    "h": 48,
+    "w": 343,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(7, 55, 70)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 173
+   }
+  ],
+  "h": [
+   "Silta",
+   "What worries you?",
+   "How long have you had them?"
+  ]
+ },
+ {
+  "id": "06-symptoms-list",
+  "url": "/r/en/v/SLT-C3C3-D55C",
+  "note": "",
+  "pageH": 2066,
+  "items": [
+   {
+    "tag": "a",
+    "text": "Emergency? Call 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "This is an emergency",
+    "y": 116,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 189,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "y": 315,
+    "h": 44,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Check",
+    "y": 400,
+    "h": 48,
+    "w": 98,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(116, 126, 138)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Tap to speak",
+    "y": 367,
+    "h": 80,
+    "w": 80,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "A new lump or swelling For example in the breast, armpit or ",
+    "y": 515,
+    "h": 108,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 545,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Bleeding I cannot explain Bleeding between periods, after se",
+    "y": 633,
+    "h": 108,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 663,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Blood in stool or a change in bowel habits Lasting more than",
+    "y": 751,
+    "h": 108,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 782,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "A cough for over 3 weeks Especially with weight loss or bloo",
+    "y": 870,
+    "h": 84,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 888,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Bleeding after menopause",
+    "y": 963,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 971,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "A mole or skin spot that changes Grows, changes colour or bl",
+    "y": 1037,
+    "h": 84,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1055,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Tiredness that does not pass For several weeks",
+    "y": 1131,
+    "h": 84,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1149,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Pain that keeps coming back",
+    "y": 1225,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1233,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Weight loss or poor appetite Without trying, over weeks",
+    "y": 1299,
+    "h": 84,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1316,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Show pictures",
+    "y": 1407,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1485,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Less than 2 weeks",
+    "y": 1548,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1556,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "2 to 4 weeks",
+    "y": 1622,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1630,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "1 to 3 months",
+    "y": 1696,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1704,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "More than 3 months",
+    "y": 1770,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1778,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Continue",
+    "y": 1859,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Back to the question",
+    "y": 1915,
+    "h": 48,
+    "w": 343,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(7, 55, 70)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 173
+   }
+  ],
+  "h": [
+   "Silta",
+   "What worries you?",
+   "How long have you had them?"
+  ]
+ },
+ {
+  "id": "07-route",
+  "url": "/r/en/v/SLT-C3C3-D55C",
+  "note": "",
+  "pageH": 1756,
+  "items": [
+   {
+    "tag": "a",
+    "text": "Emergency? Call 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "This is an emergency",
+    "y": 116,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 195,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 316,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 368,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 420,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "y": 527,
+    "h": 44,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Check",
+    "y": 612,
+    "h": 48,
+    "w": 98,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(116, 126, 138)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Tap to speak",
+    "y": 579,
+    "h": 80,
+    "w": 80,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "I live in Finland and have a home municipality",
+    "y": 718,
+    "h": 82,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 735,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "My employer provides health care",
+    "y": 810,
+    "h": 82,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 827,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "I am a university or college student",
+    "y": 901,
+    "h": 82,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 918,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "I pay myself or have private insurance",
+    "y": 993,
+    "h": 82,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1010,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "I am from Ukraine with temporary protection",
+    "y": 1085,
+    "h": 82,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1101,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "I am an asylum seeker living in a reception centre",
+    "y": 1176,
+    "h": 82,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1193,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "I do not have a residence permit",
+    "y": 1268,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1276,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "I am from the EU or a Nordic country and have no home munici",
+    "y": 1342,
+    "h": 106,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1371,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "I do not know",
+    "y": 1474,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1482,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Something changed or got worse",
+    "y": 1605,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 173
+   }
+  ],
+  "h": [
+   "Silta",
+   "Where do you get health care?"
+  ]
+ },
+ {
+  "id": "08-contact-door",
+  "url": "/r/en/v/SLT-C3C3-D55C",
+  "note": "",
+  "pageH": 3507,
+  "items": [
+   {
+    "tag": "a",
+    "text": "Emergency? Call 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "This is an emergency",
+    "y": 116,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 325,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 452,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 507,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 573,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 628,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 780,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 832,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 896,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 948,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 1065,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1166,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 1298,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1353,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 1419,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1473,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 1537,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1589,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 1671,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1726,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 1792,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1847,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 1911,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1963,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2112,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2215,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2319,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2422,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2538,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "I got an appointment",
+    "y": 2622,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2630,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "They said they will contact me",
+    "y": 2696,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2704,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Nobody answered",
+    "y": 2770,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2778,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "They said this is the wrong place",
+    "y": 2844,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2852,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "They said I cannot get care here",
+    "y": 2918,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2926,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "We did not understand each other",
+    "y": 2992,
+    "h": 82,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 3009,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "y": 3116,
+    "h": 44,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Check",
+    "y": 3201,
+    "h": 48,
+    "w": 98,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(116, 126, 138)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Tap to speak",
+    "y": 3168,
+    "h": 80,
+    "w": 80,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Something changed or got worse",
+    "y": 3356,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 173
+   }
+  ],
+  "h": [
+   "Silta",
+   "Contact the county health station and ask for an assessment today",
+   "Time limits",
+   "What happened when you contacted them?"
+  ]
+ },
+ {
+  "id": "09-contact-visit-date",
+  "url": "/r/en/v/SLT-C3C3-D55C",
+  "note": "",
+  "pageH": 700,
+  "items": [
+   {
+    "tag": "a",
+    "text": "Emergency? Call 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "This is an emergency",
+    "y": 116,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "y": 257,
+    "h": 44,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Continue without a date",
+    "y": 325,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(13, 75, 94)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Back to the question",
+    "y": 397,
+    "h": 48,
+    "w": 343,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(7, 55, 70)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Something changed or got worse",
+    "y": 511,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 173
+   }
+  ],
+  "h": [
+   "Silta"
+  ]
+ },
+ {
+  "id": "10-wait",
+  "url": "/r/en/v/SLT-C3C3-D55C",
+  "note": "",
+  "pageH": 899,
+  "items": [
+   {
+    "tag": "a",
+    "text": "Emergency? Call 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "This is an emergency",
+    "y": 116,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 189,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "My visit is now",
+    "y": 254,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 262,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "I have heard nothing",
+    "y": 328,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 336,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "I do not want to continue",
+    "y": 402,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 410,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "y": 508,
+    "h": 44,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Check",
+    "y": 594,
+    "h": 48,
+    "w": 98,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(116, 126, 138)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Tap to speak",
+    "y": 560,
+    "h": 80,
+    "w": 80,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Something changed or got worse",
+    "y": 749,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 173
+   }
+  ],
+  "h": [
+   "Silta",
+   "Any news?"
+  ]
+ },
+ {
+  "id": "11-visit",
+  "url": "/r/en/v/SLT-C3C3-D55C",
+  "note": "",
+  "pageH": 1297,
+  "items": [
+   {
+    "tag": "a",
+    "text": "Emergency? Call 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "This is an emergency",
+    "y": 116,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Show your visit card",
+    "y": 189,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 267,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Referral sent",
+    "y": 338,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 346,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Tests ordered",
+    "y": 412,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 420,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Self-sampling kit handed over",
+    "y": 486,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 494,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Come back if it does not pass",
+    "y": 560,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 568,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "No further action needed",
+    "y": 634,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 642,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "There was no interpreter and I did not understand",
+    "y": 708,
+    "h": 82,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 725,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "I could not go",
+    "y": 800,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 808,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "y": 906,
+    "h": 44,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Check",
+    "y": 991,
+    "h": 48,
+    "w": 98,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(116, 126, 138)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Tap to speak",
+    "y": 958,
+    "h": 80,
+    "w": 80,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Something changed or got worse",
+    "y": 1146,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 173
+   }
+  ],
+  "h": [
+   "Silta",
+   "What did the doctor or nurse say?"
+  ]
+ },
+ {
+  "id": "12-visit-card-empty",
+  "url": "/r/en/v/SLT-C3C3-D55C/card",
+  "note": "",
+  "pageH": 1688,
+  "items": [
+   {
+    "tag": "button",
+    "text": "Back to your steps",
+    "y": 8,
+    "h": 48,
+    "w": 48,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "a",
+    "text": "Emergency? Call 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 255,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "a",
+    "text": "Clinician view",
+    "y": 370,
+    "h": 48,
+    "w": 293,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Refresh",
+    "y": 529,
+    "h": 48,
+    "w": 133,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(7, 55, 70)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Delete my data",
+    "y": 1608,
+    "h": 48,
+    "w": 343,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(7, 55, 70)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 121
+   }
+  ],
+  "h": [
+   "Your visit card",
+   "Your visit code",
+   "Next steps",
+   "Your summary",
+   "What worries you",
+   "Where to go",
+   "Visit date",
+   "What has happened so far"
+  ]
+ },
+ {
+  "id": "13-visit-card-next-steps",
+  "url": "/r/en/v/SLT-C3C3-D55C/card",
+  "note": "",
+  "pageH": 1779,
+  "items": [
+   {
+    "tag": "button",
+    "text": "Back to your steps",
+    "y": 8,
+    "h": 48,
+    "w": 48,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "a",
+    "text": "Emergency? Call 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 255,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "a",
+    "text": "Clinician view",
+    "y": 370,
+    "h": 48,
+    "w": 293,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Refresh",
+    "y": 529,
+    "h": 48,
+    "w": 133,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(7, 55, 70)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 618,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 743,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Delete my data",
+    "y": 1699,
+    "h": 48,
+    "w": 343,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(7, 55, 70)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 121
+   }
+  ],
+  "h": [
+   "Your visit card",
+   "Your visit code",
+   "Next steps",
+   "Your summary",
+   "What worries you",
+   "Where to go",
+   "Visit date",
+   "What has happened so far"
+  ]
+ },
+ {
+  "id": "14-visit-card-delete-confirm",
+  "url": "/r/en/v/SLT-C3C3-D55C/card",
+  "note": "",
+  "pageH": 1922,
+  "items": [
+   {
+    "tag": "button",
+    "text": "Back to your steps",
+    "y": 8,
+    "h": 48,
+    "w": 48,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "a",
+    "text": "Emergency? Call 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 255,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "a",
+    "text": "Clinician view",
+    "y": 370,
+    "h": 48,
+    "w": 293,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Refresh",
+    "y": 529,
+    "h": 48,
+    "w": 133,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(7, 55, 70)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 618,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 743,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Yes, delete",
+    "y": 1826,
+    "h": 48,
+    "w": 133,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Cancel",
+    "y": 1826,
+    "h": 48,
+    "w": 102,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 121
+   }
+  ],
+  "h": [
+   "Your visit card",
+   "Your visit code",
+   "Next steps",
+   "Your summary",
+   "What worries you",
+   "Where to go",
+   "Visit date",
+   "What has happened so far"
+  ]
+ },
+ {
+  "id": "15-after-clinician-answer",
+  "url": "/r/en/v/SLT-C3C3-D55C",
+  "note": "",
+  "pageH": 973,
+  "items": [
+   {
+    "tag": "a",
+    "text": "Emergency? Call 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "This is an emergency",
+    "y": 116,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 189,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "I got a time for the next exam",
+    "y": 254,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 262,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "I got a result or a letter",
+    "y": 328,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 336,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "They want more exams",
+    "y": 402,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 410,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Nothing has arrived",
+    "y": 476,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 484,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "y": 582,
+    "h": 44,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Check",
+    "y": 668,
+    "h": 48,
+    "w": 98,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(116, 126, 138)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Tap to speak",
+    "y": 634,
+    "h": 80,
+    "w": 80,
+    "bg": "rgb(13, 75, 94)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Something changed or got worse",
+    "y": 823,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 173
+   }
+  ],
+  "h": [
+   "Silta",
+   "What has arrived?"
+  ]
+ },
+ {
+  "id": "16-contact-after-no-answer",
+  "url": "/r/en/v/SLT-25ZE-Z2YM",
+  "note": "",
+  "pageH": 3667,
+  "items": [
+   {
+    "tag": "a",
+    "text": "Emergency? Call 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "This is an emergency",
+    "y": 116,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 262,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 485,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 613,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 668,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 734,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 788,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 941,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 993,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 1057,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1109,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 1226,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1327,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 1459,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1513,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 1580,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1634,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 1698,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1750,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 1832,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1887,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 1953,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2007,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Play the Finnish phrase",
+    "y": 2072,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2124,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2273,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2376,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2480,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2583,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2699,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "I got an appointment",
+    "y": 2783,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2791,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "They said they will contact me",
+    "y": 2857,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2865,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Nobody answered",
+    "y": 2931,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 2939,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "They said this is the wrong place",
+    "y": 3005,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 3013,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "They said I cannot get care here",
+    "y": 3079,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 3087,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "We did not understand each other",
+    "y": 3153,
+    "h": 82,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 3169,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "y": 3277,
+    "h": 44,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Check",
+    "y": 3362,
+    "h": 48,
+    "w": 98,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(116, 126, 138)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Tap to speak",
+    "y": 3329,
+    "h": 80,
+    "w": 80,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Something changed or got worse",
+    "y": 3517,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 173
+   }
+  ],
+  "h": [
+   "Silta",
+   "Contact the county health station and ask for an assessment today",
+   "Time limits",
+   "What happened when you contacted them?"
+  ]
+ },
+ {
+  "id": "17-stalled",
+  "url": "/r/en/v/SLT-25ZE-Z2YM",
+  "note": "",
+  "pageH": 1346,
+  "items": [
+   {
+    "tag": "a",
+    "text": "Emergency? Call 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "This is an emergency",
+    "y": 116,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 251,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 351,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 452,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 552,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 630,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "I got an appointment",
+    "y": 701,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 709,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "They said to keep waiting",
+    "y": 775,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 783,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Still no answer",
+    "y": 849,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 857,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "y": 956,
+    "h": 44,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Check",
+    "y": 1041,
+    "h": 48,
+    "w": 98,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(116, 126, 138)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Tap to speak",
+    "y": 1008,
+    "h": 80,
+    "w": 80,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Something changed or got worse",
+    "y": 1196,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 173
+   }
+  ],
+  "h": [
+   "Silta",
+   "Steps if nothing happens",
+   "What happened when you asked?"
+  ]
+ },
+ {
+  "id": "18-emergency",
+  "url": "/r/en/v/SLT-4TTN-A19J",
+  "note": "",
+  "pageH": 847,
+  "items": [
+   {
+    "tag": "a",
+    "text": "Emergency? Call 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 253,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 327,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 401,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 475,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 549,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Something changed or got worse",
+    "y": 697,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 121
+   }
+  ],
+  "h": [
+   "Silta"
+  ]
+ },
+ {
+  "id": "19-unknown-code",
+  "url": "/r/en/v/SLT-ZZZZ-ZZZZ",
+  "note": "",
+  "pageH": 700,
+  "items": [
+   {
+    "tag": "button",
+    "text": "Back",
+    "y": 8,
+    "h": 48,
+    "w": 48,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "a",
+    "text": "Emergency? Call 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Back to start",
+    "y": 273,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 121
+   }
+  ],
+  "h": [
+   "Silta"
+  ]
+ },
+ {
+  "id": "20-learn-cervical",
+  "url": "/r/en/learn/cervical",
+  "note": "",
+  "pageH": 1391,
+  "items": [
+   {
+    "tag": "button",
+    "text": "Back",
+    "y": 8,
+    "h": 48,
+    "w": 48,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "a",
+    "text": "Emergency? Call 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 363,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Why it matters A short test that protects you for years.",
+    "y": 760,
+    "h": 84,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "What happens at the visit From the door to the sample, step ",
+    "y": 854,
+    "h": 108,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Your rights You are in charge of your body and your visit.",
+    "y": 972,
+    "h": 108,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "After the visit When the result comes and what it means.",
+    "y": 1091,
+    "h": 108,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Common questions Tap a question to see the answer.",
+    "y": 1209,
+    "h": 84,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Start",
+    "y": 644,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 121
+   },
+   {
+    "cls": "_pageActions_o5mzd_19",
+    "y": 635,
+    "h": 65
+   }
+  ],
+  "h": [
+   "Cervical screening",
+   "What you will learn"
+  ]
+ },
+ {
+  "id": "21-letter-cervical",
+  "url": "/letter/cervical/en",
+  "note": "",
+  "pageH": 2801,
+  "items": [
+   {
+    "tag": "button",
+    "text": "Back",
+    "y": 8,
+    "h": 48,
+    "w": 48,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "y": 197,
+    "h": 44,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Open the guide the code leads to",
+    "y": 257,
+    "h": 48,
+    "w": 324,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "Print",
+    "y": 313,
+    "h": 48,
+    "w": 110,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 65
+   }
+  ],
+  "h": [
+   "Example screening letter",
+   "Invitation to cervical cancer screening",
+   "Your appointment",
+   "What happens at the visit",
+   "Before your visit",
+   "Change or cancel your time",
+   "Results"
+  ]
+ },
+ {
+  "id": "22-start-arabic-rtl",
+  "url": "/r/ar",
+  "note": "",
+  "pageH": 776,
+  "items": [
+   {
+    "tag": "button",
+    "text": "رجوع",
+    "y": 8,
+    "h": 48,
+    "w": 48,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "a",
+    "text": "حالة طارئة؟ اتصل 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 137,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 209,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 282,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 372,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 424,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "ابدأ",
+    "y": 514,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "وصلتني رسالة عن فحص سرطان عنق الرحم دليل مصوّر مدته 5 دقائق ",
+    "y": 587,
+    "h": 84,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "لدي رمز",
+    "y": 696,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 121
+   }
+  ],
+  "h": [
+   "سيلتا",
+   "اعثر على الرعاية المناسبة"
+  ]
+ },
+ {
+  "id": "23-contact-arabic-rtl",
+  "url": "/r/ar/v/SLT-9HWM-Z4RP",
+  "note": "",
+  "pageH": 3398,
+  "items": [
+   {
+    "tag": "a",
+    "text": "حالة طارئة؟ اتصل 112",
+    "y": 64,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(168, 28, 28)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "هذه حالة طوارئ",
+    "y": 116,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(138, 22, 22)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 295,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "تشغيل العبارة الفنلندية",
+    "y": 422,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 477,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "تشغيل العبارة الفنلندية",
+    "y": 543,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 597,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "تشغيل العبارة الفنلندية",
+    "y": 748,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 800,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "تشغيل العبارة الفنلندية",
+    "y": 864,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 916,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "تشغيل العبارة الفنلندية",
+    "y": 1033,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 1122,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "تشغيل العبارة الفنلندية",
+    "y": 1242,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 1295,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "تشغيل العبارة الفنلندية",
+    "y": 1361,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 1415,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "تشغيل العبارة الفنلندية",
+    "y": 1479,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 1531,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "تشغيل العبارة الفنلندية",
+    "y": 1613,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 1667,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "تشغيل العبارة الفنلندية",
+    "y": 1733,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 1786,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "تشغيل العبارة الفنلندية",
+    "y": 1850,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 1902,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 2051,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 2154,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 2258,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 2361,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 2462,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "حصلت على موعد",
+    "y": 2531,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 2539,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "قالوا إنهم سيتصلون بي",
+    "y": 2605,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 2613,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "لم يرد أحد",
+    "y": 2679,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 2687,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "قالوا إن هذا ليس المكان الصحيح",
+    "y": 2753,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 2761,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "قالوا إنني لا أستطيع الحصول على رعاية هنا",
+    "y": 2827,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 2835,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "لم نفهم بعضنا",
+    "y": 2901,
+    "h": 64,
+    "w": 285,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "استمع",
+    "y": 2909,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "input",
+    "text": "",
+    "y": 3007,
+    "h": 44,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "تحقّق",
+    "y": 3092,
+    "h": 48,
+    "w": 78,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(116, 126, 138)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "اضغط وتحدث",
+    "y": 3059,
+    "h": 80,
+    "w": 80,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
+    "text": "تغيّر شيء أو ساء",
+    "y": 3247,
+    "h": 48,
+    "w": 343,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 173
+   }
+  ],
+  "h": [
+   "سيلتا",
+   "تواصل اليوم واطلب تقييمًا: المركز الصحي في المنطقة",
+   "المهل الزمنية",
+   "ماذا حدث عندما تواصلت معهم؟"
+  ]
+ },
+ {
+  "id": "24-not-found",
+  "url": "/nope",
+  "note": "",
+  "pageH": 700,
+  "items": [
+   {
+    "tag": "a",
+    "text": "Go to start",
+    "y": 243,
+    "h": 48,
+    "w": 130,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   }
+  ],
+  "sticky": [
+   {
+    "cls": "_pageHeader_o5mzd_9",
+    "y": 0,
+    "h": 65
+   }
+  ],
+  "h": [
+   "Silta"
+  ]
+ }
+]

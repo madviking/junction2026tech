@@ -9,6 +9,8 @@ export interface RecordAnswerButtonProps {
   /** Called with the transcript of a short recorded answer (recording and transcript are not stored). */
   onTranscript: (text: string) => void
   disabled?: boolean
+  /** 48px button without the caption, for a row next to a text field. */
+  compact?: boolean
 }
 
 type Problem = 'mic_denied' | 'record_error' | 'no_speech'
@@ -20,7 +22,7 @@ const failureProblem: Record<RecorderFailure, Problem> = { denied: 'mic_denied',
  * language and hands the text to `onTranscript`. Renders nothing where voice input is off
  * (Somali). The recording lives in memory only.
  */
-export function RecordAnswerButton({ onTranscript, disabled }: RecordAnswerButtonProps) {
+export function RecordAnswerButton({ onTranscript, disabled, compact }: RecordAnswerButtonProps) {
   const { lang, t } = useContent()
   const caps = useVoiceCapabilities()
   const transcribe = useTranscribe()
@@ -58,7 +60,7 @@ export function RecordAnswerButton({ onTranscript, disabled }: RecordAnswerButto
 
   return (
     <Stack gap="xs" align="center">
-      <RecordButton state={state} label={label} onPress={onPress} elapsedSeconds={recorder.elapsed} />
+      <RecordButton state={state} label={label} onPress={onPress} elapsedSeconds={recorder.elapsed} size={compact ? 'sm' : 'lg'} />
       <div role="status" aria-live="polite">
         {problem && (
           <Text variant="caption" tone="danger">

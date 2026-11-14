@@ -63,7 +63,7 @@ export function CervicalLearnPage() {
     <PageShell
       title={t(`${L}.title`)}
       back={{ label: t(`${L}.back`), onPress: () => (part || done ? goIndex(done ? cervicalCourse.length - 1 : index - 1) : navigate(`/r/${lang}`)) }}
-      emergency={<EmergencyCallLink label={t('ui.language.emergency_call')} phoneNumber="112" />}
+      emergency={<EmergencyCallLink compact label={t('ui.language.emergency_call')} phoneNumber="112" />}
       bottomActions={bottom}
     >
       {content}

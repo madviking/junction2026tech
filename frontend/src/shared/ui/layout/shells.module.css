@@ -14,9 +14,7 @@
   border-block-end: 1px solid var(--silta-color-border-subtle);
 }
 .pageHeaderRow,
-.pageEmergency,
-.pageMain,
-.pageActionsInner {
+.pageMain {
   inline-size: 100%;
   max-inline-size: 40rem;
   margin-inline: auto;
@@ -26,15 +24,12 @@
   display: flex;
   align-items: center;
   gap: var(--silta-space-sm);
-  min-block-size: 64px;
-  padding-block: var(--silta-space-sm);
+  min-block-size: 56px;
+  padding-block: var(--silta-space-xs);
 }
 .pageTitle {
   flex: 1;
   min-inline-size: 0;
-}
-.pageEmergency {
-  padding-block-end: var(--silta-space-sm);
 }
 .pageMain {
   flex: 1;
@@ -44,15 +39,18 @@
   position: sticky;
   inset-block-end: 0;
   z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: var(--silta-space-sm);
+  /* Same 40rem column as the content, without an inner wrapper (the bar is a portal target). */
+  padding-inline: max(var(--silta-space-md), calc((100% - 40rem) / 2 + var(--silta-space-md)));
+  padding-block: var(--silta-space-sm) max(var(--silta-space-sm), env(safe-area-inset-bottom));
   background: var(--silta-color-surface);
   border-block-start: 1px solid var(--silta-color-border-subtle);
   box-shadow: var(--mantine-shadow-md);
 }
-.pageActionsInner {
-  display: flex;
-  flex-direction: column;
-  gap: var(--silta-space-sm);
-  padding-block: var(--silta-space-sm) max(var(--silta-space-sm), env(safe-area-inset-bottom));
+.pageActions:empty {
+  display: none;
 }
 .iconButton {
   flex: none;

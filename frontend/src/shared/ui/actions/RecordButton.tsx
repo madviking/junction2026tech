@@ -13,17 +13,21 @@ export interface RecordButtonProps {
   onPress: () => void
   /** Shown as m:ss while recording. */
   elapsedSeconds?: number
+  /** `sm`: 48px without the visible caption, for a row next to a text field. */
+  size?: 'lg' | 'sm'
 }
 
 /** Presentational 80px microphone button. The feature owns MediaRecorder. */
-export function RecordButton({ state, label, onPress, elapsedSeconds }: RecordButtonProps) {
+export function RecordButton({ state, label, onPress, elapsedSeconds, size = 'lg' }: RecordButtonProps) {
+  const small = size === 'sm'
   const inactive = state === 'processing' || state === 'disabled'
   return (
-    <div className={classes.record}>
+    <div className={classes.record} data-size={size}>
       <button
         type="button"
         className={classes.recordButton}
         data-state={state}
+        data-size={size}
         aria-label={label}
         aria-pressed={state === 'recording'}
         aria-busy={state === 'processing' || undefined}
@@ -31,16 +35,18 @@ export function RecordButton({ state, label, onPress, elapsedSeconds }: RecordBu
         onClick={onPress}
       >
         {state === 'processing' ? (
-          <Loader size={28} color="primary" />
+          <Loader size={small ? 20 : 28} color="primary" />
         ) : state === 'recording' ? (
-          <IconPlayerStopFilled size={32} aria-hidden="true" />
+          <IconPlayerStopFilled size={small ? 22 : 32} aria-hidden="true" />
         ) : (
-          <IconMicrophone size={36} aria-hidden="true" />
+          <IconMicrophone size={small ? 24 : 36} aria-hidden="true" />
         )}
       </button>
-      <Text as="span" variant="label" tone={state === 'disabled' ? 'muted' : 'default'}>
-        {label}
-      </Text>
+      {!small && (
+        <Text as="span" variant="label" tone={state === 'disabled' ? 'muted' : 'default'}>
+          {label}
+        </Text>
+      )}
       {state === 'recording' && elapsedSeconds !== undefined && (
         <Text as="span" variant="caption" tone="emergency">
           {formatElapsed(elapsedSeconds)}

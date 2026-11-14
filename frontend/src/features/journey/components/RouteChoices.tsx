@@ -1,9 +1,10 @@
+import { IconHelpCircle } from '@tabler/icons-react'
 import { MatchInput } from '@/features/journey/components/MatchInput'
 import { routeCardKey, routeQuestionKey } from '@/features/journey/keys'
 import type { MatchFn } from '@/features/journey/types'
 import { CardAudioButton } from '@/features/voice'
 import { useContent } from '@/shared/i18n'
-import { ChoiceCard, Row, Stack, SurfaceCard, Text } from '@/shared/ui'
+import { ChoiceCard, FaqItem, Row, Stack, Text } from '@/shared/ui'
 
 export interface RouteChoicesProps {
   match: MatchFn
@@ -19,23 +20,19 @@ export function RouteChoices({ match, disabled, onRoute }: RouteChoicesProps) {
   return (
     <Stack gap="md">
       {questions.length > 0 && (
-        <SurfaceCard tone="muted">
+        <FaqItem question={t('ui.journey.route.guidance')} icon={<IconHelpCircle size={24} aria-hidden="true" />}>
           <Stack gap="xs">
-            <Text variant="label">{t('ui.journey.route.guidance')}</Text>
-            <Stack gap="xs">
-              {questions.map((key) => (
-                <div key={key}>
-                  <Row gap="sm" align="center" justify="between" wrap={false}>
-                    <Text>{t(key)}</Text>
-                    <CardAudioButton textKey={key} />
-                  </Row>
-                </div>
-              ))}
-            </Stack>
+            {questions.map((key) => (
+              <div key={key}>
+                <Row gap="sm" align="center" justify="between" wrap={false}>
+                  <Text>{t(key)}</Text>
+                  <CardAudioButton textKey={key} />
+                </Row>
+              </div>
+            ))}
           </Stack>
-        </SurfaceCard>
+        </FaqItem>
       )}
-      <MatchInput set="route" match={match} onChosen={onRoute} disabled={disabled} />
       <Stack gap="sm">
         {bundle.routes.map((code) => (
           <ChoiceCard
@@ -47,6 +44,7 @@ export function RouteChoices({ match, disabled, onRoute }: RouteChoicesProps) {
           />
         ))}
       </Stack>
+      <MatchInput set="route" match={match} onChosen={onRoute} disabled={disabled} />
     </Stack>
   )
 }

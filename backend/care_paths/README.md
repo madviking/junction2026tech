@@ -81,6 +81,13 @@ It never changes the lane. Picked → the `symptoms` part ends with `step.call.s
 ("Ne alkoivat 2–4 viikkoa sitten.") and "when did they start?" leaves `they_ask`. The rule
 scripts carry no `[N]` blank. Picker texts: `ui.journey.duration.*`.
 
+## Care path steps
+
+`CarePath.steps` is the person's path in order. Each step carries the journey `stage` it
+belongs to, so the resident app can draw the path with "you are here" (frontend
+`features/journey/pathSteps.ts`). `detail` is a design note (tone, adaptation) for staff
+views; residents see only `text`.
+
 ## Endpoints
 
 - `GET /api/care-paths/options?lang=` → `CarePathOptions` (lanes, routes, profiles,

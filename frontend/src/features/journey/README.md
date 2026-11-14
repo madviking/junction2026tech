@@ -9,7 +9,7 @@ tapped outcome.
 
 | Path | Page | Shows |
 | --- | --- | --- |
-| `/r/:lang` | `JourneyStartPage` | what Silta does, privacy promise, Start (`POST /api/visits`), "I have a code" (resume) |
+| `/r/:lang` | `JourneyStartPage` | what Silta does, privacy promise, the screening guide, "I have a code" (resume), about link; Start (`POST /api/visits`) in the bottom bar |
 | `/r/:lang/v/:code` | `JourneyPage` | the visit's current stage; unknown code → error + back to start |
 
 The visit card (`/r/:lang/v/:code/card`) belongs to `features/visit-card`; the `visit`
@@ -29,8 +29,8 @@ empty tonight.
 | `route` | `RouteStage` | route questions as guidance, route cards (`route.<code>.card`), `MatchInput` set `route`, other outcomes ("not sure") |
 | `contact` | `ContactStage` | door: title, door, note; full call script (`CallScript`, from `carePath.callScript`: greeting, interpreter, checked symptoms, request, "they may ask you", closing; each line Finnish + meaning, play in Finnish and in the person's language); clocks with basis badge; outcome cards |
 | `stalled` | `StalledStage` | escalation ladder (`StepList`, current rung) + outcome cards |
-| `emergency` | `EmergencyStage` | 112 (the PageShell slot) and the emergency signs; below them only "something changed" to go back |
-| `visit` | `VisitStage` | "Show your visit card" + default cards |
+| `emergency` | `EmergencyStage` | the emergency signs; the bottom bar holds the large 112 link and "something changed" to go back (no header pill here) |
+| `visit` | `VisitStage` | default cards; "Show your visit card" in the bottom bar |
 | `closed` | `ClosedStage` | closing text + reopen card |
 
 Outcome taps go through `OutcomeChooser`, driven by the content structure: an outcome
@@ -42,12 +42,27 @@ an optional "how long?" choice from `view.durations`; sends `{ outcome, symptoms
 Adding a stage or outcome in the content needs no code. A special screen is one new
 component (taking `StageProps`) plus one line in `stageComponents`.
 
-Every screen: the then-text of the last tap in a `Banner` (with its audio when a key
-holds it), the emergency interrupt (interrupt whose `next` is `emergency`) in the
-PageShell emergency slot under the 112 link, other interrupts ("something changed") as
-secondary actions, the visit code at the bottom.
-Interrupts come from `VisitView.interrupts` (the server lists the ones available on its
-stage); the client also drops any whose `next` is the stage already shown.
+Every screen (`JourneyScreen`):
+
+- Header (`JourneyFrame`): "Silta", the visit code under it, a neutral "Urgent?" button
+  (the emergency interrupt, `ui.journey.urgent`) and the one red control, the 112 pill,
+  which dials directly.
+- `PathProgress`: "Step n of total" from the care path and a "Your path" button that opens
+  `PathOverview` in place: every step with "you are here" (`pathSteps.ts`, from
+  `view.carePath.steps[].stage`; the general `step.*` texts until a care path exists),
+  the time limits (`ClockList`), the code with the save hint, and a link to the about page.
+- The then-text of the last tap in a `Banner` (with its audio when a key holds it).
+- The stage. Its main action sits in the sticky bottom bar through `PageActions`:
+  Continue (symptoms), "I contacted them" (contact), "Show your visit card" (visit).
+- Other interrupts ("something changed") as quiet buttons under the stage.
+
+Layout rules from the mobile audit (`docs/ux-audit/2026-11-14-mobile/audit.md`): one red
+control per screen; the action that moves on never scrolls away; helper content
+(route questions, time limits, "they may ask you") is closed until tapped (`FaqItem`).
+
+**Contact** shows the door and the script; "I contacted them" swaps the screen to "What
+happened?" with the outcome cards (local state, `Back` returns to the script).
+**Symptoms**: Continue leads to "how long" as its own step (optional; Continue sends).
 
 **Emergency is offline-safe.** Tapping the emergency interrupt shows `EmergencyStage`
 at once from the loaded content (`bundle.cards.emergencySigns`) and sends the event in
@@ -62,7 +77,7 @@ limits line, and the "Your code" line.
 
 ## MatchInput (`components/MatchInput.tsx`)
 
-Text field ("Describe in your own words") + `RecordAnswerButton` → `POST /api/cards/match`.
+One row: text field ("Describe in your own words") with the compact `RecordAnswerButton` beside it; Check appears once there is text → `POST /api/cards/match`.
 `confirm` → read-back "Did you mean: …?" with a play button and Yes / No; only Yes calls
 `onChosen`. `answer` (a question about a Finnish health care word, "they asked for my Kela
 card, what is it?") → an answer card with the question, the answer, a play button

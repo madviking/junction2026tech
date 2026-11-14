@@ -100,11 +100,14 @@ describe('JourneyPage', () => {
 
     fireEvent.click(await screen.findByRole('button', { name: 'I have a symptom' }))
     expect(screen.getByRole('heading', { name: 'What worries you?' })).toBeInTheDocument()
-    // The duration question appears only once a symptom is chosen.
+    // Continue needs a symptom; "how long" is its own step after it.
+    expect(screen.getByRole('button', { name: 'Continue' })).toBeDisabled()
     expect(screen.queryByRole('heading', { name: 'How long have you had them?' })).not.toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: 'A new lump' }))
     fireEvent.click(screen.getByRole('button', { name: 'A long cough' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Continue' }))
     expect(screen.getByRole('heading', { name: 'How long have you had them?' })).toBeInTheDocument()
+    expect(screen.queryByRole('heading', { name: 'What worries you?' })).not.toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: '2 to 4 weeks' }))
     fireEvent.click(screen.getByRole('button', { name: 'Continue' }))
 
@@ -143,13 +146,17 @@ describe('JourneyPage', () => {
     })
 
     renderJourney()
-    fireEvent.click(await screen.findByRole('button', { name: 'This is an emergency' }))
+    // One red control: the 112 link dials directly; the neutral button opens the emergency signs.
+    const urgent = await screen.findByRole('button', { name: 'Urgent?' })
+    expect(screen.getByRole('link', { name: /112/ })).toHaveAttribute('href', 'tel:112')
+    fireEvent.click(urgent)
 
     // Shown before the server answered, from the loaded content.
     expect(screen.getByText('Call 112 now')).toBeInTheDocument()
     expect(screen.getByText('Chest pain')).toBeInTheDocument()
     expect(screen.queryByRole('heading', { name: 'What do you need help with?' })).not.toBeInTheDocument()
-    expect(screen.queryByRole('button', { name: 'This is an emergency' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Urgent?' })).not.toBeInTheDocument()
+    expect(screen.getAllByRole('link', { name: /112/ })).toHaveLength(1)
 
     await waitFor(() => expect(calls.find((c) => c.method === 'POST')?.body).toEqual({ lang: 'en', outcome: 'emergency_sign' }))
     await waitFor(() => expect(screen.getByRole('button', { name: 'Something changed' })).toBeEnabled())
@@ -174,6 +181,22 @@ describe('JourneyPage', () => {
 
     await waitFor(() => expect(calls.find((c) => c.method === 'POST')?.body).toEqual({ lang: 'en', outcome: 'something_changed' }))
     expect(await screen.findByRole('heading', { name: 'What do you need help with?' })).toBeInTheDocument()
+  })
+
+  it('opens the care path overview from any stage and marks the current step', async () => {
+    stubBackend({ 'GET /api/content/live': bundle, [`GET ${visitPath}`]: visitView() })
+
+    renderJourney()
+    fireEvent.click(await screen.findByRole('button', { name: 'Your path' }))
+
+    expect(screen.getByRole('heading', { name: 'Your path' })).toBeInTheDocument()
+    const current = screen.getByRole('listitem', { current: 'step' })
+    expect(current).toHaveTextContent('Describe the situation')
+    expect(screen.getByText('Silta shows where to go')).toBeInTheDocument()
+    expect(screen.queryByRole('heading', { name: 'What do you need help with?' })).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: 'Back to my step' }))
+    expect(screen.getByRole('heading', { name: 'What do you need help with?' })).toBeInTheDocument()
   })
 
   it('shows an error with a way back to start for an unknown code', async () => {

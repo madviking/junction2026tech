@@ -1,4 +1,4 @@
-import { IconShieldLock } from '@tabler/icons-react'
+import { IconInfoCircle, IconShieldLock } from '@tabler/icons-react'
 import { useCallback } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import { useCreateVisit } from '@/features/journey/api/useVisit'
@@ -8,7 +8,7 @@ import { StageQuestion } from '@/features/journey/components/StageQuestion'
 import { ScreeningEntryCard } from '@/features/screening'
 import { CardAudioButton } from '@/features/voice'
 import { useT } from '@/shared/i18n'
-import { ActionButton, Banner, IconText, Row, Stack, SurfaceCard, Text } from '@/shared/ui'
+import { ActionButton, Banner, IconText, PageActions, Row, Stack, SurfaceCard, Text } from '@/shared/ui'
 
 const WHAT_KEYS = ['ui.journey.start.what_1', 'ui.journey.start.what_2'] as const
 
@@ -45,11 +45,16 @@ export function JourneyStartPage() {
         </Stack>
       </SurfaceCard>
       {create.isError && <Banner tone="warning" title={t('ui.journey.start.error')} />}
-      <ActionButton fullWidth loading={create.isPending} onPress={() => create.mutate(lang, { onSuccess: (view) => open(view.code) })}>
-        {t('ui.journey.start.button')}
-      </ActionButton>
       <ScreeningEntryCard lang={lang} />
       <ResumeCode onResume={open} />
+      <ActionButton fullWidth variant="subtle" icon={<IconInfoCircle size={22} aria-hidden="true" />} onPress={() => navigate(`/r/${lang}/about`)}>
+        {t('ui.about.title')}
+      </ActionButton>
+      <PageActions>
+        <ActionButton fullWidth loading={create.isPending} onPress={() => create.mutate(lang, { onSuccess: (view) => open(view.code) })}>
+          {t('ui.journey.start.button')}
+        </ActionButton>
+      </PageActions>
     </JourneyFrame>
   )
 }

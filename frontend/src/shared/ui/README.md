@@ -47,22 +47,23 @@ Foundations
 - `Text` — all text; `variant` (six styles), `tone`, `as`, `eyebrow`.
 
 Layout
-- `Stack` / `Row` — vertical / horizontal flow; token `gap`, `align`, `justify`, `wrap`, `grow`.
+- `Stack` / `Row` — vertical / horizontal flow; token `gap`, `align`, `justify`, `wrap`, `grow`; `Row growFirst` gives the first child the free space (field + button).
 - `Grid` — auto-fill tile grid (`min` tile width).
 - `Container` — centered `narrow` (40rem) or `wide` (75rem) column with padding.
 - `SurfaceCard` — white card; `padding` token, `tone`, `as`.
 - `Section` — eyebrow, title (`level` 1–3), description, `aside`, children.
 - `Divider` — line, optionally with a label. `IconText` — icon + text.
 - `VisuallyHidden` — screen-reader-only text. `DirectionScope` — subtree in another `dir`/`lang`.
-- `PageShell` — resident page: sticky header (title, back, header action), always-visible emergency slot, content, sticky bottom actions.
+- `PageShell` — resident page: slim sticky header (back, title, `subtitle`, header action, and the `emergency` slot at the inline end for a compact `EmergencyCallLink`), content, sticky bottom actions. The bottom bar is hidden while empty.
+- `PageActions` — puts its children in the bottom bar of the `PageShell` above (a portal), so a stage deep in the tree can keep its main action on screen. Outside a `PageShell` it renders in place.
 
 Resident actions
 - `ActionButton` — the button: `primary | secondary | danger | subtle`, `fullWidth`, `loading`, `icon`, `href`, `compact` (admin only, 40px).
-- `ChoiceCard` — big tappable choice; label (accessible name), detail (description), icon, trailing slot outside the button, `selected` → `aria-pressed`, `disabled`, `lang`, `layout` (`row` default, `tile` = picture on top for picture grids).
+- `ChoiceCard` — big tappable choice; label (accessible name), detail (description), icon, trailing slot outside the button, `selected` → `aria-pressed`, `disabled`, `lang`, `layout` (`row` default, `tile` = picture on top for picture grids, listen button in the top start corner).
 - `BodyMap` — neutral (sexless) front body figure + one `aria-pressed` toggle button per region (`head chest belly skin whole`); the buttons are the accessible controls, the figure is a pointer shortcut and shows the chosen part. Only the given regions are tappable.
 - `AudioPlayButton` — 48px listen button: `idle | loading | playing | error`.
-- `RecordButton` — 80px mic button: `idle | recording | processing | disabled`, elapsed `m:ss`.
-- `EmergencyCallLink` — red `tel:` link for the emergency slot.
+- `RecordButton` — 80px mic button: `idle | recording | processing | disabled`, elapsed `m:ss`; `size="sm"` is 48px without the caption, for a row next to a text field.
+- `EmergencyCallLink` — red `tel:` link; `compact` is the header pill (icon + number, label as the accessible name). One per screen.
 
 Feedback
 - `Banner` — `info | warning | emergency | success`, title, text, optional action (`emergency` is solid red, `role="alert"`).

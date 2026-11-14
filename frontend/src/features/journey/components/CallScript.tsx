@@ -2,7 +2,7 @@ import { Fragment } from 'react'
 import { CardAudioButton } from '@/features/voice'
 import type { ScriptLine, ScriptPart } from '@/features/journey/types'
 import { useContent } from '@/shared/i18n'
-import { DirectionScope, Divider, Row, Stack, SurfaceCard, Text, type TextProps } from '@/shared/ui'
+import { DirectionScope, Divider, FaqItem, Row, Stack, SurfaceCard, Text, type TextProps } from '@/shared/ui'
 
 export interface CallScriptProps {
   parts: ScriptPart[]
@@ -22,21 +22,22 @@ export function CallScript({ parts }: CallScriptProps) {
         <Text variant="caption" eyebrow>
           {t('ui.journey.contact.script_title')}
         </Text>
-        {parts.map((part, i) => (
-          <Fragment key={part.id}>
-            {i > 0 && <Divider />}
-            {part.id === 'they_ask' && (
-              <Text variant="caption" eyebrow>
-                {t('ui.journey.contact.they_ask')}
-              </Text>
-            )}
+        {parts.map((part, i) => {
+          const lines = (
             <Stack gap="md">
               {part.lines.map((line, j) => (
                 <ScriptLineRow key={`${line.key ?? 'composed'}-${j}`} line={line} variant={part.id === 'request' ? 'title' : line.item ? 'label' : 'heading'} />
               ))}
             </Stack>
-          </Fragment>
-        ))}
+          )
+          return (
+            <Fragment key={part.id}>
+              {i > 0 && <Divider />}
+              {/* Only needed if the nurse asks: closed until the person opens it. */}
+              {part.id === 'they_ask' ? <FaqItem question={t('ui.journey.contact.they_ask')}>{lines}</FaqItem> : lines}
+            </Fragment>
+          )
+        })}
       </Stack>
     </SurfaceCard>
   )

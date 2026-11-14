@@ -98,13 +98,13 @@
   flex-direction: column;
   justify-content: flex-start;
   gap: var(--silta-space-sm);
-  padding-block: var(--silta-space-lg) var(--silta-space-sm);
-  min-block-size: 9rem;
+  padding: var(--silta-space-sm);
+  min-block-size: 7rem;
   text-align: center;
 }
 .choice[data-layout='tile'] .choiceIcon {
-  inline-size: 4rem;
-  block-size: 4rem;
+  inline-size: 3rem;
+  block-size: 3rem;
   align-items: center;
   justify-content: center;
   border-radius: var(--silta-radius-full);
@@ -119,10 +119,16 @@
   inset-block-start: var(--silta-space-sm);
   inset-inline-end: var(--silta-space-sm);
 }
+/* Listen button in the top start corner, so a tile is as tall as its picture and text. */
 .choice[data-layout='tile'] .choiceTrailing {
-  justify-content: center;
-  padding-block-end: var(--silta-space-sm);
-  padding-inline: var(--silta-space-sm);
+  position: absolute;
+  inset-block-start: var(--silta-space-xs);
+  inset-inline-start: var(--silta-space-xs);
+  padding: 0;
+}
+.choice[data-layout='tile'] .choiceTrailing .audio {
+  border-color: transparent;
+  background: transparent;
 }
 
 /* ---- AudioPlayButton ---- */
@@ -205,6 +211,14 @@
   cursor: not-allowed;
   box-shadow: none;
 }
+.record[data-size='sm'] {
+  flex-direction: row;
+}
+.recordButton[data-size='sm'] {
+  inline-size: 48px;
+  block-size: 48px;
+  box-shadow: none;
+}
 @keyframes pulse {
   from { opacity: 0.9; transform: scale(1); }
   to { opacity: 0; transform: scale(1.25); }
@@ -226,6 +240,10 @@
   font-size: var(--silta-type-label-size);
   font-weight: var(--silta-type-label-weight);
   line-height: var(--silta-type-label-line-height);
+}
+.emergencyLink[data-compact] {
+  flex: none;
+  border-radius: var(--silta-radius-full);
 }
 .emergencyLink:hover {
   background: var(--silta-color-emergency-hover);
