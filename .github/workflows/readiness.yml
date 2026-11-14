@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  ENCORE_VERSION: "1.58.1" # keep equal to encore.dev in backend/package.json
+  ENCORE_VERSION: "1.58.9" # keep equal to encore.dev in backend/package.json
 
 jobs:
   readiness:
