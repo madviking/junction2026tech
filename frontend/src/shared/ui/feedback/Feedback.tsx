@@ -50,6 +50,23 @@ export function Banner({ tone, title, children, action }: BannerProps) {
   )
 }
 
+export interface FloatingNoticeProps {
+  /** Usually a Banner; nothing while there is nothing to say. */
+  children?: ReactNode
+}
+
+/**
+ * A polite live region pinned to the bottom of the screen, above drawers. Keep it mounted
+ * and change its children, so screen readers announce what appears.
+ */
+export function FloatingNotice({ children }: FloatingNoticeProps) {
+  return (
+    <div className={classes.floatingNotice} role="status" aria-live="polite">
+      {children}
+    </div>
+  )
+}
+
 export interface StatusBadgeProps {
   tone: Tone
   children: ReactNode

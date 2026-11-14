@@ -29,7 +29,9 @@ Demo path (local, `make dev-backend` + `make dev-frontend`; proven by
 4. `/clinic/<code>`: Finnish one-screen summary → tap answer cards → the resident's next steps.
 5. `/county/helsinki`: public figures and anonymous counts by stage, outcome and language.
 6. `/admin` (local test users in `backend/admin/seed/admin-users.local.yaml`): edit a text,
-   publish, roll back; audio approve; usage and audit.
+   publish, roll back; audio approve; usage and audit. The public view-only demo account
+   (`demo@silta.test`, shown on the sign-in page; `backend/admin/README.md`) sees all of it
+   and cannot change anything, locally and deployed.
 
 Time is the scarcest resource. Prefer the smallest change that makes the demo
 path work end to end over generality. Every rule below exists because skipping it
@@ -160,10 +162,10 @@ Two agents never edit the same files at the same time.
   narrows or removes how Silta uses a tech partner (Aiven, ElevenLabs, Gemini, or
   a new one), update that partner's page in
   `../presentation/content/tech-challenges/<slug>.md` in the same task: the
-  journey steps it touches (`fit.steps`), the key numbers, the live/planned
-  lists and the use-case description in the details. A new partner gets a new
-  page. Only claim what this repo proves (file paths, `docs/proof/`); move an
-  item from planned to live only with that proof. Page format: the
+  journey steps it touches (`fit.steps`), the key numbers, the `live` list
+  and the use-case description in the details. A new partner gets a new
+  page. The pages show what works, not a roadmap: only claim what this repo
+  proves (file paths, `docs/proof/`). Page format: the
   "Tech-partner pages" section of `../presentation/AGENTS.md`.
 - **Writing for judges.** Anything from this repo that reaches the site, the deck
   or a printout (partner pages, proof, screenshots, architecture notes) follows

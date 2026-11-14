@@ -1,8 +1,8 @@
 import { Suspense } from 'react'
 import { Route, Routes } from 'react-router'
 import { adminPublicRoutes, adminRoutes } from '@/app/adminRoutes'
-import { AdminSessionMenu, RequireAdminSession } from '@/features/admin-auth'
-import { EmptyState, LoadingState } from '@/shared/ui'
+import { AdminSessionMenu, RequireAdminSession, ViewOnlyNotice } from '@/features/admin-auth'
+import { EmptyState, LoadingState, Stack } from '@/shared/ui'
 import { AdminShell, type AdminNavItem } from '@/shared/ui/admin'
 
 const navItems: AdminNavItem[] = adminRoutes
@@ -21,18 +21,21 @@ const userMenu = <AdminSessionMenu />
 function SignedInArea() {
   return (
     <AdminShell brand="Silta admin" navItems={navItems} navLabel="Admin sections" user={userMenu}>
-      <Suspense fallback={pageFallback}>
-        <Routes>
-          {adminRoutes.map((route) =>
-            route.path ? (
-              <Route key={route.path} path={route.path} element={route.element} />
-            ) : (
-              <Route key="index" index element={route.element} />
-            ),
-          )}
-          <Route path="*" element={<EmptyState title="Page not found" description="Pick a section from the menu." />} />
-        </Routes>
-      </Suspense>
+      <Stack gap="lg">
+        <ViewOnlyNotice />
+        <Suspense fallback={pageFallback}>
+          <Routes>
+            {adminRoutes.map((route) =>
+              route.path ? (
+                <Route key={route.path} path={route.path} element={route.element} />
+              ) : (
+                <Route key="index" index element={route.element} />
+              ),
+            )}
+            <Route path="*" element={<EmptyState title="Page not found" description="Pick a section from the menu." />} />
+          </Routes>
+        </Suspense>
+      </Stack>
     </AdminShell>
   )
 }

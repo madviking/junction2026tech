@@ -1,7 +1,7 @@
 // Service-path admin endpoints. Every endpoint needs a signed-in admin; writes are audited
 // (admin_service.ts).
 import { api, APIError } from 'encore.dev/api'
-import { requireAdmin } from '../lib/admin_actor'
+import { requireAdmin, requireAdminView } from '../lib/admin_actor'
 import * as svc from './admin_service'
 import type { AdminAreaView, SourceInput } from './admin_service'
 import type { FactStatus } from './domain/stages'
@@ -10,7 +10,7 @@ import type { FindingInput, MetricInput, PointInput, ScreeningInput, StatusTarge
 export const adminArea = api(
   { expose: true, auth: true, method: 'GET', path: '/api/service-paths/admin/areas/:id' },
   async (req: { id: string }): Promise<AdminAreaView> => {
-    requireAdmin()
+    requireAdminView()
     return svc.adminArea(req.id)
   },
 )

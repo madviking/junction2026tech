@@ -1,6 +1,7 @@
 import { queryClient } from '@/shared/api/queryClient'
 import Client, { APIError } from '@/shared/api/client'
 import { clearAdminSession, getAdminSession } from '@/features/admin-auth/session'
+import { noteViewOnlyRefusal } from '@/features/admin-auth/viewOnlyRefusal'
 
 /** Base URL of the API, the same rule as `@/shared/api/api`. */
 export const adminApiBase: string = import.meta.env.VITE_API_URL ?? globalThis.location?.origin ?? ''
@@ -13,7 +14,8 @@ export function forgetAdminQueries() {
 /**
  * The admin client: the generated client with `Authorization: Bearer <token>` from the
  * session on every call. Any 401 clears the session, which sends the admin back to the
- * sign-in page (`RequireAdminSession`). fetch is resolved per call so tests can stub it.
+ * sign-in page (`RequireAdminSession`). A 403 for a view-only account shows the "Not saved"
+ * message (`ViewOnlyNotice`). fetch is resolved per call so tests can stub it.
  */
 export const adminApi = new Client(adminApiBase, {
   auth: () => {
@@ -26,6 +28,7 @@ export const adminApi = new Client(adminApiBase, {
       clearAdminSession()
       forgetAdminQueries()
     }
+    if (response.status === 403 && getAdminSession()?.user.role === 'viewer') noteViewOnlyRefusal()
     return response
   },
 })

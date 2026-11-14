@@ -9,7 +9,18 @@ import { renderWithProviders } from '@/test/render'
 const result = {
   token: 'test-token-123',
   expiresAt: new Date(Date.now() + 3_600_000).toISOString(),
-  user: { id: 1, email: 'admin@example.test', displayName: 'Test Admin' },
+  user: { id: 1, email: 'admin@example.test', displayName: 'Test Admin', role: 'editor' as const },
+}
+
+const demo = { email: 'demo@example.test', password: 'public-demo-password', displayName: 'Demo viewer' }
+
+/** Answers the public demo-account request; every other call gets `other`. */
+function routedFetch(other: () => Response) {
+  return vi.fn(async (input: RequestInfo | URL) => (String(input).endsWith('/api/admin/demo') ? Response.json(demo) : other()))
+}
+
+function signInCall(fetchSpy: ReturnType<typeof routedFetch>) {
+  return fetchSpy.mock.calls.find(([url]) => String(url).endsWith('/api/admin/sign-in')) as unknown as [string, RequestInit]
 }
 
 function Where() {
@@ -40,7 +51,7 @@ describe('admin sign-in', () => {
   })
 
   it('stores the session and goes to the next page', async () => {
-    const fetchSpy = vi.fn(async () => Response.json(result))
+    const fetchSpy = routedFetch(() => Response.json(result))
     vi.stubGlobal('fetch', fetchSpy)
     renderSignIn()
 
@@ -50,19 +61,34 @@ describe('admin sign-in', () => {
     expect(getAdminSession()?.token).toBe('test-token-123')
     // eslint-disable-next-line no-restricted-properties -- asserts the documented session storage
     expect(window.sessionStorage.getItem('silta.admin.session')).toContain('test-token-123')
-    const [url, init] = fetchSpy.mock.calls[0] as unknown as [string, RequestInit]
-    expect(url).toMatch(/\/api\/admin\/sign-in$/)
+    const [, init] = signInCall(fetchSpy)
     expect(JSON.parse(String(init.body))).toEqual({ email: 'admin@example.test', password: 'not-a-real-password' })
   })
 
   it('shows an error on 401 and stores nothing', async () => {
-    vi.stubGlobal('fetch', vi.fn(async () => Response.json({ code: 'unauthenticated', message: 'invalid credentials' }, { status: 401 })))
+    vi.stubGlobal('fetch', routedFetch(() => Response.json({ code: 'unauthenticated', message: 'invalid credentials' }, { status: 401 })))
     renderSignIn()
 
     fillAndSubmit()
 
     expect(await screen.findByText('Wrong email or password.')).toBeInTheDocument()
     expect(getAdminSession()).toBeNull()
+  })
+
+  it('shows the public demo credentials and signs in with them in one click', async () => {
+    const viewer = { ...result, user: { ...result.user, email: demo.email, role: 'viewer' as const } }
+    const fetchSpy = routedFetch(() => Response.json(viewer))
+    vi.stubGlobal('fetch', fetchSpy)
+    renderSignIn()
+
+    expect(await screen.findByText(demo.email)).toBeInTheDocument()
+    expect(screen.getByText(demo.password)).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'Sign in as demo viewer' }))
+
+    expect(await screen.findByText('at /admin/content')).toBeInTheDocument()
+    const [, init] = signInCall(fetchSpy)
+    expect(JSON.parse(String(init.body))).toEqual({ email: demo.email, password: demo.password })
+    expect(getAdminSession()?.user.role).toBe('viewer')
   })
 
   it('sends the bearer token and clears the session on any 401', async () => {

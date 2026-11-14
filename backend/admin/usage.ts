@@ -1,7 +1,7 @@
 // Admin usage page: paid provider spend by provider, feature and day (llm + voice).
 import { api } from 'encore.dev/api'
 import { llm, voice } from '~encore/clients'
-import { requireAdmin } from '../lib/admin_actor'
+import { requireAdminView } from '../lib/admin_actor'
 
 export interface UsageRow {
   day: string
@@ -29,7 +29,7 @@ export interface UsageReport {
 export const usage = api(
   { expose: true, auth: true, method: 'GET', path: '/api/admin/usage' },
   async (): Promise<UsageReport> => {
-    requireAdmin()
+    requireAdminView()
     const [l, v] = await Promise.all([llm.usageSummary(), voice.usageSummary()])
     const rows: UsageRow[] = [
       ...l.rows.map((r) => ({ day: r.day, service: 'llm' as const, provider: r.provider, feature: r.feature, calls: r.calls, tokens: r.tokens, characters: 0, seconds: 0, costUsd: r.costUsd })),

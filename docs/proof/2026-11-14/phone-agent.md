@@ -81,3 +81,19 @@ agent), conversation `conv_4901m7cyeasaeda8tgjz0zb4j8eq`, 28 s, 253 credits, Twi
 
 Not yet proven: a full care-path conversation over the phone (needs the Twilio number), speech recognition and voice
 quality on 8 kHz phone audio, Somali (expected weak), latency on a call.
+
+## Full care-path call over the phone (14 Nov, 15:15)
+
+Proof level: **live phone call**, conversation `conv_2001m7d35dngfm4a2h32nbwwnfdx`, 108 s,
+829 credits, status `success`, ended by the caller (read back from the ElevenLabs
+conversations API).
+
+- The menu played; the caller pressed **3** and the agent continued in English.
+- Caller: irregular bowel movements, no residence in Finland.
+- The agent asked for the entitlement, called `compose_care_path` on the deployed API, and
+  told the caller to book a non-urgent visit through the county necessary-care route or a
+  volunteer clinic, with the right to a free interpreter.
+- Follow-up "how much does it cost?" answered (volunteer clinics often free or low cost;
+  ask about fees when booking).
+
+This closes "a full care-path conversation over the phone" from the list above.

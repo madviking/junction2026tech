@@ -61,6 +61,7 @@ export {
   Banner,
   EmptyState,
   ErrorState,
+  FloatingNotice,
   LoadingState,
   PlaceholderNotice,
   StatusBadge,
@@ -68,6 +69,7 @@ export {
   type BannerTone,
   type EmptyStateProps,
   type ErrorStateProps,
+  type FloatingNoticeProps,
   type StatusBadgeProps,
 } from '@/shared/ui/feedback/Feedback'
 

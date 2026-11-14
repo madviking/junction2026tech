@@ -1,13 +1,13 @@
 // Admin audio endpoints (signed-in admins; every write is audited) and internal usage.
 import { api } from 'encore.dev/api'
 import { admin } from '~encore/clients'
-import { requireAdmin } from '../lib/admin_actor'
+import { requireAdmin, requireAdminView } from '../lib/admin_actor'
 import * as service from './service'
 
 export const adminAssets = api(
   { expose: true, auth: true, method: 'GET', path: '/api/voice/admin/assets' },
   async (req: { lang: string }): Promise<{ rows: service.AdminAssetRow[] }> => {
-    requireAdmin()
+    requireAdminView()
     return { rows: await service.adminAssets(await service.liveDoc(), req.lang) }
   },
 )

@@ -24,6 +24,14 @@ export async function insertUserIfMissing(email: string, displayName: string, pa
     ON CONFLICT (email) DO NOTHING`
 }
 
+// Creates the account or resets its name and password (the public demo account, whose
+// password lives in code and may change).
+export async function upsertUser(email: string, displayName: string, passwordHash: string): Promise<void> {
+  await db.exec`
+    INSERT INTO admin_users (email, display_name, password_hash) VALUES (${email}, ${displayName}, ${passwordHash})
+    ON CONFLICT (email) DO UPDATE SET display_name = EXCLUDED.display_name, password_hash = EXCLUDED.password_hash`
+}
+
 export async function userByEmail(email: string): Promise<AdminUser | null> {
   const row = await db.queryRow<UserRow>`SELECT id, email, display_name, password_hash FROM admin_users WHERE email = ${email}`
   return row ? toUser(row) : null

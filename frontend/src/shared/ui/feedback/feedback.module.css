@@ -116,3 +116,20 @@
   border-inline-start: 4px solid var(--silta-tone-danger-border);
   background: var(--silta-tone-danger-bg);
 }
+
+/* FloatingNotice: bottom centre, above drawers; only its content takes clicks. */
+.floatingNotice {
+  position: fixed;
+  inset-inline: var(--silta-space-md);
+  inset-block-end: var(--silta-space-lg);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+.floatingNotice > * {
+  inline-size: 100%;
+  max-inline-size: 560px;
+  pointer-events: auto;
+  box-shadow: var(--mantine-shadow-lg);
+}

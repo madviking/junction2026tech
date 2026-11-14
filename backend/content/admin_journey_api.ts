@@ -6,7 +6,7 @@
 import { api, APIError } from 'encore.dev/api'
 import { admin } from '~encore/clients'
 import type { ContentDoc } from '../care_paths/domain/types'
-import { requireAdmin } from '../lib/admin_actor'
+import { requireAdmin, requireAdminView } from '../lib/admin_actor'
 import {
   addOutcome,
   addStage,
@@ -53,7 +53,7 @@ export const journeyGraph = api(
   { expose: true, auth: true, method: 'GET', path: '/api/content/admin/journey/graph' },
   async (): Promise<JourneyGraph> => {
     if (!JOURNEY_EDITOR_ENABLED) return disabledGraph()
-    requireAdmin()
+    requireAdminView()
     return currentGraph()
   },
 )

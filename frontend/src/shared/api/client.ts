@@ -108,6 +108,10 @@ export namespace admin {
         id: number
         email: string
         displayName: string
+        /**
+         * viewer: the public demo account, sees everything and changes nothing.
+         */
+        role: lib.AdminRole
     }
 
     export interface AuditEntry {
@@ -121,6 +125,12 @@ export namespace admin {
 
     export interface AuthParams {
         authorization: string
+    }
+
+    export interface DemoAccount {
+        email: string
+        password: string
+        displayName: string
     }
 
     export interface SignInResult {
@@ -158,6 +168,7 @@ export namespace admin {
         constructor(baseClient: BaseClient) {
             this.baseClient = baseClient
             this.audit = this.audit.bind(this)
+            this.demoAccount = this.demoAccount.bind(this)
             this.me = this.me.bind(this)
             this.signIn = this.signIn.bind(this)
             this.signOut = this.signOut.bind(this)
@@ -179,6 +190,15 @@ export namespace admin {
             return await resp.json() as {
     entries: AuditEntry[]
 }
+        }
+
+        /**
+         * Public: the view-only demo account, shown on the sign-in page.
+         */
+        public async demoAccount(): Promise<DemoAccount> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/admin/demo`)
+            return await resp.json() as DemoAccount
         }
 
         public async me(): Promise<AdminProfile> {
@@ -1861,6 +1881,10 @@ export namespace domain {
     }
 
     export type VsFinland = "better" | "worse" | "same"
+}
+
+export namespace lib {
+    export type AdminRole = "editor" | "viewer"
 }
 
 export namespace prompts {

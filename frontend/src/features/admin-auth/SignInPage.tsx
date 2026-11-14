@@ -1,6 +1,8 @@
 import { Navigate, useNavigate, useSearchParams } from 'react-router'
 import { adminErrorMessage } from '@/features/admin-auth/adminApi'
+import { useDemoAccount } from '@/features/admin-auth/api/useDemoAccount'
 import { useSignIn } from '@/features/admin-auth/api/useSignIn'
+import { DemoAccessCard } from '@/features/admin-auth/components/DemoAccessCard'
 import { safeAdminNext } from '@/features/admin-auth/safeAdminNext'
 import { SignInForm } from '@/features/admin-auth/components/SignInForm'
 import { useAdminSession } from '@/features/admin-auth/session'
@@ -19,7 +21,10 @@ export function SignInPage() {
   const navigate = useNavigate()
   const session = useAdminSession()
   const signIn = useSignIn()
+  const demo = useDemoAccount()
   const next = safeAdminNext(params.get('next'))
+  const submit = (credentials: { email: string; password: string }) =>
+    signIn.mutate(credentials, { onSuccess: () => navigate(next, { replace: true }) })
 
   if (session && !signIn.isPending && !signIn.isSuccess) return <Navigate to={next} replace />
 
@@ -31,10 +36,18 @@ export function SignInPage() {
             <SignInForm
               pending={signIn.isPending}
               error={signInError(signIn.error)}
-              onSubmit={(credentials) => signIn.mutate(credentials, { onSuccess: () => navigate(next, { replace: true }) })}
+              onSubmit={submit}
             />
           </SurfaceCard>
         </Section>
+        {demo.data && (
+          <DemoAccessCard
+            email={demo.data.email}
+            password={demo.data.password}
+            pending={signIn.isPending}
+            onUse={() => submit({ email: demo.data.email, password: demo.data.password })}
+          />
+        )}
         <Text variant="caption" tone="muted">
           Your session stays in this browser tab only and ends after 12 hours or when you sign out.
         </Text>

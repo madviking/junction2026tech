@@ -5,6 +5,7 @@ import path from 'node:path'
 import { promisify } from 'node:util'
 import { appMeta } from 'encore.dev'
 import { APIError } from 'encore.dev/api'
+import type { AdminRole } from '../lib/admin_actor'
 import log from 'encore.dev/log'
 import { parse } from 'yaml'
 import * as repo from './repository'
@@ -17,6 +18,29 @@ export interface AdminProfile {
   id: number
   email: string
   displayName: string
+  // viewer: the public demo account, sees everything and changes nothing.
+  role: AdminRole
+}
+
+export interface DemoAccount {
+  email: string
+  password: string
+  displayName: string
+}
+
+// The public demo account. Its credentials are shown on the sign-in page and the project
+// site on purpose, so it exists in every environment (production included) and is always
+// view-only: requireAdmin() refuses it on every endpoint that changes something.
+// Decision (README): the role comes from this constant, not a database column, so the
+// deployed image needs no migration.
+export const DEMO_VIEWER: DemoAccount = {
+  email: 'demo@silta.test',
+  password: 'silta-demo-viewer',
+  displayName: 'Demo viewer (view only)',
+}
+
+export function roleFor(email: string): AdminRole {
+  return email.toLowerCase() === DEMO_VIEWER.email ? 'viewer' : 'editor'
 }
 
 export interface SignInResult {
@@ -49,13 +73,15 @@ export async function verifyPassword(password: string, stored: string): Promise<
 }
 
 const tokenHash = (token: string) => createHash('sha256').update(token).digest('hex')
-const profile = (u: AdminUser): AdminProfile => ({ id: u.id, email: u.email, displayName: u.displayName })
+const profile = (u: AdminUser): AdminProfile => ({ id: u.id, email: u.email, displayName: u.displayName, role: roleFor(u.email) })
 
-// Local test admins come from admin/seed/admin-users.local.yaml (found from the
-// working directory, like the content seed). Existing users are never overwritten.
+// The demo viewer exists everywhere. Local test admins come from
+// admin/seed/admin-users.local.yaml (found from the working directory, like the content
+// seed); existing local users are never overwritten.
 let seeded: Promise<void> | null = null
 export function ensureAdminsSeeded(): Promise<void> {
   seeded ??= (async () => {
+    await repo.upsertUser(DEMO_VIEWER.email, DEMO_VIEWER.displayName, await hashPassword(DEMO_VIEWER.password))
     // Local test admins never reach production; real admins are created another way.
     if (appMeta().environment.type === 'production') {
       log.warn('admin seed skipped in production')
@@ -92,7 +118,10 @@ export async function signIn(email: string, password: string): Promise<SignInRes
   await ensureAdminsSeeded()
   const normalized = email.trim().toLowerCase()
   const now = Date.now()
-  if (recentFailures(normalized, now).length >= MAX_FAILS) {
+  // The demo password is public, so throttling it protects nothing and would let anyone
+  // lock the demo for everybody.
+  const throttled = roleFor(normalized) !== 'viewer'
+  if (throttled && recentFailures(normalized, now).length >= MAX_FAILS) {
     throw APIError.resourceExhausted('too many failed sign-ins; try again in 15 minutes')
   }
   const user = await repo.userByEmail(normalized)
@@ -100,7 +129,7 @@ export async function signIn(email: string, password: string): Promise<SignInRes
   dummyHash ??= hashPassword(randomBytes(16).toString('hex'))
   const ok = user ? await verifyPassword(password, user.passwordHash) : (await verifyPassword(password, await dummyHash), false)
   if (!user || !ok) {
-    recentFailures(normalized, now).push(now)
+    if (throttled) recentFailures(normalized, now).push(now)
     await recordAudit('anonymous', 'admin.sign_in_failed', normalized.slice(0, 200), {})
     throw APIError.unauthenticated('wrong email or password')
   }

@@ -27,7 +27,7 @@ const GRAPH = '/api/content/admin/journey/graph'
 
 describe('JourneyEditorPage', () => {
   beforeEach(() => {
-    setAdminSession({ token: 't', expiresAt: new Date(Date.now() + 3_600_000).toISOString(), user: { id: 1, email: 'a@example.test', displayName: 'A' } })
+    setAdminSession({ token: 't', expiresAt: new Date(Date.now() + 3_600_000).toISOString(), user: { id: 1, email: 'a@example.test', displayName: 'A', role: 'editor' } })
     Element.prototype.scrollIntoView = vi.fn()
   })
   afterEach(() => {

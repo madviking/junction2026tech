@@ -69,6 +69,7 @@ Resident actions
 
 Feedback
 - `Banner` — `info | warning | emergency | success`, title, text, optional action (`emergency` is solid red, `role="alert"`).
+- `FloatingNotice` — polite live region pinned bottom centre above drawers; keep it mounted and change its children (usually a Banner).
 - `LoadingState`, `EmptyState` (title, description, icon, action), `ErrorState` (what failed, message, retry).
 - `PlaceholderNotice` — "unchecked translation" style marker; text passed in.
 - `StatusBadge` — `neutral | info | success | warning | danger` pill.

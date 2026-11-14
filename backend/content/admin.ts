@@ -1,7 +1,7 @@
 // Content admin endpoints: text editor, review, draft, publish, rollback, export.
 // Every endpoint needs a signed-in admin; writes record an audit row (admin_texts.ts).
 import { api } from 'encore.dev/api'
-import { requireAdmin } from '../lib/admin_actor'
+import { requireAdmin, requireAdminView } from '../lib/admin_actor'
 import {
   discard,
   draftDetail,
@@ -22,7 +22,7 @@ import * as service from './service'
 export const adminTexts = api(
   { expose: true, auth: true, method: 'GET', path: '/api/content/admin/texts' },
   async (req: { lang?: string; filter?: TextFilter; search?: string; group?: string }): Promise<TextsResponse> => {
-    requireAdmin()
+    requireAdminView()
     return listTexts(req)
   },
 )
@@ -46,7 +46,7 @@ export const adminSetReview = api(
 export const adminDraft = api(
   { expose: true, auth: true, method: 'GET', path: '/api/content/admin/draft' },
   async (): Promise<DraftDetail> => {
-    requireAdmin()
+    requireAdminView()
     return draftDetail()
   },
 )
@@ -70,7 +70,7 @@ export const adminDiscard = api(
 export const adminVersions = api(
   { expose: true, auth: true, method: 'GET', path: '/api/content/admin/versions' },
   async (): Promise<{ versions: service.ReleaseInfo[] }> => {
-    requireAdmin()
+    requireAdminView()
     return { versions: await service.listReleases() }
   },
 )
@@ -86,7 +86,7 @@ export const adminRollback = api(
 export const adminExport = api(
   { expose: true, auth: true, method: 'GET', path: '/api/content/admin/export' },
   async (): Promise<{ version: number; yaml: string }> => {
-    requireAdmin()
+    requireAdminView()
     return service.exportLive()
   },
 )
@@ -94,7 +94,7 @@ export const adminExport = api(
 export const adminReviewFlags = api(
   { expose: true, auth: true, method: 'GET', path: '/api/content/admin/review-flags' },
   async (): Promise<{ flags: ReviewFlag[] }> => {
-    requireAdmin()
+    requireAdminView()
     return { flags: await liveReviewFlags() }
   },
 )
