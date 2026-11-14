@@ -172,12 +172,20 @@ function callScript(doc: ContentDoc, input: ComposeInput, requestKey: string): S
   const opening: ScriptLine[] = [line('step.call.greeting')]
   if (interpreterNeeded(lang)) {
     const native = doc.languages.find((l) => l.code === lang)?.name ?? lang
-    opening.push(line('step.call.interpreter'), {
-      key: null,
-      fi: textOf(doc, 'step.call.my_language', 'fi').replaceAll('{language}', LANGUAGE_IN_FINNISH[lang]),
-      local: textOf(doc, 'step.call.my_language', lang).replaceAll('{language}', native),
-      item: false,
-    })
+    // A finished sentence per language has a text key and so audio; a language without one
+    // (added later) falls back to the template, shown without audio.
+    const mine = k.myLanguageKey(lang)
+    opening.push(
+      line('step.call.interpreter'),
+      doc.texts[mine]?.fi
+        ? line(mine)
+        : {
+            key: null,
+            fi: textOf(doc, 'step.call.my_language', 'fi').replaceAll('{language}', LANGUAGE_IN_FINNISH[lang]),
+            local: textOf(doc, 'step.call.my_language', lang).replaceAll('{language}', native),
+            item: false,
+          },
+    )
   }
   const parts: ScriptPart[] = [{ id: 'opening', lines: opening }]
   if (symptoms.length > 0) {

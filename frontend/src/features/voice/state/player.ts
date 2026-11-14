@@ -7,9 +7,11 @@ export type PlayerStatus = 'idle' | 'loading' | 'playing' | 'error'
 interface Snapshot {
   owner: string | null
   status: PlayerStatus
+  /** Which clip of the owner's sequence is loading or playing (0 for a single clip). */
+  index: number
 }
 
-let snapshot: Snapshot = { owner: null, status: 'idle' }
+let snapshot: Snapshot = { owner: null, status: 'idle', index: 0 }
 let audio: HTMLAudioElement | null = null
 // Increases with every play/stop, so late results of an older request are ignored.
 let generation = 0
@@ -47,8 +49,9 @@ export function play(owner: string, resolveUrl: () => Promise<string>): Promise<
 export async function playSequence(owner: string, resolveUrls: Array<() => Promise<string>>): Promise<void> {
   halt()
   const mine = ++generation
-  set({ owner, status: 'loading' })
+  set({ owner, status: 'loading', index: 0 })
   const playAt = async (index: number): Promise<void> => {
+    if (index > 0) set({ owner, status: snapshot.status, index })
     try {
       const url = await resolveUrls[index]!()
       if (mine !== generation) return
@@ -56,21 +59,21 @@ export async function playSequence(owner: string, resolveUrls: Array<() => Promi
       el.onended = () => {
         if (mine !== generation) return
         if (index + 1 < resolveUrls.length) void playAt(index + 1)
-        else set({ owner: null, status: 'idle' })
+        else set({ owner: null, status: 'idle', index: 0 })
       }
       el.onerror = () => {
-        if (mine === generation) set({ owner, status: 'error' })
+        if (mine === generation) set({ owner, status: 'error', index })
       }
       el.src = url
       await el.play()
-      if (mine === generation) set({ owner, status: 'playing' })
+      if (mine === generation) set({ owner, status: 'playing', index })
     } catch (_err) {
       if (mine !== generation) return
       halt()
-      set({ owner, status: 'error' })
+      set({ owner, status: 'error', index })
     }
   }
-  if (resolveUrls.length === 0) set({ owner: null, status: 'idle' })
+  if (resolveUrls.length === 0) set({ owner: null, status: 'idle', index: 0 })
   else await playAt(0)
 }
 
@@ -79,7 +82,7 @@ export function stop(owner?: string) {
   if (owner !== undefined && snapshot.owner !== owner) return
   generation++
   halt()
-  set({ owner: null, status: 'idle' })
+  set({ owner: null, status: 'idle', index: 0 })
 }
 
 function subscribe(listener: () => void) {
@@ -94,10 +97,20 @@ export function usePlayerState(owner: string): PlayerStatus {
   return useSyncExternalStore(subscribe, () => (snapshot.owner === owner ? snapshot.status : 'idle'))
 }
 
+/**
+ * Which clip of this owner's sequence is loading or playing, or null when the owner is not
+ * reading (idle, stopped, finished, failed). Lets a screen mark the text being read.
+ */
+export function useReadingIndex(owner: string): number | null {
+  return useSyncExternalStore(subscribe, () =>
+    snapshot.owner === owner && (snapshot.status === 'loading' || snapshot.status === 'playing') ? snapshot.index : null,
+  )
+}
+
 /** Test helper: forget the shared element and state between tests. */
 export function resetPlayerForTests() {
   halt()
   audio = null
   generation++
-  snapshot = { owner: null, status: 'idle' }
+  snapshot = { owner: null, status: 'idle', index: 0 }
 }

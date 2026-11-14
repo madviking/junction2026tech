@@ -11,6 +11,12 @@
   min-block-size: 40px;
   padding-inline: var(--silta-space-md);
 }
+.buttonRoot[data-large] {
+  min-block-size: 64px;
+}
+.buttonRoot[data-large] .buttonLabel {
+  font-size: var(--silta-type-heading-size);
+}
 .buttonLabel {
   font-size: var(--silta-type-label-size);
   font-weight: var(--silta-type-label-weight);
@@ -276,4 +282,11 @@
   block-size: 40px;
   min-inline-size: 40px;
   min-block-size: 40px;
+}
+
+/* Paper: a listen button means nothing on a printout or PDF. */
+@media print {
+  .audio {
+    display: none;
+  }
 }

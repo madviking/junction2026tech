@@ -15,6 +15,8 @@ export interface ActionButtonProps {
   icon?: ReactNode
   /** 40px tall instead of 48px. Admin toolbars only; resident screens keep the default. */
   compact?: boolean
+  /** 64px tall with a larger label: the one main action of a resident screen (journey Start). */
+  large?: boolean
   type?: 'button' | 'submit'
   /** Renders a link (`tel:`, external URL) instead of a button. */
   href?: string
@@ -38,6 +40,7 @@ export function ActionButton({
   disabled,
   icon,
   compact,
+  large,
   type = 'button',
   href,
   external,
@@ -56,6 +59,7 @@ export function ActionButton({
     classNames: BUTTON_CLASSES,
     'data-kind': variant,
     'data-compact': compact || undefined,
+    'data-large': large || undefined,
     'aria-label': ariaLabel,
     onClick: onPress,
   } as const

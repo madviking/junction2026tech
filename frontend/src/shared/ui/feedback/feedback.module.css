@@ -1,4 +1,4 @@
-/* Banner, StatusBadge, PlaceholderNotice, LoadingState, EmptyState, ErrorState. */
+/* Banner, StatusBadge, PlaceholderNotice, LoadingState, EmptyState, ErrorState, ReadingMark. */
 
 .banner {
   display: flex;
@@ -132,4 +132,24 @@
   max-inline-size: 560px;
   pointer-events: auto;
   box-shadow: var(--mantine-shadow-lg);
+}
+
+/* ---- ReadingMark: the block a page "Listen" button is reading ---- */
+.reading {
+  margin: calc(-1 * var(--silta-space-xs));
+  padding: var(--silta-space-xs);
+  border-radius: var(--silta-radius-md);
+  outline: 2px solid transparent;
+  transition:
+    background-color 150ms ease,
+    outline-color 150ms ease;
+}
+.reading[data-active] {
+  background: var(--silta-tone-info-bg);
+  outline-color: var(--silta-tone-info-border);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reading {
+    transition: none;
+  }
 }

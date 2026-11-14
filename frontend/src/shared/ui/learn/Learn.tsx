@@ -1,5 +1,5 @@
 import { IconChevronDown, type Icon } from '@tabler/icons-react'
-import type { ReactNode } from 'react'
+import { useEffect, useRef, type ReactNode } from 'react'
 import { Text } from '@/shared/ui/typography/Text'
 import classes from './learn.module.css'
 
@@ -69,8 +69,27 @@ export interface FaqItemProps {
 
 /** One question that opens to its answer (native details/summary: keyboard and screen reader friendly). */
 export function FaqItem({ question, icon, children }: FaqItemProps) {
+  // Printing (or saving as PDF) shows the answer too; it folds back as it was afterwards.
+  const ref = useRef<HTMLDetailsElement>(null)
+  useEffect(() => {
+    let wasOpen = false
+    const open = () => {
+      if (!ref.current) return
+      wasOpen = ref.current.open
+      ref.current.open = true
+    }
+    const restore = () => {
+      if (ref.current) ref.current.open = wasOpen
+    }
+    window.addEventListener('beforeprint', open)
+    window.addEventListener('afterprint', restore)
+    return () => {
+      window.removeEventListener('beforeprint', open)
+      window.removeEventListener('afterprint', restore)
+    }
+  }, [])
   return (
-    <details className={classes.faq}>
+    <details ref={ref} className={classes.faq}>
       <summary className={classes.faqSummary}>
         {icon && <span className={classes.faqIcon}>{icon}</span>}
         <span className={classes.faqQuestion}>
@@ -161,6 +180,11 @@ export function TimelineStrip({ steps }: TimelineStripProps) {
 /** Wraps on-screen controls that should not appear on paper. */
 export function PrintHidden({ children }: { children: ReactNode }) {
   return <div className={classes.printHidden}>{children}</div>
+}
+
+/** Shown only on paper (print, Save as PDF): wording for the printout, e.g. "show this card" instead of "this screen". */
+export function PrintOnly({ children }: { children: ReactNode }) {
+  return <div className={classes.printOnly}>{children}</div>
 }
 
 /** An icon that points "forward"/"back" in reading order: flipped in right-to-left languages. */

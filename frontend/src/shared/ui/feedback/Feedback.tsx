@@ -7,7 +7,7 @@ import {
   IconInfoCircle,
   IconLanguage,
 } from '@tabler/icons-react'
-import type { ReactNode } from 'react'
+import { useEffect, useRef, type ReactNode } from 'react'
 import { ActionButton } from '@/shared/ui/actions/ActionButton'
 import type { Tone } from '@/shared/ui/tokens'
 import { Text } from '@/shared/ui/typography/Text'
@@ -159,6 +159,31 @@ export function ErrorState({ title, message, onRetry, retryLabel = 'Retry', retr
           {retryLabel}
         </ActionButton>
       )}
+    </div>
+  )
+}
+
+export interface ReadingMarkProps {
+  /** True while a page "Listen" button is reading this block. */
+  active: boolean
+  children: ReactNode
+}
+
+/**
+ * Wraps a block of text that a page "Listen" button reads aloud. While it is being read it
+ * gets a soft highlight (so the person can follow along) and is scrolled into view.
+ * The layout does not move when the mark comes and goes.
+ */
+export function ReadingMark({ active, children }: ReadingMarkProps) {
+  const ref = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (!active) return
+    const reduce = typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ref.current?.scrollIntoView?.({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' })
+  }, [active])
+  return (
+    <div ref={ref} className={classes.reading} data-active={active || undefined}>
+      {children}
     </div>
   )
 }

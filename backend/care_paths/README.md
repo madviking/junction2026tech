@@ -72,8 +72,10 @@ person's language and the text key (audio). Texts: `step.call.*` in
 `seed/ui/call_script.yaml` (all 14 languages). The `request` line is the lane/route rule
 script; the U2/U3 rule scripts say "these symptoms" because the `symptoms` part lists the
 tapped symptom cards (`compose` input `symptoms`, from the visit). Non-Finnish/Swedish
-speakers get the interpreter lines; "Kieleni on …" is composed (Finnish language names in
-`compose.ts`) and has no audio. The emergency lane has only the 112 script.
+speakers get the interpreter lines; "Kieleni on …" is one finished sentence per language
+(`step.call.my_language.<lang>`: en, fi and that language), so it has audio like the other lines.
+A language without that key falls back to the `step.call.my_language` template (Finnish
+language names in `compose.ts`), shown without audio. The emergency lane has only the 112 script.
 
 How long the symptoms have lasted is a closed set (`keys.ts` `SYMPTOM_DURATIONS`: under 2
 weeks, 2–4 weeks, 1–3 months, over 3 months), picked optionally with the symptom cards.

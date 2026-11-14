@@ -58,6 +58,11 @@ ui.journey.start.button:
   fi: "Aloita"
   so: "Bilow"
   ar: "ابدأ"
+ui.journey.start.other_options:
+  en: "Other options"
+  fi: "Muut vaihtoehdot"
+  so: "Doorashooyin kale"
+  ar: "خيارات أخرى"
 ui.journey.start.error:
   en: "Could not start. Please try again."
   fi: "Aloitus ei onnistunut. Yritä uudelleen."
@@ -233,6 +238,31 @@ ui.journey.contact.script_title:
   fi: "Sano tämä suomeksi"
   so: "Tan ku dheh Finnish"
   ar: "قل هذا بالفنلندية"
+ui.journey.contact.card_title:
+  en: "Your card in Finnish"
+  fi: "Korttisi suomeksi"
+  so: "Kaarkaaga oo Finnish ah"
+  ar: "بطاقتك بالفنلندية"
+ui.journey.contact.card_intro:
+  en: "These sentences are already translated into Finnish. Read them out when you call, or show this screen at the reception. Finnish is on top, your language under it."
+  fi: "Nämä lauseet ovat valmiiksi suomeksi. Lue ne ääneen, kun soitat, tai näytä tämä näkymä vastaanotossa."
+  so: "Jumladahan horey ayaa loogu turjumay Finnish. Akhri marka aad wacayso, ama tus shaashaddan qolka soo dhaweynta. Finnish waa xagga sare, luqaddaaduna hoosta."
+  ar: "هذه الجمل مترجمة مسبقًا إلى الفنلندية. اقرأها عندما تتصل، أو اعرض هذه الشاشة في مكتب الاستقبال. الفنلندية في الأعلى ولغتك تحتها."
+ui.journey.contact.card_intro_print:
+  en: "These sentences are already translated into Finnish. Read them out when you call, or show this card at the reception. Finnish is on top, your language under it."
+  fi: "Nämä lauseet ovat valmiiksi suomeksi. Lue ne ääneen, kun soitat, tai näytä tämä kortti vastaanotossa."
+  so: "Jumladahan horey ayaa loogu turjumay Finnish. Akhri marka aad wacayso, ama tus kaarkan qolka soo dhaweynta. Finnish waa xagga sare, luqaddaaduna hoosta."
+  ar: "هذه الجمل مترجمة مسبقًا إلى الفنلندية. اقرأها عندما تتصل، أو اعرض هذه البطاقة في مكتب الاستقبال. الفنلندية في الأعلى ولغتك تحتها."
+ui.journey.contact.card_code:
+  en: "Enter this code on the Silta start page to come back here."
+  fi: "Syötä tämä koodi Siltan aloitussivulla, niin pääset takaisin tänne."
+  so: "Ku qor koodkan bogga bilowga ee Silta si aad halkan ugu soo noqoto."
+  ar: "أدخل هذا الرمز في صفحة بداية Silta للعودة إلى هنا."
+ui.journey.contact.save_pdf:
+  en: "Save as PDF"
+  fi: "Tallenna PDF:nä"
+  so: "Kaydi PDF ahaan"
+  ar: "حفظ كملف PDF"
 ui.journey.contact.script_meaning:
   en: "What it means"
   fi: "Mitä se tarkoittaa"

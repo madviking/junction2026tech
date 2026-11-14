@@ -64,12 +64,14 @@ export {
   FloatingNotice,
   LoadingState,
   PlaceholderNotice,
+  ReadingMark,
   StatusBadge,
   type BannerProps,
   type BannerTone,
   type EmptyStateProps,
   type ErrorStateProps,
   type FloatingNoticeProps,
+  type ReadingMarkProps,
   type StatusBadgeProps,
 } from '@/shared/ui/feedback/Feedback'
 
@@ -98,6 +100,7 @@ export {
   LessonScene,
   PhraseCard,
   PrintHidden,
+  PrintOnly,
   TimelineStrip,
   type ChecklistProps,
   type FaqItemProps,

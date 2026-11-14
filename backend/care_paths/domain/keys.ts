@@ -38,6 +38,8 @@ export const isSymptomDuration = (id: string): id is SymptomDuration => (SYMPTOM
 // Picker card ("2 to 4 weeks") and the call-script line ("They started 2–4 weeks ago.").
 export const durationKey = (id: string) => `ui.journey.duration.${id}`
 export const sinceKey = (id: string) => `step.call.since.${id}`
+// "Kieleni on …" as a finished sentence for one language (Finnish + that language), so it has audio.
+export const myLanguageKey = (lang: string) => `step.call.my_language.${lang}`
 export const emergencySignKey = (id: string) => `card.emergency.${id}`
 export const clinicianNextKey = (outcome: string) => `card.clinician.${outcome}.next`
 

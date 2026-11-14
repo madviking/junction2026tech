@@ -59,7 +59,7 @@ Layout
 - `PageActions` — puts its children in the bottom bar of the `PageShell` above (a portal), so a stage deep in the tree can keep its main action on screen. Outside a `PageShell` it renders in place.
 
 Resident actions
-- `ActionButton` — the button: `primary | secondary | danger | subtle`, `fullWidth`, `loading`, `icon`, `href`, `compact` (admin only, 40px).
+- `ActionButton` — the button: `primary | secondary | danger | subtle`, `fullWidth`, `loading`, `icon`, `href`, `compact` (admin only, 40px), `large` (64px, bigger label: the one main action of a resident screen, e.g. journey Start).
 - `ChoiceCard` — big tappable choice; label (accessible name), detail (description), icon, trailing slot outside the button, `selected` → `aria-pressed`, `disabled`, `lang`, `layout` (`row` default, `tile` = picture on top for picture grids, listen button in the top start corner).
 - `BodyMap` — neutral (sexless) front body figure + one `aria-pressed` toggle button per region (`head chest belly skin whole`); the buttons are the accessible controls, the figure is a pointer shortcut and shows the chosen part. Only the given regions are tappable.
 - `AudioPlayButton` — listen button with a small speaker: an outlined 48px circle on its own, a flat segment at the end of a `ChoiceCard`; `idle | loading | playing | error`.
@@ -73,6 +73,7 @@ Feedback
 - `LoadingState`, `EmptyState` (title, description, icon, action), `ErrorState` (what failed, message, retry).
 - `PlaceholderNotice` — "unchecked translation" style marker; text passed in.
 - `StatusBadge` — `neutral | info | success | warning | danger` pill.
+- `ReadingMark` — wraps a block a page "Listen" button reads; `active` gives it a soft info highlight and scrolls it into view, without moving the layout.
 
 Data display
 - `StepList` — ordered steps `done | current | upcoming` (+ localisable screen-reader status words).

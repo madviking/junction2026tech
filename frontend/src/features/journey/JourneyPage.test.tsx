@@ -61,7 +61,7 @@ describe('JourneyPage', () => {
         lane: 'U2', route: 'A1', profile: 'C2', barriers: [], emergency: false,
         destination: { title: 'Contact the health station', door: 'health station', scriptFi: 'x', scriptLocal: 'x', note: '' },
         callScript: [
-          { id: 'opening', lines: [line('step.call.greeting', 'Hei.', 'Hello.'), line(null, 'Kieleni on englanti.', 'My language is English.')] },
+          { id: 'opening', lines: [line('step.call.greeting', 'Hei.', 'Hello.'), line('step.call.my_language.en', 'Kieleni on englanti.', 'My language is English.')] },
           { id: 'symptoms', lines: [line('step.call.symptoms', 'Minulla on nämä oireet:', 'I have these symptoms:'), line('card.symptom.lump.card', 'Uusi kyhmy', 'A new lump', true), line('step.call.since.weeks_2_4', 'Ne alkoivat 2–4 viikkoa sitten.', 'They started 2–4 weeks ago.')] },
           { id: 'request', lines: [line('rule.U2.script', 'Olen huolissani näistä oireista.', 'I am worried about these symptoms.')] },
           { id: 'they_ask', lines: [line('step.call.ask.since', 'Milloin oireet alkoivat?', 'When did the symptoms start?')] },
@@ -70,7 +70,13 @@ describe('JourneyPage', () => {
         clocks: [], adaptations: [], steps: [], reviewFlags: [],
       },
     })
-    stubBackend({ 'GET /api/content/live': bundle, [`GET ${visitPath}`]: contact })
+    stubBackend({
+      'GET /api/content/live': bundle,
+      [`GET ${visitPath}`]: contact,
+      'GET /api/voice/capabilities': {
+        languages: ['en', 'fi'].map((lang) => ({ lang, mode: 'full_voice', voiceInput: true, audioOutput: true, generatedAudioReview: 'approved' })),
+      },
+    })
     renderJourney()
 
     expect(await screen.findByText('• Uusi kyhmy')).toBeInTheDocument()
@@ -80,6 +86,24 @@ describe('JourneyPage', () => {
     expect(screen.getByText('Olen huolissani näistä oireista.')).toBeInTheDocument()
     expect(screen.getByText('Milloin oireet alkoivat?')).toBeInTheDocument()
     expect(screen.getByText('Kiitos.')).toBeInTheDocument()
+
+    // The script says what it is, how to come back to it, and saves as a PDF (the browser's print).
+    expect(screen.getByRole('heading', { name: 'Your card in Finnish' })).toBeInTheDocument()
+    expect(screen.getByText(/show this screen at the reception/)).toBeInTheDocument()
+    // On paper (PDF) the same line talks about the card, not the screen.
+    expect(screen.getByText(/show this card at the reception/)).toBeInTheDocument()
+    expect(screen.queryByText('Say this in Finnish')).not.toBeInTheDocument()
+    // The code stands on its own line; the help text has no placeholder, so it can have audio.
+    expect(screen.getAllByText(CODE)).toHaveLength(2) // page header + the card (the header is not printed)
+    expect(screen.getByText('Enter this code on the Silta start page to come back here.')).toBeInTheDocument()
+    // Every text on the card can be listened to: the three header texts and every script line,
+    // "Kieleni on englanti." included.
+    expect(await screen.findAllByRole('button', { name: 'Listen' })).toHaveLength(3)
+    expect(screen.getAllByRole('button', { name: 'Play the Finnish phrase' })).toHaveLength(8)
+    const print = vi.fn()
+    vi.stubGlobal('print', print)
+    fireEvent.click(screen.getByRole('button', { name: 'Save as PDF' }))
+    expect(print).toHaveBeenCalledTimes(1)
   })
 
   it('shows no "translation not yet checked" notice in a placeholder language', async () => {
@@ -114,6 +138,31 @@ describe('JourneyPage', () => {
     await waitFor(() =>
       expect(calls.find((c) => c.method === 'POST')?.body).toEqual({ lang: 'en', outcome: 'symptom', symptoms: ['lump', 'cough'], duration: 'weeks_2_4' }),
     )
+  })
+
+  it('steps back inside the symptom picker with the header arrow, not a button at the bottom', async () => {
+    const calls = stubBackend({ 'GET /api/content/live': bundle, [`GET ${visitPath}`]: visitView({ canGoBack: false }) })
+
+    renderJourney()
+
+    // The first stage has nothing to go back to.
+    fireEvent.click(await screen.findByRole('button', { name: 'I have a symptom' }))
+    expect(screen.getByRole('heading', { name: 'What worries you?' })).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Back to the question' })).not.toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'A new lump' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Continue' }))
+    expect(screen.getByRole('heading', { name: 'How long have you had them?' })).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Back' })).not.toBeInTheDocument()
+
+    // Header arrow: "how long" → the symptom cards (choice kept) → the stage question.
+    fireEvent.click(screen.getByRole('button', { name: 'Go back one step' }))
+    expect(screen.getByRole('heading', { name: 'What worries you?' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'A new lump' })).toHaveAttribute('aria-pressed', 'true')
+    fireEvent.click(screen.getByRole('button', { name: 'Go back one step' }))
+    expect(screen.getByRole('button', { name: 'I have a symptom' })).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Go back one step' })).not.toBeInTheDocument()
+    // Sub-steps are on this screen only: nothing went to the server.
+    expect(calls.filter((c) => c.method === 'POST')).toHaveLength(0)
   })
 
   it('reads a confident match back and selects the card only on Yes', async () => {

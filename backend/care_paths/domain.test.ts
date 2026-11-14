@@ -136,9 +136,16 @@ describe('call script', () => {
   it('asks for an interpreter in the person’s language, never for Finnish or Swedish speakers', () => {
     const so = compose(doc, { lane: 'U2', route: 'A1', profile: 'C3', barriers: [], lang: 'so', symptoms: ['lump'] })
     const opening = lines(so, 'opening')
-    expect(opening.map((l) => l.key)).toEqual(['step.call.greeting', 'step.call.interpreter', null])
+    // "Kieleni on …" is a real text per language, so it has audio like every other line.
+    expect(opening.map((l) => l.key)).toEqual(['step.call.greeting', 'step.call.interpreter', 'step.call.my_language.so'])
     expect(opening[2]!.fi).toBe('Kieleni on somali.')
     expect(opening[2]!.local).toContain('Soomaali')
+    for (const lang of ['en', 'ru', 'et', 'uk', 'ar', 'so', 'fa', 'zh', 'yue', 'vi', 'th', 'bg'] as const) {
+      const line = lines(compose(doc, { lane: 'U2', route: 'A1', profile: 'C2', barriers: [], lang, symptoms: ['lump'] }), 'opening')[2]!
+      expect(line.key, lang).toBe(`step.call.my_language.${lang}`)
+      expect(line.fi, lang).toMatch(/^Kieleni on \S.*\.$/)
+      expect(line.local, lang).not.toContain('{language}')
+    }
     for (const lang of ['fi', 'sv'] as const) {
       const p = compose(doc, { lane: 'U2', route: 'A1', profile: 'C1', barriers: [], lang, symptoms: ['lump'] })
       expect(lines(p, 'opening').map((l) => l.key), lang).toEqual(['step.call.greeting'])
@@ -172,6 +179,12 @@ describe('call script', () => {
   it('every call-script text exists in every language', () => {
     const keys = Object.keys(doc.texts).filter((k) => k.startsWith('step.call.') || k.startsWith('ui.journey.duration.'))
     expect(keys.length).toBeGreaterThanOrEqual(10)
-    for (const key of keys) for (const lang of LANGS) expect(doc.texts[key]?.[lang]?.text, `${key} ${lang}`).toBeTruthy()
+    for (const key of keys) {
+      // "Kieleni on …" for one language is only ever shown to speakers of that language: it
+      // needs English, Finnish and that language.
+      const own = /^step\.call\.my_language\.([a-z]+)$/.exec(key)?.[1]
+      const needed = own ? ['en', 'fi', own] : LANGS
+      for (const lang of needed) expect(doc.texts[key]?.[lang]?.text, `${key} ${lang}`).toBeTruthy()
+    }
   })
 })

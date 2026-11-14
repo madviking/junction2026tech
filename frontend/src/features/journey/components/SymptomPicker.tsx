@@ -3,6 +3,7 @@ import { MatchInput } from '@/features/journey/components/MatchInput'
 import { StageQuestion } from '@/features/journey/components/StageQuestion'
 import { SymptomBodyPicker } from '@/features/journey/components/SymptomBodyPicker'
 import { durationKey, symptomKey } from '@/features/journey/keys'
+import { useSubStepBack } from '@/features/journey/subStepBack'
 import type { MatchFn, SymptomOption } from '@/features/journey/types'
 import { CardAudioButton } from '@/features/voice'
 import { useContent } from '@/shared/i18n'
@@ -33,6 +34,8 @@ export function SymptomPicker({ symptoms, durations, match, sending, onConfirm, 
   const [view, setView] = useState<'pictures' | 'list'>('pictures')
   // "How long?" is its own short step after the cards, so the screen never grows under the person.
   const [step, setStep] = useState<'cards' | 'duration'>('cards')
+  // Back: "how long" → the cards → the stage question. In a journey screen the header arrow does it.
+  const inHeader = useSubStepBack(sending ? undefined : step === 'duration' ? () => setStep('cards') : onCancel)
   const freeText = <MatchInput set="symptoms" match={match} onChosen={add} disabled={sending} />
 
   if (step === 'duration') {
@@ -51,9 +54,11 @@ export function SymptomPicker({ symptoms, durations, match, sending, onConfirm, 
             />
           ))}
         </Stack>
-        <ActionButton fullWidth variant="subtle" disabled={sending} onPress={() => setStep('cards')}>
-          {t('ui.journey.back')}
-        </ActionButton>
+        {!inHeader && (
+          <ActionButton fullWidth variant="subtle" disabled={sending} onPress={() => setStep('cards')}>
+            {t('ui.journey.back')}
+          </ActionButton>
+        )}
         <PageActions>
           <ActionButton fullWidth loading={sending} onPress={() => onConfirm(chosen, duration)}>
             {t('ui.journey.symptom.confirm')}
@@ -94,9 +99,11 @@ export function SymptomPicker({ symptoms, durations, match, sending, onConfirm, 
         <ActionButton fullWidth variant="subtle" disabled={sending} onPress={() => setView(view === 'pictures' ? 'list' : 'pictures')}>
           {t(view === 'pictures' ? 'ui.journey.body.show_list' : 'ui.journey.body.show_pictures')}
         </ActionButton>
-        <ActionButton fullWidth variant="subtle" disabled={sending} onPress={onCancel}>
-          {t('ui.journey.symptom.cancel')}
-        </ActionButton>
+        {!inHeader && (
+          <ActionButton fullWidth variant="subtle" disabled={sending} onPress={onCancel}>
+            {t('ui.journey.symptom.cancel')}
+          </ActionButton>
+        )}
       </Stack>
       <PageActions>
         <ActionButton

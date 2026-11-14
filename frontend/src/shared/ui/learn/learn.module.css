@@ -226,9 +226,15 @@
 }
 
 /* ---- Print ---- */
+.printOnly {
+  display: none;
+}
 @media print {
   .printHidden {
     display: none;
+  }
+  .printOnly {
+    display: block;
   }
 }
 

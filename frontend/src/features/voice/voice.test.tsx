@@ -2,7 +2,7 @@ import { act, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import type { ReactElement } from 'react'
 import { afterEach, beforeEach, describe, expect, it, vi, type Mock } from 'vitest'
-import { CardAudioButton, RecordAnswerButton } from '@/features/voice'
+import { CardAudioButton, PageAudioButton, RecordAnswerButton } from '@/features/voice'
 import { resetPlayerForTests } from '@/features/voice/state/player'
 import type { LiveBundle } from '@/shared/api/types'
 import { ContentProvider } from '@/shared/i18n'
@@ -169,6 +169,55 @@ class FakeMediaRecorder {
     this.onstop?.()
   }
 }
+
+describe('PageAudioButton', () => {
+  let playSpy: Mock<() => Promise<void>>
+
+  beforeEach(() => {
+    playSpy = vi.fn(async (): Promise<void> => {})
+    vi.spyOn(HTMLMediaElement.prototype, 'play').mockImplementation(playSpy)
+    vi.spyOn(HTMLMediaElement.prototype, 'pause').mockImplementation(() => {})
+    resetPlayerForTests()
+  })
+  afterEach(() => {
+    vi.restoreAllMocks()
+    vi.unstubAllGlobals()
+  })
+
+  const finishClip = () => {
+    const el = playSpy.mock.contexts.at(-1) as HTMLAudioElement
+    act(() => {
+      el.onended?.(new Event('ended'))
+    })
+  }
+
+  it('tells the screen which text it is reading, in order, then nothing when done', async () => {
+    stubBackend()
+    const onReading = vi.fn()
+    renderIn('en', <PageAudioButton textKeys={['ui.start.one', 'ui.start.two']} onReading={onReading} />)
+
+    await userEvent.click(await screen.findByRole('button', { name: 'Listen' }))
+    await waitFor(() => expect(onReading).toHaveBeenLastCalledWith('ui.start.one'))
+
+    finishClip()
+    await waitFor(() => expect(onReading).toHaveBeenLastCalledWith('ui.start.two'))
+
+    finishClip()
+    await waitFor(() => expect(onReading).toHaveBeenLastCalledWith(null))
+  })
+
+  it('clears the reading mark when the person stops it', async () => {
+    stubBackend()
+    const onReading = vi.fn()
+    renderIn('en', <PageAudioButton textKeys={['ui.start.one', 'ui.start.two']} onReading={onReading} />)
+
+    await userEvent.click(await screen.findByRole('button', { name: 'Listen' }))
+    await waitFor(() => expect(onReading).toHaveBeenLastCalledWith('ui.start.one'))
+    await userEvent.click(await screen.findByRole('button', { name: 'Stop listening' }))
+
+    await waitFor(() => expect(onReading).toHaveBeenLastCalledWith(null))
+  })
+})
 
 describe('RecordAnswerButton', () => {
   const trackStop = vi.fn()

@@ -40,3 +40,10 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Paper: white page, not the app's grey background. */
+@media print {
+  body {
+    background-color: var(--silta-color-surface);
+  }
+}

@@ -5,10 +5,11 @@ import { PathProgress } from '@/features/journey/components/PathProgress'
 import type { StageProps } from '@/features/journey/components/stageProps'
 import { interruptKey, thenKey } from '@/features/journey/keys'
 import { stageComponentFor } from '@/features/journey/registry'
+import { SubStepBackProvider, useSubStepBackSlot } from '@/features/journey/subStepBack'
 import type { VisitView } from '@/features/journey/types'
 import { CardAudioButton } from '@/features/voice'
 import { useContent } from '@/shared/i18n'
-import { ActionButton, Banner, EmergencyCallLink, PageActions } from '@/shared/ui'
+import { ActionButton, Banner, EmergencyCallLink, PageActions, PrintHidden } from '@/shared/ui'
 
 /** The stage an emergency interrupt leads to (registry entry `emergency`). */
 const EMERGENCY_STAGE = 'emergency'
@@ -38,6 +39,9 @@ export function JourneyScreen({ sendFailed, aboutPath, goBack, restart, ...stage
   const { view, send, sending } = stage
   const [localEmergency, setLocalEmergency] = useState(false)
   const [showPath, setShowPath] = useState(false)
+  // An inner step of the stage (symptom cards, "what happened?") takes over the header arrow.
+  const subStep = useSubStepBackSlot()
+  const headerBack = sending ? undefined : (subStep.current ?? (view.canGoBack ? goBack : undefined))
 
   const nextOf = new Map(bundle.journey.interrupts.map((i) => [i.id, i.next]))
   const inEmergency = localEmergency || view.stage.id === EMERGENCY_STAGE
@@ -91,7 +95,7 @@ export function JourneyScreen({ sendFailed, aboutPath, goBack, restart, ...stage
     <JourneyFrame
       code={view.code}
       hideCall={inEmergency}
-      progress={inEmergency ? undefined : <PathProgress view={view} onOpen={() => setShowPath(true)} onBack={view.canGoBack && !sending ? goBack : undefined} />}
+      progress={inEmergency ? undefined : <PathProgress view={view} onOpen={() => setShowPath(true)} onBack={headerBack} />}
       headerAction={
         emergency && (
           <ActionButton variant="secondary" onPress={() => toEmergency(emergency.id)}>
@@ -104,7 +108,9 @@ export function JourneyScreen({ sendFailed, aboutPath, goBack, restart, ...stage
         <Banner tone="info" title={view.then} action={thenAudio && <CardAudioButton textKey={thenAudio} />} />
       )}
       {!inEmergency && sendFailed && <Banner tone="warning" title={t('ui.journey.error.send')} />}
-      <Stage key={screenKey} {...stage} />
+      <SubStepBackProvider value={subStep.register}>
+        <Stage key={screenKey} {...stage} />
+      </SubStepBackProvider>
       {inEmergency ? (
         // One action: the call. The way back sits under it, in the same bar.
         <PageActions>
@@ -112,7 +118,7 @@ export function JourneyScreen({ sendFailed, aboutPath, goBack, restart, ...stage
           {otherInterrupts}
         </PageActions>
       ) : (
-        otherInterrupts
+        <PrintHidden>{otherInterrupts}</PrintHidden>
       )}
     </JourneyFrame>
   )

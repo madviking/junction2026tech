@@ -48,6 +48,55 @@ step.call.my_language:
   vi: "Ngôn ngữ của tôi là {language}."
   th: "ภาษาของฉันคือ {language}"
   bg: "Моят език: {language}."
+# "Kieleni on …" as one finished sentence per language, so the line has audio (Finnish and
+# the person's language). Used by compose.ts; step.call.my_language above is the fallback.
+step.call.my_language.en:
+  en: "My language is English."
+  fi: "Kieleni on englanti."
+step.call.my_language.ru:
+  en: "My language is Russian."
+  fi: "Kieleni on venäjä."
+  ru: "Мой язык — русский."
+step.call.my_language.et:
+  en: "My language is Estonian."
+  fi: "Kieleni on viro."
+  et: "Minu keel on eesti keel."
+step.call.my_language.uk:
+  en: "My language is Ukrainian."
+  fi: "Kieleni on ukraina."
+  uk: "Моя мова — українська."
+step.call.my_language.ar:
+  en: "My language is Arabic."
+  fi: "Kieleni on arabia."
+  ar: "لغتي هي العربية."
+step.call.my_language.so:
+  en: "My language is Somali."
+  fi: "Kieleni on somali."
+  so: "Luqaddaydu waa Soomaali."
+step.call.my_language.fa:
+  en: "My language is Persian."
+  fi: "Kieleni on persia."
+  fa: "زبان من فارسی است."
+step.call.my_language.zh:
+  en: "My language is Mandarin Chinese."
+  fi: "Kieleni on kiina (mandariini)."
+  zh: "我的语言是中文（普通话）。"
+step.call.my_language.yue:
+  en: "My language is Cantonese."
+  fi: "Kieleni on kantoninkiina."
+  yue: "我講廣東話。"
+step.call.my_language.vi:
+  en: "My language is Vietnamese."
+  fi: "Kieleni on vietnam."
+  vi: "Ngôn ngữ của tôi là tiếng Việt."
+step.call.my_language.th:
+  en: "My language is Thai."
+  fi: "Kieleni on thai."
+  th: "ภาษาของฉันคือภาษาไทย"
+step.call.my_language.bg:
+  en: "My language is Bulgarian."
+  fi: "Kieleni on bulgaria."
+  bg: "Моят език е български."
 step.call.symptoms:
   en: "I have these symptoms:"
   fi: "Minulla on nämä oireet:"

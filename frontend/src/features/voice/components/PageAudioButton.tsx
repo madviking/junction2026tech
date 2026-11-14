@@ -3,29 +3,37 @@ import { useEffect, useId } from 'react'
 import { blobUrl } from '@/features/voice/api/blobUrl'
 import { useClipFetcher } from '@/features/voice/api/useClip'
 import { useVoiceCapabilities } from '@/features/voice/api/useVoiceCapabilities'
-import { playSequence, stop, usePlayerState } from '@/features/voice/state/player'
+import { playSequence, stop, usePlayerState, useReadingIndex } from '@/features/voice/state/player'
 import { useContent } from '@/shared/i18n'
 import { ActionButton } from '@/shared/ui'
 
 export interface PageAudioButtonProps {
   /** Text keys read aloud in this order, in the current language. */
   textKeys: readonly string[]
+  /**
+   * Called with the text key being read (loading or playing), and with null when reading
+   * stops, ends or fails, so the screen can mark the box being read.
+   */
+  onReading?: (textKey: string | null) => void
 }
 
 /**
  * One "Listen" button that reads a whole screen: the texts play one after another through
- * the shared player. Use it where a play button on every line would crowd the screen.
+ * the shared player, and `onReading` says which one is being read so the screen can mark it. Use it where a play button on every line would crowd the screen.
  * Renders nothing when the language has no audio output.
  */
-export function PageAudioButton({ textKeys }: PageAudioButtonProps) {
+export function PageAudioButton({ textKeys, onReading }: PageAudioButtonProps) {
   const { lang, t } = useContent()
   const caps = useVoiceCapabilities(lang)
   const fetchClip = useClipFetcher(lang)
   const owner = useId()
   const state = usePlayerState(owner)
+  const readingIndex = useReadingIndex(owner)
+  const readingKey = readingIndex === null ? null : (textKeys[readingIndex] ?? null)
 
   // Leaving the screen stops the reading.
   useEffect(() => () => stop(owner), [owner])
+  useEffect(() => onReading?.(readingKey), [onReading, readingKey])
 
   if (!caps?.audioOutput) return null
 

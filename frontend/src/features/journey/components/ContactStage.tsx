@@ -7,6 +7,7 @@ import { OutcomeSection } from '@/features/journey/components/OutcomeSection'
 import { StageCards } from '@/features/journey/components/StageCards'
 import type { StageProps } from '@/features/journey/components/stageProps'
 import { routeNoteKey } from '@/features/journey/keys'
+import { useSubStepBack } from '@/features/journey/subStepBack'
 import { CardAudioButton } from '@/features/voice'
 import { useContent } from '@/shared/i18n'
 import { ActionButton, FaqItem, PageActions, Row, Section, Stack, Text } from '@/shared/ui'
@@ -20,6 +21,8 @@ export function ContactStage(props: StageProps) {
   const { t, has } = useContent()
   const [asking, setAsking] = useState(false)
   const path = props.view.carePath
+  // "What happened?" is an inner step: the header arrow goes back to the door screen.
+  const inHeader = useSubStepBack(asking && !props.sending ? () => setAsking(false) : undefined)
 
   useEffect(() => {
     document.documentElement.scrollTop = 0
@@ -35,9 +38,11 @@ export function ContactStage(props: StageProps) {
         asking ? (
           <Stack gap="lg">
             <OutcomeSection {...props} onChoose={choose} eyebrow={t('ui.journey.contact.what_happened')} />
-            <ActionButton fullWidth variant="subtle" disabled={props.sending} onPress={() => setAsking(false)}>
-              {t('ui.journey.back')}
-            </ActionButton>
+            {!inHeader && (
+              <ActionButton fullWidth variant="subtle" disabled={props.sending} onPress={() => setAsking(false)}>
+                {t('ui.journey.back')}
+              </ActionButton>
+            )}
           </Stack>
         ) : (
           <Stack gap="lg">
@@ -56,7 +61,7 @@ export function ContactStage(props: StageProps) {
               </FaqItem>
             )}
 
-            <CallScript parts={path.callScript} />
+            <CallScript parts={path.callScript} code={props.view.code} />
 
             <PageActions>
               <ActionButton fullWidth disabled={props.sending} onPress={() => setAsking(true)}>
