@@ -1252,6 +1252,10 @@ export namespace visits {
         carePath: domain.CarePath | null
         nextSteps: NextStep[]
         history: HistoryItem[]
+        /**
+         * The resident can go back one step (POST /api/visits/:code/back).
+         */
+        canGoBack: boolean
     }
 
     export class ServiceClient {
@@ -1260,6 +1264,7 @@ export namespace visits {
         constructor(baseClient: BaseClient) {
             this.baseClient = baseClient
             this.addEvent = this.addEvent.bind(this)
+            this.back = this.back.bind(this)
             this.clinicianAnswers = this.clinicianAnswers.bind(this)
             this.create = this.create.bind(this)
             this.get = this.get.bind(this)
@@ -1271,6 +1276,17 @@ export namespace visits {
         public async addEvent(code: string, params: EventRequest): Promise<VisitView> {
             // Now make the actual call to the API
             const resp = await this.baseClient.callTypedAPI("POST", `/api/visits/${encodeURIComponent(code)}/events`, JSON.stringify(params))
+            return await resp.json() as VisitView
+        }
+
+        /**
+         * One step back on the resident's path (undoes their last tap).
+         */
+        public async back(code: string, params: {
+    lang?: string
+}): Promise<VisitView> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/visits/${encodeURIComponent(code)}/back`, JSON.stringify(params))
             return await resp.json() as VisitView
         }
 

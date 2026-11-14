@@ -1,4 +1,4 @@
-import { IconInfoCircle } from '@tabler/icons-react'
+import { IconArrowBackUp, IconInfoCircle, IconRestore } from '@tabler/icons-react'
 import { useMemo } from 'react'
 import { useNavigate } from 'react-router'
 import { ClockList } from '@/features/journey/components/ClockList'
@@ -11,14 +11,19 @@ export interface PathOverviewProps {
   view: VisitView
   /** In-app path of the about page. */
   aboutPath: string
+  sending: boolean
   onClose: () => void
+  /** Undo the last answer (shown when the visit can go back). */
+  onBackStep: () => void
+  /** Leave this visit for the start screen. */
+  onRestart: () => void
 }
 
 /**
  * The whole care path on one screen: every step with "you are here", the door, the time
  * limits and the visit code. Extra information, one tap from any stage; changes nothing.
  */
-export function PathOverview({ view, aboutPath, onClose }: PathOverviewProps) {
+export function PathOverview({ view, aboutPath, sending, onClose, onBackStep, onRestart }: PathOverviewProps) {
   const { t, has } = useContent()
   const navigate = useNavigate()
   const { steps } = pathSteps(view, t, has)
@@ -33,6 +38,16 @@ export function PathOverview({ view, aboutPath, onClose }: PathOverviewProps) {
         {t('ui.journey.path.title')}
       </Text>
       <StepList statusLabels={statusLabels} steps={steps.map((s) => ({ id: s.id, title: s.text, status: s.status }))} />
+      <Stack gap="sm">
+        {view.canGoBack && (
+          <ActionButton variant="secondary" fullWidth disabled={sending} icon={<IconArrowBackUp size={22} aria-hidden="true" />} onPress={onBackStep}>
+            {t('ui.journey.path.back_step')}
+          </ActionButton>
+        )}
+        <ActionButton variant="secondary" fullWidth disabled={sending} icon={<IconRestore size={22} aria-hidden="true" />} onPress={onRestart}>
+          {t('ui.journey.path.restart')}
+        </ActionButton>
+      </Stack>
       {path && path.clocks.length > 0 && (
         <Stack gap="sm">
           <Text variant="heading" as="h3">

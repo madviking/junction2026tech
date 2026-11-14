@@ -12,7 +12,7 @@ export interface AudioPlayButtonProps {
   disabled?: boolean
 }
 
-/** Presentational 48px round "listen" button. The feature owns the audio element. */
+/** Presentational "listen" button: a quiet 48px target with a small speaker; a flat segment at the end of a ChoiceCard. The feature owns the audio element. */
 export function AudioPlayButton({ state, label, onPress, disabled }: AudioPlayButtonProps) {
   return (
     <button
@@ -25,10 +25,10 @@ export function AudioPlayButton({ state, label, onPress, disabled }: AudioPlayBu
       disabled={disabled}
       onClick={onPress}
     >
-      {state === 'loading' && <Loader size={20} color="primary" />}
-      {state === 'idle' && <IconVolume size={24} aria-hidden="true" />}
-      {state === 'playing' && <IconPlayerStopFilled size={22} aria-hidden="true" />}
-      {state === 'error' && <IconAlertCircle size={24} aria-hidden="true" />}
+      {state === 'loading' && <Loader size={18} color="primary" />}
+      {state === 'idle' && <IconVolume size={20} aria-hidden="true" />}
+      {state === 'playing' && <IconPlayerStopFilled size={18} aria-hidden="true" />}
+      {state === 'error' && <IconAlertCircle size={20} aria-hidden="true" />}
     </button>
   )
 }

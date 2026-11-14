@@ -170,6 +170,26 @@ test('(d) free text: confident match read back and confirmed; vague text keeps t
   await shot(page, 'journey-match-choose')
 })
 
+test('(h) back one step from the header, and restart from the path overview', async ({ page, request }) => {
+  const code = await visitAt(request, TO_CONTACT)
+  await page.goto(`/r/en/v/${code}`)
+  await expect(page.getByText('Say this in Finnish')).toBeVisible()
+
+  await page.getByRole('button', { name: 'Go back one step' }).click()
+  await expect(page.getByRole('heading', { name: 'Where do you get health care?' })).toBeVisible()
+  await page.getByRole('button', { name: 'Go back one step' }).click()
+  await expect(page.getByRole('heading', { name: 'What do you need help with?' })).toBeVisible()
+  // The first step has nothing before it.
+  await expect(page.getByRole('button', { name: 'Go back one step' })).toHaveCount(0)
+  const saved = await (await request.get(`/api/visits/${code}?lang=en`)).json()
+  expect(saved.state.stage).toBe('describe')
+
+  await page.getByRole('button', { name: 'Your path' }).click()
+  await shot(page, 'journey-path-start')
+  await page.getByRole('button', { name: 'Start from the beginning' }).click()
+  await expect(page).toHaveURL(/\/r\/en$/)
+})
+
 test('(e) unknown code → error with a way back to start', async ({ page }) => {
   await page.goto('/r/en/v/SLT-ZZZZ-ZZZZ')
   await expect(page.getByText('We could not find this code. Check it, or start again.')).toBeVisible()

@@ -28,6 +28,9 @@ export interface Replay {
   clinicianDone: boolean
   // Events that no longer fit the live journey (content changed since they were recorded).
   skipped: number
+  // True when the resident can go back one step: their last tap can be undone and no
+  // clinician answer came after it.
+  canGoBack: boolean
 }
 
 export const knownCodes = (doc: ContentDoc): KnownCodes => ({
@@ -38,9 +41,12 @@ export const knownCodes = (doc: ContentDoc): KnownCodes => ({
 export function replay(doc: ContentDoc, events: EventRow[]): Replay {
   const journey = doc.structure.journey
   const codes = knownCodes(doc)
-  const out: Replay = { state: initialState(journey), thenKey: null, applied: [], symptoms: [], duration: null, answers: [], clinicianDone: false, skipped: 0 }
+  const out: Replay = { state: initialState(journey), thenKey: null, applied: [], symptoms: [], duration: null, answers: [], clinicianDone: false, skipped: 0, canGoBack: false }
   let pendingSymptoms: string[] = []
   let pendingDuration: string | null = null
+  // What the visit looked like before each resident tap, newest last. 'undo' pops one.
+  // A clinician event empties it: the resident cannot go back past the clinician's answer.
+  const before: Array<Pick<Replay, 'state' | 'thenKey' | 'symptoms' | 'duration' | 'clinicianDone'> & { applied: number }> = []
 
   for (const e of events) {
     if (e.kind === 'symptoms') {
@@ -48,9 +54,24 @@ export function replay(doc: ContentDoc, events: EventRow[]): Replay {
       pendingDuration = e.payload.duration ?? null
       continue
     }
+    if (e.kind === 'undo') {
+      const prev = before.pop()
+      if (!prev) {
+        out.skipped++
+        continue
+      }
+      out.state = prev.state
+      out.thenKey = prev.thenKey
+      out.symptoms = prev.symptoms
+      out.duration = prev.duration
+      out.clinicianDone = prev.clinicianDone
+      out.applied.length = prev.applied
+      continue
+    }
     if (e.kind === 'clinician_answer') {
       if (!out.answers.includes(e.outcome)) out.answers.push(e.outcome)
       out.clinicianDone = true
+      before.length = 0
       continue
     }
     if (e.kind === 'clinician_move') {
@@ -59,6 +80,7 @@ export function replay(doc: ContentDoc, events: EventRow[]): Replay {
       const to = e.payload.to
       if (to && journey.stages[to] && !journey.stages[out.state.stage]?.terminal) out.state = { ...out.state, stage: to }
       else out.skipped++
+      before.length = 0
       continue
     }
     try {
@@ -70,6 +92,8 @@ export function replay(doc: ContentDoc, events: EventRow[]): Replay {
         visitDate: e.payload.visitDate,
       })
       const setsLane = journey.stages[out.state.stage]?.outcomes[e.outcome]?.sets === 'lane' && !r.interrupt
+      if (e.actor === 'resident') before.push({ state: out.state, thenKey: out.thenKey, symptoms: out.symptoms, duration: out.duration, clinicianDone: out.clinicianDone, applied: out.applied.length })
+      else before.length = 0
       out.state = r.state
       out.thenKey = r.thenKey
       out.applied.push({ stage: e.stage, outcome: e.outcome, at: e.at, actor: e.actor })
@@ -87,5 +111,6 @@ export function replay(doc: ContentDoc, events: EventRow[]): Replay {
       out.skipped++
     }
   }
+  out.canGoBack = before.length > 0
   return out
 }

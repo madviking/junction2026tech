@@ -36,28 +36,42 @@ function halt() {
  * Plays the clip for `owner`. `resolveUrl` looks up the audio URL (may hit the network);
  * pressing another button meanwhile wins.
  */
-export async function play(owner: string, resolveUrl: () => Promise<string>): Promise<void> {
+export function play(owner: string, resolveUrl: () => Promise<string>): Promise<void> {
+  return playSequence(owner, [resolveUrl])
+}
+
+/**
+ * Plays several clips one after another for one `owner` (a whole screen read aloud). Each
+ * URL is looked up when its turn comes; stopping or pressing another button ends the run.
+ */
+export async function playSequence(owner: string, resolveUrls: Array<() => Promise<string>>): Promise<void> {
   halt()
   const mine = ++generation
   set({ owner, status: 'loading' })
-  try {
-    const url = await resolveUrl()
-    if (mine !== generation) return
-    const el = element()
-    el.onended = () => {
-      if (mine === generation) set({ owner: null, status: 'idle' })
+  const playAt = async (index: number): Promise<void> => {
+    try {
+      const url = await resolveUrls[index]!()
+      if (mine !== generation) return
+      const el = element()
+      el.onended = () => {
+        if (mine !== generation) return
+        if (index + 1 < resolveUrls.length) void playAt(index + 1)
+        else set({ owner: null, status: 'idle' })
+      }
+      el.onerror = () => {
+        if (mine === generation) set({ owner, status: 'error' })
+      }
+      el.src = url
+      await el.play()
+      if (mine === generation) set({ owner, status: 'playing' })
+    } catch (_err) {
+      if (mine !== generation) return
+      halt()
+      set({ owner, status: 'error' })
     }
-    el.onerror = () => {
-      if (mine === generation) set({ owner, status: 'error' })
-    }
-    el.src = url
-    await el.play()
-    if (mine === generation) set({ owner, status: 'playing' })
-  } catch (_err) {
-    if (mine !== generation) return
-    halt()
-    set({ owner, status: 'error' })
   }
+  if (resolveUrls.length === 0) set({ owner: null, status: 'idle' })
+  else await playAt(0)
 }
 
 /** Stops playback. With `owner`, only when that owner is the one playing or loading. */

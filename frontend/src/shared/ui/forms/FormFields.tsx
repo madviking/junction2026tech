@@ -27,10 +27,22 @@ export interface TextFieldProps extends FieldBaseProps {
   placeholder?: string
   type?: 'text' | 'email' | 'search' | 'url' | 'tel' | 'date'
   autoComplete?: string
+  /** One-line rows (field + button): the label becomes the accessible name and the placeholder. */
+  hideLabel?: boolean
 }
 
-export function TextField({ onChange, ...props }: TextFieldProps) {
-  return <TextInput {...props} size="md" classNames={INPUT_CLASSES} onChange={(e) => onChange?.(e.currentTarget.value)} />
+export function TextField({ onChange, hideLabel, label, placeholder, ...props }: TextFieldProps) {
+  return (
+    <TextInput
+      {...props}
+      label={hideLabel ? undefined : label}
+      aria-label={hideLabel ? label : undefined}
+      placeholder={hideLabel ? (placeholder ?? label) : placeholder}
+      size="md"
+      classNames={INPUT_CLASSES}
+      onChange={(e) => onChange?.(e.currentTarget.value)}
+    />
+  )
 }
 
 export interface PasswordFieldProps extends FieldBaseProps {

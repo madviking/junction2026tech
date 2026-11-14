@@ -31,6 +31,7 @@ that event is skipped and a warning is logged, so the visit keeps its last good 
 | POST | `/api/visits` | `{ lang, county? }` (county default `helsinki`) | `VisitView` (the only place the new code is returned) |
 | GET | `/api/visits/:code?lang=` | lang defaults to the visit's language | `VisitView` |
 | POST | `/api/visits/:code/events` | `{ lang, outcome, symptoms?, duration?, route?, visitDate? }` | `VisitView` |
+| POST | `/api/visits/:code/back` | `{ lang? }` | `VisitView`; `failed_precondition` when there is no step to go back to |
 | GET | `/api/visits/:code/summary` | | `ClinicianSummary`, always Finnish |
 | POST | `/api/visits/:code/clinician` | `{ answers: string[] }` | `ClinicianSummary` |
 | GET | `/api/visits/:code/next-steps?lang=` | | `{ steps: { outcome, text }[] }` |
@@ -52,6 +53,12 @@ An unknown, malformed or expired code returns `not_found`.
   endpoint. A `JourneyError` from the engine returns `invalid_argument`. `visitDate` is
   `YYYY-MM-DD`. The request `lang` also becomes the visit's language, which the summary
   uses for the interpreter line (`interpreterNeeded()` in `care_paths/domain/compose.ts`, re-exported by `views.ts`: not for Finnish or Swedish).
+- **Going back.** `back` records an `undo` event (the log stays append-only). `replay.ts`
+  keeps what the visit looked like before each resident tap and restores the newest one on
+  `undo`: stage, lane, route, symptoms, then-text and history. `VisitView.canGoBack` tells
+  the client whether a step is left. A clinician event clears that stack, so the resident
+  cannot undo past the clinician's answer. Undone taps stay in the county counts (they
+  happened); the clinician summary shows only the taps that still stand.
 - **Clinician answers.** Answers are validated against `cards.clinician`, and each one is
   recorded as a `clinician_answer` event (actor `clinician`). On the first post of a
   clinician visit the journey moves once:

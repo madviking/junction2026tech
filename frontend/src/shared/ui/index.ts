@@ -44,7 +44,7 @@ export {
   type StackProps,
   type SurfaceCardProps,
 } from '@/shared/ui/layout/Layout'
-export { PageActions, PageShell, type PageShellProps } from '@/shared/ui/layout/PageShell'
+export { PageActions, PageProgress, PageShell, type PageProgressProps, type PageShellProps } from '@/shared/ui/layout/PageShell'
 
 // Actions
 export { ActionButton, type ActionButtonProps, type ActionButtonVariant } from '@/shared/ui/actions/ActionButton'

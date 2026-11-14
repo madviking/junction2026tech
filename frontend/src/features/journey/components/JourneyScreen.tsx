@@ -18,6 +18,10 @@ export interface JourneyScreenProps extends StageProps {
   sendFailed: boolean
   /** In-app path of the about page. */
   aboutPath: string
+  /** One step back on the path (offered when `view.canGoBack`). */
+  goBack: () => void
+  /** Leave this visit for the start screen. */
+  restart: () => void
 }
 
 /**
@@ -29,7 +33,7 @@ export interface JourneyScreenProps extends StageProps {
  * it at once (112 and the signs come from the loaded content) and sends the event in the
  * background. If that request fails, the screen stays and nothing alarming is shown.
  */
-export function JourneyScreen({ sendFailed, aboutPath, ...stage }: JourneyScreenProps) {
+export function JourneyScreen({ sendFailed, aboutPath, goBack, restart, ...stage }: JourneyScreenProps) {
   const { t, has, bundle } = useContent()
   const { view, send, sending } = stage
   const [localEmergency, setLocalEmergency] = useState(false)
@@ -78,7 +82,7 @@ export function JourneyScreen({ sendFailed, aboutPath, ...stage }: JourneyScreen
   if (showPath && !inEmergency) {
     return (
       <JourneyFrame code={view.code} onBack={() => setShowPath(false)}>
-        <PathOverview view={view} aboutPath={aboutPath} onClose={() => setShowPath(false)} />
+        <PathOverview view={view} aboutPath={aboutPath} sending={sending} onClose={() => setShowPath(false)} onBackStep={goBack} onRestart={restart} />
       </JourneyFrame>
     )
   }
@@ -87,6 +91,7 @@ export function JourneyScreen({ sendFailed, aboutPath, ...stage }: JourneyScreen
     <JourneyFrame
       code={view.code}
       hideCall={inEmergency}
+      progress={inEmergency ? undefined : <PathProgress view={view} onOpen={() => setShowPath(true)} onBack={view.canGoBack && !sending ? goBack : undefined} />}
       headerAction={
         emergency && (
           <ActionButton variant="secondary" onPress={() => toEmergency(emergency.id)}>
@@ -95,7 +100,6 @@ export function JourneyScreen({ sendFailed, aboutPath, ...stage }: JourneyScreen
         )
       }
     >
-      {!inEmergency && <PathProgress view={view} onOpen={() => setShowPath(true)} />}
       {!inEmergency && view.then && (
         <Banner tone="info" title={view.then} action={thenAudio && <CardAudioButton textKey={thenAudio} />} />
       )}

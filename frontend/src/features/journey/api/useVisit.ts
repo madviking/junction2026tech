@@ -32,3 +32,12 @@ export function useCreateVisit() {
     onSuccess: (view: VisitView) => queryClient.setQueryData(visitQueryKey(view.code, view.lang), view),
   })
 }
+
+/** One step back on the path: the server undoes the resident's last tap and returns the new view. */
+export function useVisitBack(code: string, lang: string) {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: () => api.visits.back(code, { lang }),
+    onSuccess: (view: VisitView) => queryClient.setQueryData(visitQueryKey(code, lang), view),
+  })
+}

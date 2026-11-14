@@ -187,7 +187,7 @@ describe('JourneyPage', () => {
     stubBackend({ 'GET /api/content/live': bundle, [`GET ${visitPath}`]: visitView() })
 
     renderJourney()
-    fireEvent.click(await screen.findByRole('button', { name: 'Your path' }))
+    fireEvent.click(await screen.findByRole('button', { name: /Your path/ }))
 
     expect(screen.getByRole('heading', { name: 'Your path' })).toBeInTheDocument()
     const current = screen.getByRole('listitem', { current: 'step' })
@@ -197,6 +197,24 @@ describe('JourneyPage', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Back to my step' }))
     expect(screen.getByRole('heading', { name: 'What do you need help with?' })).toBeInTheDocument()
+  })
+
+  it('goes back one step from the header and restarts from the path overview', async () => {
+    const calls = stubBackend({
+      'GET /api/content/live': bundle,
+      [`GET ${visitPath}`]: visitView({ canGoBack: true }),
+      [`POST ${visitPath}/back`]: visitView({ canGoBack: false }),
+    })
+
+    renderJourney()
+    fireEvent.click(await screen.findByRole('button', { name: 'Go back one step' }))
+    await waitFor(() => expect(calls.find((c) => c.method === 'POST')?.body).toEqual({ lang: 'en' }))
+    // At the first step there is nothing to go back to.
+    await waitFor(() => expect(screen.queryByRole('button', { name: 'Go back one step' })).not.toBeInTheDocument())
+
+    fireEvent.click(screen.getByRole('button', { name: /Your path/ }))
+    fireEvent.click(screen.getByRole('button', { name: 'Start from the beginning' }))
+    expect(await screen.findByText('start page')).toBeInTheDocument()
   })
 
   it('shows an error with a way back to start for an unknown code', async () => {

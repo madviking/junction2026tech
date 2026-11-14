@@ -10,6 +10,8 @@
 .stack { display: flex; flex-direction: column; }
 .row { display: flex; flex-direction: row; align-items: center; }
 .row[data-wrap] { flex-wrap: wrap; }
+/* An icon next to text keeps its size when the text wraps. */
+.row > svg { flex: none; }
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--grid-min, 16rem)), 1fr));

@@ -6,7 +6,7 @@ import { describe, expect, it } from 'vitest'
 import { content } from '~encore/clients'
 import { resolveText } from '../care_paths/domain/texts'
 import type { ContentDoc } from '../care_paths/domain/types'
-import { addEvent, clinicianAnswers, countyCounts, create, get, nextSteps, remove, summary } from './visits'
+import { addEvent, back, clinicianAnswers, countyCounts, create, get, nextSteps, remove, summary } from './visits'
 
 const db = SQLDatabase.named('silta')
 const CODE_RE = /^SLT-[0-9A-HJKMNP-TV-Z]{4}-[0-9A-HJKMNP-TV-Z]{4}$/
@@ -15,6 +15,41 @@ const liveDoc = async () => JSON.parse((await content.liveDoc()).docJson) as Con
 const testCounty = () => `test_${Math.random().toString(36).slice(2, 10)}`
 
 describe('visit journey', () => {
+  it('goes back one step at a time, and not past the start or a clinician answer', async () => {
+    const v0 = await create({ lang: 'en', county: testCounty() })
+    expect(v0.canGoBack).toBe(false)
+    await expect(back({ code: v0.code })).rejects.toMatchObject({ code: 'failed_precondition' })
+
+    await addEvent({ code: v0.code, lang: 'en', outcome: 'symptom', symptoms: ['lump'] })
+    const contact = await addEvent({ code: v0.code, lang: 'en', outcome: 'door_known', route: 'A1' })
+    expect(contact.state).toMatchObject({ stage: 'contact', route: 'A1' })
+    expect(contact.canGoBack).toBe(true)
+
+    // Back to the route question: the lane and the chosen symptoms stay, the route is gone.
+    const route = await back({ code: v0.code, lang: 'en' })
+    expect(route.state).toMatchObject({ stage: 'route', lane: 'U2', route: null })
+    expect(route.carePath).toBeNull()
+    expect(route.history.map((h) => h.outcome)).toEqual(['symptom'])
+    expect(route.symptoms.filter((s) => s.selected).map((s) => s.id)).toEqual(['lump'])
+
+    // Back again to the first question; nothing is left to undo.
+    const start = await back({ code: v0.code, lang: 'en' })
+    expect(start.state).toMatchObject({ stage: 'describe', lane: null })
+    expect(start.history).toEqual([])
+    expect(start.canGoBack).toBe(false)
+
+    // A mistaken emergency tap can be undone to the stage the person was on.
+    await addEvent({ code: v0.code, lang: 'en', outcome: 'symptom', symptoms: ['lump'] })
+    await addEvent({ code: v0.code, lang: 'en', outcome: 'emergency_sign' })
+    expect((await back({ code: v0.code, lang: 'en' })).state).toMatchObject({ stage: 'route', lane: 'U2' })
+
+    // After a clinician answer the resident cannot undo what came before it.
+    await addEvent({ code: v0.code, lang: 'en', outcome: 'door_known', route: 'A1' })
+    await clinicianAnswers({ code: v0.code, answers: ['referral_sent'] })
+    expect((await get({ code: v0.code, lang: 'en' })).canGoBack).toBe(false)
+    await expect(back({ code: v0.code })).rejects.toMatchObject({ code: 'failed_precondition' })
+  })
+
   it('runs describe → route → contact → wait → clinician answers → next steps', async () => {
     const county = testCounty()
     const before = await countyCounts({ county })

@@ -45,6 +45,8 @@ export const bundle: LiveBundle = {
     'ui.journey.path.title': text('Your path'),
     'ui.journey.path.step_of': text('Step {n} of {total}'),
     'ui.journey.path.close': text('Back to my step'),
+    'ui.journey.path.back_step': text('Go back one step'),
+    'ui.journey.path.restart': text('Start from the beginning'),
     'step.describe': text('Describe the situation'),
     'step.route': text('Silta shows where to go'),
     'ui.journey.symptom.confirm': text('Continue'),
@@ -106,6 +108,7 @@ export function visitView(overrides: Partial<VisitView> = {}): VisitView {
     carePath: null,
     nextSteps: [],
     history: [],
+    canGoBack: false,
     ...overrides,
   }
 }

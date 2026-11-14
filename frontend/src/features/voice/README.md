@@ -59,3 +59,7 @@ store either.
   `E2E_CHROME_FAKE_MIC=1` uses Chrome's own fake capture instead.
 
 `RecordAnswerButton compact` renders the 48px microphone without its caption, for the one-row free-text input of the journey (`MatchInput`).
+
+`PageAudioButton textKeys={[...]}` is one "Listen" button that reads several texts in a row (`playSequence` in `state/player.ts`); the journey start screen uses it instead of a play button per line.
+
+`CardAudioButton thenLang` plays the same text in a second language right after the first (call script: Finnish, then the meaning).

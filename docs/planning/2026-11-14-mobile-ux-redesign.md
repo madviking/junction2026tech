@@ -37,6 +37,7 @@ and where the person is on their care path. Audit and evidence:
 | 3 | Less scattered: contact, symptoms, route, free text, footer | Collapsed limits and "they may ask", outcome step, duration step, one-row free text, code in header | vitest journey | Contact page 2,075 px (was 3,507); describe and wait fit one screen | done; the body map keeps its size |
 | 4 | Steps visualised from care path data, easy to reach | `PathStep.stage`; `PathProgress` on every stage opens `PathOverview` | backend `domain.test.ts`, vitest JourneyPage, e2e journey (a) | `after/11-path-at-contact-full.png` | done |
 | 5 | General information and trust screen | `/r/:lang/about`, linked from start and the path overview | vitest about | `after/03-about-full.png` | done; 13 languages, 11 of them unchecked translations |
+| 6 | Move back in the path, and restart from the very beginning | `undo` event + `POST /api/visits/:code/back`, `VisitView.canGoBack`; back arrow in the header strip; "Go back one step" and "Start from the beginning" in the path overview | backend `visits.test.ts`, vitest JourneyPage, e2e journey (h) | `docs/proof/2026-11-14/journey-path-start.png` | done |
 
 ## Verification
 

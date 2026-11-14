@@ -85,8 +85,18 @@
 .choiceTrailing {
   flex: none;
   display: flex;
-  align-items: center;
-  padding-inline-end: var(--silta-space-sm);
+  align-items: stretch;
+  border-inline-start: 1px solid var(--silta-color-border-subtle);
+}
+/* The listen button is a flat segment at the end of the card, not a second circle. */
+.choiceTrailing .audio {
+  inline-size: 52px;
+  block-size: auto;
+  border-radius: 0;
+  border-start-end-radius: var(--silta-radius-lg);
+  border-end-end-radius: var(--silta-radius-lg);
+  border: 0;
+  background: transparent;
 }
 
 /* Tile layout: picture on top, text under it, check in the top corner, listen button at the bottom. */
@@ -125,10 +135,13 @@
   inset-block-start: var(--silta-space-xs);
   inset-inline-start: var(--silta-space-xs);
   padding: 0;
+  border: 0;
 }
 .choice[data-layout='tile'] .choiceTrailing .audio {
-  border-color: transparent;
-  background: transparent;
+  inline-size: 48px;
+  block-size: 48px;
+  border-radius: var(--silta-radius-full);
+  border: 0;
 }
 
 /* ---- AudioPlayButton ---- */
@@ -140,7 +153,7 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--silta-radius-full);
-  border: 1px solid var(--silta-color-border);
+  border: 1px solid var(--silta-color-primary);
   background: var(--silta-color-surface);
   color: var(--silta-color-primary);
   cursor: pointer;
@@ -149,10 +162,13 @@
 .audio:hover:not(:disabled) {
   background: var(--silta-color-surface-selected);
 }
-.audio[data-state='playing'] {
+.audio[data-state='playing'],
+.choiceTrailing .audio[data-state='playing'] {
   background: var(--silta-color-primary);
-  border-color: var(--silta-color-primary);
   color: var(--silta-color-text-on-filled);
+}
+.audio[data-state='playing'] {
+  border-color: var(--silta-color-primary);
 }
 .audio[data-state='error'] {
   border-color: var(--silta-color-emergency);

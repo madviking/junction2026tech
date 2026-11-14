@@ -49,25 +49,23 @@ function ScriptLineRow({ line, variant }: { line: ScriptLine; variant: TextProps
   const bullet = line.item ? '• ' : ''
 
   return (
-    <Stack gap="xs">
-      <Row gap="sm" align="center" justify="between" wrap={false}>
+    <Row gap="sm" align="center" justify="between" wrap={false}>
+      <Stack gap="xs">
         <DirectionScope dir="ltr" lang="fi">
           <Text variant={variant} as="p">
             {bullet}
             {line.fi}
           </Text>
         </DirectionScope>
-        {line.key && <CardAudioButton textKey={line.key} lang="fi" label={t('ui.journey.contact.play_fi')} />}
-      </Row>
-      {showMeaning && (
-        <Row gap="sm" align="center" justify="between" wrap={false}>
+        {showMeaning && (
           <Text tone="muted">
             {bullet}
             {line.local}
           </Text>
-          {line.key && <CardAudioButton textKey={line.key} />}
-        </Row>
-      )}
-    </Stack>
+        )}
+      </Stack>
+      {/* One button per line: the Finnish phrase, then what it means in the person's language. */}
+      {line.key && <CardAudioButton textKey={line.key} lang="fi" thenLang={showMeaning ? lang : undefined} label={t('ui.journey.contact.play_fi')} />}
+    </Row>
   )
 }

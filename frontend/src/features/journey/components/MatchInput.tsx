@@ -3,7 +3,7 @@ import { glossaryAnswerKey, matchCardKey } from '@/features/journey/keys'
 import type { MatchAnswer, MatchFn, MatchOption, MatchSet } from '@/features/journey/types'
 import { CardAudioButton, RecordAnswerButton } from '@/features/voice'
 import { useT } from '@/shared/i18n'
-import { ActionButton, Row, Stack, SurfaceCard, Text, TextField } from '@/shared/ui'
+import { ActionButton, PageActions, Row, Stack, SurfaceCard, Text, TextField } from '@/shared/ui'
 
 export interface MatchInputProps {
   set: MatchSet
@@ -68,64 +68,67 @@ export function MatchInput({ set, stage, match, onChosen, disabled }: MatchInput
 
   const busy = disabled || phase.kind === 'pending'
 
+  // Speaking and typing live in the bottom bar on every screen, above the screen's main action.
   return (
-    <Stack gap="sm">
-      <Row gap="sm" align="end" wrap={false} growFirst>
-        <TextField label={t('ui.journey.match.label')} value={text} onChange={setText} disabled={disabled} />
-        <RecordAnswerButton compact onTranscript={onTranscript} disabled={busy} />
-      </Row>
-      {(text.trim() || phase.kind === 'pending') && (
-        <ActionButton variant="secondary" fullWidth loading={phase.kind === 'pending'} disabled={busy} onPress={() => void run(text)}>
-          {t('ui.journey.match.submit')}
-        </ActionButton>
-      )}
-      <div role="status" aria-live="polite">
-        {phase.kind === 'readback' && (
-          <SurfaceCard tone="muted">
-            <div role="group" aria-labelledby={readbackId}>
-              <Stack gap="sm">
-                <Row gap="sm" align="center" justify="between" wrap={false}>
-                  <Text variant="label" id={readbackId}>
-                    {t('ui.journey.match.readback', { text: phase.top.text })}
+    <PageActions>
+      <Stack gap="sm">
+        <div role="status" aria-live="polite">
+          {phase.kind === 'readback' && (
+            <SurfaceCard tone="muted">
+              <div role="group" aria-labelledby={readbackId}>
+                <Stack gap="sm">
+                  <Row gap="sm" align="center" justify="between" wrap={false}>
+                    <Text variant="label" id={readbackId}>
+                      {t('ui.journey.match.readback', { text: phase.top.text })}
+                    </Text>
+                    <CardAudioButton textKey={matchCardKey(set, phase.top.id, stage)} />
+                  </Row>
+                  <Row gap="sm" grow>
+                    <ActionButton disabled={disabled} onPress={() => confirm(phase.top.id)}>
+                      {t('ui.journey.match.yes')}
+                    </ActionButton>
+                    <ActionButton variant="secondary" onPress={() => setPhase({ kind: 'choose' })}>
+                      {t('ui.journey.match.no')}
+                    </ActionButton>
+                  </Row>
+                </Stack>
+              </div>
+            </SurfaceCard>
+          )}
+          {phase.kind === 'answer' && (
+            <SurfaceCard tone="muted">
+              <div role="group" aria-labelledby={answerId}>
+                <Stack gap="sm">
+                  <Text variant="label" id={answerId}>
+                    {phase.answer.question}
                   </Text>
-                  <CardAudioButton textKey={matchCardKey(set, phase.top.id, stage)} />
-                </Row>
-                <Row gap="sm" grow>
-                  <ActionButton disabled={disabled} onPress={() => confirm(phase.top.id)}>
-                    {t('ui.journey.match.yes')}
-                  </ActionButton>
-                  <ActionButton variant="secondary" onPress={() => setPhase({ kind: 'choose' })}>
-                    {t('ui.journey.match.no')}
-                  </ActionButton>
-                </Row>
-              </Stack>
-            </div>
-          </SurfaceCard>
+                  <Row gap="sm" align="start" justify="between" wrap={false}>
+                    <Text>{phase.answer.text}</Text>
+                    <CardAudioButton textKey={glossaryAnswerKey(phase.answer.id)} />
+                  </Row>
+                  <Text tone="muted">{t('ui.journey.match.answer_next')}</Text>
+                  <Row gap="sm" grow>
+                    <ActionButton variant="secondary" onPress={dismissAnswer}>
+                      {t('ui.journey.match.answer_ok')}
+                    </ActionButton>
+                  </Row>
+                </Stack>
+              </div>
+            </SurfaceCard>
+          )}
+          {phase.kind === 'choose' && <Text tone="muted">{t('ui.journey.match.choose')}</Text>}
+          {phase.kind === 'error' && <Text tone="danger">{t('ui.journey.match.error')}</Text>}
+        </div>
+        <Row gap="sm" align="center" wrap={false} growFirst>
+          <TextField hideLabel label={t('ui.journey.match.label')} value={text} onChange={setText} disabled={disabled} />
+          <RecordAnswerButton compact onTranscript={onTranscript} disabled={busy} />
+        </Row>
+        {(text.trim() || phase.kind === 'pending') && (
+          <ActionButton variant="secondary" fullWidth loading={phase.kind === 'pending'} disabled={busy} onPress={() => void run(text)}>
+            {t('ui.journey.match.submit')}
+          </ActionButton>
         )}
-        {phase.kind === 'answer' && (
-          <SurfaceCard tone="muted">
-            <div role="group" aria-labelledby={answerId}>
-              <Stack gap="sm">
-                <Text variant="label" id={answerId}>
-                  {phase.answer.question}
-                </Text>
-                <Row gap="sm" align="start" justify="between" wrap={false}>
-                  <Text>{phase.answer.text}</Text>
-                  <CardAudioButton textKey={glossaryAnswerKey(phase.answer.id)} />
-                </Row>
-                <Text tone="muted">{t('ui.journey.match.answer_next')}</Text>
-                <Row gap="sm" grow>
-                  <ActionButton variant="secondary" onPress={dismissAnswer}>
-                    {t('ui.journey.match.answer_ok')}
-                  </ActionButton>
-                </Row>
-              </Stack>
-            </div>
-          </SurfaceCard>
-        )}
-        {phase.kind === 'choose' && <Text tone="muted">{t('ui.journey.match.choose')}</Text>}
-        {phase.kind === 'error' && <Text tone="danger">{t('ui.journey.match.error')}</Text>}
-      </div>
-    </Stack>
+      </Stack>
+    </PageActions>
   )
 }

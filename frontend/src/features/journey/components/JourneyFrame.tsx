@@ -7,6 +7,8 @@ export interface JourneyFrameProps {
   code?: string
   /** Neutral header control next to the call link (the way to the emergency signs). */
   headerAction?: ReactNode
+  /** Header progress strip (a `PageProgress`). */
+  progress?: ReactNode
   /** The emergency screen has its own large call link; hide the header pill there. */
   hideCall?: boolean
   /** Shows a back arrow that calls this. */
@@ -15,7 +17,7 @@ export interface JourneyFrameProps {
 }
 
 /** Resident page frame of the journey: title, visit code, and the one red control (112, direct dial). */
-export function JourneyFrame({ code, headerAction, hideCall, onBack, children }: JourneyFrameProps) {
+export function JourneyFrame({ code, headerAction, progress, hideCall, onBack, children }: JourneyFrameProps) {
   const { t } = useContent()
   const backLabel = t('ui.journey.back')
   const back = useMemo(() => (onBack ? { label: backLabel, onPress: onBack } : undefined), [onBack, backLabel])
@@ -25,6 +27,7 @@ export function JourneyFrame({ code, headerAction, hideCall, onBack, children }:
       subtitle={code}
       back={back}
       headerAction={headerAction}
+      progress={progress}
       emergency={hideCall ? undefined : <EmergencyCallLink compact label={t('ui.journey.emergency_call')} phoneNumber="112" />}
     >
       <Stack gap="lg">{children}</Stack>

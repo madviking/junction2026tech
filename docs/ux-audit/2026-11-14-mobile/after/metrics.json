@@ -148,12 +148,12 @@
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
     "h": 57
    },
    {
-    "cls": "_pageActions_pgh2g_38",
+    "cls": "_pageActions_1g11t_38",
     "y": 0,
     "h": 0
    }
@@ -166,7 +166,7 @@
   "id": "02-start",
   "url": "/r/en",
   "note": "",
-  "pageH": 853,
+  "pageH": 870,
   "items": [
    {
     "tag": "button",
@@ -191,57 +191,17 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 73,
+    "y": 127,
     "h": 48,
-    "w": 48,
+    "w": 122,
     "bg": "rgb(255, 255, 255)",
     "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 146,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 219,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 309,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 374,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
+    "pos": "relative"
    },
    {
     "tag": "button",
     "text": "I got a letter about cervical screening A 5-minute picture g",
-    "y": 478,
+    "y": 490,
     "h": 133,
     "w": 341,
     "bg": "rgba(0, 0, 0, 0)",
@@ -251,22 +211,22 @@
    {
     "tag": "button",
     "text": "I have a code",
-    "y": 636,
-    "h": 48,
-    "w": 343,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "relative"
+    "y": 634,
+    "h": 64,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
    },
    {
     "tag": "button",
     "text": "About Silta",
     "y": 708,
-    "h": 48,
-    "w": 343,
+    "h": 64,
+    "w": 341,
     "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(7, 55, 70)",
-    "pos": "relative"
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
    },
    {
     "tag": "button",
@@ -281,12 +241,12 @@
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
     "h": 57
    },
    {
-    "cls": "_pageActions_pgh2g_38",
+    "cls": "_pageActions_1g11t_38",
     "y": 635,
     "h": 65
    }
@@ -325,12 +285,12 @@
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
     "h": 57
    },
    {
-    "cls": "_pageActions_pgh2g_38",
+    "cls": "_pageActions_1g11t_38",
     "y": 0,
     "h": 0
    }
@@ -347,7 +307,7 @@
  },
  {
   "id": "04-describe",
-  "url": "/r/en/v/SLT-97DN-DDQP",
+  "url": "/r/en/v/SLT-SEK4-E8Z1",
   "note": "",
   "pageH": 700,
   "items": [
@@ -374,17 +334,17 @@
    {
     "tag": "button",
     "text": "Your path",
-    "y": 112,
-    "h": 48,
+    "y": 58,
+    "h": 44,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(7, 55, 70)",
-    "pos": "relative"
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
    },
    {
     "tag": "button",
     "text": "Listen",
-    "y": 190,
+    "y": 125,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -394,9 +354,9 @@
    {
     "tag": "button",
     "text": "I have a symptom that worries me",
-    "y": 261,
+    "y": 196,
     "h": 82,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -404,19 +364,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 278,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 196,
+    "h": 82,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "I got a letter I do not understand",
-    "y": 352,
-    "h": 64,
-    "w": 285,
+    "y": 288,
+    "h": 82,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -424,19 +384,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 360,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 288,
+    "h": 82,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "I am waiting and nothing is happening",
-    "y": 426,
+    "y": 380,
     "h": 82,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -444,17 +404,17 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 443,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 380,
+    "h": 82,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "input",
-    "text": "",
-    "y": 550,
+    "text": "Describe in your own words",
+    "y": 644,
     "h": 44,
     "w": 287,
     "bg": "rgb(255, 255, 255)",
@@ -464,7 +424,7 @@
    {
     "tag": "button",
     "text": "Tap to speak",
-    "y": 542,
+    "y": 640,
     "h": 48,
     "w": 48,
     "bg": "rgb(19, 95, 118)",
@@ -474,14 +434,14 @@
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
-    "h": 59
+    "h": 103
    },
    {
-    "cls": "_pageActions_pgh2g_38",
-    "y": 0,
-    "h": 0
+    "cls": "_pageActions_1g11t_38",
+    "y": 623,
+    "h": 77
    }
   ],
   "h": [
@@ -491,7 +451,7 @@
  },
  {
   "id": "05-path-before-route",
-  "url": "/r/en/v/SLT-97DN-DDQP",
+  "url": "/r/en/v/SLT-SEK4-E8Z1",
   "note": "",
   "pageH": 700,
   "items": [
@@ -538,12 +498,12 @@
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
     "h": 59
    },
    {
-    "cls": "_pageActions_pgh2g_38",
+    "cls": "_pageActions_1g11t_38",
     "y": 635,
     "h": 65
    }
@@ -555,9 +515,9 @@
  },
  {
   "id": "06-symptoms-pictures",
-  "url": "/r/en/v/SLT-97DN-DDQP",
+  "url": "/r/en/v/SLT-SEK4-E8Z1",
   "note": "",
-  "pageH": 1593,
+  "pageH": 1285,
   "items": [
    {
     "tag": "button",
@@ -582,17 +542,17 @@
    {
     "tag": "button",
     "text": "Your path",
-    "y": 112,
-    "h": 48,
+    "y": 58,
+    "h": 44,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(7, 55, 70)",
-    "pos": "relative"
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
    },
    {
     "tag": "button",
     "text": "Listen",
-    "y": 184,
+    "y": 119,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -602,9 +562,9 @@
    {
     "tag": "button",
     "text": "Head and neck",
-    "y": 317,
+    "y": 255,
     "h": 48,
-    "w": 207,
+    "w": 147,
     "bg": "rgb(255, 255, 255)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -612,9 +572,9 @@
    {
     "tag": "button",
     "text": "Chest, breast and armpit",
-    "y": 369,
-    "h": 55,
-    "w": 207,
+    "y": 255,
+    "h": 48,
+    "w": 222,
     "bg": "rgb(255, 255, 255)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -622,9 +582,9 @@
    {
     "tag": "button",
     "text": "Belly and lower body",
-    "y": 428,
+    "y": 255,
     "h": 48,
-    "w": 207,
+    "w": 191,
     "bg": "rgb(255, 255, 255)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -632,9 +592,9 @@
    {
     "tag": "button",
     "text": "Skin",
-    "y": 480,
+    "y": 255,
     "h": 48,
-    "w": 207,
+    "w": 67,
     "bg": "rgb(255, 255, 255)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -642,9 +602,9 @@
    {
     "tag": "button",
     "text": "Whole body",
-    "y": 532,
+    "y": 255,
     "h": 48,
-    "w": 207,
+    "w": 124,
     "bg": "rgb(255, 255, 255)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -652,7 +612,7 @@
    {
     "tag": "button",
     "text": "A new lump or swelling",
-    "y": 597,
+    "y": 322,
     "h": 122,
     "w": 166,
     "bg": "rgba(0, 0, 0, 0)",
@@ -662,7 +622,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 601,
+    "y": 326,
     "h": 48,
     "w": 48,
     "bg": "rgba(0, 0, 0, 0)",
@@ -672,7 +632,7 @@
    {
     "tag": "button",
     "text": "Bleeding I cannot explain",
-    "y": 597,
+    "y": 322,
     "h": 122,
     "w": 166,
     "bg": "rgba(0, 0, 0, 0)",
@@ -682,7 +642,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 601,
+    "y": 326,
     "h": 48,
     "w": 48,
     "bg": "rgba(0, 0, 0, 0)",
@@ -692,7 +652,7 @@
    {
     "tag": "button",
     "text": "Blood in stool or a change in bowel habits",
-    "y": 729,
+    "y": 454,
     "h": 146,
     "w": 166,
     "bg": "rgba(0, 0, 0, 0)",
@@ -702,7 +662,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 733,
+    "y": 458,
     "h": 48,
     "w": 48,
     "bg": "rgba(0, 0, 0, 0)",
@@ -712,7 +672,7 @@
    {
     "tag": "button",
     "text": "A cough for over 3 weeks",
-    "y": 729,
+    "y": 454,
     "h": 146,
     "w": 166,
     "bg": "rgba(0, 0, 0, 0)",
@@ -722,7 +682,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 733,
+    "y": 458,
     "h": 48,
     "w": 48,
     "bg": "rgba(0, 0, 0, 0)",
@@ -732,7 +692,7 @@
    {
     "tag": "button",
     "text": "Bleeding after menopause",
-    "y": 885,
+    "y": 610,
     "h": 122,
     "w": 166,
     "bg": "rgba(0, 0, 0, 0)",
@@ -742,7 +702,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 889,
+    "y": 614,
     "h": 48,
     "w": 48,
     "bg": "rgba(0, 0, 0, 0)",
@@ -752,7 +712,7 @@
    {
     "tag": "button",
     "text": "A mole or skin spot that changes",
-    "y": 885,
+    "y": 610,
     "h": 122,
     "w": 166,
     "bg": "rgba(0, 0, 0, 0)",
@@ -762,7 +722,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 889,
+    "y": 614,
     "h": 48,
     "w": 48,
     "bg": "rgba(0, 0, 0, 0)",
@@ -772,7 +732,7 @@
    {
     "tag": "button",
     "text": "Tiredness that does not pass",
-    "y": 1017,
+    "y": 742,
     "h": 122,
     "w": 166,
     "bg": "rgba(0, 0, 0, 0)",
@@ -782,7 +742,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 1021,
+    "y": 746,
     "h": 48,
     "w": 48,
     "bg": "rgba(0, 0, 0, 0)",
@@ -792,7 +752,7 @@
    {
     "tag": "button",
     "text": "Pain that keeps coming back",
-    "y": 1017,
+    "y": 742,
     "h": 122,
     "w": 166,
     "bg": "rgba(0, 0, 0, 0)",
@@ -802,7 +762,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 1021,
+    "y": 746,
     "h": 48,
     "w": 48,
     "bg": "rgba(0, 0, 0, 0)",
@@ -812,7 +772,7 @@
    {
     "tag": "button",
     "text": "Weight loss or poor appetite",
-    "y": 1148,
+    "y": 873,
     "h": 122,
     "w": 166,
     "bg": "rgba(0, 0, 0, 0)",
@@ -822,7 +782,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 1152,
+    "y": 877,
     "h": 48,
     "w": 48,
     "bg": "rgba(0, 0, 0, 0)",
@@ -830,29 +790,9 @@
     "pos": "static"
    },
    {
-    "tag": "input",
-    "text": "",
-    "y": 1320,
-    "h": 44,
-    "w": 287,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(27, 32, 39)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Tap to speak",
-    "y": 1312,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(19, 95, 118)",
-    "color": "rgb(255, 255, 255)",
-    "pos": "relative"
-   },
-   {
     "tag": "button",
     "text": "Show as a list",
-    "y": 1396,
+    "y": 1020,
     "h": 48,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
@@ -862,11 +802,31 @@
    {
     "tag": "button",
     "text": "Back to the question",
-    "y": 1448,
+    "y": 1072,
     "h": 48,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(7, 55, 70)",
+    "pos": "relative"
+   },
+   {
+    "tag": "input",
+    "text": "Describe in your own words",
+    "y": 588,
+    "h": 44,
+    "w": 287,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Tap to speak",
+    "y": 584,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
     "pos": "relative"
    },
    {
@@ -882,14 +842,14 @@
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
-    "h": 59
+    "h": 103
    },
    {
-    "cls": "_pageActions_pgh2g_38",
-    "y": 635,
-    "h": 65
+    "cls": "_pageActions_1g11t_38",
+    "y": 567,
+    "h": 133
    }
   ],
   "h": [
@@ -899,9 +859,9 @@
  },
  {
   "id": "07-symptoms-selected",
-  "url": "/r/en/v/SLT-97DN-DDQP",
+  "url": "/r/en/v/SLT-SEK4-E8Z1",
   "note": "",
-  "pageH": 1593,
+  "pageH": 1285,
   "items": [
    {
     "tag": "button",
@@ -926,17 +886,17 @@
    {
     "tag": "button",
     "text": "Your path",
-    "y": 112,
-    "h": 48,
+    "y": 58,
+    "h": 44,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(7, 55, 70)",
-    "pos": "relative"
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
    },
    {
     "tag": "button",
     "text": "Listen",
-    "y": 184,
+    "y": 119,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -946,9 +906,9 @@
    {
     "tag": "button",
     "text": "Head and neck",
-    "y": 317,
+    "y": 255,
     "h": 48,
-    "w": 207,
+    "w": 147,
     "bg": "rgb(255, 255, 255)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -956,9 +916,9 @@
    {
     "tag": "button",
     "text": "Chest, breast and armpit",
-    "y": 369,
-    "h": 55,
-    "w": 207,
+    "y": 255,
+    "h": 48,
+    "w": 222,
     "bg": "rgb(255, 255, 255)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -966,9 +926,9 @@
    {
     "tag": "button",
     "text": "Belly and lower body",
-    "y": 428,
+    "y": 255,
     "h": 48,
-    "w": 207,
+    "w": 191,
     "bg": "rgb(255, 255, 255)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -976,9 +936,9 @@
    {
     "tag": "button",
     "text": "Skin",
-    "y": 480,
+    "y": 255,
     "h": 48,
-    "w": 207,
+    "w": 67,
     "bg": "rgb(255, 255, 255)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -986,9 +946,9 @@
    {
     "tag": "button",
     "text": "Whole body",
-    "y": 532,
+    "y": 255,
     "h": 48,
-    "w": 207,
+    "w": 124,
     "bg": "rgb(255, 255, 255)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -996,7 +956,7 @@
    {
     "tag": "button",
     "text": "A new lump or swelling",
-    "y": 597,
+    "y": 322,
     "h": 122,
     "w": 166,
     "bg": "rgba(0, 0, 0, 0)",
@@ -1006,7 +966,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 601,
+    "y": 326,
     "h": 48,
     "w": 48,
     "bg": "rgba(0, 0, 0, 0)",
@@ -1016,7 +976,7 @@
    {
     "tag": "button",
     "text": "Bleeding I cannot explain",
-    "y": 597,
+    "y": 322,
     "h": 122,
     "w": 166,
     "bg": "rgba(0, 0, 0, 0)",
@@ -1026,7 +986,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 601,
+    "y": 326,
     "h": 48,
     "w": 48,
     "bg": "rgba(0, 0, 0, 0)",
@@ -1036,7 +996,7 @@
    {
     "tag": "button",
     "text": "Blood in stool or a change in bowel habits",
-    "y": 729,
+    "y": 454,
     "h": 146,
     "w": 166,
     "bg": "rgba(0, 0, 0, 0)",
@@ -1046,7 +1006,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 733,
+    "y": 458,
     "h": 48,
     "w": 48,
     "bg": "rgba(0, 0, 0, 0)",
@@ -1056,7 +1016,7 @@
    {
     "tag": "button",
     "text": "A cough for over 3 weeks",
-    "y": 729,
+    "y": 454,
     "h": 146,
     "w": 166,
     "bg": "rgba(0, 0, 0, 0)",
@@ -1066,7 +1026,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 733,
+    "y": 458,
     "h": 48,
     "w": 48,
     "bg": "rgba(0, 0, 0, 0)",
@@ -1076,7 +1036,7 @@
    {
     "tag": "button",
     "text": "Bleeding after menopause",
-    "y": 885,
+    "y": 610,
     "h": 122,
     "w": 166,
     "bg": "rgba(0, 0, 0, 0)",
@@ -1086,7 +1046,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 889,
+    "y": 614,
     "h": 48,
     "w": 48,
     "bg": "rgba(0, 0, 0, 0)",
@@ -1096,7 +1056,7 @@
    {
     "tag": "button",
     "text": "A mole or skin spot that changes",
-    "y": 885,
+    "y": 610,
     "h": 122,
     "w": 166,
     "bg": "rgba(0, 0, 0, 0)",
@@ -1106,7 +1066,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 889,
+    "y": 614,
     "h": 48,
     "w": 48,
     "bg": "rgba(0, 0, 0, 0)",
@@ -1116,7 +1076,7 @@
    {
     "tag": "button",
     "text": "Tiredness that does not pass",
-    "y": 1017,
+    "y": 742,
     "h": 122,
     "w": 166,
     "bg": "rgba(0, 0, 0, 0)",
@@ -1126,7 +1086,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 1021,
+    "y": 746,
     "h": 48,
     "w": 48,
     "bg": "rgba(0, 0, 0, 0)",
@@ -1136,7 +1096,7 @@
    {
     "tag": "button",
     "text": "Pain that keeps coming back",
-    "y": 1017,
+    "y": 742,
     "h": 122,
     "w": 166,
     "bg": "rgba(0, 0, 0, 0)",
@@ -1146,7 +1106,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 1021,
+    "y": 746,
     "h": 48,
     "w": 48,
     "bg": "rgba(0, 0, 0, 0)",
@@ -1156,7 +1116,7 @@
    {
     "tag": "button",
     "text": "Weight loss or poor appetite",
-    "y": 1148,
+    "y": 873,
     "h": 122,
     "w": 166,
     "bg": "rgba(0, 0, 0, 0)",
@@ -1166,7 +1126,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 1152,
+    "y": 877,
     "h": 48,
     "w": 48,
     "bg": "rgba(0, 0, 0, 0)",
@@ -1174,29 +1134,9 @@
     "pos": "static"
    },
    {
-    "tag": "input",
-    "text": "",
-    "y": 1320,
-    "h": 44,
-    "w": 287,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(27, 32, 39)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Tap to speak",
-    "y": 1312,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(19, 95, 118)",
-    "color": "rgb(255, 255, 255)",
-    "pos": "relative"
-   },
-   {
     "tag": "button",
     "text": "Show as a list",
-    "y": 1396,
+    "y": 1020,
     "h": 48,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
@@ -1206,11 +1146,31 @@
    {
     "tag": "button",
     "text": "Back to the question",
-    "y": 1448,
+    "y": 1072,
     "h": 48,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(7, 55, 70)",
+    "pos": "relative"
+   },
+   {
+    "tag": "input",
+    "text": "Describe in your own words",
+    "y": 588,
+    "h": 44,
+    "w": 287,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Tap to speak",
+    "y": 584,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
     "pos": "relative"
    },
    {
@@ -1226,14 +1186,14 @@
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
-    "h": 59
+    "h": 103
    },
    {
-    "cls": "_pageActions_pgh2g_38",
-    "y": 635,
-    "h": 65
+    "cls": "_pageActions_1g11t_38",
+    "y": 567,
+    "h": 133
    }
   ],
   "h": [
@@ -1243,9 +1203,9 @@
  },
  {
   "id": "08-symptoms-duration",
-  "url": "/r/en/v/SLT-97DN-DDQP",
+  "url": "/r/en/v/SLT-SEK4-E8Z1",
   "note": "",
-  "pageH": 725,
+  "pageH": 700,
   "items": [
    {
     "tag": "button",
@@ -1270,17 +1230,17 @@
    {
     "tag": "button",
     "text": "Your path",
-    "y": 112,
-    "h": 48,
+    "y": 58,
+    "h": 44,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(7, 55, 70)",
-    "pos": "relative"
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
    },
    {
     "tag": "button",
     "text": "Listen",
-    "y": 190,
+    "y": 125,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -1290,9 +1250,9 @@
    {
     "tag": "button",
     "text": "Less than 2 weeks",
-    "y": 269,
+    "y": 204,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -1300,19 +1260,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 277,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 204,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "2 to 4 weeks",
-    "y": 343,
+    "y": 278,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -1320,19 +1280,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 351,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 278,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "1 to 3 months",
-    "y": 417,
+    "y": 352,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -1340,19 +1300,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 425,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 352,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "More than 3 months",
-    "y": 491,
+    "y": 426,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -1360,17 +1320,17 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 499,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 426,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "Back",
-    "y": 580,
+    "y": 515,
     "h": 48,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
@@ -1390,12 +1350,12 @@
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
-    "h": 59
+    "h": 103
    },
    {
-    "cls": "_pageActions_pgh2g_38",
+    "cls": "_pageActions_1g11t_38",
     "y": 635,
     "h": 65
    }
@@ -1407,9 +1367,9 @@
  },
  {
   "id": "09-route",
-  "url": "/r/en/v/SLT-97DN-DDQP",
+  "url": "/r/en/v/SLT-SEK4-E8Z1",
   "note": "",
-  "pageH": 1371,
+  "pageH": 1272,
   "items": [
    {
     "tag": "button",
@@ -1434,17 +1394,17 @@
    {
     "tag": "button",
     "text": "Your path",
-    "y": 112,
-    "h": 48,
+    "y": 58,
+    "h": 44,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(7, 55, 70)",
-    "pos": "relative"
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
    },
    {
     "tag": "button",
     "text": "Listen",
-    "y": 190,
+    "y": 125,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -1454,7 +1414,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 334,
+    "y": 270,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -1464,7 +1424,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 386,
+    "y": 322,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -1474,7 +1434,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 439,
+    "y": 375,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -1484,9 +1444,9 @@
    {
     "tag": "button",
     "text": "I live in Finland and have a home municipality",
-    "y": 352,
+    "y": 288,
     "h": 82,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -1494,19 +1454,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 369,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 288,
+    "h": 82,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "My employer provides health care",
-    "y": 444,
-    "h": 82,
-    "w": 285,
+    "y": 380,
+    "h": 64,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -1514,19 +1474,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 461,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 380,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "I am a university or college student",
-    "y": 536,
+    "y": 454,
     "h": 82,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -1534,19 +1494,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 552,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 454,
+    "h": 82,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "I pay myself or have private insurance",
-    "y": 627,
+    "y": 545,
     "h": 82,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -1554,19 +1514,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 644,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 545,
+    "h": 82,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "I am from Ukraine with temporary protection",
-    "y": 719,
+    "y": 637,
     "h": 82,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -1574,19 +1534,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 736,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 637,
+    "h": 82,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "I am an asylum seeker living in a reception centre",
-    "y": 810,
+    "y": 728,
     "h": 82,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -1594,19 +1554,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 827,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 728,
+    "h": 82,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "I do not have a residence permit",
-    "y": 902,
+    "y": 820,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -1614,19 +1574,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 910,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 820,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "I am from the EU or a Nordic country and have no home munici",
-    "y": 976,
+    "y": 894,
     "h": 106,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -1634,17 +1594,47 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 1005,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 894,
+    "h": 106,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
+    "tag": "button",
+    "text": "I do not know",
+    "y": 1026,
+    "h": 64,
+    "w": 288,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Listen",
+    "y": 1026,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Something changed or got worse",
+    "y": 1115,
+    "h": 48,
+    "w": 343,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(7, 55, 70)",
+    "pos": "relative"
+   },
+   {
     "tag": "input",
-    "text": "",
-    "y": 1125,
+    "text": "Describe in your own words",
+    "y": 644,
     "h": 44,
     "w": 287,
     "bg": "rgb(255, 255, 255)",
@@ -1654,54 +1644,24 @@
    {
     "tag": "button",
     "text": "Tap to speak",
-    "y": 1117,
+    "y": 640,
     "h": 48,
     "w": 48,
     "bg": "rgb(19, 95, 118)",
     "color": "rgb(255, 255, 255)",
     "pos": "relative"
-   },
-   {
-    "tag": "button",
-    "text": "I do not know",
-    "y": 1202,
-    "h": 64,
-    "w": 285,
-    "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(27, 32, 39)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 1210,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Something changed or got worse",
-    "y": 1291,
-    "h": 48,
-    "w": 343,
-    "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(7, 55, 70)",
-    "pos": "relative"
    }
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
-    "h": 59
+    "h": 103
    },
    {
-    "cls": "_pageActions_pgh2g_38",
-    "y": 0,
-    "h": 0
+    "cls": "_pageActions_1g11t_38",
+    "y": 623,
+    "h": 77
    }
   ],
   "h": [
@@ -1711,9 +1671,9 @@
  },
  {
   "id": "10-contact-door",
-  "url": "/r/en/v/SLT-97DN-DDQP",
+  "url": "/r/en/v/SLT-SEK4-E8Z1",
   "note": "",
-  "pageH": 2075,
+  "pageH": 1848,
   "items": [
    {
     "tag": "button",
@@ -1738,17 +1698,17 @@
    {
     "tag": "button",
     "text": "Your path",
-    "y": 112,
-    "h": 48,
+    "y": 58,
+    "h": 44,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(7, 55, 70)",
-    "pos": "relative"
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
    },
    {
     "tag": "button",
     "text": "Listen",
-    "y": 319,
+    "y": 255,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -1758,7 +1718,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 475,
+    "y": 411,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -1768,7 +1728,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 578,
+    "y": 514,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -1778,7 +1738,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 682,
+    "y": 618,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -1788,7 +1748,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 797,
+    "y": 732,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -1798,17 +1758,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 529,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 584,
+    "y": 492,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -1818,17 +1768,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 650,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 704,
+    "y": 612,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -1838,17 +1778,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 857,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 909,
+    "y": 796,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -1858,17 +1788,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 973,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 1025,
+    "y": 864,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -1878,17 +1798,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 1090,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 1144,
+    "y": 946,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -1898,17 +1808,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 1261,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 1362,
+    "y": 1118,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -1918,17 +1818,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 1528,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 1607,
+    "y": 1385,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -1938,17 +1828,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 1699,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 1766,
+    "y": 1544,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -1958,17 +1838,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 1549,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 1603,
+    "y": 1394,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -1978,17 +1848,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 1670,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 1724,
+    "y": 1515,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -1998,17 +1858,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 1789,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 1841,
+    "y": 1610,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -2018,7 +1868,7 @@
    {
     "tag": "button",
     "text": "Something changed or got worse",
-    "y": 1930,
+    "y": 1703,
     "h": 48,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
@@ -2038,12 +1888,12 @@
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
-    "h": 59
+    "h": 103
    },
    {
-    "cls": "_pageActions_pgh2g_38",
+    "cls": "_pageActions_1g11t_38",
     "y": 635,
     "h": 65
    }
@@ -2055,7 +1905,7 @@
  },
  {
   "id": "11-path-at-contact",
-  "url": "/r/en/v/SLT-97DN-DDQP",
+  "url": "/r/en/v/SLT-SEK4-E8Z1",
   "note": "",
   "pageH": 1238,
   "items": [
@@ -2142,12 +1992,12 @@
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
     "h": 59
    },
    {
-    "cls": "_pageActions_pgh2g_38",
+    "cls": "_pageActions_1g11t_38",
     "y": 635,
     "h": 65
    }
@@ -2160,9 +2010,9 @@
  },
  {
   "id": "12-contact-what-happened",
-  "url": "/r/en/v/SLT-97DN-DDQP",
+  "url": "/r/en/v/SLT-SEK4-E8Z1",
   "note": "",
-  "pageH": 1008,
+  "pageH": 927,
   "items": [
    {
     "tag": "button",
@@ -2187,17 +2037,17 @@
    {
     "tag": "button",
     "text": "Your path",
-    "y": 112,
-    "h": 48,
+    "y": 58,
+    "h": 44,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(7, 55, 70)",
-    "pos": "relative"
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
    },
    {
     "tag": "button",
     "text": "Listen",
-    "y": 202,
+    "y": 138,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -2207,9 +2057,9 @@
    {
     "tag": "button",
     "text": "I got an appointment",
-    "y": 286,
+    "y": 221,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -2217,19 +2067,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 294,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 221,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "They said they will contact me",
-    "y": 360,
+    "y": 295,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -2237,19 +2087,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 368,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 295,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "Nobody answered",
-    "y": 434,
+    "y": 369,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -2257,19 +2107,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 442,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 369,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "They said this is the wrong place",
-    "y": 508,
+    "y": 443,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -2277,19 +2127,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 516,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 443,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "They said I cannot get care here",
-    "y": 582,
+    "y": 517,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -2297,19 +2147,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 590,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 517,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "We did not understand each other",
-    "y": 656,
+    "y": 591,
     "h": 82,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -2317,37 +2167,17 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 672,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 591,
+    "h": 82,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
-    "tag": "input",
-    "text": "",
-    "y": 780,
-    "h": 44,
-    "w": 287,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(27, 32, 39)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Tap to speak",
-    "y": 772,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(19, 95, 118)",
-    "color": "rgb(255, 255, 255)",
-    "pos": "relative"
-   },
-   {
     "tag": "button",
     "text": "Back",
-    "y": 856,
+    "y": 698,
     "h": 48,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
@@ -2357,24 +2187,44 @@
    {
     "tag": "button",
     "text": "Something changed or got worse",
-    "y": 928,
+    "y": 770,
     "h": 48,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(7, 55, 70)",
     "pos": "relative"
+   },
+   {
+    "tag": "input",
+    "text": "Describe in your own words",
+    "y": 644,
+    "h": 44,
+    "w": 287,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Tap to speak",
+    "y": 640,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
    }
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
-    "h": 59
+    "h": 103
    },
    {
-    "cls": "_pageActions_pgh2g_38",
-    "y": 0,
-    "h": 0
+    "cls": "_pageActions_1g11t_38",
+    "y": 623,
+    "h": 77
    }
   ],
   "h": [
@@ -2384,7 +2234,7 @@
  },
  {
   "id": "13-contact-visit-date",
-  "url": "/r/en/v/SLT-97DN-DDQP",
+  "url": "/r/en/v/SLT-SEK4-E8Z1",
   "note": "",
   "pageH": 700,
   "items": [
@@ -2411,17 +2261,17 @@
    {
     "tag": "button",
     "text": "Your path",
-    "y": 112,
-    "h": 48,
+    "y": 58,
+    "h": 44,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(7, 55, 70)",
-    "pos": "relative"
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
    },
    {
     "tag": "input",
     "text": "",
-    "y": 252,
+    "y": 187,
     "h": 44,
     "w": 343,
     "bg": "rgb(255, 255, 255)",
@@ -2431,7 +2281,7 @@
    {
     "tag": "button",
     "text": "Continue without a date",
-    "y": 320,
+    "y": 255,
     "h": 48,
     "w": 343,
     "bg": "rgb(19, 95, 118)",
@@ -2441,7 +2291,7 @@
    {
     "tag": "button",
     "text": "Back to the question",
-    "y": 392,
+    "y": 327,
     "h": 48,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
@@ -2451,7 +2301,7 @@
    {
     "tag": "button",
     "text": "Something changed or got worse",
-    "y": 464,
+    "y": 399,
     "h": 48,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
@@ -2461,12 +2311,12 @@
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
-    "h": 59
+    "h": 103
    },
    {
-    "cls": "_pageActions_pgh2g_38",
+    "cls": "_pageActions_1g11t_38",
     "y": 0,
     "h": 0
    }
@@ -2477,7 +2327,7 @@
  },
  {
   "id": "14-wait",
-  "url": "/r/en/v/SLT-97DN-DDQP",
+  "url": "/r/en/v/SLT-SEK4-E8Z1",
   "note": "",
   "pageH": 700,
   "items": [
@@ -2504,17 +2354,17 @@
    {
     "tag": "button",
     "text": "Your path",
-    "y": 112,
-    "h": 48,
+    "y": 58,
+    "h": 44,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(7, 55, 70)",
-    "pos": "relative"
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
    },
    {
     "tag": "button",
     "text": "Listen",
-    "y": 184,
+    "y": 119,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -2524,9 +2374,9 @@
    {
     "tag": "button",
     "text": "My visit is now",
-    "y": 249,
+    "y": 184,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -2534,19 +2384,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 257,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 184,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "I have heard nothing",
-    "y": 323,
+    "y": 258,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -2554,19 +2404,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 331,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 258,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "I do not want to continue",
-    "y": 397,
+    "y": 332,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -2574,17 +2424,27 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 405,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 332,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
+    "tag": "button",
+    "text": "Something changed or got worse",
+    "y": 421,
+    "h": 48,
+    "w": 343,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(7, 55, 70)",
+    "pos": "relative"
+   },
+   {
     "tag": "input",
-    "text": "",
-    "y": 503,
+    "text": "Describe in your own words",
+    "y": 644,
     "h": 44,
     "w": 287,
     "bg": "rgb(255, 255, 255)",
@@ -2594,34 +2454,24 @@
    {
     "tag": "button",
     "text": "Tap to speak",
-    "y": 495,
+    "y": 640,
     "h": 48,
     "w": 48,
     "bg": "rgb(19, 95, 118)",
     "color": "rgb(255, 255, 255)",
     "pos": "relative"
-   },
-   {
-    "tag": "button",
-    "text": "Something changed or got worse",
-    "y": 579,
-    "h": 48,
-    "w": 343,
-    "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(7, 55, 70)",
-    "pos": "relative"
    }
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
-    "h": 59
+    "h": 103
    },
    {
-    "cls": "_pageActions_pgh2g_38",
-    "y": 0,
-    "h": 0
+    "cls": "_pageActions_1g11t_38",
+    "y": 623,
+    "h": 77
    }
   ],
   "h": [
@@ -2631,9 +2481,9 @@
  },
  {
   "id": "15-visit",
-  "url": "/r/en/v/SLT-97DN-DDQP",
+  "url": "/r/en/v/SLT-SEK4-E8Z1",
   "note": "",
-  "pageH": 1050,
+  "pageH": 960,
   "items": [
    {
     "tag": "button",
@@ -2658,17 +2508,17 @@
    {
     "tag": "button",
     "text": "Your path",
-    "y": 112,
-    "h": 48,
+    "y": 58,
+    "h": 44,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(7, 55, 70)",
-    "pos": "relative"
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
    },
    {
     "tag": "button",
     "text": "Listen",
-    "y": 190,
+    "y": 125,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -2678,9 +2528,9 @@
    {
     "tag": "button",
     "text": "Referral sent",
-    "y": 261,
+    "y": 196,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -2688,19 +2538,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 269,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 196,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "Tests ordered",
-    "y": 335,
+    "y": 270,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -2708,19 +2558,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 343,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 270,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "Self-sampling kit handed over",
-    "y": 409,
+    "y": 344,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -2728,19 +2578,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 417,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 344,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "Come back if it does not pass",
-    "y": 483,
+    "y": 418,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -2748,19 +2598,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 491,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 418,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "No further action needed",
-    "y": 557,
+    "y": 492,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -2768,19 +2618,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 565,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 492,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "There was no interpreter and I did not understand",
-    "y": 631,
+    "y": 566,
     "h": 82,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -2788,19 +2638,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 648,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 566,
+    "h": 82,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "I could not go",
-    "y": 722,
+    "y": 658,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -2808,17 +2658,27 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 730,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 658,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
+    "tag": "button",
+    "text": "Something changed or got worse",
+    "y": 747,
+    "h": 48,
+    "w": 343,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(7, 55, 70)",
+    "pos": "relative"
+   },
+   {
     "tag": "input",
-    "text": "",
-    "y": 829,
+    "text": "Describe in your own words",
+    "y": 588,
     "h": 44,
     "w": 287,
     "bg": "rgb(255, 255, 255)",
@@ -2828,21 +2688,11 @@
    {
     "tag": "button",
     "text": "Tap to speak",
-    "y": 821,
+    "y": 584,
     "h": 48,
     "w": 48,
     "bg": "rgb(19, 95, 118)",
     "color": "rgb(255, 255, 255)",
-    "pos": "relative"
-   },
-   {
-    "tag": "button",
-    "text": "Something changed or got worse",
-    "y": 905,
-    "h": 48,
-    "w": 343,
-    "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(7, 55, 70)",
     "pos": "relative"
    },
    {
@@ -2858,14 +2708,14 @@
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
-    "h": 59
+    "h": 103
    },
    {
-    "cls": "_pageActions_pgh2g_38",
-    "y": 635,
-    "h": 65
+    "cls": "_pageActions_1g11t_38",
+    "y": 567,
+    "h": 133
    }
   ],
   "h": [
@@ -2875,7 +2725,7 @@
  },
  {
   "id": "16-visit-card",
-  "url": "/r/en/v/SLT-97DN-DDQP/card",
+  "url": "/r/en/v/SLT-SEK4-E8Z1/card",
   "note": "",
   "pageH": 1624,
   "items": [
@@ -2942,12 +2792,12 @@
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
     "h": 57
    },
    {
-    "cls": "_pageActions_pgh2g_38",
+    "cls": "_pageActions_1g11t_38",
     "y": 0,
     "h": 0
    }
@@ -2965,9 +2815,9 @@
  },
  {
   "id": "17-contact-after-no-answer",
-  "url": "/r/en/v/SLT-GC3T-2T52",
+  "url": "/r/en/v/SLT-NRT4-CP2G",
   "note": "",
-  "pageH": 2117,
+  "pageH": 1912,
   "items": [
    {
     "tag": "button",
@@ -2992,17 +2842,17 @@
    {
     "tag": "button",
     "text": "Your path",
-    "y": 112,
-    "h": 48,
+    "y": 58,
+    "h": 44,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(7, 55, 70)",
-    "pos": "relative"
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
    },
    {
     "tag": "button",
     "text": "Listen",
-    "y": 257,
+    "y": 192,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3012,7 +2862,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 480,
+    "y": 416,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3022,7 +2872,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 636,
+    "y": 571,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3032,7 +2882,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 739,
+    "y": 675,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3042,7 +2892,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 843,
+    "y": 778,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3052,7 +2902,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 957,
+    "y": 893,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3062,17 +2912,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 690,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 744,
+    "y": 652,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3082,17 +2922,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 811,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 865,
+    "y": 773,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3102,17 +2932,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 1017,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 1069,
+    "y": 956,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3122,17 +2942,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 1133,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 1185,
+    "y": 1025,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3142,17 +2952,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 1302,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 1404,
+    "y": 1183,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3162,17 +2962,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 1569,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 1649,
+    "y": 1450,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3182,17 +2972,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 1741,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 1808,
+    "y": 1609,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3202,17 +2982,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 1874,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 1929,
+    "y": 1742,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3222,17 +2992,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 1590,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 1645,
+    "y": 1459,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3242,17 +3002,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 1711,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 1766,
+    "y": 1579,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3262,17 +3012,7 @@
    {
     "tag": "button",
     "text": "Play the Finnish phrase",
-    "y": 1831,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "Listen",
-    "y": 1883,
+    "y": 1675,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3282,7 +3022,7 @@
    {
     "tag": "button",
     "text": "Something changed or got worse",
-    "y": 1972,
+    "y": 1767,
     "h": 48,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
@@ -3302,12 +3042,12 @@
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
-    "h": 59
+    "h": 103
    },
    {
-    "cls": "_pageActions_pgh2g_38",
+    "cls": "_pageActions_1g11t_38",
     "y": 635,
     "h": 65
    }
@@ -3319,9 +3059,9 @@
  },
  {
   "id": "18-stalled",
-  "url": "/r/en/v/SLT-GC3T-2T52",
+  "url": "/r/en/v/SLT-NRT4-CP2G",
   "note": "",
-  "pageH": 1106,
+  "pageH": 1026,
   "items": [
    {
     "tag": "button",
@@ -3346,17 +3086,17 @@
    {
     "tag": "button",
     "text": "Your path",
-    "y": 112,
-    "h": 48,
+    "y": 58,
+    "h": 44,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(7, 55, 70)",
-    "pos": "relative"
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
    },
    {
     "tag": "button",
     "text": "Listen",
-    "y": 246,
+    "y": 181,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3366,7 +3106,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 346,
+    "y": 282,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3376,7 +3116,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 447,
+    "y": 382,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3386,7 +3126,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 547,
+    "y": 483,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3396,7 +3136,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 625,
+    "y": 561,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3406,9 +3146,9 @@
    {
     "tag": "button",
     "text": "I got an appointment",
-    "y": 696,
+    "y": 632,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -3416,19 +3156,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 704,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 632,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "They said to keep waiting",
-    "y": 770,
+    "y": 706,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -3436,19 +3176,19 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 778,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 706,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "Still no answer",
-    "y": 844,
+    "y": 780,
     "h": 64,
-    "w": 285,
+    "w": 288,
     "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(27, 32, 39)",
     "pos": "static"
@@ -3456,17 +3196,27 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 852,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
+    "y": 780,
+    "h": 64,
+    "w": 52,
+    "bg": "rgba(0, 0, 0, 0)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
+    "tag": "button",
+    "text": "Something changed or got worse",
+    "y": 869,
+    "h": 48,
+    "w": 343,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(7, 55, 70)",
+    "pos": "relative"
+   },
+   {
     "tag": "input",
-    "text": "",
-    "y": 950,
+    "text": "Describe in your own words",
+    "y": 644,
     "h": 44,
     "w": 287,
     "bg": "rgb(255, 255, 255)",
@@ -3476,34 +3226,24 @@
    {
     "tag": "button",
     "text": "Tap to speak",
-    "y": 942,
+    "y": 640,
     "h": 48,
     "w": 48,
     "bg": "rgb(19, 95, 118)",
     "color": "rgb(255, 255, 255)",
     "pos": "relative"
-   },
-   {
-    "tag": "button",
-    "text": "Something changed or got worse",
-    "y": 1026,
-    "h": 48,
-    "w": 343,
-    "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(7, 55, 70)",
-    "pos": "relative"
    }
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
-    "h": 59
+    "h": 103
    },
    {
-    "cls": "_pageActions_pgh2g_38",
-    "y": 0,
-    "h": 0
+    "cls": "_pageActions_1g11t_38",
+    "y": 623,
+    "h": 77
    }
   ],
   "h": [
@@ -3514,14 +3254,14 @@
  },
  {
   "id": "19-emergency",
-  "url": "/r/en/v/SLT-NQCV-EDNX",
+  "url": "/r/en/v/SLT-DJKT-XAHF",
   "note": "",
   "pageH": 700,
   "items": [
    {
     "tag": "button",
     "text": "Listen",
-    "y": 192,
+    "y": 176,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3531,7 +3271,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 266,
+    "y": 250,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3541,7 +3281,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 340,
+    "y": 324,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3551,7 +3291,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 414,
+    "y": 398,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3561,7 +3301,7 @@
    {
     "tag": "button",
     "text": "Listen",
-    "y": 488,
+    "y": 472,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3591,18 +3331,19 @@
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
     "h": 59
    },
    {
-    "cls": "_pageActions_pgh2g_38",
+    "cls": "_pageActions_1g11t_38",
     "y": 579,
     "h": 121
    }
   ],
   "h": [
-   "Silta"
+   "Silta",
+   "Call 112 now"
   ]
  },
  {
@@ -3644,12 +3385,12 @@
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
     "h": 57
    },
    {
-    "cls": "_pageActions_pgh2g_38",
+    "cls": "_pageActions_1g11t_38",
     "y": 0,
     "h": 0
    }
@@ -3662,7 +3403,7 @@
   "id": "21-learn-cervical",
   "url": "/r/en/learn/cervical",
   "note": "",
-  "pageH": 1327,
+  "pageH": 2404,
   "items": [
    {
     "tag": "button",
@@ -3696,8 +3437,38 @@
    },
    {
     "tag": "button",
+    "text": "Show me on the example letter",
+    "y": 1055,
+    "h": 48,
+    "w": 309,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   },
+   {
+    "tag": "a",
+    "text": "Change the time online",
+    "y": 1471,
+    "h": 48,
+    "w": 309,
+    "bg": "rgb(19, 95, 118)",
+    "color": "rgb(255, 255, 255)",
+    "pos": "relative"
+   },
+   {
+    "tag": "a",
+    "text": "Call ⁦09 471 86800⁩",
+    "y": 1650,
+    "h": 48,
+    "w": 309,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "relative"
+   },
+   {
+    "tag": "button",
     "text": "Why it matters A short test that protects you for years.",
-    "y": 696,
+    "y": 1774,
     "h": 84,
     "w": 341,
     "bg": "rgba(0, 0, 0, 0)",
@@ -3707,7 +3478,7 @@
    {
     "tag": "button",
     "text": "What happens at the visit From the door to the sample, step ",
-    "y": 790,
+    "y": 1867,
     "h": 108,
     "w": 341,
     "bg": "rgba(0, 0, 0, 0)",
@@ -3717,7 +3488,7 @@
    {
     "tag": "button",
     "text": "Your rights You are in charge of your body and your visit.",
-    "y": 908,
+    "y": 1986,
     "h": 108,
     "w": 341,
     "bg": "rgba(0, 0, 0, 0)",
@@ -3727,7 +3498,7 @@
    {
     "tag": "button",
     "text": "After the visit When the result comes and what it means.",
-    "y": 1027,
+    "y": 2104,
     "h": 108,
     "w": 341,
     "bg": "rgba(0, 0, 0, 0)",
@@ -3737,7 +3508,7 @@
    {
     "tag": "button",
     "text": "Common questions Tap a question to see the answer.",
-    "y": 1145,
+    "y": 2223,
     "h": 84,
     "w": 341,
     "bg": "rgba(0, 0, 0, 0)",
@@ -3757,18 +3528,21 @@
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
     "h": 57
    },
    {
-    "cls": "_pageActions_pgh2g_38",
+    "cls": "_pageActions_1g11t_38",
     "y": 635,
     "h": 65
    }
   ],
   "h": [
    "Cervical screening",
+   "Your appointment",
+   "Where to find your appointment details",
+   "How to change the time",
    "What you will learn"
   ]
  },
@@ -3776,7 +3550,7 @@
   "id": "22-start-arabic-rtl",
   "url": "/r/ar",
   "note": "",
-  "pageH": 777,
+  "pageH": 795,
   "items": [
    {
     "tag": "button",
@@ -3801,57 +3575,17 @@
    {
     "tag": "button",
     "text": "استمع",
-    "y": 73,
+    "y": 127,
     "h": 48,
-    "w": 48,
+    "w": 108,
     "bg": "rgb(255, 255, 255)",
     "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "استمع",
-    "y": 145,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "استمع",
-    "y": 218,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "استمع",
-    "y": 308,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "استمع",
-    "y": 360,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
+    "pos": "relative"
    },
    {
     "tag": "button",
     "text": "وصلتني رسالة عن فحص سرطان عنق الرحم دليل مصوّر مدته 5 دقائق ",
-    "y": 451,
+    "y": 466,
     "h": 84,
     "w": 341,
     "bg": "rgba(0, 0, 0, 0)",
@@ -3861,22 +3595,22 @@
    {
     "tag": "button",
     "text": "لدي رمز",
-    "y": 560,
-    "h": 48,
-    "w": 343,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "relative"
+    "y": 559,
+    "h": 64,
+    "w": 341,
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
    },
    {
     "tag": "button",
-    "text": "About Silta",
-    "y": 632,
-    "h": 48,
-    "w": 343,
+    "text": "عن سيلتا",
+    "y": 633,
+    "h": 64,
+    "w": 341,
     "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(7, 55, 70)",
-    "pos": "relative"
+    "color": "rgb(27, 32, 39)",
+    "pos": "static"
    },
    {
     "tag": "button",
@@ -3891,12 +3625,12 @@
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
     "h": 57
    },
    {
-    "cls": "_pageActions_pgh2g_38",
+    "cls": "_pageActions_1g11t_38",
     "y": 635,
     "h": 65
    }
@@ -3908,9 +3642,9 @@
  },
  {
   "id": "23-contact-arabic-rtl",
-  "url": "/r/ar/v/SLT-GXPD-93NT",
+  "url": "/r/ar/v/SLT-KSGK-WGZE",
   "note": "",
-  "pageH": 1896,
+  "pageH": 1622,
   "items": [
    {
     "tag": "button",
@@ -3935,17 +3669,17 @@
    {
     "tag": "button",
     "text": "مسارك",
-    "y": 112,
-    "h": 48,
+    "y": 58,
+    "h": 44,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(7, 55, 70)",
-    "pos": "relative"
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
    },
    {
     "tag": "button",
     "text": "استمع",
-    "y": 289,
+    "y": 225,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3955,7 +3689,7 @@
    {
     "tag": "button",
     "text": "استمع",
-    "y": 445,
+    "y": 381,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3965,7 +3699,7 @@
    {
     "tag": "button",
     "text": "استمع",
-    "y": 548,
+    "y": 484,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3975,7 +3709,7 @@
    {
     "tag": "button",
     "text": "استمع",
-    "y": 652,
+    "y": 588,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3985,7 +3719,7 @@
    {
     "tag": "button",
     "text": "استمع",
-    "y": 755,
+    "y": 691,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -3995,17 +3729,7 @@
    {
     "tag": "button",
     "text": "تشغيل العبارة الفنلندية",
-    "y": 499,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "استمع",
-    "y": 554,
+    "y": 462,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4015,17 +3739,7 @@
    {
     "tag": "button",
     "text": "تشغيل العبارة الفنلندية",
-    "y": 620,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "استمع",
-    "y": 674,
+    "y": 570,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4035,17 +3749,7 @@
    {
     "tag": "button",
     "text": "تشغيل العبارة الفنلندية",
-    "y": 825,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "استمع",
-    "y": 877,
+    "y": 741,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4055,17 +3759,7 @@
    {
     "tag": "button",
     "text": "تشغيل العبارة الفنلندية",
-    "y": 941,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "استمع",
-    "y": 993,
+    "y": 810,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4075,17 +3769,7 @@
    {
     "tag": "button",
     "text": "تشغيل العبارة الفنلندية",
-    "y": 1110,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "استمع",
-    "y": 1199,
+    "y": 955,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4095,17 +3779,7 @@
    {
     "tag": "button",
     "text": "تشغيل العبارة الفنلندية",
-    "y": 1352,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "استمع",
-    "y": 1419,
+    "y": 1197,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4115,17 +3789,7 @@
    {
     "tag": "button",
     "text": "تشغيل العبارة الفنلندية",
-    "y": 1499,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "استمع",
-    "y": 1565,
+    "y": 1331,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4135,17 +3799,7 @@
    {
     "tag": "button",
     "text": "تشغيل العبارة الفنلندية",
-    "y": 1631,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "استمع",
-    "y": 1684,
+    "y": 1440,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4155,17 +3809,7 @@
    {
     "tag": "button",
     "text": "تشغيل العبارة الفنلندية",
-    "y": 1373,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "استمع",
-    "y": 1427,
+    "y": 1206,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4175,17 +3819,7 @@
    {
     "tag": "button",
     "text": "تشغيل العبارة الفنلندية",
-    "y": 1493,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "استمع",
-    "y": 1546,
+    "y": 1302,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4195,17 +3829,7 @@
    {
     "tag": "button",
     "text": "تشغيل العبارة الفنلندية",
-    "y": 1610,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
-    "color": "rgb(19, 95, 118)",
-    "pos": "static"
-   },
-   {
-    "tag": "button",
-    "text": "استمع",
-    "y": 1662,
+    "y": 1385,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4215,7 +3839,7 @@
    {
     "tag": "button",
     "text": "تغيّر شيء أو ساء",
-    "y": 1751,
+    "y": 1477,
     "h": 48,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
@@ -4235,12 +3859,12 @@
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
-    "h": 59
+    "h": 103
    },
    {
-    "cls": "_pageActions_pgh2g_38",
+    "cls": "_pageActions_1g11t_38",
     "y": 635,
     "h": 65
    }
@@ -4252,9 +3876,9 @@
  },
  {
   "id": "24-contact-finnish",
-  "url": "/r/fi/v/SLT-ERAN-K262",
+  "url": "/r/fi/v/SLT-P8Y6-5JX0",
   "note": "",
-  "pageH": 1394,
+  "pageH": 1330,
   "items": [
    {
     "tag": "button",
@@ -4279,27 +3903,17 @@
    {
     "tag": "button",
     "text": "Polkusi",
-    "y": 112,
-    "h": 48,
+    "y": 58,
+    "h": 44,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
-    "color": "rgb(7, 55, 70)",
-    "pos": "relative"
-   },
-   {
-    "tag": "button",
-    "text": "Kuuntele",
-    "y": 332,
-    "h": 48,
-    "w": 48,
-    "bg": "rgb(255, 255, 255)",
     "color": "rgb(19, 95, 118)",
     "pos": "static"
    },
    {
     "tag": "button",
     "text": "Kuuntele",
-    "y": 500,
+    "y": 267,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4309,7 +3923,7 @@
    {
     "tag": "button",
     "text": "Kuuntele",
-    "y": 614,
+    "y": 435,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4319,7 +3933,7 @@
    {
     "tag": "button",
     "text": "Kuuntele",
-    "y": 740,
+    "y": 550,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4329,7 +3943,17 @@
    {
     "tag": "button",
     "text": "Kuuntele",
-    "y": 866,
+    "y": 676,
+    "h": 48,
+    "w": 48,
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(19, 95, 118)",
+    "pos": "static"
+   },
+   {
+    "tag": "button",
+    "text": "Kuuntele",
+    "y": 802,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4339,7 +3963,7 @@
    {
     "tag": "button",
     "text": "Toista suomenkielinen lause",
-    "y": 554,
+    "y": 490,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4349,7 +3973,7 @@
    {
     "tag": "button",
     "text": "Toista suomenkielinen lause",
-    "y": 637,
+    "y": 572,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4359,7 +3983,7 @@
    {
     "tag": "button",
     "text": "Toista suomenkielinen lause",
-    "y": 701,
+    "y": 636,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4369,7 +3993,7 @@
    {
     "tag": "button",
     "text": "Toista suomenkielinen lause",
-    "y": 818,
+    "y": 753,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4379,7 +4003,7 @@
    {
     "tag": "button",
     "text": "Toista suomenkielinen lause",
-    "y": 1006,
+    "y": 942,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4389,7 +4013,7 @@
    {
     "tag": "button",
     "text": "Toista suomenkielinen lause",
-    "y": 1099,
+    "y": 1035,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4399,7 +4023,7 @@
    {
     "tag": "button",
     "text": "Toista suomenkielinen lause",
-    "y": 1179,
+    "y": 1115,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4409,7 +4033,7 @@
    {
     "tag": "button",
     "text": "Toista suomenkielinen lause",
-    "y": 1027,
+    "y": 963,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4419,7 +4043,7 @@
    {
     "tag": "button",
     "text": "Toista suomenkielinen lause",
-    "y": 1094,
+    "y": 1030,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4429,7 +4053,7 @@
    {
     "tag": "button",
     "text": "Toista suomenkielinen lause",
-    "y": 1160,
+    "y": 1096,
     "h": 48,
     "w": 48,
     "bg": "rgb(255, 255, 255)",
@@ -4439,7 +4063,7 @@
    {
     "tag": "button",
     "text": "Jokin muuttui tai paheni",
-    "y": 1249,
+    "y": 1185,
     "h": 48,
     "w": 343,
     "bg": "rgba(0, 0, 0, 0)",
@@ -4459,12 +4083,12 @@
   ],
   "sticky": [
    {
-    "cls": "_pageHeader_pgh2g_9",
+    "cls": "_pageHeader_1g11t_9",
     "y": 0,
-    "h": 59
+    "h": 103
    },
    {
-    "cls": "_pageActions_pgh2g_38",
+    "cls": "_pageActions_1g11t_38",
     "y": 635,
     "h": 65
    }

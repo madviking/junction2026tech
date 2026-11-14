@@ -1,6 +1,7 @@
+import { IconKey } from '@tabler/icons-react'
 import { useState } from 'react'
 import { useT } from '@/shared/i18n'
-import { ActionButton, Stack, TextField } from '@/shared/ui'
+import { ActionButton, ChoiceCard, Stack, TextField } from '@/shared/ui'
 import { normalizeVisitCode } from '@/shared/visitCode'
 
 /** "I have a code": a code field that resumes the visit at its URL. */
@@ -12,9 +13,7 @@ export function ResumeCode({ onResume }: { onResume: (code: string) => void }) {
 
   if (!open) {
     return (
-      <ActionButton fullWidth variant="secondary" onPress={() => setOpen(true)}>
-        {t('ui.journey.start.have_code')}
-      </ActionButton>
+      <ChoiceCard label={t('ui.journey.start.have_code')} icon={<IconKey size={26} />} onPress={() => setOpen(true)} />
     )
   }
 

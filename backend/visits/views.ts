@@ -64,6 +64,8 @@ export interface VisitView {
   carePath: CarePath | null
   nextSteps: NextStep[]
   history: HistoryItem[]
+  // The resident can go back one step (POST /api/visits/:code/back).
+  canGoBack: boolean
 }
 
 export interface ClinicianSummary {
@@ -131,6 +133,7 @@ export function visitView(doc: ContentDoc, meta: VisitMeta, r: Replay, lang: Lan
     carePath: carePathOf(doc, s.lane, s.route, r.symptoms, r.duration, lang),
     nextSteps: nextSteps(doc, r, lang),
     history: r.applied.map((h) => ({ stage: h.stage, outcome: h.outcome, at: h.at.toISOString(), actor: h.actor })),
+    canGoBack: r.canGoBack,
   }
 }
 

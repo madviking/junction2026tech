@@ -1,20 +1,24 @@
-import { IconRoute } from '@tabler/icons-react'
+import { useMemo } from 'react'
 import { pathSteps } from '@/features/journey/pathSteps'
 import type { VisitView } from '@/features/journey/types'
 import { useContent } from '@/shared/i18n'
-import { ActionButton, LessonProgress, Stack } from '@/shared/ui'
+import { PageProgress } from '@/shared/ui'
 
-/** Where the person is on their care path, and the way to the whole path. Top of every stage. */
-export function PathProgress({ view, onOpen }: { view: VisitView; onOpen: () => void }) {
+/** Where the person is on their care path; the strip opens the whole path. Sits in the header of every stage. */
+export function PathProgress({ view, onOpen, onBack }: { view: VisitView; onOpen: () => void; onBack?: () => void }) {
   const { t, has } = useContent()
+  const backLabel = t('ui.journey.path.back_step')
+  const back = useMemo(() => (onBack ? { label: backLabel, onPress: onBack } : undefined), [onBack, backLabel])
   const { steps, current } = pathSteps(view, t, has)
   if (steps.length === 0) return null
   return (
-    <Stack gap="xs">
-      <LessonProgress value={current} total={steps.length} label={t('ui.journey.path.step_of', { n: current, total: steps.length })} />
-      <ActionButton variant="subtle" fullWidth icon={<IconRoute size={22} aria-hidden="true" />} onPress={onOpen}>
-        {t('ui.journey.path.title')}
-      </ActionButton>
-    </Stack>
+    <PageProgress
+      value={current}
+      total={steps.length}
+      label={t('ui.journey.path.title')}
+      status={t('ui.journey.path.step_of', { n: current, total: steps.length })}
+      onPress={onOpen}
+      back={back}
+    />
   )
 }

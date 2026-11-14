@@ -68,6 +68,70 @@
 .iconButton:hover {
   background: var(--silta-color-surface-hover);
 }
+.pageProgress {
+  inline-size: 100%;
+  max-inline-size: 40rem;
+  margin-inline: auto;
+  padding-inline: var(--silta-space-md);
+}
+.progressRow {
+  display: flex;
+  align-items: center;
+  gap: var(--silta-space-xs);
+}
+.progressBack {
+  flex: none;
+  inline-size: 44px;
+  block-size: 44px;
+  margin-inline-start: calc(var(--silta-space-sm) * -1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: var(--silta-radius-full);
+  background: transparent;
+  color: var(--silta-color-text);
+  cursor: pointer;
+}
+.progressBack:hover {
+  background: var(--silta-color-surface-hover);
+}
+.progressButton {
+  flex: 1;
+  min-inline-size: 0;
+  min-block-size: 44px;
+  display: flex;
+  align-items: center;
+  gap: var(--silta-space-md);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--silta-color-link);
+  font: inherit;
+  font-size: var(--silta-type-caption-size);
+  font-weight: 600;
+  cursor: pointer;
+}
+.progressTrack {
+  flex: 1;
+  display: flex;
+  gap: 3px;
+}
+.progressSegment {
+  flex: 1;
+  block-size: 4px;
+  border-radius: var(--silta-radius-full);
+  background: var(--silta-color-border-subtle);
+}
+.progressSegment[data-done] {
+  background: var(--silta-color-primary);
+}
+.progressLabel {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
 /* Arrows point "back" in the reading direction. */
 [dir='rtl'] .mirror {
   transform: scaleX(-1);

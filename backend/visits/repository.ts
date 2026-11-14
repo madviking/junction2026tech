@@ -7,7 +7,7 @@ const db = SQLDatabase.named('silta')
 export type Executor = Pick<SQLDatabase, 'queryRow' | 'queryAll' | 'exec'>
 
 export type Actor = 'resident' | 'clinician'
-export type EventKind = 'outcome' | 'symptoms' | 'clinician_answer' | 'clinician_move'
+export type EventKind = 'outcome' | 'symptoms' | 'clinician_answer' | 'clinician_move' | 'undo'
 
 // Codes only, never free text.
 export interface EventPayload {

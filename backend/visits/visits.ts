@@ -24,6 +24,12 @@ export const addEvent = api(
   ({ code, ...req }: EventRequest): Promise<VisitView> => service.addEvent(code, req),
 )
 
+// One step back on the resident's path (undoes their last tap).
+export const back = api(
+  { expose: true, method: 'POST', path: '/api/visits/:code/back' },
+  (req: { code: string; lang?: string }): Promise<VisitView> => service.goBack(req.code, req.lang),
+)
+
 // The clinician's one-screen summary, always in Finnish.
 export const summary = api(
   { expose: true, method: 'GET', path: '/api/visits/:code/summary' },

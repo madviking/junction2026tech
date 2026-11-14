@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router'
 import { useCardMatch } from '@/features/journey/api/useCardMatch'
-import { useVisit, useVisitEvent } from '@/features/journey/api/useVisit'
+import { useVisit, useVisitBack, useVisitEvent } from '@/features/journey/api/useVisit'
 import { isUnknownCode } from '@/features/journey/code'
 import { JourneyFrame } from '@/features/journey/components/JourneyFrame'
 import { JourneyScreen } from '@/features/journey/components/JourneyScreen'
@@ -14,6 +14,7 @@ export function JourneyPage() {
   const navigate = useNavigate()
   const visit = useVisit(code, lang)
   const event = useVisitEvent(code, lang)
+  const back = useVisitBack(code, lang)
   const match = useCardMatch(lang)
   const toStart = () => navigate(`/r/${lang}`)
 
@@ -45,8 +46,10 @@ export function JourneyPage() {
     <JourneyScreen
       view={visit.data}
       send={(e) => event.mutate(e)}
-      sending={event.isPending}
-      sendFailed={event.isError}
+      sending={event.isPending || back.isPending}
+      sendFailed={event.isError || back.isError}
+      goBack={() => back.mutate()}
+      restart={toStart}
       match={match}
       visitCardPath={`/r/${lang}/v/${code}/card`}
       aboutPath={`/r/${lang}/about`}

@@ -141,6 +141,23 @@ export async function addEvent(code: string, p: EventParams): Promise<VisitView>
   })
 }
 
+// One step back: the resident's last tap is undone (recorded as an 'undo' event, so the
+// log stays append-only). Not possible at the start or once a clinician has answered.
+export async function goBack(code: string, lang?: string): Promise<VisitView> {
+  const doc = await liveDoc()
+  const { canonical, hash } = hashOf(code)
+  return repo.inTx(async (tx) => {
+    const visit = await loadVisit(tx, hash, true)
+    const l = langOf(doc, lang ?? visit.lang)
+    const r = replayLogged(doc, visit, await repo.listEvents(tx, visit.id))
+    if (!r.canGoBack) throw APIError.failedPrecondition('there is no step to go back to')
+    await repo.insertEvent(tx, visit.id, { actor: 'resident', kind: 'undo', stage: r.state.stage, outcome: '', payload: {}, at: new Date() })
+    const after = replayLogged(doc, visit, await repo.listEvents(tx, visit.id))
+    await repo.updateVisit(tx, visit.id, { lang: l, stage: after.state.stage })
+    return visitView(doc, { code: canonical, lang: l, county: visit.county }, after, l)
+  })
+}
+
 function laneFromSymptoms(doc: ContentDoc, symptoms: string[]): string {
   if (symptoms.length === 0) throw APIError.invalidArgument('choose at least one symptom card')
   const order = Object.keys(doc.structure.lanes)

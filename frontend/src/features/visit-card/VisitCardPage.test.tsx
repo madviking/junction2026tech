@@ -36,6 +36,7 @@ function visitView(nextSteps: VisitView['nextSteps'], interpreterNeeded = true):
     carePath: null,
     nextSteps,
     history: [{ stage: 'contact', outcome: 'got_time', at: '2026-11-14T00:00:00Z', actor: 'resident' }],
+    canGoBack: true,
   }
 }
 

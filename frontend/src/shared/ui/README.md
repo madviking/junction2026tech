@@ -55,13 +55,14 @@ Layout
 - `Divider` — line, optionally with a label. `IconText` — icon + text.
 - `VisuallyHidden` — screen-reader-only text. `DirectionScope` — subtree in another `dir`/`lang`.
 - `PageShell` — resident page: slim sticky header (back, title, `subtitle`, header action, and the `emergency` slot at the inline end for a compact `EmergencyCallLink`), content, sticky bottom actions. The bottom bar is hidden while empty.
+- `PageProgress` — header progress strip for `PageShell progress`: one thin segment per step and a label; the whole strip is a button; optional `back` arrow before it.
 - `PageActions` — puts its children in the bottom bar of the `PageShell` above (a portal), so a stage deep in the tree can keep its main action on screen. Outside a `PageShell` it renders in place.
 
 Resident actions
 - `ActionButton` — the button: `primary | secondary | danger | subtle`, `fullWidth`, `loading`, `icon`, `href`, `compact` (admin only, 40px).
 - `ChoiceCard` — big tappable choice; label (accessible name), detail (description), icon, trailing slot outside the button, `selected` → `aria-pressed`, `disabled`, `lang`, `layout` (`row` default, `tile` = picture on top for picture grids, listen button in the top start corner).
 - `BodyMap` — neutral (sexless) front body figure + one `aria-pressed` toggle button per region (`head chest belly skin whole`); the buttons are the accessible controls, the figure is a pointer shortcut and shows the chosen part. Only the given regions are tappable.
-- `AudioPlayButton` — 48px listen button: `idle | loading | playing | error`.
+- `AudioPlayButton` — listen button with a small speaker: an outlined 48px circle on its own, a flat segment at the end of a `ChoiceCard`; `idle | loading | playing | error`.
 - `RecordButton` — 80px mic button: `idle | recording | processing | disabled`, elapsed `m:ss`; `size="sm"` is 48px without the caption, for a row next to a text field.
 - `EmergencyCallLink` — red `tel:` link; `compact` is the header pill (icon + number, label as the accessible name). One per screen.
 
@@ -76,7 +77,7 @@ Data display
 - `StatTile` — label, value, optional delta (with tone) and note.
 
 Forms (label, description, error on each)
-- `TextField`, `TextAreaField`, `SelectField`, `PasswordField`, `FileField` (audio by default), `CheckboxField`.
+- `TextField` (`hideLabel`: the label becomes the accessible name and placeholder, for one-line rows), `TextAreaField`, `SelectField`, `PasswordField`, `FileField` (audio by default), `CheckboxField`.
 
 Admin (`@/shared/ui/admin`)
 - `AdminShell` — side navigation (router links, active state) collapsing to a top menu below 62em; header with user slot.

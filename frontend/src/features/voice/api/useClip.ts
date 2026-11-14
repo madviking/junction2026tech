@@ -20,3 +20,9 @@ export function useClip(lang: string, textKey: string) {
   const fetchClip = useCallback((): Promise<VoiceClip> => queryClient.fetchQuery(clipQuery(lang, textKey)), [queryClient, lang, textKey])
   return { clip: cached.data, fetchClip }
 }
+
+/** Looks up clips by key on demand (cached), for reading several texts in a row. */
+export function useClipFetcher(lang: string) {
+  const queryClient = useQueryClient()
+  return useCallback((textKey: string): Promise<VoiceClip> => queryClient.fetchQuery(clipQuery(lang, textKey)), [queryClient, lang])
+}

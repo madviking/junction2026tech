@@ -9,7 +9,7 @@ tapped outcome.
 
 | Path | Page | Shows |
 | --- | --- | --- |
-| `/r/:lang` | `JourneyStartPage` | what Silta does, privacy promise, the screening guide, "I have a code" (resume), about link; Start (`POST /api/visits`) in the bottom bar |
+| `/r/:lang` | `JourneyStartPage` | what Silta does and the privacy promise in one card with one "Listen" button (`PageAudioButton`), then three cards (screening guide, "I have a code", about); Start (`POST /api/visits`) in the bottom bar |
 | `/r/:lang/v/:code` | `JourneyPage` | the visit's current stage; unknown code → error + back to start |
 
 The visit card (`/r/:lang/v/:code/card`) belongs to `features/visit-card`; the `visit`
@@ -47,10 +47,11 @@ Every screen (`JourneyScreen`):
 - Header (`JourneyFrame`): "Silta", the visit code under it, a neutral "Urgent?" button
   (the emergency interrupt, `ui.journey.urgent`) and the one red control, the 112 pill,
   which dials directly.
-- `PathProgress`: "Step n of total" from the care path and a "Your path" button that opens
+- `PathProgress` (header strip, `PageProgress`): one segment per care path step and "Your path", with a back arrow in front when `view.canGoBack` (`useVisitBack` → `POST /api/visits/:code/back`, one step back); tapping the strip opens
   `PathOverview` in place: every step with "you are here" (`pathSteps.ts`, from
   `view.carePath.steps[].stage`; the general `step.*` texts until a care path exists),
-  the time limits (`ClockList`), the code with the save hint, and a link to the about page.
+  "Go back one step" and "Start from the beginning" (the start screen; the old code keeps
+  working), the time limits (`ClockList`), the code with the save hint, and a link to the about page.
 - The then-text of the last tap in a `Banner` (with its audio when a key holds it).
 - The stage. Its main action sits in the sticky bottom bar through `PageActions`:
   Continue (symptoms), "I contacted them" (contact), "Show your visit card" (visit).
@@ -77,7 +78,7 @@ limits line, and the "Your code" line.
 
 ## MatchInput (`components/MatchInput.tsx`)
 
-One row: text field ("Describe in your own words") with the compact `RecordAnswerButton` beside it; Check appears once there is text → `POST /api/cards/match`.
+Always in the bottom bar (`PageActions`), above the screen's main action: one row with the text field ("Describe in your own words" as placeholder) and the compact `RecordAnswerButton`; Check appears once there is text → `POST /api/cards/match`. The read-back and answer cards open above the row.
 `confirm` → read-back "Did you mean: …?" with a play button and Yes / No; only Yes calls
 `onChosen`. `answer` (a question about a Finnish health care word, "they asked for my Kela
 card, what is it?") → an answer card with the question, the answer, a play button
@@ -100,6 +101,10 @@ UI strings `ui.journey.*` in `backend/care_paths/seed/ui/journey.yaml`.
 npx vitest run src/features/journey                        # fetch stubbed
 npx playwright test --project=resident e2e/resident/journey.spec.ts   # running app; test (d) makes 2 live match calls
 ```
+
+## Pictures and listening
+
+`outcomeVisuals.ts` gives an outcome card a picture by `<stage>.<outcome>` (the three first-question cards today); outcomes without an entry show none. In the call script each line has one listen button that plays the Finnish phrase and then its meaning (`CardAudioButton thenLang`).
 
 ## Visit date
 

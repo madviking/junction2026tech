@@ -2,7 +2,7 @@ import { useEffect, useId } from 'react'
 import { blobUrl } from '@/features/voice/api/blobUrl'
 import { useClip } from '@/features/voice/api/useClip'
 import { useVoiceCapabilities } from '@/features/voice/api/useVoiceCapabilities'
-import { play, stop, usePlayerState } from '@/features/voice/state/player'
+import { play, playSequence, stop, usePlayerState } from '@/features/voice/state/player'
 import { useContent } from '@/shared/i18n'
 import { AudioPlayButton } from '@/shared/ui'
 
@@ -13,17 +13,20 @@ export interface CardAudioButtonProps {
   label?: string
   /** Language of the audio; defaults to the current content language (e.g. 'fi' for the Finnish call script). */
   lang?: string
+  /** Plays the same text in this language right after (the Finnish phrase, then its meaning). */
+  thenLang?: string
 }
 
 /**
  * Plays the published audio for a text key through the one shared player. Renders nothing
  * when the language has no audio output.
  */
-export function CardAudioButton({ textKey, label, lang }: CardAudioButtonProps) {
+export function CardAudioButton({ textKey, label, lang, thenLang }: CardAudioButtonProps) {
   const { lang: contentLang, t } = useContent()
   const audioLang = lang ?? contentLang
   const caps = useVoiceCapabilities(audioLang)
   const { fetchClip } = useClip(audioLang, textKey)
+  const { fetchClip: fetchNext } = useClip(thenLang ?? audioLang, textKey)
   const owner = useId()
   const state = usePlayerState(owner)
 
@@ -40,7 +43,9 @@ export function CardAudioButton({ textKey, label, lang }: CardAudioButtonProps) 
       stop(owner)
       return
     }
-    void play(owner, async () => blobUrl((await fetchClip()).url))
+    const first = async () => blobUrl((await fetchClip()).url)
+    if (thenLang && thenLang !== audioLang) void playSequence(owner, [first, async () => blobUrl((await fetchNext()).url)])
+    else void play(owner, first)
   }
 
   return <AudioPlayButton state={state} label={base} onPress={onPress} />

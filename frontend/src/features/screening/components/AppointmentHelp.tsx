@@ -70,7 +70,9 @@ export function AppointmentHelp({ lang }: { lang: string }) {
           </ActionButton>
           <Text tone="muted">{t(`${A}.change_phone`)}</Text>
           <ActionButton variant="secondary" fullWidth href={HUS_LAB_PHONE.href} icon={<IconPhone size={20} />}>
-            {t(`${A}.change_call`)} <span dir="ltr">{HUS_LAB_PHONE.display}</span>
+            {/* One string (the button lays out children as flex items); the number is a
+                left-to-right isolate so its digit groups never reverse in Arabic or Persian. */}
+            {`${t(`${A}.change_call`)} ⁦${HUS_LAB_PHONE.display}⁩`}
           </ActionButton>
         </Stack>
       </SurfaceCard>
