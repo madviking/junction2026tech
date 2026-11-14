@@ -1,0 +1,118 @@
+/* Banner, StatusBadge, PlaceholderNotice, LoadingState, EmptyState, ErrorState. */
+
+.banner {
+  display: flex;
+  gap: var(--silta-space-sm);
+  align-items: flex-start;
+  padding: var(--silta-space-md);
+  border-radius: var(--silta-radius-md);
+  border-inline-start: 4px solid var(--banner-accent);
+  background: var(--banner-bg);
+  color: var(--silta-color-text);
+}
+.banner[data-tone='info'] { --banner-bg: var(--silta-tone-info-bg); --banner-accent: var(--silta-tone-info-border); --banner-icon: var(--silta-tone-info-fg); }
+.banner[data-tone='success'] { --banner-bg: var(--silta-tone-success-bg); --banner-accent: var(--silta-tone-success-border); --banner-icon: var(--silta-tone-success-fg); }
+.banner[data-tone='warning'] { --banner-bg: var(--silta-tone-warning-bg); --banner-accent: var(--silta-tone-warning-border); --banner-icon: var(--silta-tone-warning-fg); }
+.banner[data-tone='emergency'] {
+  --banner-bg: var(--silta-color-emergency);
+  --banner-accent: var(--silta-color-emergency-hover);
+  --banner-icon: var(--silta-color-text-on-filled);
+  color: var(--silta-color-text-on-filled);
+}
+.bannerIcon {
+  flex: none;
+  display: flex;
+  color: var(--banner-icon);
+  padding-block-start: 1px;
+}
+.bannerBody {
+  flex: 1;
+  min-inline-size: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--silta-space-xs);
+}
+.bannerAction {
+  margin-block-start: var(--silta-space-sm);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--silta-space-xs);
+  padding-block: 2px;
+  padding-inline: var(--silta-space-sm);
+  border-radius: var(--silta-radius-full);
+  border: 1px solid var(--badge-border);
+  background: var(--badge-bg);
+  color: var(--badge-fg);
+  font-size: var(--silta-type-caption-size);
+  line-height: var(--silta-type-caption-line-height);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.badge::before {
+  content: '';
+  inline-size: 0.5rem;
+  block-size: 0.5rem;
+  border-radius: var(--silta-radius-full);
+  background: var(--badge-border);
+}
+.badge[data-tone='neutral'] { --badge-bg: var(--silta-tone-neutral-bg); --badge-fg: var(--silta-tone-neutral-fg); --badge-border: var(--silta-tone-neutral-border); }
+.badge[data-tone='info'] { --badge-bg: var(--silta-tone-info-bg); --badge-fg: var(--silta-tone-info-fg); --badge-border: var(--silta-tone-info-border); }
+.badge[data-tone='success'] { --badge-bg: var(--silta-tone-success-bg); --badge-fg: var(--silta-tone-success-fg); --badge-border: var(--silta-tone-success-border); }
+.badge[data-tone='warning'] { --badge-bg: var(--silta-tone-warning-bg); --badge-fg: var(--silta-tone-warning-fg); --badge-border: var(--silta-tone-warning-border); }
+.badge[data-tone='danger'] { --badge-bg: var(--silta-tone-danger-bg); --badge-fg: var(--silta-tone-danger-fg); --badge-border: var(--silta-tone-danger-border); }
+
+.placeholder {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--silta-space-xs);
+  padding-block: 2px;
+  padding-inline: var(--silta-space-sm);
+  border: 1px dashed var(--silta-tone-warning-border);
+  border-radius: var(--silta-radius-sm);
+  background: var(--silta-tone-warning-bg);
+  color: var(--silta-tone-warning-fg);
+  font-size: var(--silta-type-caption-size);
+  line-height: var(--silta-type-caption-line-height);
+  font-weight: 600;
+}
+.placeholder > svg { flex: none; }
+
+.state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--silta-space-sm);
+  padding-block: var(--silta-space-xl);
+  padding-inline: var(--silta-space-md);
+}
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--silta-space-sm);
+  padding-block: var(--silta-space-lg);
+}
+.stateIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 56px;
+  block-size: 56px;
+  border-radius: var(--silta-radius-full);
+  background: var(--silta-tone-neutral-bg);
+  color: var(--silta-color-text-muted);
+}
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--silta-space-sm);
+  padding: var(--silta-space-md);
+  border-radius: var(--silta-radius-md);
+  border-inline-start: 4px solid var(--silta-tone-danger-border);
+  background: var(--silta-tone-danger-bg);
+}

@@ -29,6 +29,15 @@
   "secrets": {
     "GeminiApiKey": {
       "$env": "GEMINI_API_KEY"
+    },
+    "OpenRouterApiKey": {
+      "$env": "OPEN_ROUTER_API_KEY"
+    },
+    "ElevenLabsApiKey": {
+      "$env": "ELEVEN_LABS_API_KEY"
+    },
+    "VisitCodePepper": {
+      "$env": "VISIT_CODE_PEPPER"
     }
   }
 }

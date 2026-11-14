@@ -1,0 +1,36 @@
+# Visit card (resident, own language). Feature: frontend/src/features/visit-card.
+# so / ar are unchecked best-effort placeholders.
+ui.visit.title: {en: Your visit card, fi: Käyntikorttisi, so: Kaarkaaga booqashada, ar: بطاقة زيارتك}
+ui.visit.emergency: {en: "Emergency? Call", fi: "Hätätilanne? Soita", so: "Xaalad degdeg ah? Wac", ar: "حالة طارئة؟ اتصل"}
+ui.visit.back: {en: Back to your steps, fi: Takaisin vaiheisiin, so: Ku noqo tallaabooyinkaaga, ar: العودة إلى خطواتك}
+ui.visit.placeholder: {en: This translation has not been checked yet., fi: Tätä käännöstä ei ole vielä tarkistettu., so: Turjumaaddan weli lama hubin., ar: لم تتم مراجعة هذه الترجمة بعد.}
+ui.visit.loading: {en: Loading your visit card, fi: Käyntikorttia ladataan, so: Kaarkaaga waa la soo rarayaa, ar: جارٍ تحميل بطاقة زيارتك}
+ui.visit.error_title: {en: Your visit card could not be loaded, fi: Käyntikorttia ei voitu ladata, so: Kaarkaaga lama soo rari karin, ar: تعذر تحميل بطاقة زيارتك}
+ui.visit.not_found: {en: "This code was not found. It may be mistyped, deleted or older than 90 days.", fi: "Koodia ei löytynyt. Se voi olla kirjoitettu väärin, poistettu tai yli 90 päivää vanha.", so: "Koodkan lama helin. Waxaa laga yaabaa in si khaldan loo qoray, la tirtiray ama uu ka weyn yahay 90 maalmood.", ar: "لم يتم العثور على هذا الرمز. ربما كُتب بشكل خاطئ أو حُذف أو مضى عليه أكثر من 90 يومًا."}
+ui.visit.retry: {en: Try again, fi: Yritä uudelleen, so: Isku day mar kale, ar: حاول مرة أخرى}
+ui.visit.listen: {en: Listen, fi: Kuuntele, so: Dhegeyso, ar: استمع}
+ui.visit.code_label: {en: Your visit code, fi: Käyntikoodisi, so: Koodkaaga booqashada, ar: رمز زيارتك}
+ui.visit.code_help: {en: "Show this code or this screen at your visit. The code is the only thing that identifies you: no name and no ID.", fi: "Näytä tämä koodi tai tämä näkymä käynnilläsi. Koodi on ainoa tunnisteesi: ei nimeä eikä henkilötunnusta.", so: "Tus koodkan ama shaashaddan booqashadaada. Koodku waa waxa kaliya ee lagu aqoonsado: magac iyo aqoonsi midna ma jiro.", ar: "أظهر هذا الرمز أو هذه الشاشة في زيارتك. الرمز هو الشيء الوحيد الذي يعرّفك: لا اسم ولا هوية."}
+ui.visit.clinician_link: {en: Clinician view, fi: Näkymä lääkärille tai hoitajalle, so: Muuqaalka dhakhtarka, ar: عرض الطبيب}
+ui.visit.clinician_help: {en: Your doctor or nurse opens this code on their screen and sees your summary in Finnish., fi: Lääkäri tai hoitaja avaa tämän koodin omalla näytöllään ja näkee yhteenvedon suomeksi., so: Dhakhtarkaaga ama kalkaalisadaadu waxay koodkan ka furayaan shaashaddooda waxayna arkayaan soo koobidaada af Finnish ah., ar: يفتح طبيبك أو ممرضك هذا الرمز على شاشته ويرى ملخصك باللغة الفنلندية.}
+ui.visit.summary_title: {en: Your summary, fi: Yhteenvetosi, so: Soo koobidaada, ar: ملخصك}
+ui.visit.symptoms: {en: What worries you, fi: Mikä huolestuttaa, so: Waxa ku walwal geliya, ar: ما يقلقك}
+ui.visit.door: {en: Where to go, fi: Minne mennä, so: Halka aad aadayso, ar: إلى أين تذهب}
+ui.visit.visit_date: {en: Visit date, fi: Käyntipäivä, so: Taariikhda booqashada, ar: تاريخ الزيارة}
+ui.visit.no_date: {en: No date yet, fi: Ei vielä päivää, so: Weli taariikh ma jirto, ar: لا يوجد تاريخ بعد}
+ui.visit.not_yet: {en: Not chosen yet, fi: Ei vielä valittu, so: Weli lama dooran, ar: لم يتم الاختيار بعد}
+ui.visit.history_title: {en: What has happened so far, fi: Mitä on tapahtunut tähän mennessä, so: Waxa ilaa hadda dhacay, ar: ما حدث حتى الآن}
+ui.visit.history_empty: {en: Nothing recorded yet., fi: Mitään ei ole vielä kirjattu., so: Weli waxba lama diiwaan gelin., ar: لم يُسجَّل شيء بعد.}
+ui.visit.by_clinician: {en: Doctor or nurse, fi: Lääkäri tai hoitaja, so: Dhakhtar ama kalkaaliso, ar: الطبيب أو الممرض}
+ui.visit.interpreter_title: {en: You have the right to an interpreter, fi: Sinulla on oikeus tulkkiin, so: Waxaad xaq u leedahay turjubaan, ar: لديك الحق في مترجم}
+ui.visit.interpreter_text: {en: "Interpreting is free. Ask for an interpreter in {language} when you book and at the visit.", fi: "Tulkkaus on maksutonta. Pyydä tulkkia ({language}) ajanvarauksessa ja käynnillä.", so: "Turjumaaddu waa bilaash. Codso turjubaan {language} ah markaad ballan qabsanayso iyo booqashada.", ar: "الترجمة مجانية. اطلب مترجمًا للغة {language} عند الحجز وفي الزيارة."}
+ui.visit.next_title: {en: Next steps, fi: Seuraavat askeleet, so: Tallaabooyinka xiga, ar: الخطوات التالية}
+ui.visit.next_empty: {en: Your doctor or nurse adds the next steps here., fi: Lääkäri tai hoitaja lisää seuraavat askeleet tähän., so: Dhakhtarkaaga ama kalkaalisadaadu halkan ayay ku darayaan tallaabooyinka xiga., ar: يضيف طبيبك أو ممرضك الخطوات التالية هنا.}
+ui.visit.next_empty_detail: {en: Show them the clinician view during your visit., fi: Näytä heille lääkärin näkymä käynnin aikana., so: Tus muuqaalka dhakhtarka inta lagu jiro booqashada., ar: أظهر لهم عرض الطبيب أثناء زيارتك.}
+ui.visit.refresh: {en: Refresh, fi: Päivitä, so: Cusbooneysii, ar: تحديث}
+ui.visit.delete: {en: Delete my data, fi: Poista tietoni, so: Tirtir xogtayda, ar: احذف بياناتي}
+ui.visit.delete_title: {en: Delete your visit and all your answers?, fi: Poistetaanko käyntisi ja kaikki vastauksesi?, so: Ma tirtirtaa booqashadaada iyo dhammaan jawaabahaaga?, ar: هل تريد حذف زيارتك وجميع إجاباتك؟}
+ui.visit.delete_text: {en: This cannot be undone. Your code stops working., fi: Poistoa ei voi perua. Koodisi lakkaa toimimasta., so: Tan dib looma celin karo. Koodkaagu wuu joogsanayaa., ar: لا يمكن التراجع عن ذلك. سيتوقف رمزك عن العمل.}
+ui.visit.delete_confirm: {en: "Yes, delete", fi: "Kyllä, poista", so: "Haa, tirtir", ar: "نعم، احذف"}
+ui.visit.cancel: {en: Cancel, fi: Peruuta, so: Jooji, ar: إلغاء}
+ui.visit.delete_failed: {en: Deleting did not work. Try again., fi: Poistaminen ei onnistunut. Yritä uudelleen., so: Tirtiriddu ma shaqayn. Isku day mar kale., ar: لم ينجح الحذف. حاول مرة أخرى.}

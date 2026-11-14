@@ -29,20 +29,23 @@ Read `frontend/README.md` once, then the touched feature's `README.md`.
 
 ## UI conventions
 
-- Mantine components and theme tokens first; no second component library.
-  Icons: `@tabler/icons-react`.
-- Page tabs sit outside cards; tab content sits in `Card withBorder radius="md"`.
-- Section header inside a card: small uppercase dimmed eyebrow, `Title order={4}`,
-  optional dimmed description.
-- More than one row-level action collapses into a single `Actions` menu.
-- Avoid card-in-card-in-card. Keep search/filter controls and their table in the
-  same card.
-- Every async view has loading, empty and error states. Errors say what failed
-  and how to retry.
-- Copy is English. Keep user-visible strings short and in components; if the
-  idea needs localisation, add i18next then, not now.
+- Everything visual comes from `@/shared/ui` (resident + shared primitives) and
+  `@/shared/ui/admin` (admin-only primitives). Read `src/shared/ui/README.md`.
+  Features never import `@mantine/core`, CSS files, inline `style`, hex/rgb colours or
+  raw style props (`local/no-raw-styles`). Missing capability → extend the primitive in
+  `shared/ui`. Icons: `@tabler/icons-react`.
+- Resident screens: mobile first at 375 px, 48 px touch targets, `PageShell`, logical
+  properties only (RTL). Admin: desktop first, usable at 768 px, `AdminShell`.
+- Every async view has loading, empty and error states (`LoadingState`, `EmptyState`,
+  `ErrorState` with retry).
+- Resident copy comes from the published content through `@/shared/i18n` (`t(key)`),
+  never hard-coded; new strings are `ui.<feature>.*` keys in
+  `backend/care_paths/seed/ui/<feature>.yaml`. Admin copy is English in components.
+- Features import other features only through their public `index.ts`; resident
+  features never import `admin-*` features or `@/shared/ui/admin`
+  (`local/no-cross-feature-imports`).
 - Accessible by default: labelled inputs, `aria-label` on icon-only buttons,
-  keyboard reachable menus.
+  keyboard reachable menus, visible focus.
 
 ## Dependencies
 

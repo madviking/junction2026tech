@@ -1,0 +1,128 @@
+/* StepList, StatTile, DataTable, Toolbar, Tabs. */
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.step {
+  position: relative;
+  display: flex;
+  gap: var(--silta-space-md);
+  padding-block-end: var(--silta-space-lg);
+}
+.step:last-child { padding-block-end: 0; }
+/* Connector line between markers. */
+.step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 15px;
+  inset-block-start: 36px;
+  inset-block-end: 4px;
+  border-inline-start: 2px solid var(--silta-color-border-subtle);
+}
+.step[data-status='done']:not(:last-child)::before {
+  border-color: var(--silta-tone-success-border);
+}
+.marker {
+  flex: none;
+  inline-size: 32px;
+  block-size: 32px;
+  border-radius: var(--silta-radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: var(--silta-type-caption-size);
+  border: 2px solid var(--silta-color-border);
+  background: var(--silta-color-surface);
+  color: var(--silta-color-text-muted);
+}
+.step[data-status='done'] .marker {
+  background: var(--silta-tone-success-solid);
+  border-color: var(--silta-tone-success-solid);
+  color: var(--silta-color-text-on-filled);
+}
+.step[data-status='current'] .marker {
+  background: var(--silta-color-primary);
+  border-color: var(--silta-color-primary);
+  color: var(--silta-color-text-on-filled);
+}
+.stepBody {
+  flex: 1;
+  min-inline-size: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-block-start: 4px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--silta-space-xs);
+  padding: var(--silta-space-md);
+  background: var(--silta-color-surface);
+  border: 1px solid var(--silta-color-border-subtle);
+  border-radius: var(--silta-radius-lg);
+  min-inline-size: 0;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--silta-space-sm);
+}
+.toolbarGroup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--silta-space-sm);
+  min-inline-size: 0;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--silta-space-md);
+}
+.th {
+  font-size: var(--silta-type-caption-size);
+  font-weight: 700;
+  color: var(--silta-color-text-muted);
+  text-align: start;
+  white-space: nowrap;
+}
+.th[data-numeric],
+.td[data-numeric] {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+.td {
+  font-size: var(--silta-type-body-size);
+  vertical-align: middle;
+}
+.tr[data-clickable] {
+  cursor: pointer;
+}
+.tr[data-clickable]:hover {
+  background: var(--silta-color-surface-hover);
+}
+.tr[data-clickable]:focus-visible {
+  outline-offset: -3px;
+}
+
+.tabLabel {
+  font-size: var(--silta-type-label-size);
+  font-weight: var(--silta-type-label-weight);
+}
+.tab {
+  min-block-size: 48px;
+}
+.tabPanel {
+  padding-block-start: var(--silta-space-md);
+}

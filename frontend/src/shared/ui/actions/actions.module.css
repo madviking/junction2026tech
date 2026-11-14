@@ -1,0 +1,201 @@
+/* ActionButton, ChoiceCard, AudioPlayButton, RecordButton, EmergencyCallLink. */
+
+/* ---- ActionButton (wraps Mantine Button) ---- */
+.buttonRoot {
+  min-block-size: 48px;
+  block-size: auto;
+  padding-block: var(--silta-space-sm);
+  padding-inline: var(--silta-space-lg);
+}
+.buttonRoot[data-compact] {
+  min-block-size: 40px;
+  padding-inline: var(--silta-space-md);
+}
+.buttonLabel {
+  font-size: var(--silta-type-label-size);
+  font-weight: var(--silta-type-label-weight);
+  line-height: var(--silta-type-label-line-height);
+  white-space: normal;
+  text-align: center;
+}
+.buttonRoot[data-kind='secondary'] {
+  background-color: var(--silta-color-surface);
+}
+.buttonRoot[data-kind='secondary']:hover:not(:disabled, [data-disabled]) {
+  background-color: var(--silta-color-surface-selected);
+}
+
+/* ---- ChoiceCard ---- */
+.choice {
+  display: flex;
+  align-items: stretch;
+  background: var(--silta-color-surface);
+  border: 1px solid var(--silta-color-border);
+  border-radius: var(--silta-radius-lg);
+  min-block-size: 64px;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+.choice:hover:not([data-disabled]) {
+  background: var(--silta-color-surface-hover);
+}
+.choice[data-selected] {
+  border-color: var(--silta-color-primary);
+  box-shadow: inset 0 0 0 1px var(--silta-color-primary);
+  background: var(--silta-color-surface-selected);
+}
+.choice[data-disabled] {
+  opacity: 0.55;
+}
+.choiceMain {
+  flex: 1;
+  min-inline-size: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--silta-space-md);
+  padding: var(--silta-space-md);
+  min-block-size: 64px;
+  background: transparent;
+  border: 0;
+  border-radius: var(--silta-radius-lg);
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+.choiceMain:disabled {
+  cursor: not-allowed;
+}
+.choiceIcon {
+  flex: none;
+  display: flex;
+  color: var(--silta-color-primary);
+}
+.choiceTexts {
+  flex: 1;
+  min-inline-size: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.choiceCheck {
+  flex: none;
+  display: flex;
+  color: var(--silta-color-primary);
+}
+.choiceTrailing {
+  flex: none;
+  display: flex;
+  align-items: center;
+  padding-inline-end: var(--silta-space-sm);
+}
+
+/* ---- AudioPlayButton ---- */
+.audio {
+  inline-size: 48px;
+  block-size: 48px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--silta-radius-full);
+  border: 1px solid var(--silta-color-border);
+  background: var(--silta-color-surface);
+  color: var(--silta-color-primary);
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+.audio:hover:not(:disabled) {
+  background: var(--silta-color-surface-selected);
+}
+.audio[data-state='playing'] {
+  background: var(--silta-color-primary);
+  border-color: var(--silta-color-primary);
+  color: var(--silta-color-text-on-filled);
+}
+.audio[data-state='error'] {
+  border-color: var(--silta-color-emergency);
+  color: var(--silta-color-emergency);
+}
+.audio[data-state='loading'] {
+  cursor: progress;
+}
+
+/* ---- RecordButton ---- */
+.record {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--silta-space-sm);
+}
+.recordButton {
+  position: relative;
+  inline-size: 80px;
+  block-size: 80px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: var(--silta-radius-full);
+  background: var(--silta-color-primary);
+  color: var(--silta-color-text-on-filled);
+  cursor: pointer;
+  box-shadow: var(--mantine-shadow-md);
+}
+.recordButton:hover:not(:disabled) {
+  background: var(--silta-color-primary-hover);
+}
+.recordButton[data-state='recording'] {
+  background: var(--silta-color-emergency);
+}
+.recordButton[data-state='recording']:hover {
+  background: var(--silta-color-emergency-hover);
+}
+.recordButton[data-state='recording']::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  border: 3px solid var(--silta-color-emergency);
+  animation: pulse 1.4s ease-out infinite;
+}
+.recordButton[data-state='processing'] {
+  background: var(--silta-tone-neutral-bg);
+  color: var(--silta-color-text);
+  cursor: progress;
+}
+.recordButton[data-state='disabled'] {
+  background: var(--silta-tone-neutral-bg);
+  color: var(--silta-color-text-muted);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+@keyframes pulse {
+  from { opacity: 0.9; transform: scale(1); }
+  to { opacity: 0; transform: scale(1.25); }
+}
+
+/* ---- EmergencyCallLink ---- */
+.emergencyLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--silta-space-sm);
+  min-block-size: 48px;
+  padding-block: var(--silta-space-xs);
+  padding-inline: var(--silta-space-md);
+  border-radius: var(--silta-radius-md);
+  background: var(--silta-color-emergency);
+  color: var(--silta-color-text-on-filled);
+  text-decoration: none;
+  font-size: var(--silta-type-label-size);
+  font-weight: var(--silta-type-label-weight);
+  line-height: var(--silta-type-label-line-height);
+}
+.emergencyLink:hover {
+  background: var(--silta-color-emergency-hover);
+}
+.emergencyNumber {
+  font-weight: 800;
+  direction: ltr;
+  unicode-bidi: isolate;
+}

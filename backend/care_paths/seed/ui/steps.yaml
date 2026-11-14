@@ -1,0 +1,11 @@
+# Care-path overview step texts (used by care_paths compose). {title} = destination title.
+step.describe: {en: Describe the situation, fi: Kerro tilanteestasi}
+step.emergency: {en: Silta shows 112 and the Finnish phrase card. Silta stops here; no forms., fi: Silta näyttää numeron 112 ja suomenkielisen fraasikortin. Silta pysähtyy tähän; ei lomakkeita.}
+step.route: {en: Silta shows where to go, fi: "Silta näyttää, minne mennä"}
+step.contact: {en: "Contact: {title}", fi: "Ota yhteyttä: {title}"}
+step.stalled_clock: {en: "Clock check: a referral should be handled within 3 weeks, faster for suspected cancer", fi: "Aikaraja: lähete pitää käsitellä 3 viikossa, epäillyssä syövässä nopeammin"}
+step.stalled_escalate: {en: "Escalate if needed: muistutus, then patient ombudsman, then kantelu", fi: "Tarvittaessa eteenpäin: muistutus, sitten potilasasiavastaava, sitten kantelu"}
+step.wait_screening: {en: Book the follow-up exam; reminder after 1 week, fi: Varaa jatkotutkimus; muistutus viikon päästä}
+step.wait: {en: Wait with the clock visible; contact again if anything changes, fi: "Odota ja seuraa aikarajaa; ota uudelleen yhteyttä, jos jokin muuttuu"}
+step.visit: {en: Visit card with a summary for the doctor or nurse, fi: "Käyntikortti, jossa on yhteenveto lääkärille tai hoitajalle"}
+step.followup: {en: "Referral and results tracked; check-ins at day 3, week 1 and week 3", fi: "Lähetettä ja tuloksia seurataan; muistutukset 3 päivän, viikon ja 3 viikon kohdalla"}

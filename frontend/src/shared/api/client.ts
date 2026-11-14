@@ -32,7 +32,14 @@ const BROWSER = typeof globalThis === "object" && ("window" in globalThis);
  * Client is an API client for the 4bpxu Encore application.
  */
 export default class Client {
+    public readonly admin: admin.ServiceClient
+    public readonly cards: cards.ServiceClient
+    public readonly care_paths: care_paths.ServiceClient
+    public readonly content: content.ServiceClient
     public readonly health: health.ServiceClient
+    public readonly regions: regions.ServiceClient
+    public readonly visits: visits.ServiceClient
+    public readonly voice: voice.ServiceClient
     private readonly options: ClientOptions
     private readonly target: string
 
@@ -47,7 +54,14 @@ export default class Client {
         this.target = target
         this.options = options ?? {}
         const base = new BaseClient(this.target, this.options)
+        this.admin = new admin.ServiceClient(base)
+        this.cards = new cards.ServiceClient(base)
+        this.care_paths = new care_paths.ServiceClient(base)
+        this.content = new content.ServiceClient(base)
         this.health = new health.ServiceClient(base)
+        this.regions = new regions.ServiceClient(base)
+        this.visits = new visits.ServiceClient(base)
+        this.voice = new voice.ServiceClient(base)
     }
 
     /**
@@ -76,6 +90,579 @@ export interface ClientOptions {
 
     /** Default RequestInit to be used for the client */
     requestInit?: Omit<RequestInit, "headers"> & { headers?: Record<string, string> }
+
+    /**
+     * Allows you to set the authentication data to be used for each
+     * request either by passing in a static object or by passing in
+     * a function which returns a new object for each request.
+     */
+    auth?: admin.AuthParams | AuthDataGenerator
+}
+
+export namespace admin {
+    export interface AdminProfile {
+        id: number
+        email: string
+        displayName: string
+    }
+
+    export interface AuditEntry {
+        id: number
+        at: string
+        actor: string
+        action: string
+        target: string
+        detail: string
+    }
+
+    export interface AuthParams {
+        authorization: string
+    }
+
+    export interface SignInResult {
+        token: string
+        expiresAt: string
+        user: AdminProfile
+    }
+
+    export interface UsageReport {
+        rows: UsageRow[]
+        totals: UsageTotal[]
+        totalUsd: number
+    }
+
+    export interface UsageRow {
+        day: string
+        service: "llm" | "voice"
+        provider: string
+        feature: string
+        calls: number
+        tokens: number
+        characters: number
+        seconds: number
+        costUsd: number
+    }
+
+    export interface UsageTotal {
+        provider: string
+        costUsd: number
+    }
+
+    export class ServiceClient {
+        private baseClient: BaseClient
+
+        constructor(baseClient: BaseClient) {
+            this.baseClient = baseClient
+            this.audit = this.audit.bind(this)
+            this.me = this.me.bind(this)
+            this.signIn = this.signIn.bind(this)
+            this.signOut = this.signOut.bind(this)
+            this.usage = this.usage.bind(this)
+        }
+
+        public async audit(params: {
+    limit?: number
+}): Promise<{
+    entries: AuditEntry[]
+}> {
+            // Convert our params into the objects we need for the request
+            const query = makeRecord<string, string | string[]>({
+                limit: params.limit === undefined ? undefined : String(params.limit),
+            })
+
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/admin/audit`, undefined, {query})
+            return await resp.json() as {
+    entries: AuditEntry[]
+}
+        }
+
+        public async me(): Promise<AdminProfile> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/admin/me`)
+            return await resp.json() as AdminProfile
+        }
+
+        public async signIn(params: {
+    email: string
+    password: string
+}): Promise<SignInResult> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/admin/sign-in`, JSON.stringify(params))
+            return await resp.json() as SignInResult
+        }
+
+        public async signOut(params: {
+    authorization: string
+}): Promise<void> {
+            // Convert our params into the objects we need for the request
+            const headers = makeRecord<string, string>({
+                authorization: params.authorization,
+            })
+
+            await this.baseClient.callTypedAPI("POST", `/api/admin/sign-out`, undefined, {headers})
+        }
+
+        public async usage(): Promise<UsageReport> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/admin/usage`)
+            return await resp.json() as UsageReport
+        }
+    }
+}
+
+export namespace cards {
+    export interface MatchOption {
+        id: string
+        /**
+         * Card text in the person's language.
+         */
+        text: string
+
+        probability: number
+    }
+
+    export interface MatchRequest {
+        lang: string
+        text: string
+        set: "symptoms" | "route" | "outcomes"
+        /**
+         * Journey stage id; required for the outcomes set.
+         */
+        stage?: string
+    }
+
+    export interface MatchResponse {
+        /**
+         * confirm: read `top` back for the person to confirm. choose: show the cards.
+         */
+        status: "confirm" | "choose"
+
+        top: MatchOption | null
+        /**
+         * All options, highest probability first.
+         */
+        ranked: MatchOption[]
+    }
+
+    export class ServiceClient {
+        private baseClient: BaseClient
+
+        constructor(baseClient: BaseClient) {
+            this.baseClient = baseClient
+            this.match = this.match.bind(this)
+        }
+
+        /**
+         * Public: match what a resident typed or said to a card from the live content.
+         */
+        public async match(params: MatchRequest): Promise<MatchResponse> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/cards/match`, JSON.stringify(params))
+            return await resp.json() as MatchResponse
+        }
+    }
+}
+
+export namespace care_paths {
+    export interface CarePathOptions {
+        lanes: Option[]
+        routes: Option[]
+        profiles: Option[]
+        barriers: Option[]
+    }
+
+    export interface ComposeParams {
+        lane: string
+        route: string
+        lang: string
+        /**
+         * Defaults to the language's profile from the content.
+         */
+        profile?: string
+
+        barriers?: string[]
+    }
+
+    export interface Option {
+        code: string
+        name: string
+        summary: string
+        detail: string
+    }
+
+    export class ServiceClient {
+        private baseClient: BaseClient
+
+        constructor(baseClient: BaseClient) {
+            this.baseClient = baseClient
+            this.composePath = this.composePath.bind(this)
+            this.options = this.options.bind(this)
+        }
+
+        /**
+         * One person's care path: door, Finnish script, clocks, adaptations, steps, review flags.
+         */
+        public async composePath(params: ComposeParams): Promise<domain.CarePath> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/care-paths/compose`, JSON.stringify(params))
+            return await resp.json() as domain.CarePath
+        }
+
+        /**
+         * All lane, route, profile and barrier codes with their wording, in display order.
+         */
+        public async options(params: {
+    lang: string
+}): Promise<CarePathOptions> {
+            // Convert our params into the objects we need for the request
+            const query = makeRecord<string, string | string[]>({
+                lang: params.lang,
+            })
+
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/care-paths/options`, undefined, {query})
+            return await resp.json() as CarePathOptions
+        }
+    }
+}
+
+export namespace content {
+    export interface DraftDetail {
+        summary: DraftSummary
+        issues: domain.ValidationIssue[]
+        /**
+         * The draft document as JSON text (object key order is meaningful).
+         */
+        docJson: string
+    }
+
+    export interface DraftSummary {
+        exists: boolean
+        basedOnVersion: number
+        errors: number
+        warnings: number
+        /**
+         * Text keys whose entries (text or review) differ from the live version.
+         */
+        changedKeys: string[]
+    }
+
+    export interface GraphInterrupt {
+        id: string
+        card: string
+        next: string
+    }
+
+    export interface GraphOutcome {
+        id: string
+        /**
+         * English card text ('' when missing).
+         */
+        card: string
+
+        next: string
+        sets: domain.OutcomeSets | null
+        setsLane: string | null
+        review: domain.ReviewKind | null
+        maxTries: number | null
+        afterMax: string | null
+        climb: boolean
+    }
+
+    export interface GraphReviewFlag {
+        kind: domain.ReviewKind
+        path: string
+        message: string
+    }
+
+    export interface GraphStage {
+        id: string
+        terminal: boolean
+        /**
+         * English question, null for terminal stages or when missing.
+         */
+        ask: string | null
+
+        ladder: number
+        outcomes: GraphOutcome[]
+    }
+
+    export interface JourneyGraph {
+        enabled: boolean
+        source: "draft" | "live"
+        basedOnVersion: number
+        start: string
+        stages: GraphStage[]
+        interrupts: GraphInterrupt[]
+        issues: domain.ValidationIssue[]
+        reviewFlags: GraphReviewFlag[]
+    }
+
+    export interface LanguageView {
+        code: string
+        name: string
+        placeholder: boolean
+    }
+
+    /**
+     * Everything a resident screen needs, in one language.
+     */
+    export interface LiveBundle {
+        version: number
+        lang: string
+        dir: "ltr" | "rtl"
+        placeholder: boolean
+        languages: domain.LanguageDef[]
+        texts: { [key: string]: domain.ResolvedText }
+        journey: domain.JourneyView
+        cards: domain.Cards
+        lanes: string[]
+        routes: string[]
+    }
+
+    export interface ReleaseInfo {
+        id: number
+        version: number
+        note: string | null
+        createdBy: string
+        publishedAt: string
+        live: boolean
+    }
+
+    export interface ReviewFlag {
+        kind: domain.ReviewKind
+        path: string
+        message: string
+    }
+
+    export interface TextEntryView {
+        lang: string
+        text: string | null
+        review: "unchecked" | "checked" | "missing"
+        reviewer: string | null
+        reviewedAt: string | null
+    }
+
+    export type TextFilter = "all" | "needs_review" | "missing"
+
+    export type TextGroup = "lane" | "route" | "profile" | "barrier" | "rule" | "journey.stage" | "journey.outcome" | "journey.interrupt" | "journey.fact" | "card.symptom" | "card.emergency" | "card.clinician" | "ui" | "step" | "other"
+
+    export interface TextRow {
+        key: string
+        group: TextGroup
+        label: string
+        required: boolean
+        /**
+         * One per language, in language order.
+         */
+        entries: TextEntryView[]
+
+        changedInDraft: boolean
+    }
+
+    export interface TextsResponse {
+        draftExists: boolean
+        basedOnVersion: number
+        languages: LanguageView[]
+        rows: TextRow[]
+    }
+
+    export class ServiceClient {
+        private baseClient: BaseClient
+
+        constructor(baseClient: BaseClient) {
+            this.baseClient = baseClient
+            this.adminDiscard = this.adminDiscard.bind(this)
+            this.adminDraft = this.adminDraft.bind(this)
+            this.adminExport = this.adminExport.bind(this)
+            this.adminPublish = this.adminPublish.bind(this)
+            this.adminReviewFlags = this.adminReviewFlags.bind(this)
+            this.adminRollback = this.adminRollback.bind(this)
+            this.adminSetReview = this.adminSetReview.bind(this)
+            this.adminSetText = this.adminSetText.bind(this)
+            this.adminTexts = this.adminTexts.bind(this)
+            this.adminVersions = this.adminVersions.bind(this)
+            this.journeyAddOutcome = this.journeyAddOutcome.bind(this)
+            this.journeyAddStage = this.journeyAddStage.bind(this)
+            this.journeyGraph = this.journeyGraph.bind(this)
+            this.journeyRemoveOutcome = this.journeyRemoveOutcome.bind(this)
+            this.journeyRemoveStage = this.journeyRemoveStage.bind(this)
+            this.journeySetNext = this.journeySetNext.bind(this)
+            this.live = this.live.bind(this)
+        }
+
+        public async adminDiscard(): Promise<DraftSummary> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/content/admin/discard`)
+            return await resp.json() as DraftSummary
+        }
+
+        public async adminDraft(): Promise<DraftDetail> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/content/admin/draft`)
+            return await resp.json() as DraftDetail
+        }
+
+        public async adminExport(): Promise<{
+    version: number
+    yaml: string
+}> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/content/admin/export`)
+            return await resp.json() as {
+    version: number
+    yaml: string
+}
+        }
+
+        public async adminPublish(params: {
+    note?: string
+}): Promise<ReleaseInfo> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/content/admin/publish`, JSON.stringify(params))
+            return await resp.json() as ReleaseInfo
+        }
+
+        public async adminReviewFlags(): Promise<{
+    flags: ReviewFlag[]
+}> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/content/admin/review-flags`)
+            return await resp.json() as {
+    flags: ReviewFlag[]
+}
+        }
+
+        public async adminRollback(params: {
+    version: number
+}): Promise<ReleaseInfo> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/content/admin/rollback`, JSON.stringify(params))
+            return await resp.json() as ReleaseInfo
+        }
+
+        public async adminSetReview(params: {
+    key: string
+    lang: string
+    status: "checked" | "unchecked"
+}): Promise<DraftSummary> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/content/admin/review`, JSON.stringify(params))
+            return await resp.json() as DraftSummary
+        }
+
+        public async adminSetText(params: {
+    key: string
+    lang: string
+    text: string
+}): Promise<DraftSummary> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("PUT", `/api/content/admin/texts`, JSON.stringify(params))
+            return await resp.json() as DraftSummary
+        }
+
+        public async adminTexts(params: {
+    lang?: string
+    filter?: TextFilter
+    search?: string
+    group?: string
+}): Promise<TextsResponse> {
+            // Convert our params into the objects we need for the request
+            const query = makeRecord<string, string | string[]>({
+                filter: params.filter === undefined ? undefined : String(params.filter),
+                group:  params.group,
+                lang:   params.lang,
+                search: params.search,
+            })
+
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/content/admin/texts`, undefined, {query})
+            return await resp.json() as TextsResponse
+        }
+
+        public async adminVersions(): Promise<{
+    versions: ReleaseInfo[]
+}> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/content/admin/versions`)
+            return await resp.json() as {
+    versions: ReleaseInfo[]
+}
+        }
+
+        public async journeyAddOutcome(params: {
+    stage: string
+    id: string
+    next: string
+    cardEn: string
+    cardFi: string
+}): Promise<JourneyGraph> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/content/admin/journey/outcome`, JSON.stringify(params))
+            return await resp.json() as JourneyGraph
+        }
+
+        public async journeyAddStage(params: {
+    id: string
+    terminal?: boolean
+    askEn: string
+    askFi: string
+}): Promise<JourneyGraph> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/content/admin/journey/stage`, JSON.stringify(params))
+            return await resp.json() as JourneyGraph
+        }
+
+        public async journeyGraph(): Promise<JourneyGraph> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/content/admin/journey/graph`)
+            return await resp.json() as JourneyGraph
+        }
+
+        public async journeyRemoveOutcome(params: {
+    stage: string
+    id: string
+}): Promise<JourneyGraph> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/content/admin/journey/outcome/remove`, JSON.stringify(params))
+            return await resp.json() as JourneyGraph
+        }
+
+        public async journeyRemoveStage(params: {
+    id: string
+}): Promise<JourneyGraph> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/content/admin/journey/stage/remove`, JSON.stringify(params))
+            return await resp.json() as JourneyGraph
+        }
+
+        public async journeySetNext(params: {
+    stage: string
+    id: string
+    next: string
+}): Promise<JourneyGraph> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/content/admin/journey/outcome/next`, JSON.stringify(params))
+            return await resp.json() as JourneyGraph
+        }
+
+        /**
+         * Public: the live (published) content in one language, for resident screens.
+         */
+        public async live(params: {
+    lang: string
+}): Promise<LiveBundle> {
+            // Convert our params into the objects we need for the request
+            const query = makeRecord<string, string | string[]>({
+                lang: params.lang,
+            })
+
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/content/live`, undefined, {query})
+            return await resp.json() as LiveBundle
+        }
+    }
 }
 
 export namespace health {
@@ -109,6 +696,571 @@ export namespace health {
             const resp = await this.baseClient.callTypedAPI("GET", `/api/health`)
             return await resp.json() as HealthStatus
         }
+    }
+}
+
+export namespace regions {
+    export interface CountyFigure {
+        label: string
+        value: number
+        unit: string
+        year: number | null
+        source: string
+    }
+
+    export interface CountyView {
+        id: string
+        name: string
+        figures: CountyFigure[]
+        topLanguages: string[]
+        counts: {
+            total: number
+            byStage: StageCount[]
+            byOutcome: OutcomeCount[]
+        }
+        generatedAt: string
+    }
+
+    export interface OutcomeCount {
+        lang: string
+        stage: string
+        outcome: string
+        count: number
+    }
+
+    export interface StageCount {
+        lang: string
+        stage: string
+        count: number
+    }
+
+    export class ServiceClient {
+        private baseClient: BaseClient
+
+        constructor(baseClient: BaseClient) {
+            this.baseClient = baseClient
+            this.county = this.county.bind(this)
+        }
+
+        /**
+         * Public: county figures and anonymous visit counts (no codes, no timestamps).
+         */
+        public async county(id: string): Promise<CountyView> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/regions/counties/${encodeURIComponent(id)}`)
+            return await resp.json() as CountyView
+        }
+    }
+}
+
+export namespace visits {
+    export interface ClinicianSummary {
+        code: string
+        language: {
+            code: string
+            name: string
+        }
+        interpreter: {
+            needed: boolean
+            language: string
+        }
+        situation: string | null
+        symptoms: string[]
+        route: {
+            name: string
+            door: string
+        } | null
+        visitDate: string | null
+        history: {
+            at: string
+            text: string
+        }[]
+        answerCards: {
+            outcome: string
+            text: string
+            selected: boolean
+        }[]
+        flags: string[]
+    }
+
+    export interface CreateVisitParams {
+        lang: string
+        county?: string
+    }
+
+    export interface EventRequest {
+        lang: string
+        outcome: string
+        symptoms?: string[]
+        route?: string
+        visitDate?: string
+    }
+
+    export interface HistoryItem {
+        stage: string
+        outcome: string
+        at: string
+        actor: string
+    }
+
+    export interface IdText {
+        id: string
+        text: string
+    }
+
+    export interface NextStep {
+        outcome: string
+        text: string
+    }
+
+    export interface OutcomeCard {
+        id: string
+        text: string
+        then: string | null
+    }
+
+    export interface SymptomOption {
+        /**
+         * True for the cards behind the current lane.
+         */
+        selected: boolean
+
+        id: string
+        text: string
+    }
+
+    export interface VisitState {
+        stage: string
+        lane: string | null
+        route: string | null
+        ladderStep: number
+        visitDate: string | null
+        tries: {
+            key: string
+            count: number
+        }[]
+    }
+
+    export interface VisitView {
+        code: string
+        lang: string
+        county: string
+        state: VisitState
+        stage: domain.StageView
+        ask: string | null
+        outcomes: OutcomeCard[]
+        interrupts: IdText[]
+        then: string | null
+        ladder: {
+            rungs: string[]
+            current: number
+        } | null
+        symptoms: SymptomOption[]
+        carePath: domain.CarePath | null
+        nextSteps: NextStep[]
+        history: HistoryItem[]
+    }
+
+    export class ServiceClient {
+        private baseClient: BaseClient
+
+        constructor(baseClient: BaseClient) {
+            this.baseClient = baseClient
+            this.addEvent = this.addEvent.bind(this)
+            this.clinicianAnswers = this.clinicianAnswers.bind(this)
+            this.create = this.create.bind(this)
+            this.get = this.get.bind(this)
+            this.nextSteps = this.nextSteps.bind(this)
+            this.remove = this.remove.bind(this)
+            this.summary = this.summary.bind(this)
+        }
+
+        public async addEvent(code: string, params: EventRequest): Promise<VisitView> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/visits/${encodeURIComponent(code)}/events`, JSON.stringify(params))
+            return await resp.json() as VisitView
+        }
+
+        public async clinicianAnswers(code: string, params: {
+    answers: string[]
+}): Promise<ClinicianSummary> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/visits/${encodeURIComponent(code)}/clinician`, JSON.stringify(params))
+            return await resp.json() as ClinicianSummary
+        }
+
+        public async create(params: CreateVisitParams): Promise<VisitView> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/visits`, JSON.stringify(params))
+            return await resp.json() as VisitView
+        }
+
+        public async get(code: string, params: {
+    lang?: string
+}): Promise<VisitView> {
+            // Convert our params into the objects we need for the request
+            const query = makeRecord<string, string | string[]>({
+                lang: params.lang,
+            })
+
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/visits/${encodeURIComponent(code)}`, undefined, {query})
+            return await resp.json() as VisitView
+        }
+
+        public async nextSteps(code: string, params: {
+    lang?: string
+}): Promise<{
+    steps: NextStep[]
+}> {
+            // Convert our params into the objects we need for the request
+            const query = makeRecord<string, string | string[]>({
+                lang: params.lang,
+            })
+
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/visits/${encodeURIComponent(code)}/next-steps`, undefined, {query})
+            return await resp.json() as {
+    steps: NextStep[]
+}
+        }
+
+        public async remove(code: string): Promise<void> {
+            await this.baseClient.callTypedAPI("DELETE", `/api/visits/${encodeURIComponent(code)}`)
+        }
+
+        /**
+         * The clinician's one-screen summary, always in Finnish.
+         */
+        public async summary(code: string): Promise<ClinicianSummary> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/visits/${encodeURIComponent(code)}/summary`)
+            return await resp.json() as ClinicianSummary
+        }
+    }
+}
+
+export namespace voice {
+    export interface AdminAssetRow {
+        key: string
+        lang: string
+        text: string
+        textHash: string
+        generated: AssetView | null
+        human: AssetView | null
+        served: "human" | "generated" | null
+        staleAssets: number
+    }
+
+    export interface AssetView {
+        id: number
+        url: string
+        review: AudioReview
+        createdBy: string
+        createdAt: string
+        approvedBy: string | null
+        approvedAt: string | null
+        textHash: string
+    }
+
+    export type AudioReview = "unchecked" | "approved"
+
+    export interface Capabilities {
+        languages: LanguageCapability[]
+    }
+
+    export interface ClipView {
+        url: string
+        source: "human" | "generated"
+        review: AudioReview
+        textHash: string
+    }
+
+    export interface LanguageCapability {
+        lang: string
+        mode: VoiceMode
+        voiceInput: boolean
+        audioOutput: boolean
+        generatedAudioReview: AudioReview
+    }
+
+    export interface Transcript {
+        text: string
+        lang: string
+    }
+
+    export type VoiceMode = "full_voice" | "cards_with_audio"
+
+    export class ServiceClient {
+        private baseClient: BaseClient
+
+        constructor(baseClient: BaseClient) {
+            this.baseClient = baseClient
+            this.adminApprove = this.adminApprove.bind(this)
+            this.adminAssets = this.adminAssets.bind(this)
+            this.adminGenerate = this.adminGenerate.bind(this)
+            this.adminUpload = this.adminUpload.bind(this)
+            this.blob = this.blob.bind(this)
+            this.capabilities = this.capabilities.bind(this)
+            this.clip = this.clip.bind(this)
+            this.transcribe = this.transcribe.bind(this)
+        }
+
+        public async adminApprove(params: {
+    assetId: number
+}): Promise<AssetView> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/voice/admin/approve`, JSON.stringify(params))
+            return await resp.json() as AssetView
+        }
+
+        public async adminAssets(params: {
+    lang: string
+}): Promise<{
+    rows: AdminAssetRow[]
+}> {
+            // Convert our params into the objects we need for the request
+            const query = makeRecord<string, string | string[]>({
+                lang: params.lang,
+            })
+
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/voice/admin/assets`, undefined, {query})
+            return await resp.json() as {
+    rows: AdminAssetRow[]
+}
+        }
+
+        public async adminGenerate(params: {
+    key: string
+    lang: string
+}): Promise<AssetView> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/voice/admin/generate`, JSON.stringify(params))
+            return await resp.json() as AssetView
+        }
+
+        public async adminUpload(params: {
+    key: string
+    lang: string
+    audioBase64: string
+    mime: string
+}): Promise<AssetView> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/voice/admin/upload`, JSON.stringify(params))
+            return await resp.json() as AssetView
+        }
+
+        /**
+         * Audio bytes. Blobs never change, so they are cached for a year.
+         */
+        public async blob(method: "GET", id: string, body?: RequestInit["body"], options?: CallParameters): Promise<globalThis.Response> {
+            return this.baseClient.callAPI(method, `/api/voice/blob/${encodeURIComponent(id)}`, body, options)
+        }
+
+        public async capabilities(): Promise<Capabilities> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/voice/capabilities`)
+            return await resp.json() as Capabilities
+        }
+
+        /**
+         * The clip to play for a text key in a language (generated on first request).
+         */
+        public async clip(params: {
+    key: string
+    lang: string
+}): Promise<ClipView> {
+            // Convert our params into the objects we need for the request
+            const query = makeRecord<string, string | string[]>({
+                key:  params.key,
+                lang: params.lang,
+            })
+
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("GET", `/api/voice/clip`, undefined, {query})
+            return await resp.json() as ClipView
+        }
+
+        /**
+         * Speech-to-text for residents. Nothing about the recording or transcript is kept.
+         */
+        public async transcribe(params: {
+    lang: string
+    audioBase64: string
+    mime: string
+}): Promise<Transcript> {
+            // Now make the actual call to the API
+            const resp = await this.baseClient.callTypedAPI("POST", `/api/voice/transcribe`, JSON.stringify(params))
+            return await resp.json() as Transcript
+        }
+    }
+}
+
+export namespace domain {
+    export interface Cards {
+        symptoms: SymptomCard[]
+        emergencySigns: string[]
+        clinicianStage: string
+        clinician: ClinicianCard[]
+    }
+
+    export interface CarePath {
+        lane: string
+        route: string
+        profile: string
+        barriers: string[]
+        emergency: boolean
+        destination: {
+            title: string
+            door: string
+            /**
+             * Read aloud or shown at the desk: always Finnish.
+             */
+            scriptFi: string
+
+            /**
+             * The same script in the person's language, so they know what they say.
+             */
+            scriptLocal: string
+
+            note: string
+        }
+        clocks: PathClock[]
+        adaptations: PathAdaptation[]
+        steps: PathStep[]
+        reviewFlags: ReviewFlag[]
+    }
+
+    export interface ClinicianCard {
+        /**
+         * An outcome of the clinician stage; its texts give the card and the next step.
+         */
+        outcome: string
+    }
+
+    export type ClockBasis = "legal" | "recommended" | "open"
+
+    export interface InterruptView {
+        id: string
+        next: string
+    }
+
+    export interface JourneyView {
+        start: string
+        interrupts: InterruptView[]
+        routeFact: RouteFact
+        stages: StageView[]
+    }
+
+    /**
+     * Literal unions written out: the Encore type parser does not support typeof X[number].
+     */
+    export type Lang = "en" | "fi" | "so" | "ar"
+
+    export interface LanguageDef {
+        code: Lang
+        name: string
+        dir: "ltr" | "rtl"
+        /**
+         * Placeholder languages show an "unchecked translation" marker on every screen.
+         */
+        placeholder: boolean
+
+        /**
+         * Communication profile (rules.yaml profiles) used for this language's care path.
+         */
+        profile: string
+    }
+
+    /**
+     * How an outcome changes the journey state besides moving to `next`.
+     * lane: the caller passes a lane (from the chosen symptom card).
+     * route: the caller passes a route (from the chosen route card).
+     * route_if_unknown: the route becomes journey.facts.route.ifUnknownRoute.
+     */
+    export type OutcomeSets = "lane" | "route" | "route_if_unknown"
+
+    export interface OutcomeView {
+        id: string
+        next: string
+        sets: OutcomeSets | null
+        setsLane: string | null
+        records: string | null
+        maxTries: number | null
+        afterMax: string | null
+        /**
+         * Moves one rung up the stage's escalation ladder.
+         */
+        climb: boolean
+
+        review: ReviewKind | null
+    }
+
+    export interface PathAdaptation {
+        code: string
+        name: string
+        how: string
+        right: string | null
+    }
+
+    export interface PathClock {
+        label: string
+        limit: string
+        basis: ClockBasis
+    }
+
+    export interface PathStep {
+        text: string
+        detail: string | null
+        adaptation: string | null
+    }
+
+    export interface ResolvedText {
+        text: string
+        /**
+         * Language the text is actually in (English when the requested one is missing).
+         */
+        lang: Lang
+
+        review: ReviewStatus
+        fallback: boolean
+    }
+
+    export interface ReviewFlag {
+        kind: ReviewKind
+        message: string
+    }
+
+    export type ReviewKind = "clinical" | "legal"
+
+    export type ReviewStatus = "unchecked" | "checked"
+
+    export interface RouteFact {
+        askAt: string
+        questions: number
+        ifUnknownRoute: string
+        ifUnknownReview: ReviewKind | null
+    }
+
+    export interface StageView {
+        id: string
+        outcomes: OutcomeView[]
+        terminal: boolean
+        ladder: number
+        checkIns: string[]
+        overdueNext: string | null
+    }
+
+    export interface SymptomCard {
+        id: string
+        lane: string
+    }
+
+    export interface ValidationIssue {
+        severity: "error" | "warning"
+        path: string
+        message: string
     }
 }
 
@@ -316,6 +1468,11 @@ type CallParameters = Omit<RequestInit, "method" | "body" | "headers"> & {
     query?: Record<string, string | string[]>
 }
 
+// AuthDataGenerator is a function that returns a new instance of the authentication data required by this API
+export type AuthDataGenerator = () =>
+  | admin.AuthParams
+  | Promise<admin.AuthParams | undefined>
+  | undefined;
 
 // A fetcher is the prototype for the inbuilt Fetch function
 export type Fetcher = typeof fetch;
@@ -327,6 +1484,7 @@ class BaseClient {
     readonly fetcher: Fetcher
     readonly headers: Record<string, string>
     readonly requestInit: Omit<RequestInit, "headers"> & { headers?: Record<string, string> }
+    readonly authGenerator?: AuthDataGenerator
 
     constructor(baseURL: string, options: ClientOptions) {
         this.baseURL = baseURL
@@ -346,9 +1504,41 @@ class BaseClient {
         } else {
             this.fetcher = boundFetch
         }
+
+        // Setup an authentication data generator using the auth data token option
+        if (options.auth !== undefined) {
+            const auth = options.auth
+            if (typeof auth === "function") {
+                this.authGenerator = auth
+            } else {
+                this.authGenerator = () => auth
+            }
+        }
     }
 
     async getAuthData(): Promise<CallParameters | undefined> {
+        let authData: admin.AuthParams | undefined;
+
+        // If authorization data generator is present, call it and add the returned data to the request
+        if (this.authGenerator) {
+            const mayBePromise = this.authGenerator();
+            if (mayBePromise instanceof Promise) {
+                authData = await mayBePromise;
+            } else {
+                authData = mayBePromise;
+            }
+        }
+
+        if (authData) {
+            const data: CallParameters = {};
+
+            data.headers = makeRecord<string, string>({
+                authorization: authData.authorization,
+            });
+
+            return data;
+        }
+
         return undefined;
     }
 

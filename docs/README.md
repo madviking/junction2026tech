@@ -46,9 +46,12 @@ header, module READMEs and skill references.
 
 - `architecture.md`: components, data flow, ports and boundaries.
 - `deployment.md`: the self-hosted image, Aiven and where the app runs.
+- `decisions/0003-versioned-content-document.md`: all content in one versioned document; draft, publish, rollback, export.
 - `decisions/0002-encore-ts-on-aiven.md`: Encore.ts, self-hosted, Aiven PostgreSQL, same-region rule.
 - `decisions/0001-backend-runtime.md`: superseded by 0002.
 - `planning/_template.md`: plan + acceptance matrix template.
+- `planning/2026-11-14-first-build.md`: the overnight first-build plan and morning report.
+- `planning/2026-11-14-provider-api-notes.md`: provider API facts (OpenRouter, Gemini, ElevenLabs) read from the docs.
 
 ## Decision records
 

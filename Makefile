@@ -10,7 +10,10 @@ help: ## List targets
 env: ## Create .env from .env.example if missing
 	@test -f .env || (cp .env.example .env && echo "created .env; add the Aiven and provider values")
 
-setup: env ## Install backend and frontend dependencies
+secrets: env ## Write backend/.secrets.local.cue from .env (values never printed)
+	python3 scripts/local_secrets.py
+
+setup: env secrets ## Install dependencies and local secrets
 	cd backend && npm ci
 	cd frontend && npm ci
 
@@ -43,4 +46,4 @@ migrate-aiven: ## Apply pending migrations to Aiven (the image does not migrate)
 run-image: ## Run the image locally against Aiven (:8300), secrets from .env
 	python3 scripts/aiven.py run $(IMAGE)
 
-.PHONY: help env setup dev-backend dev-frontend api test lint ready image migrate-aiven run-image
+.PHONY: help env secrets setup dev-backend dev-frontend api test lint ready image migrate-aiven run-image

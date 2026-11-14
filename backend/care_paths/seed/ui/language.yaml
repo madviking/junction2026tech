@@ -1,0 +1,27 @@
+# UI strings of the language picker (frontend/src/features/language). en + fi required;
+# so / ar are unchecked placeholders.
+ui.language.title:
+  en: "Choose your language"
+  fi: "Valitse kieli"
+  so: "Dooro luqaddaada"
+  ar: "اختر لغتك"
+ui.language.intro:
+  en: "Silta helps you act on a health worry in Finland, in your own language."
+  fi: "Silta auttaa sinua toimimaan terveyshuolen kanssa Suomessa omalla kielelläsi."
+  so: "Silta waxay kaa caawisaa inaad wax ka qabato welwel caafimaad oo Finland ah, luqaddaada."
+  ar: "تساعدك سيلتا على التصرف عند القلق بشأن صحتك في فنلندا، بلغتك."
+ui.language.unchecked:
+  en: "Translation not yet checked"
+  fi: "Käännöstä ei ole vielä tarkistettu"
+  so: "Tarjumaadda weli lama hubin"
+  ar: "الترجمة لم تتم مراجعتها بعد"
+ui.language.emergency_call:
+  en: "Emergency? Call"
+  fi: "Hätätilanne? Soita"
+  so: "Xaalad degdeg ah? Wac"
+  ar: "حالة طارئة؟ اتصل"
+ui.language.empty:
+  en: "No languages are published yet."
+  fi: "Kieliä ei ole vielä julkaistu."
+  so: "Weli luqado lama daabicin."
+  ar: "لم يتم نشر أي لغات بعد."

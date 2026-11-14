@@ -7,6 +7,7 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 import noCrossFeatureImports from './eslint-rules/no-cross-feature-imports.js'
 import noLocalApiContractTypes from './eslint-rules/no-local-api-contract-types.js'
+import noRawStyles from './eslint-rules/no-raw-styles.js'
 
 export default tseslint.config(
   { ignores: ['dist', 'coverage', 'test-results', 'playwright-report', 'src/shared/api/client.ts'] },
@@ -23,6 +24,7 @@ export default tseslint.config(
         rules: {
           'no-cross-feature-imports': noCrossFeatureImports,
           'no-local-api-contract-types': noLocalApiContractTypes,
+          'no-raw-styles': noRawStyles,
         },
       },
     },
@@ -42,6 +44,7 @@ export default tseslint.config(
       // Repo policies (see .codex/skills/frontend-standards/SKILL.md)
       'local/no-cross-feature-imports': 'error',
       'local/no-local-api-contract-types': 'error',
+      'local/no-raw-styles': 'error',
       'no-restricted-imports': [
         'error',
         {

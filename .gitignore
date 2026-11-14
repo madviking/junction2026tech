@@ -29,3 +29,6 @@ infra.config.rendered.json
 tmp/
 scratch/
 *.log
+
+# Encore local secrets (values copied from .env)
+.secrets.local.cue

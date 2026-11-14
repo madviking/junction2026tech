@@ -1,23 +1,18 @@
-import { MantineProvider } from '@mantine/core'
 import { QueryClientProvider } from '@tanstack/react-query'
-import { BrowserRouter, Route, Routes } from 'react-router'
-import { AppLayout } from '@/app/AppLayout'
-import { HealthPage } from '@/features/health/HealthPage'
+import { BrowserRouter } from 'react-router'
+import { AppRoutes } from '@/app/AppRoutes'
 import { queryClient } from '@/shared/api/queryClient'
-import { theme } from '@/shared/ui/theme'
+import { UiProvider } from '@/shared/ui'
 
+// The language feature will own dir/lang; until then the app is English, LTR.
 export function App() {
   return (
-    <MantineProvider theme={theme} defaultColorScheme="auto">
+    <UiProvider dir="ltr" lang="en">
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
-          <Routes>
-            <Route element={<AppLayout />}>
-              <Route index element={<HealthPage />} />
-            </Route>
-          </Routes>
+          <AppRoutes />
         </BrowserRouter>
       </QueryClientProvider>
-    </MantineProvider>
+    </UiProvider>
   )
 }

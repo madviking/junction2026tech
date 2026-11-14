@@ -9,7 +9,14 @@ browser ──> frontend (Vite dev :5300; static build when deployed)
               ▼
             backend (Encore.ts :8300; Docker image when deployed)
               ├── <service>/   endpoint → service.ts → repository.ts
-              ├── llm/         the only provider boundary ──> Gemini
+              ├── care_paths/  content model, journey engine, compose (pure domain)
+              ├── content/     versioned content document (draft, publish, rollback, export)
+              ├── visits/      anonymous visit codes + journey event log, clinician summary
+              ├── regions/     county figures + anonymous counts
+              ├── cards/       free text / transcript → card (llm.decide)
+              ├── voice/       the only ElevenLabs boundary (TTS, STT, audio_blobs)
+              ├── llm/         the only LLM boundary ──> OpenRouter, Gemini
+              ├── admin/       auth handler, sign-in, audit
               └── PostgreSQL "silta" + pgvector
                     local: Encore's own container
                     cloud: Aiven for PostgreSQL, same region as the app
@@ -23,11 +30,19 @@ browser ──> frontend (Vite dev :5300; static build when deployed)
 - **Database.** `backend/db/migrations/<n>_<name>.up.sql`. Encore applies them
   locally and in tests; against Aiven they are applied with golang-migrate
   (`make migrate-aiven`) because the self-hosted image does not migrate.
-- **LLM.** Services ask `llm.complete` for a completion by feature key. The
-  model comes from `backend/llm/integrations.ts`; every attempt writes an
-  `llm_usage` row. Details: `backend/llm/README.md`.
-- **Frontend.** Features under `src/features/<name>/` import only from
-  themselves and `src/shared/`. Composition (routing, shell) lives in `src/app/`.
+- **LLM.** Services ask `llm.complete` (text) or `llm.decide` (closed-set choice with
+  probabilities) by feature key. Provider and model come from
+  `backend/llm/integrations.ts`; every attempt writes an `llm_usage` row with cost.
+  Details: `backend/llm/README.md`.
+- **Content.** One versioned document (`docs/decisions/0003-versioned-content-document.md`);
+  residents only see the published version. All resident text goes through the frontend
+  i18n layer (`frontend/src/shared/i18n`).
+- **Auth.** Admin endpoints use the Encore auth handler in `backend/admin`; resident,
+  clinician and county endpoints are anonymous.
+- **Frontend.** Features under `src/features/<name>/` import other features only through
+  their public `index.ts`, and everything visual from `src/shared/ui` (lint-enforced).
+  Two shells: resident (anonymous, mobile first) and admin (lazy-loaded, signed in).
+  Composition (routing, shells) lives in `src/app/`.
 
 ## Storage
 

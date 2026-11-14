@@ -1,0 +1,56 @@
+/* ColumnBoard and BoardWithAside (admin journey editor). Logical properties only. */
+
+.split {
+  display: flex;
+  flex-direction: column;
+  gap: var(--silta-space-lg);
+  min-width: 0;
+}
+.splitMain { min-width: 0; flex: 1 1 auto; }
+.splitAside { min-width: 0; }
+
+/* Desktop: the aside sits beside the board (inline end); narrower: above it. */
+@media (min-width: 62em) {
+  .split { flex-direction: row-reverse; align-items: flex-start; }
+  .splitAside {
+    flex: 0 0 22rem;
+    position: sticky;
+    inset-block-start: var(--silta-space-md);
+    max-block-size: calc(100vh - 2 * var(--silta-space-md));
+    overflow-y: auto;
+  }
+}
+
+.board {
+  display: flex;
+  gap: var(--silta-space-md);
+  overflow-x: auto;
+  padding-block-end: var(--silta-space-sm);
+  min-width: 0;
+}
+.board:focus-visible { outline: 3px solid var(--silta-color-focus); outline-offset: 2px; }
+
+.column {
+  flex: 0 0 19rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--silta-space-sm);
+  min-width: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  border-radius: var(--silta-radius-lg);
+  outline: 3px solid transparent;
+  outline-offset: 2px;
+  transition: outline-color 150ms ease;
+  scroll-margin: var(--silta-space-lg);
+}
+.item[data-highlighted] { outline-color: var(--silta-color-focus); }
+.item:focus-visible { outline-color: var(--silta-color-focus); }
+
+@media (prefers-reduced-motion: reduce) {
+  .item { transition: none; }
+}

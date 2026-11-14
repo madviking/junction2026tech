@@ -1,0 +1,30 @@
+.content {
+  display: flex;
+  flex-direction: column;
+}
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-block-size: 0;
+}
+.title {
+  font-size: var(--silta-type-heading-size);
+  line-height: var(--silta-type-heading-line-height);
+  font-weight: var(--silta-type-heading-weight);
+}
+.scroll {
+  flex: 1;
+}
+.footer {
+  position: sticky;
+  inset-block-end: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--silta-space-sm);
+  margin-block-start: var(--silta-space-lg);
+  padding-block: var(--silta-space-md);
+  border-block-start: 1px solid var(--silta-color-border-subtle);
+  background: var(--silta-color-surface);
+}

@@ -1,0 +1,11 @@
+# LOCAL TEST ADMINS ONLY. Loaded into admin_users (password hashed with scrypt)
+# the first time the admin service is used. These are throwaway local credentials
+# for the dev database and the browser tests; never use them anywhere else, and
+# replace this mechanism before any deployment.
+users:
+  - email: admin@silta.test
+    name: Local Admin
+    password: "yOPCrGoDa-ONCH0T"
+  - email: reviewer@silta.test
+    name: Local Reviewer
+    password: "oLQtRvKUoS6zSQlG"

@@ -1,0 +1,13 @@
+# Voice UI strings (frontend feature `voice`): listen buttons and the record button.
+# so / ar are unchecked placeholders until a native speaker reviews them.
+ui.voice.play: {en: Listen, fi: Kuuntele, so: Dhagayso, ar: استمع}
+ui.voice.stop: {en: Stop listening, fi: Lopeta kuuntelu, so: Jooji dhegaysiga, ar: أوقف الاستماع}
+ui.voice.loading: {en: Loading audio, fi: Ääntä ladataan, so: Codka waa la soo dejinayaa, ar: جارٍ تحميل الصوت}
+ui.voice.error: {en: "Audio did not work. Tap to try again.", fi: "Ääni ei toiminut. Yritä uudelleen napauttamalla.", so: "Codku ma shaqayn. Taabo si aad mar kale isku daydo.", ar: "لم يعمل الصوت. اضغط للمحاولة مرة أخرى."}
+ui.voice.unchecked: {en: "audio not yet checked by a person", fi: "ääntä ei ole vielä tarkistettu", so: "cod aan weli qof hubin", ar: "صوت لم يراجعه شخص بعد"}
+ui.voice.record: {en: Tap to speak, fi: Puhu napauttamalla, so: Taabo oo hadal, ar: اضغط وتحدث}
+ui.voice.recording: {en: "Recording. Tap to stop.", fi: "Nauhoitetaan. Lopeta napauttamalla.", so: "Waa la duubayaa. Taabo si aad u joojiso.", ar: "جارٍ التسجيل. اضغط للإيقاف."}
+ui.voice.processing: {en: Listening to your answer, fi: Vastaustasi kuunnellaan, so: Jawaabtaada waa la dhegaysanayaa, ar: نستمع إلى إجابتك}
+ui.voice.mic_denied: {en: "Microphone is not allowed. You can choose a card instead.", fi: "Mikrofoni ei ole sallittu. Voit valita kortin sen sijaan.", so: "Makarafoonka lama oggola. Waxaad dooran kartaa kaar.", ar: "الميكروفون غير مسموح. يمكنك اختيار بطاقة بدلًا من ذلك."}
+ui.voice.record_error: {en: "Recording did not work. Try again or choose a card.", fi: "Nauhoitus ei toiminut. Yritä uudelleen tai valitse kortti.", so: "Duubistu ma shaqayn. Mar kale isku day ama dooro kaar.", ar: "لم ينجح التسجيل. حاول مرة أخرى أو اختر بطاقة."}
+ui.voice.no_speech: {en: "We did not hear anything. Try again or choose a card.", fi: "Emme kuulleet mitään. Yritä uudelleen tai valitse kortti.", so: "Waxba ma aanan maqal. Mar kale isku day ama dooro kaar.", ar: "لم نسمع شيئًا. حاول مرة أخرى أو اختر بطاقة."}

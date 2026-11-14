@@ -1,0 +1,45 @@
+# Silta cards: SEED for the content database (see rules.yaml header).
+# English source text; translations live in texts.<lang>.yaml.
+# Symptom cards are general topics the person picks. Each carries the lane from
+# rules.yaml; the lane is content reviewed by a clinician, never set by a model.
+
+symptoms:
+  - {id: lump, lane: U2, card: A new lump or swelling, detail: "For example in the breast, armpit or neck"}
+  - {id: bleeding, lane: U2, card: Bleeding I cannot explain, detail: "Bleeding between periods, after sex, or in urine"}
+  - {id: stool, lane: U2, card: Blood in stool or a change in bowel habits, detail: Lasting more than a few weeks}
+  - {id: cough, lane: U2, card: A cough for over 3 weeks, detail: Especially with weight loss or blood}
+  - {id: after_menopause, lane: U2, card: Bleeding after menopause}
+  - {id: mole, lane: U2, card: A mole or skin spot that changes, detail: "Grows, changes colour or bleeds"}
+  - {id: tired, lane: U3, card: Tiredness that does not pass, detail: For several weeks}
+  - {id: pain, lane: U3, card: Pain that keeps coming back}
+  - {id: appetite, lane: U3, card: Weight loss or poor appetite, detail: "Without trying, over weeks"}
+
+# Shown on the emergency screen. Same for everyone, never computed from input.
+emergency_signs:
+  heavy_bleeding: Heavy bleeding
+  breathless: Severe difficulty breathing
+  weakness: Sudden weakness or numbness
+  confusion: Sudden confusion
+  chest_pain: Chest pain
+
+# Route answer cards: the person picks the sentence that fits them.
+route_cards:
+  A1: I live in Finland and have a home municipality
+  A2: My employer provides health care
+  A3: I am a university or college student
+  A4: I pay myself or have private insurance
+  A5: I am from Ukraine with temporary protection
+  A6: I am an asylum seeker living in a reception centre
+  A7: I do not have a residence permit
+  A8: I am from the EU or a Nordic country and have no home municipality
+
+# Clinician answer cards: outcomes of the visit stage the clinician can tap.
+# The text is the resident's next step that the tap adds to their list.
+clinician:
+  stage: visit
+  cards:
+    referral_sent: A referral was sent. You should hear within 3 weeks. If nothing arrives, Silta helps you ask.
+    tests_ordered: Tests were ordered. Book them as the nurse told you. Results come by letter or in OmaKanta.
+    kit_given: You got a self-sampling kit. Follow the picture guide and send it back within a week.
+    come_back_if: Come back if the symptom does not pass or gets worse. You can contact the health station again any time.
+    nothing_more: No further action is needed now. Come back if anything changes.

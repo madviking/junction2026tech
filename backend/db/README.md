@@ -17,3 +17,10 @@ other service reaches it with `SQLDatabase.named('silta')`.
 | --- | --- | --- |
 | `1_llm_usage` | `llm` | `llm_usage` |
 | `2_init_silta` | `db` | none (`vector` extension) |
+| `3_content_releases` | `content` | `content_releases`, `content_live` |
+| `4_admin` | `admin` | `admin_users`, `admin_sessions`, `audit_log` |
+| `5_voice` | `voice` | `audio_blobs`, `audio_assets`, `voice_usage` |
+| `6_visits` | `visits` | `visits`, `visit_events` |
+| `7_county_figures` | `regions` | `counties`, `county_figures`, `county_languages` |
+| `8_llm_usage_cost_precision` | `llm` | `llm_usage` (`cost_usd` to NUMERIC(16, 10)) |
+| `9_visit_clinician_move` | `visits` | `visit_events` (kind `clinician_move`) |

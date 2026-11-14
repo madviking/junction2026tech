@@ -1,0 +1,323 @@
+# UI strings of the resident journey (frontend/src/features/journey). en + fi required;
+# so / ar are unchecked placeholders. Journey texts themselves (questions, cards,
+# then-texts) are content keys (journey.*, card.*, route.*, rule.*), not ui.*.
+ui.journey.title:
+  en: "Silta"
+  fi: "Silta"
+  so: "Silta"
+  ar: "سيلتا"
+ui.journey.placeholder:
+  en: "This translation has not been checked yet."
+  fi: "Tätä käännöstä ei ole vielä tarkistettu."
+  so: "Tarjumaaddan weli lama hubin."
+  ar: "لم تتم مراجعة هذه الترجمة بعد."
+ui.journey.loading:
+  en: "Loading"
+  fi: "Ladataan"
+  so: "Waa la soo rarayaa"
+  ar: "جارٍ التحميل"
+ui.journey.retry:
+  en: "Try again"
+  fi: "Yritä uudelleen"
+  so: "Isku day mar kale"
+  ar: "حاول مرة أخرى"
+ui.journey.emergency_call:
+  en: "Emergency? Call"
+  fi: "Hätätilanne? Soita"
+  so: "Xaalad degdeg ah? Wac"
+  ar: "حالة طارئة؟ اتصل"
+ui.journey.back:
+  en: "Back"
+  fi: "Takaisin"
+  so: "Dib u noqo"
+  ar: "رجوع"
+
+# Start screen
+ui.journey.start.title:
+  en: "Find the right care"
+  fi: "Löydä oikea hoitopaikka"
+  so: "Hel daryeelka saxda ah"
+  ar: "اعثر على الرعاية المناسبة"
+ui.journey.start.what_1:
+  en: "Silta shows you where to go in Finland if a symptom worries you."
+  fi: "Silta näyttää, minne Suomessa mennä, jos jokin oire huolestuttaa."
+  so: "Silta waxay ku tusinaysaa meesha aad Finland ka aadayso haddii calaamad ku welwelisay."
+  ar: "تُريك سيلتا أين تذهب في فنلندا إذا كان عرَض ما يقلقك."
+ui.journey.start.what_2:
+  en: "It gives you the words to say in Finnish and helps you follow up."
+  fi: "Se antaa sinulle sanat suomeksi ja auttaa seuraamaan asiaa."
+  so: "Waxay ku siinaysaa erayada aad Finnish ku dhahayso waxayna kaa caawinaysaa inaad la socoto."
+  ar: "تعطيك الكلمات التي تقولها بالفنلندية وتساعدك على المتابعة."
+ui.journey.start.privacy_title:
+  en: "No name, no ID"
+  fi: "Ei nimeä, ei henkilötunnusta"
+  so: "Magac la'aan, aqoonsi la'aan"
+  ar: "بلا اسم، بلا هوية"
+ui.journey.start.privacy:
+  en: "You get an anonymous code. Only someone with the code can see your answers."
+  fi: "Saat nimettömän koodin. Vastauksesi näkee vain se, jolla on koodi."
+  so: "Waxaad helaysaa kood qarsoodi ah. Kaliya qofka haysta koodka ayaa arki kara jawaabahaaga."
+  ar: "تحصل على رمز مجهول. فقط من لديه الرمز يمكنه رؤية إجاباتك."
+ui.journey.start.button:
+  en: "Start"
+  fi: "Aloita"
+  so: "Bilow"
+  ar: "ابدأ"
+ui.journey.start.error:
+  en: "Could not start. Please try again."
+  fi: "Aloitus ei onnistunut. Yritä uudelleen."
+  so: "Lama bilaabi karin. Fadlan isku day mar kale."
+  ar: "تعذّر البدء. يرجى المحاولة مرة أخرى."
+ui.journey.start.have_code:
+  en: "I have a code"
+  fi: "Minulla on koodi"
+  so: "Waxaan haystaa kood"
+  ar: "لدي رمز"
+ui.journey.start.code_label:
+  en: "Your code"
+  fi: "Koodisi"
+  so: "Koodkaaga"
+  ar: "رمزك"
+ui.journey.start.code_hint:
+  en: "For example SLT-AB12-CD34"
+  fi: "Esimerkiksi SLT-AB12-CD34"
+  so: "Tusaale ahaan SLT-AB12-CD34"
+  ar: "مثلاً SLT-AB12-CD34"
+ui.journey.start.code_go:
+  en: "Continue"
+  fi: "Jatka"
+  so: "Sii wad"
+  ar: "متابعة"
+ui.journey.start.code_invalid:
+  en: "The code looks like SLT- and two groups of four letters or numbers."
+  fi: "Koodi on muotoa SLT- ja kaksi neljän merkin ryhmää."
+  so: "Koodku wuxuu u eg yahay SLT- iyo laba koox oo afar xaraf ama lambar ah."
+  ar: "يبدو الرمز هكذا: SLT- ثم مجموعتان من أربعة أحرف أو أرقام."
+
+# Journey screen
+ui.journey.your_code:
+  en: "Your code: {code}"
+  fi: "Koodisi: {code}"
+  so: "Koodkaaga: {code}"
+  ar: "رمزك: {code}"
+ui.journey.save_code:
+  en: "Write this code down to come back later."
+  fi: "Kirjoita koodi muistiin, niin voit palata myöhemmin."
+  so: "Qor koodkan si aad dib ugu soo laabato."
+  ar: "اكتب هذا الرمز لتعود لاحقاً."
+ui.journey.error.title:
+  en: "Could not load your visit"
+  fi: "Käyntiäsi ei voitu ladata"
+  so: "Booqashadaada lama soo rarin karin"
+  ar: "تعذّر تحميل زيارتك"
+ui.journey.error.not_found:
+  en: "We could not find this code. Check it, or start again."
+  fi: "Tätä koodia ei löytynyt. Tarkista koodi tai aloita alusta."
+  so: "Koodkan lama helin. Hubi, ama mar kale bilow."
+  ar: "لم نجد هذا الرمز. تحقق منه أو ابدأ من جديد."
+ui.journey.error.back_start:
+  en: "Back to start"
+  fi: "Takaisin alkuun"
+  so: "Ku noqo bilowga"
+  ar: "العودة إلى البداية"
+ui.journey.error.send:
+  en: "Your answer was not saved. Please try again."
+  fi: "Vastaustasi ei tallennettu. Yritä uudelleen."
+  so: "Jawaabtaada lama kaydin. Fadlan isku day mar kale."
+  ar: "لم يتم حفظ إجابتك. يرجى المحاولة مرة أخرى."
+ui.journey.something_changed_hint:
+  en: "If your situation changes, tell us here."
+  fi: "Jos tilanteesi muuttuu, kerro siitä tässä."
+  so: "Haddii xaaladdaadu isbedesho, halkan noogu sheeg."
+  ar: "إذا تغيّر وضعك، أخبرنا هنا."
+
+# Symptom picker
+ui.journey.symptom.title:
+  en: "What worries you?"
+  fi: "Mikä sinua huolestuttaa?"
+  so: "Maxaa ku welwelinaya?"
+  ar: "ما الذي يقلقك؟"
+ui.journey.symptom.hint:
+  en: "Choose one or more cards."
+  fi: "Valitse yksi tai useampi kortti."
+  so: "Dooro hal kaar ama ka badan."
+  ar: "اختر بطاقة واحدة أو أكثر."
+ui.journey.symptom.confirm:
+  en: "Continue"
+  fi: "Jatka"
+  so: "Sii wad"
+  ar: "متابعة"
+ui.journey.symptom.cancel:
+  en: "Back to the question"
+  fi: "Takaisin kysymykseen"
+  so: "Ku noqo su'aasha"
+  ar: "العودة إلى السؤال"
+
+# Free text / voice matching
+ui.journey.match.label:
+  en: "Describe in your own words"
+  fi: "Kerro omin sanoin"
+  so: "Ku sharax erayadaada"
+  ar: "صف بكلماتك الخاصة"
+ui.journey.match.submit:
+  en: "Check"
+  fi: "Tarkista"
+  so: "Hubi"
+  ar: "تحقّق"
+ui.journey.match.readback:
+  en: "Did you mean: {text}?"
+  fi: "Tarkoititko: {text}?"
+  so: "Ma waxaad ula jeeday: {text}?"
+  ar: "هل تقصد: {text}؟"
+ui.journey.match.yes:
+  en: "Yes"
+  fi: "Kyllä"
+  so: "Haa"
+  ar: "نعم"
+ui.journey.match.no:
+  en: "No"
+  fi: "Ei"
+  so: "Maya"
+  ar: "لا"
+ui.journey.match.choose:
+  en: "We are not sure what you meant. Please choose a card."
+  fi: "Emme ole varmoja, mitä tarkoitit. Valitse kortti."
+  so: "Ma hubno waxaad ula jeeday. Fadlan dooro kaar."
+  ar: "لسنا متأكدين مما تقصده. يرجى اختيار بطاقة."
+ui.journey.match.error:
+  en: "That did not work. Please choose a card."
+  fi: "Se ei onnistunut. Valitse kortti."
+  so: "Taasi ma shaqayn. Fadlan dooro kaar."
+  ar: "لم ينجح ذلك. يرجى اختيار بطاقة."
+
+# Route stage
+ui.journey.route.guidance:
+  en: "These questions help you choose:"
+  fi: "Nämä kysymykset auttavat valitsemaan:"
+  so: "Su'aalahan ayaa kaa caawinaya inaad doorato:"
+  ar: "تساعدك هذه الأسئلة على الاختيار:"
+
+# Contact stage (door screen)
+ui.journey.contact.door:
+  en: "Where: {door}"
+  fi: "Paikka: {door}"
+  so: "Halkee: {door}"
+  ar: "المكان: {door}"
+ui.journey.contact.script_title:
+  en: "Say this in Finnish"
+  fi: "Sano tämä suomeksi"
+  so: "Tan ku dheh Finnish"
+  ar: "قل هذا بالفنلندية"
+ui.journey.contact.script_meaning:
+  en: "What it means"
+  fi: "Mitä se tarkoittaa"
+  so: "Waxa ay la macno tahay"
+  ar: "ما معناه"
+ui.journey.contact.play_fi:
+  en: "Play the Finnish phrase"
+  fi: "Toista suomenkielinen lause"
+  so: "Daar weedha Finnishka"
+  ar: "تشغيل العبارة الفنلندية"
+ui.journey.contact.clocks_title:
+  en: "Time limits"
+  fi: "Aikarajat"
+  so: "Xadka waqtiga"
+  ar: "المهل الزمنية"
+ui.journey.contact.what_happened:
+  en: "What happened?"
+  fi: "Mitä tapahtui?"
+  so: "Maxaa dhacay?"
+  ar: "ماذا حدث؟"
+ui.journey.basis.legal:
+  en: "By law"
+  fi: "Laki"
+  so: "Sharci ahaan"
+  ar: "بموجب القانون"
+ui.journey.basis.recommended:
+  en: "Recommended"
+  fi: "Suositus"
+  so: "La taliyay"
+  ar: "موصى به"
+ui.journey.basis.open:
+  en: "Not fixed"
+  fi: "Ei määritelty"
+  so: "Lama go'aamin"
+  ar: "غير محدد"
+
+# Stalled stage
+ui.journey.stalled.ladder_title:
+  en: "Steps if nothing happens"
+  fi: "Askeleet, jos mitään ei tapahdu"
+  so: "Tallaabooyinka haddii aanay waxba dhicin"
+  ar: "الخطوات إذا لم يحدث شيء"
+ui.journey.step.done:
+  en: "Done"
+  fi: "Tehty"
+  so: "La sameeyay"
+  ar: "تم"
+ui.journey.step.current:
+  en: "Now"
+  fi: "Nyt"
+  so: "Hadda"
+  ar: "الآن"
+ui.journey.step.upcoming:
+  en: "Later"
+  fi: "Myöhemmin"
+  so: "Goor dambe"
+  ar: "لاحقاً"
+
+# Emergency stage
+ui.journey.emergency.title:
+  en: "Call 112 now"
+  fi: "Soita heti 112"
+  so: "Hadda wac 112"
+  ar: "اتصل بـ 112 الآن"
+ui.journey.emergency.text:
+  en: "These signs need help right away:"
+  fi: "Nämä merkit vaativat apua heti:"
+  so: "Calaamadahan waxay u baahan yihiin caawimaad degdeg ah:"
+  ar: "هذه العلامات تحتاج إلى مساعدة فورية:"
+ui.journey.emergency.call:
+  en: "Call"
+  fi: "Soita"
+  so: "Wac"
+  ar: "اتصل"
+
+# Visit stage
+ui.journey.visit.card_link:
+  en: "Show your visit card"
+  fi: "Näytä käyntikorttisi"
+  so: "Muuji kaarka booqashadaada"
+  ar: "اعرض بطاقة زيارتك"
+
+# Closed stage
+ui.journey.closed.text:
+  en: "Thank you. You can come back any time with your code."
+  fi: "Kiitos. Voit palata milloin tahansa koodillasi."
+  so: "Mahadsanid. Waxaad soo laaban kartaa wakhti kasta adigoo wata koodkaaga."
+  ar: "شكراً لك. يمكنك العودة في أي وقت باستخدام رمزك."
+ui.journey.visit_date.label:
+  en: "When is your appointment?"
+  fi: "Milloin aikasi on?"
+  so: "Goorma ayuu ballantaadu yahay?"
+  ar: "متى موعدك؟"
+ui.journey.visit_date.hint:
+  en: "Optional. Silta uses it to remind you and to show it on your visit card."
+  fi: "Vapaaehtoinen. Silta muistuttaa sinua ja näyttää päivän käyntikortissasi."
+  so: "Ikhtiyaari. Silta waxay u isticmaashaa inay ku xasuusiso."
+  ar: "اختياري. يستخدمه Silta لتذكيرك وإظهاره على بطاقة الزيارة."
+ui.journey.visit_date.save:
+  en: "Save the date"
+  fi: "Tallenna päivä"
+  so: "Kaydi taariikhda"
+  ar: "احفظ التاريخ"
+ui.journey.visit_date.skip:
+  en: "Continue without a date"
+  fi: "Jatka ilman päivää"
+  so: "Sii wad taariikh la'aan"
+  ar: "تابع بدون تاريخ"
+ui.journey.emergency.back_hint:
+  en: "Tapped this by mistake, or did something change? Go back here."
+  fi: "Painoitko vahingossa, tai muuttuiko jokin? Palaa tästä."
+  so: "Si khalad ah ayaad u riixday, mise wax baa isbedelay? Halkan dib ugu noqo."
+  ar: "هل ضغطت على هذا عن طريق الخطأ، أم تغيّر شيء ما؟ عُد من هنا."

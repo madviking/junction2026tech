@@ -1,0 +1,7 @@
+rule.U0.script: "Emergency. The address is [address]. [Who] is bleeding heavily / cannot breathe. They are awake / not awake."
+rule.U1.script: "I need help today. My symptom: [symptom]. It started [when]."
+rule.U2.script: "I have had [symptom] for [N] weeks. I am worried that it may be serious. I need a doctor's assessment soon."
+rule.U2.A5.script: "I have had [symptom] for [N] weeks. I am worried. I need a doctor's assessment soon."
+rule.U3.script: "I have had [symptom] for [N] weeks and it does not go away. I would like an appointment with a doctor."
+rule.U4.script: "I received a screening letter / a positive result. I want to book a follow-up exam."
+rule.U5.script: "A referral was made for me on [date]. Has it arrived and is it marked urgent? When will I get an appointment?"

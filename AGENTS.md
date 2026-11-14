@@ -18,8 +18,18 @@ to start.
 
 Stack: an Encore.ts backend (`docs/decisions/0002-encore-ts-on-aiven.md`), a
 React + Mantine frontend, and PostgreSQL with pgvector (local through Encore,
-Aiven in the cloud). Demo path: to be written here once the first flow works end
-to end.
+Aiven in the cloud).
+
+Demo path (local, `make dev-backend` + `make dev-frontend`; proven by
+`frontend/e2e/`, plan `docs/planning/2026-11-14-first-build.md`):
+1. `/` pick a language → Start → "I have a symptom" → pick or say "a new lump" (read-back) →
+   route card → the door with the Finnish call script and time limits.
+2. "Nobody answered" twice → stalled → escalation ladder; the emergency button works from any stage.
+3. "I got an appointment" → "My visit is now" → visit card with the anonymous code.
+4. `/clinic/<code>`: Finnish one-screen summary → tap answer cards → the resident's next steps.
+5. `/county/helsinki`: public figures and anonymous counts by stage, outcome and language.
+6. `/admin` (local test users in `backend/admin/seed/admin-users.local.yaml`): edit a text,
+   publish, roll back; audio approve; usage and audit.
 
 Time is the scarcest resource. Prefer the smallest change that makes the demo
 path work end to end over generality. Every rule below exists because skipping it

@@ -1,0 +1,49 @@
+# Labelled inputs for the cards.match classifier eval (eval.live.test.ts).
+# Synthetic, written for this eval; no real person's words.
+# expect: the card id, or `choose` when the input is too vague to pick a card.
+items:
+  # ---- symptoms, English ----
+  - {id: en-01, lang: en, set: symptoms, text: "I found a hard lump in my left breast last week", expect: lump}
+  - {id: en-02, lang: en, set: symptoms, text: "there is a swelling on the side of my neck that does not go away", expect: lump}
+  - {id: en-03, lang: en, set: symptoms, text: "I keep bleeding between my periods and I don't know why", expect: bleeding}
+  - {id: en-04, lang: en, set: symptoms, text: "there was blood in my pee this morning", expect: bleeding}
+  - {id: en-05, lang: en, set: symptoms, text: "I saw blood in the toilet after going to the bathroom", expect: stool}
+  - {id: en-06, lang: en, set: symptoms, text: "my bowels have changed a lot, constipation then diarrhoea for two months", expect: stool}
+  - {id: en-07, lang: en, set: symptoms, text: "I have been coughing for a month and lost some weight", expect: cough}
+  - {id: en-08, lang: en, set: symptoms, text: "my periods stopped years ago but now I am bleeding again", expect: after_menopause}
+  - {id: en-09, lang: en, set: symptoms, text: "a mole on my back got bigger and darker", expect: mole}
+  - {id: en-10, lang: en, set: symptoms, text: "I am exhausted all the time, for weeks now, even after sleeping", expect: tired}
+  - {id: en-11, lang: en, set: symptoms, text: "my stomach hurts again and again, it keeps coming back", expect: pain}
+  - {id: en-12, lang: en, set: symptoms, text: "I am not hungry and my clothes are loose, I lost weight without trying", expect: appetite}
+  - {id: en-13, lang: en, set: symptoms, text: "spot on my arm started bleeding and changed colour", expect: mole}
+  # ---- symptoms, Finnish ----
+  - {id: fi-01, lang: fi, set: symptoms, text: "Löysin rinnasta kovan kyhmyn", expect: lump}
+  - {id: fi-02, lang: fi, set: symptoms, text: "Kainalossa on patti, joka ei ole hävinnyt", expect: lump}
+  - {id: fi-03, lang: fi, set: symptoms, text: "Minulla on vuotoa kuukautisten välillä", expect: bleeding}
+  - {id: fi-04, lang: fi, set: symptoms, text: "Ulosteessa on ollut verta useamman kerran", expect: stool}
+  - {id: fi-05, lang: fi, set: symptoms, text: "Vatsan toiminta on muuttunut, ripulia ja ummetusta vuorotellen jo kuukausia", expect: stool}
+  - {id: fi-06, lang: fi, set: symptoms, text: "Olen yskinyt yli kuukauden enkä parane", expect: cough}
+  - {id: fi-07, lang: fi, set: symptoms, text: "Vaihdevuodet menivät ohi jo kauan sitten, mutta nyt tuli verta", expect: after_menopause}
+  - {id: fi-08, lang: fi, set: symptoms, text: "Selässä oleva luomi on kasvanut ja vuotaa välillä", expect: mole}
+  - {id: fi-09, lang: fi, set: symptoms, text: "Olen koko ajan tosi väsynyt, jo monta viikkoa", expect: tired}
+  - {id: fi-10, lang: fi, set: symptoms, text: "Selkään sattuu yhä uudelleen, kipu palaa aina", expect: pain}
+  - {id: fi-11, lang: fi, set: symptoms, text: "Paino on laskenut kymmenen kiloa vaikka en ole laihduttanut", expect: appetite}
+  # ---- route ----
+  - {id: en-14, lang: en, set: route, text: "I study at the University of Helsinki", expect: A3}
+  - {id: en-15, lang: en, set: route, text: "I came from Ukraine and I have temporary protection", expect: A5}
+  - {id: fi-12, lang: fi, set: route, text: "Työnantaja maksaa työterveyshuollon", expect: A2}
+  - {id: fi-13, lang: fi, set: route, text: "Asun vastaanottokeskuksessa ja olen hakenut turvapaikkaa", expect: A6}
+  - {id: fi-14, lang: fi, set: route, text: "Olen asunut Espoossa kymmenen vuotta, se on kotikuntani", expect: A1}
+  - {id: fi-19, lang: fi, set: route, text: "Maksan käynnit itse, minulla on yksityinen vakuutus", expect: A4}
+  # ---- outcomes ----
+  - {id: en-16, lang: en, set: outcomes, stage: contact, text: "I called three times and nobody picked up", expect: no_answer}
+  - {id: en-17, lang: en, set: outcomes, stage: contact, text: "they gave me a time for next Tuesday", expect: got_time}
+  - {id: fi-15, lang: fi, set: outcomes, stage: contact, text: "Siellä sanottiin, että olen väärässä paikassa", expect: wrong_door}
+  - {id: en-18, lang: en, set: outcomes, stage: visit, text: "the doctor said she will send a referral to the hospital", expect: referral_sent}
+  - {id: fi-16, lang: fi, set: outcomes, stage: followup, text: "Kotiin tuli kirje, jossa on tulokset", expect: result_letter}
+  - {id: en-21, lang: en, set: outcomes, stage: wait, text: "still no news from them, I have not heard anything", expect: nothing_heard}
+  # ---- vague: expected choose ----
+  - {id: en-19, lang: en, set: symptoms, text: "I just don't feel right", expect: choose}
+  - {id: en-20, lang: en, set: symptoms, text: "something is wrong with my body", expect: choose}
+  - {id: fi-17, lang: fi, set: symptoms, text: "En tiedä, jotain outoa", expect: choose}
+  - {id: fi-18, lang: fi, set: symptoms, text: "Minua pelottaa", expect: choose}

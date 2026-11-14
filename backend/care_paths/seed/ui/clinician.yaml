@@ -1,0 +1,37 @@
+# Clinician view (always Finnish; en kept for review). Feature: frontend/src/features/clinician.
+# so / ar are unchecked best-effort placeholders.
+ui.clinician.lookup_title: {en: Open a visit, fi: Avaa käynti, so: Fur booqasho, ar: افتح زيارة}
+ui.clinician.lookup_intro: {en: "Type the patient's visit code (SLT-XXXX-XXXX). Dashes, spaces and letter case do not matter.", fi: "Kirjoita potilaan käyntikoodi (SLT-XXXX-XXXX). Väliviivoilla, välilyönneillä ja kirjainkoolla ei ole väliä.", so: "Qor koodka booqashada bukaanka (SLT-XXXX-XXXX). Xariiqyada, meelaha bannaan iyo xarfaha waaweyn muhiim ma aha.", ar: "اكتب رمز زيارة المريض (SLT-XXXX-XXXX). لا تهم الشرطات والمسافات وحالة الأحرف."}
+ui.clinician.code_field: {en: Visit code, fi: Käyntikoodi, so: Koodka booqashada, ar: رمز الزيارة}
+ui.clinician.open: {en: Open summary, fi: Avaa yhteenveto, so: Fur soo koobida, ar: افتح الملخص}
+ui.clinician.invalid_code: {en: "Check the code: it has 8 characters after SLT.", fi: "Tarkista koodi: SLT-tunnuksen jälkeen on 8 merkkiä.", so: "Hubi koodka: wuxuu leeyahay 8 xaraf SLT kadib.", ar: "تحقق من الرمز: يحتوي على 8 أحرف بعد SLT."}
+ui.clinician.privacy: {en: "No names and no ID numbers: the code is the only identifier.", fi: "Ei nimiä eikä henkilötunnuksia: koodi on ainoa tunniste.", so: "Magacyo iyo lambarro aqoonsi midna ma jiro: koodku waa aqoonsiga kaliya.", ar: "لا أسماء ولا أرقام هوية: الرمز هو المعرّف الوحيد."}
+ui.clinician.title: {en: Patient summary, fi: Potilaan yhteenveto, so: Soo koobida bukaanka, ar: ملخص المريض}
+ui.clinician.back: {en: Another code, fi: Toinen koodi, so: Kood kale, ar: رمز آخر}
+ui.clinician.loading: {en: Loading the summary, fi: Yhteenvetoa ladataan, so: Soo koobida waa la soo rarayaa, ar: جارٍ تحميل الملخص}
+ui.clinician.error_title: {en: The summary could not be loaded, fi: Yhteenvetoa ei voitu ladata, so: Soo koobida lama soo rari karin, ar: تعذر تحميل الملخص}
+ui.clinician.not_found: {en: "The code was not found. It may be mistyped, deleted or older than 90 days.", fi: "Koodia ei löytynyt. Se voi olla kirjoitettu väärin, poistettu tai yli 90 päivää vanha.", so: "Koodka lama helin. Waxaa laga yaabaa in si khaldan loo qoray, la tirtiray ama uu ka weyn yahay 90 maalmood.", ar: "لم يتم العثور على الرمز. ربما كُتب بشكل خاطئ أو حُذف أو مضى عليه أكثر من 90 يومًا."}
+ui.clinician.retry: {en: Try again, fi: Yritä uudelleen, so: Isku day mar kale, ar: حاول مرة أخرى}
+ui.clinician.code: {en: Visit code, fi: Käyntikoodi, so: Koodka booqashada, ar: رمز الزيارة}
+ui.clinician.language: {en: Language, fi: Kieli, so: Luqadda, ar: اللغة}
+ui.clinician.interpreter_needed: {en: "Interpreter needed: {language}", fi: "Tulkki tarvitaan: {language}", so: "Turjubaan ayaa loo baahan yahay: {language}", ar: "مطلوب مترجم: {language}"}
+ui.clinician.interpreter_text: {en: The patient has the right to free interpreting. Book a professional interpreter; do not rely on a family member., fi: Potilaalla on oikeus maksuttomaan tulkkaukseen. Varaa ammattitulkki; älä käytä perheenjäsentä tulkkina., so: Bukaanku wuxuu xaq u leeyahay turjumaad bilaash ah. Ballan u qabso turjubaan xirfad leh; ha isku hallayn qof qoyska ka mid ah., ar: للمريض الحق في ترجمة مجانية. احجز مترجمًا محترفًا؛ لا تعتمد على أحد أفراد العائلة.}
+ui.clinician.no_interpreter: {en: No interpreter needed, fi: Tulkkia ei tarvita, so: Turjubaan looma baahna, ar: لا حاجة إلى مترجم}
+ui.clinician.situation: {en: Situation, fi: Tilanne, so: Xaaladda, ar: الوضع}
+ui.clinician.symptoms: {en: Symptoms, fi: Oireet, so: Calaamadaha, ar: الأعراض}
+ui.clinician.route: {en: Care route and place, fi: Hoitoreitti ja paikka, so: Waddada daryeelka iyo goobta, ar: مسار الرعاية والمكان}
+ui.clinician.visit_date: {en: Visit date, fi: Käyntipäivä, so: Taariikhda booqashada, ar: تاريخ الزيارة}
+ui.clinician.history: {en: What has happened, fi: Mitä on tapahtunut, so: Waxa dhacay, ar: ما حدث}
+ui.clinician.flags: {en: Note, fi: Huomioitavaa, so: Fiiro gaar ah, ar: ملاحظة}
+ui.clinician.none: {en: Not given, fi: Ei tietoa, so: Lama bixin, ar: غير متوفر}
+ui.clinician.answers_title: {en: What was agreed?, fi: Mitä sovittiin?, so: Maxaa lagu heshiiyay?, ar: ما الذي تم الاتفاق عليه؟}
+ui.clinician.answers_help: {en: Choose one or more. The patient sees the next steps in their own language., fi: Valitse yksi tai useampi. Potilas näkee seuraavat askeleet omalla kielellään., so: Dooro hal ama in ka badan. Bukaanku wuxuu arkayaa tallaabooyinka xiga luqaddiisa., ar: اختر واحدًا أو أكثر. يرى المريض الخطوات التالية بلغته.}
+ui.clinician.already_sent: {en: Already sent, fi: Lähetetty jo, so: Horay ayaa loo diray, ar: أُرسل بالفعل}
+ui.clinician.confirm: {en: Send next steps, fi: Lähetä seuraavat askeleet, so: Dir tallaabooyinka xiga, ar: أرسل الخطوات التالية}
+ui.clinician.sent: {en: Next steps sent to the patient, fi: Seuraavat askeleet lähetetty potilaalle, so: Tallaabooyinka xiga waxaa loo diray bukaanka, ar: أُرسلت الخطوات التالية إلى المريض}
+ui.clinician.sent_text: {en: The patient sees them on their visit card in their own language., fi: Potilas näkee ne käyntikortillaan omalla kielellään., so: Bukaanku wuxuu ku arkayaa kaarkiisa booqashada luqaddiisa., ar: يراها المريض على بطاقة زيارته بلغته.}
+ui.clinician.send_failed: {en: Sending did not work, fi: Lähettäminen epäonnistui, so: Dirista ma shaqayn, ar: لم ينجح الإرسال}
+ui.clinician.lang.en: {en: English, fi: englanti, so: Ingiriisi, ar: الإنجليزية}
+ui.clinician.lang.fi: {en: Finnish, fi: suomi, so: Finnish, ar: الفنلندية}
+ui.clinician.lang.so: {en: Somali, fi: somali, so: Soomaali, ar: الصومالية}
+ui.clinician.lang.ar: {en: Arabic, fi: arabia, so: Carabi, ar: العربية}

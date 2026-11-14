@@ -1,0 +1,25 @@
+.label {
+  font-size: var(--silta-type-label-size);
+  font-weight: var(--silta-type-label-weight);
+  line-height: var(--silta-type-label-line-height);
+  color: var(--silta-color-text);
+  margin-block-end: 2px;
+}
+.description {
+  font-size: var(--silta-type-caption-size);
+  line-height: var(--silta-type-caption-line-height);
+  color: var(--silta-color-text-muted);
+}
+.error {
+  font-size: var(--silta-type-caption-size);
+  line-height: var(--silta-type-caption-line-height);
+  color: var(--silta-tone-danger-fg);
+  font-weight: 600;
+}
+.input {
+  font-size: var(--silta-type-body-size);
+  min-block-size: 44px;
+}
+.checkboxBody {
+  align-items: flex-start;
+}

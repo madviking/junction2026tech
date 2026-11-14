@@ -8,7 +8,8 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "encore.dev": "1.58.1"
+    "encore.dev": "1.58.1",
+    "yaml": "2.9.1"
   },
   "devDependencies": {
     "@types/node": "24.7.2",

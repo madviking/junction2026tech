@@ -1,0 +1,108 @@
+/* PageShell (resident, mobile-first) and AdminShell (desktop-first). */
+
+.page {
+  min-block-size: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--silta-color-background);
+}
+.pageHeader {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 100;
+  background: var(--silta-color-surface);
+  border-block-end: 1px solid var(--silta-color-border-subtle);
+}
+.pageHeaderRow,
+.pageEmergency,
+.pageMain,
+.pageActionsInner {
+  inline-size: 100%;
+  max-inline-size: 40rem;
+  margin-inline: auto;
+  padding-inline: var(--silta-space-md);
+}
+.pageHeaderRow {
+  display: flex;
+  align-items: center;
+  gap: var(--silta-space-sm);
+  min-block-size: 64px;
+  padding-block: var(--silta-space-sm);
+}
+.pageTitle {
+  flex: 1;
+  min-inline-size: 0;
+}
+.pageEmergency {
+  padding-block-end: var(--silta-space-sm);
+}
+.pageMain {
+  flex: 1;
+  padding-block: var(--silta-space-md) var(--silta-space-xl);
+}
+.pageActions {
+  position: sticky;
+  inset-block-end: 0;
+  z-index: 100;
+  background: var(--silta-color-surface);
+  border-block-start: 1px solid var(--silta-color-border-subtle);
+  box-shadow: var(--mantine-shadow-md);
+}
+.pageActionsInner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--silta-space-sm);
+  padding-block: var(--silta-space-sm) max(var(--silta-space-sm), env(safe-area-inset-bottom));
+}
+.iconButton {
+  flex: none;
+  inline-size: 48px;
+  block-size: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: var(--silta-radius-full);
+  background: transparent;
+  color: var(--silta-color-text);
+  cursor: pointer;
+}
+.iconButton:hover {
+  background: var(--silta-color-surface-hover);
+}
+/* Arrows point "back" in the reading direction. */
+[dir='rtl'] .mirror {
+  transform: scaleX(-1);
+}
+
+.adminHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--silta-space-sm);
+  block-size: 100%;
+  padding-inline: var(--silta-space-md);
+}
+.burger {
+  inline-size: 44px;
+  block-size: 44px;
+  border-radius: var(--silta-radius-md);
+}
+.adminBrand {
+  flex: 1;
+  min-inline-size: 0;
+}
+.adminNavbar {
+  padding: var(--silta-space-sm);
+  gap: 2px;
+}
+.adminNavLink {
+  border-radius: var(--silta-radius-md);
+  min-block-size: 44px;
+}
+.adminNavLabel {
+  font-size: var(--silta-type-body-size);
+  font-weight: 600;
+}
+.adminMain {
+  background: var(--silta-color-background);
+}

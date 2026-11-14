@@ -1,0 +1,83 @@
+/* Token visualisations for the /design-system gallery. Inline colour/size values come from tokens.ts. */
+
+.paletteRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
+  gap: var(--silta-space-xs);
+}
+.swatch {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 2px;
+  min-block-size: 5rem;
+  padding: var(--silta-space-xs) var(--silta-space-sm);
+  border-radius: var(--silta-radius-sm);
+  border: 1px solid var(--silta-color-border-subtle);
+  font-size: var(--silta-type-caption-size);
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+.swatchName { font-weight: 700; }
+.swatchMeta { font-variant-numeric: tabular-nums; }
+
+.pair {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--silta-space-sm);
+  padding: var(--silta-space-sm) var(--silta-space-md);
+  border-radius: var(--silta-radius-sm);
+  border: 1px solid var(--silta-color-border-subtle);
+  font-size: var(--silta-type-caption-size);
+}
+.pairSample { font-weight: 600; min-inline-size: 0; overflow-wrap: anywhere; }
+.pairRatio {
+  flex: none;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  padding-inline: var(--silta-space-xs);
+  border-radius: var(--silta-radius-xs);
+  background: var(--silta-color-surface);
+  color: var(--silta-color-text);
+}
+
+.scaleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--silta-space-md);
+}
+.scaleName {
+  inline-size: 4.5rem;
+  flex: none;
+  font-size: var(--silta-type-caption-size);
+  font-variant-numeric: tabular-nums;
+}
+.spaceBar {
+  block-size: 1rem;
+  background: var(--silta-color-primary);
+  border-radius: 2px;
+  min-inline-size: 1px;
+}
+.radiusBox {
+  inline-size: 4rem;
+  block-size: 3rem;
+  background: var(--silta-color-surface-selected);
+  border: 2px solid var(--silta-color-primary);
+}
+.shadowBox {
+  inline-size: 6rem;
+  block-size: 3rem;
+  background: var(--silta-color-surface);
+  border-radius: var(--silta-radius-md);
+}
+
+.frame {
+  block-size: 34rem;
+  overflow: auto;
+  border: 1px solid var(--silta-color-border);
+  border-radius: var(--silta-radius-lg);
+  background: var(--silta-color-background);
+  max-inline-size: 26rem;
+  inline-size: 100%;
+}

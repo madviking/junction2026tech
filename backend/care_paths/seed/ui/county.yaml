@@ -1,0 +1,37 @@
+# County screen (staff, English content). Feature: frontend/src/features/county.
+# so / ar are unchecked best-effort placeholders.
+ui.county.title: {en: County view, fi: Hyvinvointialueen näkymä, so: Muuqaalka gobolka, ar: عرض المقاطعة}
+ui.county.loading: {en: Loading the county view, fi: Näkymää ladataan, so: Muuqaalka waa la soo rarayaa, ar: جارٍ تحميل عرض المقاطعة}
+ui.county.error_title: {en: The county view could not be loaded, fi: Näkymää ei voitu ladata, so: Muuqaalka lama soo rari karin, ar: تعذر تحميل عرض المقاطعة}
+ui.county.retry: {en: Try again, fi: Yritä uudelleen, so: Isku day mar kale, ar: حاول مرة أخرى}
+ui.county.refresh: {en: Refresh, fi: Päivitä, so: Cusbooneysii, ar: تحديث}
+ui.county.generated: {en: "Updated {time}; refreshes every 15 seconds", fi: "Päivitetty {time}; päivittyy 15 sekunnin välein", so: "La cusbooneysiiyay {time}; wuxuu is cusbooneysiiyaa 15 ilbiriqsi kasta", ar: "تم التحديث {time}؛ يتجدد كل 15 ثانية"}
+ui.county.privacy: {en: "Counts are anonymous. They contain no visit codes, no times and no personal data.", fi: "Luvut ovat anonyymejä. Niissä ei ole käyntikoodeja, aikoja eikä henkilötietoja.", so: "Tirooyinku waa qarsoodi. Kuma jiraan koodh booqasho, waqtiyo iyo xog shakhsi ah.", ar: "الأعداد مجهولة الهوية. لا تحتوي على رموز زيارة ولا أوقات ولا بيانات شخصية."}
+ui.county.figures: {en: Public figures, fi: Julkiset tilastot, so: Tirooyinka dadweynaha, ar: الأرقام العامة}
+ui.county.source: {en: "Source: {source}", fi: "Lähde: {source}", so: "Isha: {source}", ar: "المصدر: {source}"}
+ui.county.latest_year: {en: Latest year, fi: Viimeisin vuosi, so: Sannadkii ugu dambeeyay, ar: آخر سنة}
+ui.county.unit.people: {en: people, fi: henkeä, so: qof, ar: شخص}
+ui.county.languages: {en: Largest foreign languages, fi: Suurimmat vieraat kielet, so: Luqadaha shisheeye ee ugu waaweyn, ar: أكبر اللغات الأجنبية}
+ui.county.counts: {en: Silta journeys, fi: Silta-polut, so: Safarada Silta, ar: رحلات Silta}
+ui.county.total: {en: Journeys in total, fi: Polkuja yhteensä, so: Wadarta safarada, ar: إجمالي الرحلات}
+ui.county.by_stage: {en: "Where people are now, by language", fi: "Missä vaiheessa ihmiset ovat nyt, kielittäin", so: "Halka dadku hadda joogaan, luqad ahaan", ar: أين يقف الناس الآن، حسب اللغة}
+ui.county.by_outcome: {en: "What happened, by language", fi: "Mitä tapahtui, kielittäin", so: "Waxa dhacay, luqad ahaan", ar: ما حدث، حسب اللغة}
+ui.county.col_language: {en: Language, fi: Kieli, so: Luqadda, ar: اللغة}
+ui.county.col_stage: {en: Stage, fi: Vaihe, so: Heerka, ar: المرحلة}
+ui.county.col_outcome: {en: Outcome, fi: Tulos, so: Natiijada, ar: النتيجة}
+ui.county.col_count: {en: Count, fi: Määrä, so: Tirada, ar: العدد}
+ui.county.no_counts: {en: No journeys yet, fi: Ei vielä polkuja, so: Weli safar ma jiro, ar: لا توجد رحلات بعد}
+ui.county.no_counts_detail: {en: Counts appear here when residents use Silta in this county., fi: "Luvut näkyvät tässä, kun asukkaat käyttävät Siltaa tällä alueella.", so: Tirooyinku halkan ayay ka muuqdaan marka dadku Silta ka isticmaalaan gobolkan., ar: تظهر الأعداد هنا عندما يستخدم السكان Silta في هذه المقاطعة.}
+ui.county.stage.describe: {en: Describing the situation, fi: Tilanteen kuvaus, so: Sharaxaadda xaaladda, ar: وصف الحالة}
+ui.county.stage.route: {en: Finding the door, fi: Oikean paikan etsiminen, so: Helitaanka albaabka, ar: إيجاد الباب}
+ui.county.stage.contact: {en: Contacting care, fi: Yhteydenotto, so: La xiriirka daryeelka, ar: التواصل مع الرعاية}
+ui.county.stage.wait: {en: Waiting for the visit, fi: Käynnin odotus, so: Sugitaanka booqashada, ar: انتظار الزيارة}
+ui.county.stage.visit: {en: At the visit, fi: Käynnillä, so: Booqashada, ar: في الزيارة}
+ui.county.stage.followup: {en: Follow-up, fi: Seuranta, so: Dabagal, ar: المتابعة}
+ui.county.stage.stalled: {en: Stalled, fi: Jumissa, so: Istaagay, ar: متوقف}
+ui.county.stage.emergency: {en: Emergency, fi: Hätätilanne, so: Xaalad degdeg ah, ar: حالة طارئة}
+ui.county.stage.closed: {en: Closed, fi: Päättynyt, so: Xiran, ar: مغلق}
+ui.county.lang.en: {en: English, fi: englanti, so: Ingiriisi, ar: الإنجليزية}
+ui.county.lang.fi: {en: Finnish, fi: suomi, so: Finnish, ar: الفنلندية}
+ui.county.lang.so: {en: Somali, fi: somali, so: Soomaali, ar: الصومالية}
+ui.county.lang.ar: {en: Arabic, fi: arabia, so: Carabi, ar: العربية}

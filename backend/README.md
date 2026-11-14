@@ -21,8 +21,17 @@ encore.app             app config, CORS origins
 infra.config.json      self-hosting config for the Docker image (Aiven)
 db/                    SQLDatabase "silta" + migrations, shared by all services
 health/                reference service: GET /api/health
-llm/                   the only LLM provider boundary (Gemini) + llm_usage
-voice/ content/ flows/ cards/ regions/ visits/ admin/    skeletons
+care_paths/            content model, journey engine, care-path composition (+ seed files)
+content/               versioned content document: live bundle, drafts, publish, rollback, export
+visits/                anonymous visit codes, journey event log, clinician summary, next steps
+regions/               county figures (Helsinki) + anonymous counts
+cards/                 free text / transcript -> card (llm.decide), with guard rails
+voice/                 ElevenLabs text-to-speech and speech-to-text, audio storage
+llm/                   the only LLM provider boundary (OpenRouter, Gemini) + llm_usage
+admin/                 auth handler, admin sign-in, audit log
+lib/                   plain shared helpers (requireAdmin)
+flows/                 skeleton (superseded by the journey in care_paths; kept empty)
+app/, tests/           the original Python care_paths module, superseded by care_paths/
 ```
 
 A service is a folder with `encore.service.ts`:
@@ -40,14 +49,19 @@ Service-to-service calls go through `~encore/clients`.
 
 ## Secrets
 
-```bash
-encore secret set --type local,dev GeminiApiKey
-encore secret set --type local,dev ElevenLabsApiKey
+The app is not linked to the Encore Platform, so `encore secret set` does not work.
+Local secrets live in `backend/.secrets.local.cue` (gitignored), generated from `.env`
+without printing values:
+
+```text
+GeminiApiKey: "..."        # from GEMINI_API_KEY
+OpenRouterApiKey: "..."    # from OPEN_ROUTER_API_KEY
+ElevenLabsApiKey: "..."    # from ELEVEN_LABS_API_KEY
 ```
 
-You type the value; never print, log or commit it. In the self-hosted image they
-come from environment variables mapped in `infra.config.json` (`GEMINI_API_KEY`;
-add a mapping there when a service declares a new secret).
+Never print, log or commit them. In the self-hosted image they
+come from environment variables mapped in `infra.config.json` (`GEMINI_API_KEY`,
+`OPEN_ROUTER_API_KEY`, `ELEVEN_LABS_API_KEY`; add a mapping there when a service declares a new secret).
 
 ## Checks
 

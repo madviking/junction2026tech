@@ -25,11 +25,16 @@ Read `backend/llm/README.md` first.
   model comparisons. ≤ 2 €: go, then report actual token use from `llm_usage`.
   > 2 €: ask first with the estimate.
 
-## Provider
+## Providers
 
-Gemini only, through `backend/llm/gemini.ts` and the `GeminiApiKey` secret.
-Another provider is a second file beside it plus a `provider` field on the
-integration; do not add it before a feature needs it.
+OpenRouter (default) and Gemini direct, each an adapter in `backend/llm/`
+(`openrouter.ts`, `gemini.ts`) plus `fake.ts`. Each integration in `integrations.ts`
+names its `provider` and `kind` (`complete` or `decide`); switching a feature to Gemini
+direct is a one-line change. Closed-set choices (free text → one of our cards) use
+`llm.decide` with Gemini Decision 1 (probabilities, no generated text); options always
+come from published content, never from the model. `providers.config.ts` can force the
+fake adapter and caps automatic spend. Provider API facts:
+`docs/planning/2026-11-14-provider-api-notes.md`.
 
 ## Adding an LLM feature
 

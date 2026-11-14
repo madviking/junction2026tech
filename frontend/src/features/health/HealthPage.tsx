@@ -1,66 +1,47 @@
-import { Alert, Badge, Button, Card, Group, Loader, Stack, Table, Text, Title } from '@mantine/core'
-import { IconAlertTriangle } from '@tabler/icons-react'
 import { useHealth } from '@/features/health/useHealth'
+import { Divider, ErrorState, LoadingState, PageShell, Row, Section, Stack, StatusBadge, SurfaceCard, Text } from '@/shared/ui'
 
-const STATE_COLOR = { ok: 'teal', degraded: 'yellow', unavailable: 'red' } as const
+const STATE_TONE = { ok: 'success', degraded: 'warning', unavailable: 'danger' } as const
 
 export function HealthPage() {
   const health = useHealth()
 
   return (
-    <Card withBorder radius="md" maw={640}>
-      <Stack gap="md">
-        <div>
-          <Text size="xs" fw={700} tt="uppercase" c="dimmed">
-            System
-          </Text>
-          <Group justify="space-between">
-            <Title order={4}>Service health</Title>
-            {health.data && (
-              <Badge color={STATE_COLOR[health.data.status]}>{health.data.status}</Badge>
-            )}
-          </Group>
-          <Text size="sm" c="dimmed">
-            Backend and data services as seen by the API.
-          </Text>
-        </div>
+    <PageShell title="System">
+      <SurfaceCard>
+        <Section
+          eyebrow="System"
+          title="Service health"
+          level={3}
+          description="Backend and data services as seen by the API."
+          aside={health.data && <StatusBadge tone={STATE_TONE[health.data.status]}>{health.data.status}</StatusBadge>}
+        >
+          {health.isPending && <LoadingState label="Loading health status" />}
 
-        {health.isPending && <Loader size="sm" aria-label="Loading health status" />}
+          {health.isError && (
+            <ErrorState
+              title="Backend unreachable"
+              message={`${health.error.message}. Is the backend running on port 8300?`}
+              onRetry={() => health.refetch()}
+              retrying={health.isRefetching}
+            />
+          )}
 
-        {health.isError && (
-          <Alert color="red" icon={<IconAlertTriangle size={16} />} title="Backend unreachable">
-            <Stack gap="xs" align="flex-start">
-              <Text size="sm">{health.error.message}. Is the backend running on port 8300?</Text>
-              <Button size="xs" variant="light" onClick={() => health.refetch()}>
-                Retry
-              </Button>
-            </Stack>
-          </Alert>
-        )}
-
-        {health.data && (
-          <Table withTableBorder withRowBorders highlightOnHover>
-            <Table.Thead>
-              <Table.Tr>
-                <Table.Th>Dependency</Table.Th>
-                <Table.Th>State</Table.Th>
-              </Table.Tr>
-            </Table.Thead>
-            <Table.Tbody>
-              {health.data.checks.map((check) => (
-                <Table.Tr key={check.name}>
-                  <Table.Td>{check.name}</Table.Td>
-                  <Table.Td>
-                    <Badge variant="light" color={STATE_COLOR[check.state]}>
-                      {check.state}
-                    </Badge>
-                  </Table.Td>
-                </Table.Tr>
+          {health.data && (
+            <Stack gap="sm">
+              {health.data.checks.map((check, index) => (
+                <Stack key={check.name} gap="sm">
+                  {index > 0 && <Divider />}
+                  <Row justify="between">
+                    <Text variant="label">{check.name}</Text>
+                    <StatusBadge tone={STATE_TONE[check.state]}>{check.state}</StatusBadge>
+                  </Row>
+                </Stack>
               ))}
-            </Table.Tbody>
-          </Table>
-        )}
-      </Stack>
-    </Card>
+            </Stack>
+          )}
+        </Section>
+      </SurfaceCard>
+    </PageShell>
   )
 }

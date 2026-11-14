@@ -1,0 +1,42 @@
+/*
+ * App-wide rules that sit on top of Mantine (Mantine's CSS is loaded in its own
+ * cascade layer, so these unlayered rules win). Tokens come from `--silta-*`
+ * variables emitted by theme.ts. Use logical properties only (RTL).
+ */
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--silta-color-background);
+  color: var(--silta-color-text);
+  overflow-x: hidden;
+}
+
+/* One visible keyboard focus ring for every interactive element. Never remove it. */
+:focus-visible,
+.mantine-focus-auto:focus-visible,
+.mantine-focus-always:focus {
+  outline: 3px solid var(--silta-color-focus);
+  outline-offset: 2px;
+}
+
+/* Control boundaries need 3:1 against the surface (WCAG 1.4.11). */
+.mantine-Input-input:not([data-error]) {
+  --input-bd: var(--silta-color-border);
+}
+
+.mantine-Checkbox-input:not(:checked) {
+  border-color: var(--silta-color-border);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
