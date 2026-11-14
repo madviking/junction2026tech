@@ -8,3 +8,4 @@ export { DataTable, type DataTableColumn, type DataTableProps } from '@/shared/u
 export { Tabs, type TabItem, type TabsProps } from '@/shared/ui/data/Tabs'
 export { Toolbar, type ToolbarProps } from '@/shared/ui/data/Toolbar'
 export { SideDrawer, type SideDrawerProps } from '@/shared/ui/overlays/SideDrawer'
+export { IconButton, type IconButtonProps } from '@/shared/ui/actions/IconButton'

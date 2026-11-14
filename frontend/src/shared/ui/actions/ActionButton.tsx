@@ -18,6 +18,8 @@ export interface ActionButtonProps {
   type?: 'button' | 'submit'
   /** Renders a link (`tel:`, external URL) instead of a button. */
   href?: string
+  /** With `href`: open in a new tab, and keep the click from reaching a clickable parent (a table row). */
+  external?: boolean
   /** Accessible name when the visible label is not enough. */
   ariaLabel?: string
   onPress?: () => void
@@ -38,6 +40,7 @@ export function ActionButton({
   compact,
   type = 'button',
   href,
+  external,
   ariaLabel,
   onPress,
   children,
@@ -57,6 +60,25 @@ export function ActionButton({
     onClick: onPress,
   } as const
 
+  if (href && external) {
+    const stop = (event: { stopPropagation: () => void }) => event.stopPropagation()
+    return (
+      <Button
+        component="a"
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        {...shared}
+        onClick={(event: { stopPropagation: () => void }) => {
+          stop(event)
+          onPress?.()
+        }}
+        onKeyDown={stop}
+      >
+        {children}
+      </Button>
+    )
+  }
   if (href) {
     return (
       <Button component="a" href={href} {...shared}>

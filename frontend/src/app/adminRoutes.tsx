@@ -1,4 +1,4 @@
-import { IconChartBar, IconFileText, IconHistory, IconLayoutDashboard, IconRoute, IconVolume } from '@tabler/icons-react'
+import { IconChartBar, IconFileText, IconHistory, IconLayoutDashboard, IconMapPin, IconRoute, IconVolume } from '@tabler/icons-react'
 import { lazy } from 'react'
 import { JOURNEY_EDITOR } from '@/app/features'
 import type { AdminRoute, AppRoute } from '@/app/routeTypes'
@@ -13,6 +13,8 @@ const VersionsPage = lazy(() => import('@/features/admin-content').then((m) => (
 const AudioPage = lazy(() => import('@/features/admin-audio').then((m) => ({ default: m.AudioPage })))
 const JourneyEditorPage = lazy(() => import('@/features/admin-journey').then((m) => ({ default: m.JourneyEditorPage })))
 const UsagePage = lazy(() => import('@/features/admin-usage').then((m) => ({ default: m.UsagePage })))
+const ServicePathsPage = lazy(() => import('@/features/admin-service-paths').then((m) => ({ default: m.ServicePathsPage })))
+const ServicePathAreaPage = lazy(() => import('@/features/admin-service-paths').then((m) => ({ default: m.AreaPage })))
 
 /** Admin pages without a session, outside the AdminShell (relative to /admin). */
 export const adminPublicRoutes: AppRoute[] = [{ path: 'sign-in', element: <SignInPage /> }]
@@ -23,6 +25,8 @@ export const adminRoutes: AdminRoute[] = [
   { path: 'content', element: <ContentPage />, nav: { label: 'Content', icon: <IconFileText size={20} /> } },
   { path: 'versions', element: <VersionsPage />, nav: { label: 'Versions', icon: <IconHistory size={20} /> } },
   ...(JOURNEY_EDITOR ? [{ path: 'journey', element: <JourneyEditorPage />, nav: { label: 'Journey', icon: <IconRoute size={20} /> } }] : []),
+  { path: 'service-paths', element: <ServicePathsPage />, nav: { label: 'Service paths', icon: <IconMapPin size={20} /> } },
+  { path: 'service-paths/:id', element: <ServicePathAreaPage /> },
   { path: 'audio', element: <AudioPage />, nav: { label: 'Audio', icon: <IconVolume size={20} /> } },
   { path: 'usage', element: <UsagePage />, nav: { label: 'Usage and audit', icon: <IconChartBar size={20} /> } },
 ]

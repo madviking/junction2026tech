@@ -11,7 +11,6 @@ import { editErrorMessage } from '@/features/admin-journey/lib/errors'
 import { useHighlight } from '@/features/admin-journey/state/useHighlight'
 import type { JourneyEdit, PendingRemoval } from '@/features/admin-journey/types'
 import { ActionButton, Banner, EmptyState, ErrorState, LoadingState, Row, Section, Stack, StatusBadge } from '@/shared/ui'
-import { BoardWithAside } from '@/shared/ui/extra/ColumnBoard'
 
 /** `/admin/journey` (behind VITE_FEATURE_JOURNEY_EDITOR): the draft's journey as a graph with structural edits and validation. */
 export function JourneyEditorPage() {
@@ -78,31 +77,29 @@ export function JourneyEditorPage() {
 
       {errors > 0 && (
         <Banner tone="warning" title={`The draft has ${errors} ${errors === 1 ? 'error' : 'errors'}`}>
-          Publishing is refused until every error is fixed. The list shows what and where.
+          Publishing is refused until every error is fixed. The list below shows what and where.
         </Banner>
       )}
 
-      <BoardWithAside asideLabel="Validation and review flags" aside={<IssuesPanel issues={data.issues} reviewFlags={data.reviewFlags} onShowStage={setHighlighted} />}>
-        <Stack gap="lg">
-          <JourneyGraphView
-            graph={data}
-            highlightedStage={highlighted}
-            pending={pending}
-            removing={removeWrite.isPending}
-            removeError={removeWrite.error ? editErrorMessage(removeWrite.error) : null}
-            onFollow={setHighlighted}
-            onAddOutcome={(stage) => setEdit({ kind: 'add-outcome', stage })}
-            onChangeNext={(stage, outcomeId) => {
-              const outcome = data.stages.find((s) => s.id === stage)?.outcomes.find((o) => o.id === outcomeId)
-              if (outcome) setEdit({ kind: 'set-next', stage, outcome })
-            }}
-            onAskRemove={askRemove}
-            onConfirmRemove={confirmRemove}
-            onCancelRemove={() => setPending(null)}
-          />
-          <InterruptsList interrupts={data.interrupts} onFollow={setHighlighted} />
-        </Stack>
-      </BoardWithAside>
+      <IssuesPanel issues={data.issues} reviewFlags={data.reviewFlags} onShowStage={setHighlighted} />
+
+      <JourneyGraphView
+        graph={data}
+        highlightedStage={highlighted}
+        pending={pending}
+        removing={removeWrite.isPending}
+        removeError={removeWrite.error ? editErrorMessage(removeWrite.error) : null}
+        onFollow={setHighlighted}
+        onAddOutcome={(stage) => setEdit({ kind: 'add-outcome', stage })}
+        onChangeNext={(stage, outcomeId) => {
+          const outcome = data.stages.find((s) => s.id === stage)?.outcomes.find((o) => o.id === outcomeId)
+          if (outcome) setEdit({ kind: 'set-next', stage, outcome })
+        }}
+        onAskRemove={askRemove}
+        onConfirmRemove={confirmRemove}
+        onCancelRemove={() => setPending(null)}
+      />
+      <InterruptsList interrupts={data.interrupts} onFollow={setHighlighted} />
 
       <JourneyEditDrawer
         edit={edit}

@@ -55,6 +55,20 @@ export function layoutColumns(graph: JourneyGraph): GraphColumn[] {
   return columns
 }
 
+/** A link into a stage: an outcome of another stage, or an interrupt. */
+export type IncomingLink = { kind: 'outcome'; stage: string; id: string } | { kind: 'interrupt'; id: string }
+
+/** For each stage, what leads to it: outcomes of other stages (document order), then interrupts. Self-links are left out. */
+export function incomingLinks(graph: JourneyGraph): Map<string, IncomingLink[]> {
+  const incoming = new Map<string, IncomingLink[]>()
+  const add = (target: string, link: IncomingLink) => incoming.set(target, [...(incoming.get(target) ?? []), link])
+  for (const stage of graph.stages) {
+    for (const o of stage.outcomes) if (o.next !== stage.id) add(o.next, { kind: 'outcome', stage: stage.id, id: o.id })
+  }
+  for (const i of graph.interrupts) add(i.next, { kind: 'interrupt', id: i.id })
+  return incoming
+}
+
 /** Validation issues about one stage or anything inside it (its outcomes). */
 export function stageIssues(issues: ValidationIssue[], stageId: string): ValidationIssue[] {
   const base = `journey.stages.${stageId}`

@@ -5,9 +5,11 @@ structural edits, and the same validation publish runs, with the clinical/legal 
 flags beside it. Backend: `backend/content/README.md` ("Journey editor",
 `api.content.journey*`).
 
-## Feature flag (off by default)
+## Feature flag (off by default, on in local dev)
 
-Two flags, both must be on:
+Two flags, both must be on. `make dev-backend` / `make dev-frontend` and the
+`.claude/launch.json` preview servers turn both on locally (override with `=false`);
+builds and deployments leave them off unless set.
 
 - Frontend `VITE_FEATURE_JOURNEY_EDITOR=true` (read in `src/app/features.ts` at build or
   dev-server start). Off: no `/admin/journey` route and no "Journey" nav entry; the page
@@ -26,15 +28,20 @@ There is no `frontend/.env.example`; set the variable in the shell, e.g.
 - Header: draft or live (no draft yet), "Based on version N", **Add stage**, **Draft and
   publish** (goes to `/admin/content`, where publishing happens). A warning banner when the
   draft has errors: publishing is refused until they are fixed.
-- Graph (`ColumnBoard` from `@/shared/ui/extra/ColumnBoard`, horizontal scroll): columns
-  by distance from the start stage (breadth-first over outcome `next`), then the stages
-  reached only through an interrupt, then "Not reachable". Each stage is a card with its
-  question, badges (start, terminal, not reachable, error count) and its outcomes as
-  "card text / id → target"; the target button scrolls to that stage, focuses and outlines
-  it. A `next` that names no stage shows "missing stage <id>" plus the validation message.
+- Validation strip above the graph (full width): error and warning counts, the issues
+  (errors red, warnings amber, "Show" jumps to the stage), and review-flag counts by kind
+  (clinical, legal). The review-flag list is folded until "Show review flags"; flags inside
+  the journey have "Show" to jump to their stage.
+- Graph (`ColumnBoard` from `@/shared/ui/extra/ColumnBoard`, full width, horizontal
+  scroll): columns by distance from the start stage (breadth-first over outcome `next`),
+  then the stages reached only through an interrupt, then "Not reachable". Each stage is a
+  card with its question, badges (start, terminal, not reachable, error count), a remove
+  icon in the header, "From …" (the stages and interrupts that lead to it, each a link
+  back; "Nothing leads here." when none) and its outcomes as "card text / id → target"
+  with change-target and remove icons (`IconButton`) beside the card text. The target button
+  scrolls to that stage, focuses and outlines it. A `next` that names no stage shows
+  "missing stage <id>" plus the validation message. Terminal stages have no "Add outcome".
 - Interrupts are listed under the graph.
-- Beside the graph (above it under 62em): validation issues (errors red, warnings amber,
-  "Show" jumps to the stage) and review flags.
 - Edits open a `SideDrawer`: add stage (id, terminal, question en + fi), add outcome (id,
   card en + fi, leads to = a stage or "another id (not a stage yet)"), change where an
   outcome leads. Other languages are added in the content editor. Removing a stage or an

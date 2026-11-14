@@ -151,7 +151,7 @@ Route `/admin/service-paths` (feature `frontend/src/features/admin-service-paths
 | --- | --- | --- |
 | Research captures | done (Claude research agents) | brain `sources/2026-11-14-*service-paths*` |
 | Schema + service + seed | done (Claude, 2026-11-14) | `backend/db/migrations/10_service_paths.up.sql`, `backend/service_paths/` |
-| Admin module | tbd | `frontend/src/features/admin-service-paths/`, `frontend/src/app/adminRoutes.tsx` |
+| Admin module | done (Claude, 2026-11-14) | `frontend/src/features/admin-service-paths/`, `frontend/src/app/adminRoutes.tsx` |
 | Resident door + county panel | later | `care_paths/domain/compose.ts`, `features/journey`, `features/county` |
 
 ## Acceptance matrix
@@ -161,8 +161,8 @@ Route `/admin/service-paths` (feature `frontend/src/features/admin-service-paths
 | 1 | Data model for service paths | migration 10, `service_paths/` | `encore test service_paths/` | 24 tests pass (2026-11-14) | done |
 | 2 | Five areas mapped from public sources | brain sources + `seed/areas/*.yaml` | `seed_files.test.ts` | 5 areas valid, 0 errors | done |
 | 3 | Waits and contacts per area with sources | `sp_points`, `sp_metrics`, `sp_sources` | public rows have source + verified_on | `service_paths.test.ts` | done |
-| 4 | Own admin module | backend admin endpoints done; UI `/admin/service-paths` next | anonymous rejected, publish rules | backend only | in progress |
-| 5 | Comparison for project reporting | `GET /api/service-paths/compare`; admin tab next | `compare.test.ts`, endpoint test | 6411, FIT gap, missing LUVN 3336 | backend done |
+| 4 | Own admin module | `/admin/service-paths`, `/admin/service-paths/:id` (`features/admin-service-paths`) | `ServicePaths.test.tsx` (6), backend admin tests | unit + build; running app checked 2026-11-14 (areas, compare, area page, door editor; no console errors) | done |
+| 5 | Comparison for project reporting | `GET /api/service-paths/compare` + admin Compare tab | `compare.test.ts`, endpoint test, page test | 6411, FIT gap, missing LUVN 3336; seen in the running app | done |
 | 6 | Area never changes lane or clocks | national stages in code | same stages for all areas (test) | compose-level test comes with the resident slice | partly |
 
 ## Verification

@@ -199,3 +199,11 @@
   direction: ltr;
   unicode-bidi: isolate;
 }
+
+/* ---- IconButton (admin, wraps Mantine ActionIcon) ---- */
+.iconButton {
+  inline-size: 40px;
+  block-size: 40px;
+  min-inline-size: 40px;
+  min-block-size: 40px;
+}

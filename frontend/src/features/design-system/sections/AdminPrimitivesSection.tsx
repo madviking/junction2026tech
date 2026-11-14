@@ -1,4 +1,4 @@
-import { IconFilter, IconPlus } from '@tabler/icons-react'
+import { IconArrowRight, IconFilter, IconPlus, IconTrash } from '@tabler/icons-react'
 import { useState } from 'react'
 import {
   ActionButton,
@@ -19,6 +19,7 @@ import {
 } from '@/shared/ui'
 import {
   DataTable,
+  IconButton,
   SideDrawer,
   Tabs,
   Toolbar,
@@ -180,6 +181,13 @@ export function AdminPrimitivesSection() {
               <FileField label="Audio file" />
             </Stack>
           </SideDrawer>
+        </Specimen>
+        <Specimen title="IconButton">
+          <Row gap="xs">
+            <IconButton label="Change where it leads" icon={<IconArrowRight size={18} />} onPress={noop} />
+            <IconButton label="Remove" variant="danger" icon={<IconTrash size={18} />} onPress={noop} />
+            <IconButton label="Disabled" icon={<IconPlus size={18} />} disabled />
+          </Row>
         </Specimen>
       </Grid>
     </Section>

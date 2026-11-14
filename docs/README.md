@@ -51,7 +51,7 @@ header, module READMEs and skill references.
 - `decisions/0001-backend-runtime.md`: superseded by 0002.
 - `planning/_template.md`: plan + acceptance matrix template.
 - `planning/2026-11-14-first-build.md`: the overnight first-build plan and morning report.
-- `planning/2026-11-14-service-paths.md`: service paths by area (data model, admin module, comparison); backend done, admin UI next.
+- `planning/2026-11-14-service-paths.md`: service paths by area (data model, admin module, comparison); backend and admin UI done; resident door next.
 - `planning/2026-11-14-provider-api-notes.md`: provider API facts (OpenRouter, Gemini, ElevenLabs) read from the docs.
 
 ## Decision records

@@ -49,8 +49,33 @@ describe('JourneyEditorPage', () => {
     expect(within(aside).getByText('1 error')).toBeInTheDocument()
     expect(within(aside).getByText('1 warning')).toBeInTheDocument()
     expect(within(aside).getByText('journey.stages.contact.outcomes.moved.next')).toBeInTheDocument()
-    expect(within(aside).getByText('Outcome contact → refused needs legal review')).toBeInTheDocument()
     expect(screen.getByText('The draft has 1 error')).toBeInTheDocument()
+  })
+
+  it('keeps review flags folded until asked and jumps from a flag to its stage', async () => {
+    stubApi({ [`GET ${GRAPH}`]: () => Response.json(testGraph) })
+    renderWithProviders(<JourneyEditorPage />)
+    const aside = await screen.findByRole('complementary', { name: 'Validation and review flags' })
+    expect(within(aside).getByText('1 legal')).toBeInTheDocument()
+    expect(within(aside).queryByText('Outcome contact → refused needs legal review')).not.toBeInTheDocument()
+
+    fireEvent.click(within(aside).getByRole('button', { name: 'Show review flags' }))
+    const flag = within(aside).getByText('Outcome contact → refused needs legal review').closest('li')!
+    fireEvent.click(within(flag).getByRole('button', { name: 'Show stage contact' }))
+    await waitFor(() => expect(document.getElementById('journey-stage-contact')).toHaveAttribute('data-highlighted', 'true'))
+  })
+
+  it('shows on each stage where it is reached from', async () => {
+    stubApi({ [`GET ${GRAPH}`]: () => Response.json(testGraph) })
+    renderWithProviders(<JourneyEditorPage />)
+    await screen.findByRole('region', { name: 'Journey stages' })
+    const contact = document.getElementById('journey-stage-contact')!
+    fireEvent.click(within(contact).getByRole('button', { name: 'Go to stage describe (leads here)' }))
+    await waitFor(() => expect(document.getElementById('journey-stage-describe')).toHaveAttribute('data-highlighted', 'true'))
+    const emergency = document.getElementById('journey-stage-emergency')!
+    expect(within(emergency).getByText(/interrupt emergency_sign/)).toBeInTheDocument()
+    const orphan = document.getElementById('journey-stage-orphan')!
+    expect(within(orphan).getByText('Nothing leads here.')).toBeInTheDocument()
   })
 
   it('follows an outcome link to its stage', async () => {

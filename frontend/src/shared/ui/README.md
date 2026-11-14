@@ -9,7 +9,7 @@ enforces it. The live gallery is `/design-system` (`src/features/design-system/`
 | Import | Contains | Ships in |
 | --- | --- | --- |
 | `@/shared/ui` | `UiProvider`, tokens, `Text`, layout, resident primitives, feedback, form fields | resident bundle |
-| `@/shared/ui/admin` | `AdminShell`, `DataTable`, `Tabs`, `Toolbar`, `SideDrawer` | admin chunk only |
+| `@/shared/ui/admin` | `AdminShell`, `DataTable`, `Tabs`, `Toolbar`, `SideDrawer`, `IconButton` | admin chunk only |
 | `@/shared/ui/showcase` | token visualisations for the gallery | gallery chunk only |
 
 Resident code must not import `@/shared/ui/admin` (it would pull Mantine's AppShell,
@@ -82,6 +82,7 @@ Admin (`@/shared/ui/admin`)
 - `Toolbar` — filters at the start, actions at the end, wrapping.
 - `Tabs` — controlled tabs (`items`, `value`, `onChange`, active content as children).
 - `SideDrawer` — opens from the inline end; title, children, sticky footer actions.
+- `IconButton` — 40px square icon-only button (`subtle | danger`) with a required `label` (accessible name and hover/focus tooltip), for dense rows.
 
 ## Rules every primitive follows
 
@@ -126,5 +127,5 @@ Primitives a feature needed that the barrels do not export. Import them directly
 (`@/shared/ui/extra/<Name>`); same rules as every primitive (tokens only, logical CSS,
 narrow typed props). Promote one into the main barrel when a second feature needs it.
 
-- `ColumnBoard`: horizontally scrolling columns with scroll-to and highlight, plus a side
-  panel beside the board (above it below 62em). Used by the admin journey editor.
+- `ColumnBoard`: horizontally scrolling columns with scroll-to and highlight. Used by the
+  admin journey editor.

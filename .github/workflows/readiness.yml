@@ -33,6 +33,15 @@ jobs:
         run: |
           cd backend && npm ci
           cd ../frontend && npm ci
+      # CI has no .env: write placeholder provider keys (adapter tests stub fetch; live tests
+      # stay skipped) and a random VisitCodePepper into backend/.secrets.local.cue. Then
+      # `encore check` generates backend/encore.gen (~encore/clients, ~encore/auth), which is
+      # gitignored but needed by `tsc --noEmit` in the gate.
+      - name: Test secrets and generated Encore types
+        run: |
+          printf 'GEMINI_API_KEY=ci-placeholder\nOPEN_ROUTER_API_KEY=ci-placeholder\nELEVEN_LABS_API_KEY=ci-placeholder\n' > .env
+          python3 scripts/local_secrets.py
+          cd backend && encore check
       # encore test starts its own Postgres (with pgvector) in Docker and applies backend/db/migrations.
       - name: Readiness gate
         run: bash dev_readiness_check.sh --all --report-json tmp/readiness.json

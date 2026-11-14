@@ -31,6 +31,7 @@ describe('DesignSystemPage', () => {
       'Form fields',
       'StatusBadge',
       'SideDrawer',
+      'IconButton',
       'RTL sample',
     ]) {
       expect(screen.getByRole('heading', { name })).toBeInTheDocument()

@@ -1,10 +1,13 @@
 import { useMemo } from 'react'
 import { ColumnBoard } from '@/shared/ui/extra/ColumnBoard'
 import { StageCard, type StageCardProps } from '@/features/admin-journey/components/StageCard'
-import { layoutColumns, stageDomId } from '@/features/admin-journey/lib/layout'
+import { incomingLinks, layoutColumns, stageDomId } from '@/features/admin-journey/lib/layout'
 import type { JourneyGraph } from '@/features/admin-journey/types'
+import type { IncomingLink } from '@/features/admin-journey/lib/layout'
 
-type StageActions = Omit<StageCardProps, 'stage' | 'isStart' | 'column' | 'issues' | 'stageIds' | 'onAddOutcome' | 'onChangeNext'> & {
+const NO_LINKS: IncomingLink[] = []
+
+type StageActions = Omit<StageCardProps, 'stage' | 'isStart' | 'column' | 'issues' | 'stageIds' | 'incoming' | 'onAddOutcome' | 'onChangeNext'> & {
   onAddOutcome: (stageId: string) => void
   onChangeNext: (stageId: string, outcomeId: string) => void
 }
@@ -18,6 +21,7 @@ export interface JourneyGraphViewProps extends StageActions {
 export function JourneyGraphView({ graph, highlightedStage, onAddOutcome, onChangeNext, ...actions }: JourneyGraphViewProps) {
   const columns = useMemo(() => layoutColumns(graph), [graph])
   const stageIds = useMemo(() => new Set(graph.stages.map((s) => s.id)), [graph])
+  const incoming = useMemo(() => incomingLinks(graph), [graph])
   return (
     <ColumnBoard
       label="Journey stages"
@@ -35,6 +39,7 @@ export function JourneyGraphView({ graph, highlightedStage, onAddOutcome, onChan
               column={column.kind}
               issues={graph.issues}
               stageIds={stageIds}
+              incoming={incoming.get(stage.id) ?? NO_LINKS}
               onAddOutcome={() => onAddOutcome(stage.id)}
               onChangeNext={(outcomeId) => onChangeNext(stage.id, outcomeId)}
             />

@@ -3,14 +3,14 @@
   "configurations": [
     {
       "name": "frontend",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["--prefix", "frontend", "run", "dev"],
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd frontend && VITE_FEATURE_JOURNEY_EDITOR=true exec npm run dev"],
       "port": 5300
     },
     {
       "name": "backend",
       "runtimeExecutable": "bash",
-      "runtimeArgs": ["-c", "cd backend && PATH=\"$HOME/.encore/bin:$PATH\" exec encore run --port 8300"],
+      "runtimeArgs": ["-c", "cd backend && SILTA_FEATURE_JOURNEY_EDITOR=true PATH=\"$HOME/.encore/bin:$PATH\" exec encore run --port 8300"],
       "port": 8300
     }
   ]

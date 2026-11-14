@@ -64,6 +64,23 @@ describe('ActionButton', () => {
     )
     expect(screen.getByRole('button', { name: /Continue/ })).toBeDisabled()
   })
+
+  it('an external link opens a new tab without triggering a clickable parent', async () => {
+    const onRow = vi.fn()
+    renderWithProviders(
+      <div role="presentation" onClick={onRow}>
+        <ActionButton href="https://example.test/page" external>
+          Source
+        </ActionButton>
+      </div>,
+    )
+    const link = screen.getByRole('link', { name: 'Source' })
+    expect(link).toHaveAttribute('target', '_blank')
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer')
+    link.addEventListener('click', (e) => e.preventDefault())
+    await userEvent.click(link)
+    expect(onRow).not.toHaveBeenCalled()
+  })
 })
 
 describe('RecordButton', () => {

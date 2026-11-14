@@ -65,6 +65,9 @@ push to main
 | --- | --- | --- |
 | `AIVEN_PG_PASSWORD` | image | password of `avnadmin` |
 | `GEMINI_API_KEY` | image | provider key, spend-capped, hackathon-only |
+| `OPEN_ROUTER_API_KEY` | image | provider key; the live LLM features (`backend/llm/integrations.ts`) use OpenRouter |
+| `ELEVEN_LABS_API_KEY` | image | voice (TTS/STT) |
+| `VISIT_CODE_PEPPER` | image | random string, generated once and never changed (changing it orphans every issued visit code); without it visit cards fail with "visit codes are not configured" |
 | `AIVEN_SILTA_URL` | CI migrations only (repository secret) | full connection URL; locally `scripts/aiven.py` builds it from `AIVEN_PG_PASSWORD` |
 
 The database host and the project CA certificate are literals in
@@ -100,6 +103,8 @@ that is the reason for the same-region rule, not a database problem.
 
 - The frontend runs as a third Runtime application, `silta-web`, from `compose.web.yaml`
   (nginx serves the static build and proxies `/api/` to the API, so no CORS entry is
-  needed). It only works once the API image is current: the API on Aiven still runs the
-  last image CI pushed, and CI has been red since "Initial build".
+  needed). It only works once the API image is current: the API on Aiven runs the last
+  image CI pushed. CI was red from "Initial build" to 94b95ea (no generated Encore types and
+  no test secrets in CI); the readiness job now writes placeholder test secrets and runs
+  `encore check` before the gate.
 - Redeploying Runtime from CI instead of by hand.

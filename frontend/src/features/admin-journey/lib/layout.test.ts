@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { distances, idProblem, layoutColumns, outcomeIssues, sortIssues, stageIssues } from '@/features/admin-journey/lib/layout'
+import { distances, idProblem, incomingLinks, layoutColumns, outcomeIssues, sortIssues, stageIssues } from '@/features/admin-journey/lib/layout'
 import { issueStage, nextStageId, OTHER_STAGE } from '@/features/admin-journey/lib/nextStage'
 import { testGraph } from '@/features/admin-journey/testGraph'
 
@@ -13,6 +13,17 @@ describe('journey graph layout', () => {
       ['Reached by an interrupt', 'interrupt', ['emergency']],
       ['Not reachable', 'unreachable', ['orphan']],
     ])
+  })
+
+  it('lists the links into each stage: outcomes of other stages, then interrupts', () => {
+    const incoming = incomingLinks(testGraph)
+    expect(incoming.get('contact')).toEqual([{ kind: 'outcome', stage: 'describe', id: 'symptom' }])
+    expect(incoming.get('closed')).toEqual([
+      { kind: 'outcome', stage: 'contact', id: 'got_time' },
+      { kind: 'outcome', stage: 'orphan', id: 'done' },
+    ])
+    expect(incoming.get('emergency')).toEqual([{ kind: 'interrupt', id: 'emergency_sign' }])
+    expect(incoming.get('orphan') ?? []).toEqual([])
   })
 
   it('skips links to unknown stages and handles cycles', () => {

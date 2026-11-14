@@ -18,10 +18,10 @@ setup: env secrets ## Install dependencies and local secrets
 	cd frontend && npm ci
 
 dev-backend: ## Run the Encore app with its local Postgres (:8300, dashboard :9400)
-	cd backend && encore run --port $${BACKEND_PORT:-8300}
+	cd backend && SILTA_FEATURE_JOURNEY_EDITOR=$${SILTA_FEATURE_JOURNEY_EDITOR:-true} encore run --port $${BACKEND_PORT:-8300}
 
 dev-frontend: ## Run the frontend dev server on the host (:5300)
-	cd frontend && npm run dev
+	cd frontend && VITE_FEATURE_JOURNEY_EDITOR=$${VITE_FEATURE_JOURNEY_EDITOR:-true} npm run dev
 
 api: ## Regenerate the frontend API client from the Encore app
 	cd backend && encore gen client --lang=typescript --env=local --output=../frontend/src/shared/api/client.ts

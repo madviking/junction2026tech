@@ -57,22 +57,3 @@ export function ColumnBoard({ label, columns, highlightedId }: ColumnBoardProps)
     </div>
   )
 }
-
-export interface BoardWithAsideProps {
-  children: ReactNode
-  /** Shown beside the board on desktop (inline end, sticky) and above it on narrow screens. */
-  aside: ReactNode
-  asideLabel: string
-}
-
-/** Main area with a side panel that moves above the main area below the desktop breakpoint. */
-export function BoardWithAside({ children, aside, asideLabel }: BoardWithAsideProps) {
-  return (
-    <div className={classes.split}>
-      <aside className={classes.splitAside} aria-label={asideLabel}>
-        {aside}
-      </aside>
-      <div className={classes.splitMain}>{children}</div>
-    </div>
-  )
-}

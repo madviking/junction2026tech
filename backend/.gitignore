@@ -5,3 +5,4 @@ encore.gen.cue
 /.encore/*
 !/.encore/manifest.json
 /encore.gen
+/.encore
