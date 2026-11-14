@@ -55,13 +55,13 @@ afterEach(() => vi.unstubAllGlobals())
 describe('voice capabilities', () => {
   it('lists the shipped languages; Somali is cards with unchecked audio', async () => {
     const { languages } = await capabilities()
-    expect(languages.map((l) => l.lang)).toEqual(['en', 'fi', 'sv', 'ru', 'et', 'uk', 'ar', 'so', 'fa', 'zh', 'yue', 'vi', 'th'])
+    expect(languages.map((l) => l.lang)).toEqual(['en', 'fi', 'sv', 'ru', 'et', 'uk', 'ar', 'so', 'fa', 'zh', 'yue', 'vi', 'th', 'bg'])
     expect(languages.find((l) => l.lang === 'so')).toEqual({ lang: 'so', mode: 'cards_with_audio', voiceInput: false, audioOutput: true, generatedAudioReview: 'unchecked' })
     expect(languages.find((l) => l.lang === 'fi')).toMatchObject({ mode: 'full_voice', voiceInput: true, audioOutput: true, generatedAudioReview: 'approved' })
     // Arabic texts are placeholders: voice input stays on, generated audio starts unchecked.
     expect(languages.find((l) => l.lang === 'ar')).toMatchObject({ mode: 'full_voice', voiceInput: true, generatedAudioReview: 'unchecked' })
     // The added languages are placeholders too: full voice, generated audio starts unchecked.
-    for (const lang of ['sv', 'ru', 'et', 'uk', 'fa', 'zh', 'yue', 'vi', 'th']) {
+    for (const lang of ['sv', 'ru', 'et', 'uk', 'fa', 'zh', 'yue', 'vi', 'th', 'bg']) {
       expect(languages.find((l) => l.lang === lang), lang).toEqual({ lang, mode: 'full_voice', voiceInput: true, audioOutput: true, generatedAudioReview: 'unchecked' })
     }
   })

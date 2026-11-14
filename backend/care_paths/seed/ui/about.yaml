@@ -16,6 +16,7 @@ ui.about.title:
   yue: "關於 Silta"
   vi: "Giới thiệu về Silta"
   th: "เกี่ยวกับ Silta"
+  bg: "За Silta"
 ui.about.what.title:
   en: "What Silta does"
   fi: "Mitä Silta tekee"
@@ -30,6 +31,7 @@ ui.about.what.title:
   yue: "Silta 做啲乜"
   vi: "Silta làm gì"
   th: "Silta ทำอะไร"
+  bg: "Какво прави Silta"
 ui.about.what.text:
   en: "Silta helps you find the right place for care in Finland, gives you the words to say in Finnish, and helps you follow up until you get an answer."
   fi: "Silta auttaa löytämään oikean hoitopaikan Suomessa, antaa sanat suomeksi ja auttaa seuraamaan asiaa, kunnes saat vastauksen."
@@ -44,6 +46,7 @@ ui.about.what.text:
   yue: "Silta 幫你喺芬蘭搵到啱嘅求醫地方，話你知用芬蘭文點講，仲會幫你跟進，直到你得到答覆。"
   vi: "Silta giúp bạn tìm đúng nơi khám chữa bệnh ở Phần Lan, cho bạn những câu cần nói bằng tiếng Phần Lan và giúp bạn theo dõi cho đến khi có câu trả lời."
   th: "Silta ช่วยคุณหาสถานที่รับการรักษาที่เหมาะสมในฟินแลนด์ ให้คำพูดที่ต้องใช้เป็นภาษาฟินแลนด์ และช่วยติดตามเรื่องจนกว่าคุณจะได้รับคำตอบ"
+  bg: "Silta ви помага да намерите правилното място за лечение във Финландия, дава ви думите, които да кажете на фински, и ви помага да следите случая, докато получите отговор."
 ui.about.not.title:
   en: "What Silta does not do"
   fi: "Mitä Silta ei tee"
@@ -58,6 +61,7 @@ ui.about.not.title:
   yue: "Silta 唔做啲乜"
   vi: "Silta không làm gì"
   th: "สิ่งที่ Silta ไม่ทำ"
+  bg: "Какво Silta не прави"
 ui.about.not.text:
   en: "Silta is not a doctor and does not diagnose. A nurse or doctor decides how urgent your situation is. In an emergency, call 112."
   fi: "Silta ei ole lääkäri eikä tee diagnooseja. Hoitaja tai lääkäri arvioi, kuinka kiireellinen tilanteesi on. Hätätilanteessa soita 112."
@@ -72,6 +76,7 @@ ui.about.not.text:
   yue: "Silta 唔係醫生，亦唔會做診斷。你嘅情況有幾緊急，由護士或者醫生判斷。遇到緊急情況，請打 112。"
   vi: "Silta không phải là bác sĩ và không chẩn đoán bệnh. Y tá hoặc bác sĩ sẽ quyết định tình trạng của bạn khẩn cấp đến mức nào. Trong trường hợp khẩn cấp, hãy gọi 112."
   th: "Silta ไม่ใช่แพทย์และไม่วินิจฉัยโรค พยาบาลหรือแพทย์เป็นผู้ตัดสินว่าอาการของคุณเร่งด่วนแค่ไหน ในกรณีฉุกเฉิน โทร 112"
+  bg: "Silta не е лекар и не поставя диагнози. Медицинска сестра или лекар решава колко спешно е вашето състояние. При спешен случай се обадете на 112."
 ui.about.privacy.title:
   en: "Your privacy"
   fi: "Yksityisyytesi"
@@ -86,6 +91,7 @@ ui.about.privacy.title:
   yue: "你嘅私隱"
   vi: "Quyền riêng tư của bạn"
   th: "ความเป็นส่วนตัวของคุณ"
+  bg: "Вашата поверителност"
 ui.about.privacy.text:
   en: "Silta does not ask for your name, identity number or address. Your answers are saved under an anonymous code, and only someone with the code can see them. You can delete them at any time from your visit card."
   fi: "Silta ei kysy nimeäsi, henkilötunnustasi eikä osoitettasi. Vastauksesi tallennetaan nimettömän koodin alle, ja ne näkee vain se, jolla on koodi. Voit poistaa ne milloin tahansa käyntikortistasi."
@@ -100,6 +106,7 @@ ui.about.privacy.text:
   yue: "Silta 唔會問你嘅姓名、身份號碼或者地址。你嘅回答會儲存喺一個匿名代碼之下，只有有呢個代碼嘅人先睇到。你可以隨時喺就診卡度刪除。"
   vi: "Silta không hỏi tên, số định danh hay địa chỉ của bạn. Các câu trả lời của bạn được lưu dưới một mã ẩn danh và chỉ người có mã mới xem được. Bạn có thể xóa chúng bất cứ lúc nào từ thẻ khám của mình."
   th: "Silta ไม่ถามชื่อ เลขประจำตัว หรือที่อยู่ของคุณ คำตอบของคุณถูกบันทึกไว้ภายใต้รหัสที่ไม่ระบุตัวตน และมีเพียงผู้ที่มีรหัสเท่านั้นที่เห็นได้ คุณลบคำตอบได้ทุกเมื่อจากบัตรเข้าพบของคุณ"
+  bg: "Silta не пита за вашето име, личен номер или адрес. Отговорите ви се пазят под анонимен код и само човек с кода може да ги види. Можете да ги изтриете по всяко време от картата си за посещение."
 ui.about.words.title:
   en: "When you type or speak"
   fi: "Kun kirjoitat tai puhut"
@@ -114,6 +121,7 @@ ui.about.words.title:
   yue: "當你打字或者講嘢嘅時候"
   vi: "Khi bạn gõ hoặc nói"
   th: "เมื่อคุณพิมพ์หรือพูด"
+  bg: "Когато пишете или говорите"
 ui.about.words.text:
   en: "An AI service matches your words to one of the cards and asks you to confirm. It never chooses for you and never decides where you go. Silta does not save your voice recording."
   fi: "Tekoälypalvelu yhdistää sanasi johonkin korteista ja pyytää sinua vahvistamaan. Se ei koskaan valitse puolestasi eikä päätä, minne menet. Silta ei tallenna äänitallennettasi."
@@ -128,6 +136,7 @@ ui.about.words.text:
   yue: "人工智能服務會將你講嘅說話配對其中一張卡，再請你確認。佢絕對唔會幫你揀，亦唔會決定你去邊度。Silta 唔會儲存你嘅錄音。"
   vi: "Một dịch vụ AI đối chiếu lời của bạn với một trong các thẻ và hỏi bạn xác nhận. Nó không bao giờ chọn thay bạn và không bao giờ quyết định bạn đi đâu. Silta không lưu bản ghi âm giọng nói của bạn."
   th: "บริการ AI จะจับคู่คำพูดของคุณกับการ์ดใบหนึ่งและขอให้คุณยืนยัน บริการนี้ไม่เลือกแทนคุณและไม่ตัดสินว่าคุณจะไปที่ไหน Silta ไม่บันทึกเสียงที่คุณอัดไว้"
+  bg: "Услуга с изкуствен интелект свързва думите ви с една от картите и ви моли да потвърдите. Тя никога не избира вместо вас и никога не решава къде да отидете. Silta не запазва гласовия ви запис."
 ui.about.facts.title:
   en: "Where the information comes from"
   fi: "Mistä tiedot tulevat"
@@ -142,6 +151,7 @@ ui.about.facts.title:
   yue: "資料來源"
   vi: "Thông tin đến từ đâu"
   th: "ข้อมูลมาจากไหน"
+  bg: "Откъде идва информацията"
 ui.about.facts.text:
   en: "Time limits marked \"By law\" come from Finnish health care law. Other limits are marked as recommendations. Translations that have not been checked yet are marked."
   fi: "Merkinnällä \"Laki\" näytetyt aikarajat tulevat Suomen terveydenhuoltolainsäädännöstä. Muut aikarajat on merkitty suosituksiksi. Käännökset, joita ei ole vielä tarkistettu, on merkitty."
@@ -156,6 +166,7 @@ ui.about.facts.text:
   yue: "標明依法嘅時限來自芬蘭醫療保健法例。其他時限標明為建議。未經審核嘅翻譯會有標註。"
   vi: "Các thời hạn được đánh dấu là theo luật lấy từ luật chăm sóc sức khỏe của Phần Lan. Các thời hạn khác được đánh dấu là khuyến nghị. Những bản dịch chưa được kiểm tra đều được đánh dấu."
   th: "กำหนดเวลาที่ระบุว่าเป็นไปตามกฎหมายมาจากกฎหมายการดูแลสุขภาพของฟินแลนด์ กำหนดเวลาอื่นระบุว่าเป็นคำแนะนำ คำแปลที่ยังไม่ได้ตรวจสอบจะมีเครื่องหมายกำกับไว้"
+  bg: "Сроковете с отметка „По закон“ идват от финландското здравно законодателство. Другите срокове са отбелязани като препоръки. Преводите, които още не са проверени, са отбелязани."
 ui.about.who.title:
   en: "Who made Silta"
   fi: "Kuka teki Sillan"
@@ -170,6 +181,7 @@ ui.about.who.title:
   yue: "邊個開發 Silta"
   vi: "Ai đã làm ra Silta"
   th: "ใครสร้าง Silta"
+  bg: "Кой създаде Silta"
 ui.about.who.text:
   en: "Silta is a prototype built by a team at the Junction 2026 hackathon. It is not an official service of a wellbeing services county."
   fi: "Silta on Junction 2026 -hackathonissa rakennettu prototyyppi. Se ei ole hyvinvointialueen virallinen palvelu."
@@ -184,6 +196,7 @@ ui.about.who.text:
   yue: "Silta 係一個團隊喺 Junction 2026 黑客松開發嘅原型，唔係福利服務區嘅官方服務。"
   vi: "Silta là một bản mẫu do một nhóm xây dựng tại cuộc thi hackathon Junction 2026. Đây không phải là dịch vụ chính thức của một vùng dịch vụ phúc lợi."
   th: "Silta เป็นต้นแบบที่ทีมหนึ่งสร้างขึ้นในงานแฮกกาธอน Junction 2026 ไม่ใช่บริการอย่างเป็นทางการของเขตบริการสวัสดิการ"
+  bg: "Silta е прототип, създаден от екип на хакатона Junction 2026. Тя не е официална услуга на област за социални и здравни услуги."
 ui.about.back:
   en: "Back"
   fi: "Takaisin"
@@ -198,3 +211,4 @@ ui.about.back:
   yue: "返回"
   vi: "Quay lại"
   th: "กลับ"
+  bg: "Назад"

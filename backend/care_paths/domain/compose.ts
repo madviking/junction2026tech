@@ -155,6 +155,7 @@ export function interpreterNeeded(lang: Lang): boolean {
 const LANGUAGE_IN_FINNISH: Record<Lang, string> = {
   en: 'englanti', fi: 'suomi', sv: 'ruotsi', ru: 'venäjä', et: 'viro', uk: 'ukraina', ar: 'arabia',
   so: 'somali', fa: 'persia', zh: 'kiina (mandariini)', yue: 'kantoninkiina', vi: 'vietnam', th: 'thai',
+  bg: 'bulgaria',
 }
 
 function callScript(doc: ContentDoc, input: ComposeInput, requestKey: string): ScriptPart[] {

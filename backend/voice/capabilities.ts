@@ -12,6 +12,8 @@
 //   sv, ru, et, uk, fa, zh, yue, vi and th. Scribe v2 accuracy: sv, ru, et, uk, vi excellent
 //   (<=5% WER); fa, zh (Mandarin), yue high (5-10%); th good (10-20%). All get full voice.
 //   Their texts are unchecked placeholders, so generated audio starts `unchecked` like Arabic.
+// - Bulgarian added 14 Nov (models page: eleven_v4 lists Bulgarian (bg); speech-to-text page:
+//   Scribe Bulgarian excellent, <=5% WER). Full voice; placeholder texts, so audio starts `unchecked`.
 
 export type VoiceMode = 'full_voice' | 'cards_with_audio'
 export type AudioReview = 'unchecked' | 'approved'
@@ -54,6 +56,7 @@ export const LANGUAGE_VOICE: LanguageVoice[] = [
   { lang: 'yue', mode: 'full_voice', voiceInput: true, audioOutput: true, generatedAudioReview: 'unchecked', generatedApprovable: true, providerLang: 'yue' },
   { lang: 'vi', mode: 'full_voice', voiceInput: true, audioOutput: true, generatedAudioReview: 'unchecked', generatedApprovable: true, providerLang: 'vi' },
   { lang: 'th', mode: 'full_voice', voiceInput: true, audioOutput: true, generatedAudioReview: 'unchecked', generatedApprovable: true, providerLang: 'th' },
+  { lang: 'bg', mode: 'full_voice', voiceInput: true, audioOutput: true, generatedAudioReview: 'unchecked', generatedApprovable: true, providerLang: 'bg' },
 ]
 
 export function languageVoice(lang: string): LanguageVoice | null {

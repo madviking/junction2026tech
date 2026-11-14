@@ -11,6 +11,11 @@ CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
 
 FROM deps AS build
 COPY . .
+# Journey editor (/admin/journey) is on in the deployed build, so judges and the view-only
+# demo account can see it. Vite reads it at build time; build with
+# --build-arg VITE_FEATURE_JOURNEY_EDITOR=false to leave it out.
+ARG VITE_FEATURE_JOURNEY_EDITOR=true
+ENV VITE_FEATURE_JOURNEY_EDITOR=$VITE_FEATURE_JOURNEY_EDITOR
 RUN npm run build
 
 FROM nginx:1.27-alpine AS production

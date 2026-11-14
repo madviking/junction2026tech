@@ -20,7 +20,7 @@ residents only ever see what is published. Admin screens are English and do not 
 
 Add `ui.<feature>.<name>` to `backend/care_paths/seed/ui/<feature>.yaml` with `en` and
 `fi` (and `so` / `ar` placeholders), and, when you can, in each `backend/care_paths/seed/texts.<lang>.yaml` of the other
-languages (sv, ru, et, uk, fa, zh, yue, vi, th); until then those languages show English.
+languages (sv, ru, et, uk, fa, zh, yue, vi, th, bg); until then those languages show English.
 On the next backend start the seed merge adds missing
 keys to the live content (see `backend/content/service.ts`). Content keys
 (`journey.*`, `card.*`, `route.*`, ...) come from `backend/care_paths/domain/keys.ts`.

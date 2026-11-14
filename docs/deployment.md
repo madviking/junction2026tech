@@ -74,6 +74,7 @@ push to main
 | `OPEN_ROUTER_API_KEY` | image | provider key; the live LLM features (`backend/llm/integrations.ts`) use OpenRouter |
 | `ELEVEN_LABS_API_KEY` | image | voice (TTS/STT) |
 | `VISIT_CODE_PEPPER` | image | random string, generated once and never changed (changing it orphans every issued visit code); without it visit cards fail with "visit codes are not configured" |
+| `SILTA_FEATURE_JOURNEY_EDITOR` | image (optional) | `true` by default from `deploy/aiven/Dockerfile`; set `false` to turn the journey editor API off. The frontend's matching `VITE_FEATURE_JOURNEY_EDITOR` is a build arg in `frontend/Dockerfile` |
 | `AIVEN_SILTA_URL` | CI migrations only (repository secret) | full connection URL; locally `scripts/aiven.py` builds it from `AIVEN_PG_PASSWORD` |
 
 The database host and the project CA certificate are literals in

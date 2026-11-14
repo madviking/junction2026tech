@@ -1,6 +1,6 @@
 # Picture version of the symptom picker (frontend features/journey SymptomBodyPicker):
 # the body map's group name, its region buttons and the pictures/list switch.
-# All 13 languages live here; only en and fi are checked. The figure is neutral on purpose:
+# All 14 languages live here; only en and fi are checked. The figure is neutral on purpose:
 # Silta does not ask the person's sex, and every symptom card stays visible to everyone.
 
 ui.journey.body.label:
@@ -17,6 +17,7 @@ ui.journey.body.label:
   yue: "你喺邊度覺得？"
   vi: "Bạn cảm thấy ở đâu?"
   th: "รู้สึกที่ตรงไหน?"
+  bg: "Къде го усещате?"
 ui.journey.body.region.head:
   en: "Head and neck"
   fi: "Pää ja kaula"
@@ -31,6 +32,7 @@ ui.journey.body.region.head:
   yue: "頭同頸"
   vi: "Đầu và cổ"
   th: "ศีรษะและลำคอ"
+  bg: "Глава и шия"
 ui.journey.body.region.chest:
   en: "Chest, breast and armpit"
   fi: "Rinta ja kainalo"
@@ -45,6 +47,7 @@ ui.journey.body.region.chest:
   yue: "胸口、乳房同腋下"
   vi: "Ngực, vú và nách"
   th: "หน้าอก เต้านม และรักแร้"
+  bg: "Гръден кош, гърди и подмишница"
 ui.journey.body.region.belly:
   en: "Belly and lower body"
   fi: "Vatsa ja alavartalo"
@@ -59,6 +62,7 @@ ui.journey.body.region.belly:
   yue: "肚同下身"
   vi: "Bụng và phần dưới cơ thể"
   th: "ท้องและช่วงล่างของร่างกาย"
+  bg: "Корем и долна част на тялото"
 ui.journey.body.region.skin:
   en: "Skin"
   fi: "Iho"
@@ -73,6 +77,7 @@ ui.journey.body.region.skin:
   yue: "皮膚"
   vi: "Da"
   th: "ผิวหนัง"
+  bg: "Кожа"
 ui.journey.body.region.whole:
   en: "Whole body"
   fi: "Koko keho"
@@ -87,6 +92,7 @@ ui.journey.body.region.whole:
   yue: "成個身"
   vi: "Toàn thân"
   th: "ทั้งร่างกาย"
+  bg: "Цялото тяло"
 ui.journey.body.show_list:
   en: "Show as a list"
   fi: "Näytä listana"
@@ -101,6 +107,7 @@ ui.journey.body.show_list:
   yue: "用清單顯示"
   vi: "Hiện dạng danh sách"
   th: "แสดงเป็นรายการ"
+  bg: "Покажи като списък"
 ui.journey.body.show_pictures:
   en: "Show pictures"
   fi: "Näytä kuvat"
@@ -115,3 +122,4 @@ ui.journey.body.show_pictures:
   yue: "顯示圖片"
   vi: "Hiện hình ảnh"
   th: "แสดงรูปภาพ"
+  bg: "Покажи картинки"

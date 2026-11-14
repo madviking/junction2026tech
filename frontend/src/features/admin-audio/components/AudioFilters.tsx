@@ -17,6 +17,7 @@ const LANGUAGE_NAMES: Record<string, string> = {
   yue: '廣東話',
   vi: 'Tiếng Việt',
   th: 'ไทย',
+  bg: 'Български',
 }
 
 const SHOW_OPTIONS: SelectOption[] = [

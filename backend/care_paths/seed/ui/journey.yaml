@@ -198,6 +198,7 @@ ui.journey.match.answer_next:
   yue: "準備好之後，揀一張卡，或者用自己嘅說話講。"
   vi: "Khi bạn sẵn sàng, hãy chọn một thẻ hoặc mô tả bằng lời của bạn."
   th: "เมื่อพร้อมแล้ว เลือกการ์ด หรืออธิบายด้วยคำพูดของคุณเอง"
+  bg: "Когато сте готови, изберете карта или опишете със свои думи."
 ui.journey.match.answer_ok:
   en: "OK"
   fi: "Selvä"
@@ -212,6 +213,7 @@ ui.journey.match.answer_ok:
   yue: "好"
   vi: "Đã hiểu"
   th: "ตกลง"
+  bg: "Добре"
 
 # Route stage
 ui.journey.route.guidance:
@@ -365,6 +367,7 @@ ui.journey.urgent:
   yue: "緊急？"
   vi: "Khẩn cấp?"
   th: "ฉุกเฉิน?"
+  bg: "Спешно?"
 ui.journey.path.title:
   en: "Your path"
   fi: "Polkusi"
@@ -379,6 +382,7 @@ ui.journey.path.title:
   yue: "你嘅路徑"
   vi: "Lộ trình của bạn"
   th: "เส้นทางของคุณ"
+  bg: "Вашият път"
 ui.journey.path.step_of:
   en: "Step {n} of {total}"
   fi: "Vaihe {n}/{total}"
@@ -393,6 +397,7 @@ ui.journey.path.step_of:
   yue: "第 {n} 步，共 {total} 步"
   vi: "Bước {n}/{total}"
   th: "ขั้นที่ {n} จาก {total}"
+  bg: "Стъпка {n} от {total}"
 ui.journey.path.close:
   en: "Back to my step"
   fi: "Takaisin vaiheeseeni"
@@ -407,6 +412,7 @@ ui.journey.path.close:
   yue: "返回我嘅步驟"
   vi: "Quay lại bước của tôi"
   th: "กลับไปที่ขั้นของฉัน"
+  bg: "Обратно към моята стъпка"
 ui.journey.contact.done:
   en: "I contacted them"
   fi: "Otin yhteyttä"
@@ -421,6 +427,7 @@ ui.journey.contact.done:
   yue: "我已經聯絡咗"
   vi: "Tôi đã liên hệ"
   th: "ฉันติดต่อแล้ว"
+  bg: "Свързах се с тях"
 ui.journey.path.back_step:
   en: "Go back one step"
   fi: "Palaa yksi vaihe taaksepäin"
@@ -435,6 +442,7 @@ ui.journey.path.back_step:
   yue: "返回上一步"
   vi: "Quay lại một bước"
   th: "ย้อนกลับหนึ่งขั้น"
+  bg: "Една стъпка назад"
 ui.journey.path.restart:
   en: "Start from the beginning"
   fi: "Aloita alusta"
@@ -449,3 +457,4 @@ ui.journey.path.restart:
   yue: "由頭開始"
   vi: "Bắt đầu lại từ đầu"
   th: "เริ่มใหม่ตั้งแต่ต้น"
+  bg: "Започни отначало"

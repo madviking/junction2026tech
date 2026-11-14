@@ -87,3 +87,11 @@ Published text `ui.language.title` (machine-translated placeholder, "Choose your
 
 132 characters in total ≈ $0.011 at $0.08/1K (computed from the texts; `voice_usage` not
 re-read). Not checked: pronunciation (nobody has listened), speech-to-text in these languages.
+
+## Bulgarian (14 Nov, later)
+
+Same method and level (local app, live ElevenLabs): `GET /api/voice/clip?key=ui.language.title&lang=bg`
+("Изберете своя език", 18 characters ≈ $0.0014 at $0.08/1K, computed from the text) → blob 26,
+HTTP 200, `audio/mpeg`, 30,554 bytes, 1.88 s (`afinfo`), `Cache-Control: public, max-age=31536000,
+immutable`, source `generated`, review `unchecked`. Not checked: pronunciation (nobody has listened),
+speech-to-text in Bulgarian (Scribe rates it excellent, ≤ 5 % WER; not exercised here).

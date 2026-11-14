@@ -38,6 +38,7 @@ const LANGUAGE_NAMES: Record<Lang, string> = {
   yue: 'Cantonese (Traditional Chinese characters)',
   vi: 'Vietnamese',
   th: 'Thai',
+  bg: 'Bulgarian',
 }
 
 export function explainSystem(lang: Lang): string {

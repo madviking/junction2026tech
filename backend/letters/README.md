@@ -42,7 +42,7 @@ Plan and decisions: `docs/planning/2026-11-14-letter-photo.md`.
 | `image.ts` | Base64 decode with limit, type check by first bytes |
 | `prompts/explain.ts` | System prompt, JSON schema of the answer, letter kinds |
 
-Texts of the screen: `care_paths/seed/ui/letter.yaml` (`ui.letter.*`, all 13 languages).
+Texts of the screen: `care_paths/seed/ui/letter.yaml` (`ui.letter.*`, all 14 languages).
 
 ## Test
 

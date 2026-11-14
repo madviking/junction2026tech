@@ -69,7 +69,7 @@ the stalled outcomes that climb the ladder have `climb: true`.
 `CarePath.callScript` is the whole phone call as ordered parts (`opening`, `symptoms`,
 `request`, `they_ask`, `closing`); each line has the Finnish text, its meaning in the
 person's language and the text key (audio). Texts: `step.call.*` in
-`seed/ui/call_script.yaml` (all 13 languages). The `request` line is the lane/route rule
+`seed/ui/call_script.yaml` (all 14 languages). The `request` line is the lane/route rule
 script; the U2/U3 rule scripts say "these symptoms" because the `symptoms` part lists the
 tapped symptom cards (`compose` input `symptoms`, from the visit). Non-Finnish/Swedish
 speakers get the interpreter lines; "Kieleni on …" is composed (Finnish language names in

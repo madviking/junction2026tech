@@ -28,14 +28,14 @@ describe('seed', () => {
 })
 
 describe('languages', () => {
-  it('ships 13 languages; the added languages translate nearly every Finnish key with intact placeholders', () => {
-    expect(doc.languages.map((l) => l.code)).toEqual(['en', 'fi', 'sv', 'ru', 'et', 'uk', 'ar', 'so', 'fa', 'zh', 'yue', 'vi', 'th'])
+  it('ships 14 languages; the added languages translate nearly every Finnish key with intact placeholders', () => {
+    expect(doc.languages.map((l) => l.code)).toEqual(['en', 'fi', 'sv', 'ru', 'et', 'uk', 'ar', 'so', 'fa', 'zh', 'yue', 'vi', 'th', 'bg'])
     expect(doc.languages.map((l) => l.code)).toEqual([...LANGS])
     expect(doc.languages.filter((l) => l.dir === 'rtl').map((l) => l.code)).toEqual(['ar', 'fa'])
     expect(doc.languages.filter((l) => !l.placeholder).map((l) => l.code)).toEqual(['en', 'fi'])
     expect(doc.languages.find((l) => l.code === 'sv')?.profile).toBe('C1')
     const required = Object.keys(doc.texts).filter((k) => doc.texts[k]?.fi)
-    for (const lang of ['sv', 'ru', 'et', 'uk', 'fa', 'zh', 'yue', 'vi', 'th'] as const) {
+    for (const lang of ['sv', 'ru', 'et', 'uk', 'fa', 'zh', 'yue', 'vi', 'th', 'bg'] as const) {
       // New keys may land in en/fi first (residents then get English); a broken file would not.
       const present = required.filter((k) => doc.texts[k]?.[lang]?.text)
       expect(present.length / required.length, lang).toBeGreaterThan(0.9)
@@ -54,7 +54,7 @@ describe('seed merge', () => {
     edited.texts['lane.U2.name'] = { ...edited.texts['lane.U2.name'], en: { text: 'Admin wording', review: 'checked' } }
     delete edited.texts['lane.U2.name']!.sv
     const merged = addMissingSeedContent(edited, doc)!
-    expect(merged.languages.map((l) => l.code)).toEqual(['en', 'fi', 'ar', 'so', 'sv', 'ru', 'et', 'uk', 'fa', 'zh', 'yue', 'vi', 'th'])
+    expect(merged.languages.map((l) => l.code)).toEqual(['en', 'fi', 'ar', 'so', 'sv', 'ru', 'et', 'uk', 'fa', 'zh', 'yue', 'vi', 'th', 'bg'])
     expect(merged.texts['lane.U2.name']?.en?.text).toBe('Admin wording')
     expect(merged.texts['lane.U2.name']?.sv?.text).toBe(doc.texts['lane.U2.name']?.sv?.text)
     expect(addMissingSeedContent(doc, doc)).toBeNull()

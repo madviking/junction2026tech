@@ -19,6 +19,7 @@ ui.letter.entry_title:
   yue: "我收到咗一封信"
   vi: "Tôi nhận được một lá thư"
   th: "ฉันได้รับจดหมาย"
+  bg: "Получих писмо"
 ui.letter.entry_detail:
   en: "Take a photo. Silta explains it in your language."
   fi: "Ota kuva. Silta selittää sen omalla kielelläsi."
@@ -33,6 +34,7 @@ ui.letter.entry_detail:
   yue: "影張相。Silta 用你嘅語言解釋。"
   vi: "Chụp một tấm ảnh. Silta giải thích bằng ngôn ngữ của bạn."
   th: "ถ่ายรูปจดหมาย Silta จะอธิบายเป็นภาษาของคุณ"
+  bg: "Снимайте го. Silta ще го обясни на вашия език."
 
 # --- Photo screen ---
 ui.letter.title:
@@ -49,6 +51,7 @@ ui.letter.title:
   yue: "我收到咗一封信"
   vi: "Tôi nhận được một lá thư"
   th: "ฉันได้รับจดหมาย"
+  bg: "Получих писмо"
 ui.letter.intro:
   en: "Take a photo of the letter. Silta tells you what it says and what to do."
   fi: "Ota kirjeestä kuva. Silta kertoo, mitä siinä lukee ja mitä sinun pitää tehdä."
@@ -63,6 +66,7 @@ ui.letter.intro:
   yue: "同封信影張相。Silta 會話你知封信寫咩同要做啲咩。"
   vi: "Chụp ảnh lá thư. Silta cho bạn biết thư viết gì và bạn cần làm gì."
   th: "ถ่ายรูปจดหมาย Silta จะบอกว่าจดหมายเขียนว่าอะไรและคุณต้องทำอะไร"
+  bg: "Снимайте писмото. Silta ще ви каже какво пише в него и какво да направите."
 ui.letter.tip_light:
   en: "Put the letter on a table in good light."
   fi: "Laita kirje pöydälle hyvään valoon."
@@ -77,6 +81,7 @@ ui.letter.tip_light:
   yue: "將封信放喺光線好嘅枱面。"
   vi: "Đặt lá thư lên bàn, nơi đủ sáng."
   th: "วางจดหมายบนโต๊ะในที่ที่มีแสงสว่างพอ"
+  bg: "Поставете писмото на маса на добра светлина."
 ui.letter.tip_page:
   en: "Fit the whole page in the photo. One page at a time."
   fi: "Kuvaa koko sivu. Yksi sivu kerrallaan."
@@ -91,6 +96,7 @@ ui.letter.tip_page:
   yue: "成版紙都要影到。每次影一版。"
   vi: "Chụp trọn cả trang. Mỗi lần một trang."
   th: "ถ่ายให้เห็นทั้งหน้า ครั้งละหนึ่งหน้า"
+  bg: "Цялата страница трябва да се вижда на снимката. По една страница наведнъж."
 ui.letter.privacy_title:
   en: "Your letter stays yours"
   fi: "Kirjeesi pysyy sinulla"
@@ -105,6 +111,7 @@ ui.letter.privacy_title:
   yue: "封信始終係你嘅"
   vi: "Lá thư vẫn là của riêng bạn"
   th: "จดหมายยังเป็นของคุณ"
+  bg: "Писмото остава ваше"
 ui.letter.privacy:
   en: "The photo is sent once to a computer program that reads it. Silta does not save the photo or the text of the letter."
   fi: "Kuva lähetetään kerran tietokoneohjelmalle, joka lukee sen. Silta ei tallenna kuvaa eikä kirjeen tekstiä."
@@ -119,6 +126,7 @@ ui.letter.privacy:
   yue: "張相只會傳送一次畀電腦程式讀取。Silta 唔會儲存張相，亦唔會儲存封信嘅內容。"
   vi: "Ảnh được gửi một lần đến một chương trình máy tính để đọc. Silta không lưu ảnh và không lưu nội dung thư."
   th: "รูปจะถูกส่งหนึ่งครั้งให้โปรแกรมคอมพิวเตอร์อ่าน Silta ไม่เก็บรูปและไม่เก็บข้อความในจดหมาย"
+  bg: "Снимката се изпраща еднократно до компютърна програма, която я прочита. Silta не запазва снимката, нито текста на писмото."
 ui.letter.take_photo:
   en: "Take a photo of the letter"
   fi: "Ota kuva kirjeestä"
@@ -133,6 +141,7 @@ ui.letter.take_photo:
   yue: "同封信影相"
   vi: "Chụp ảnh lá thư"
   th: "ถ่ายรูปจดหมาย"
+  bg: "Снимай писмото"
 ui.letter.choose_photo:
   en: "Choose a photo I already have"
   fi: "Valitse valmis kuva"
@@ -147,6 +156,7 @@ ui.letter.choose_photo:
   yue: "揀一張已經有嘅相"
   vi: "Chọn ảnh tôi đã có"
   th: "เลือกรูปที่มีอยู่แล้ว"
+  bg: "Избери снимка, която вече имам"
 ui.letter.reading:
   en: "Reading your letter…"
   fi: "Luetaan kirjettäsi…"
@@ -161,6 +171,7 @@ ui.letter.reading:
   yue: "讀緊你封信…"
   vi: "Đang đọc thư của bạn…"
   th: "กำลังอ่านจดหมายของคุณ…"
+  bg: "Четем писмото ви…"
 ui.letter.other_title:
   en: "No letter with you now?"
   fi: "Eikö kirje ole nyt mukana?"
@@ -175,6 +186,7 @@ ui.letter.other_title:
   yue: "封信而家唔喺身邊？"
   vi: "Bạn không mang theo thư lúc này?"
   th: "ตอนนี้ไม่มีจดหมายอยู่กับตัวใช่ไหม"
+  bg: "Нямате писмото в момента?"
 
 # --- Result ---
 ui.letter.machine_title:
@@ -191,6 +203,7 @@ ui.letter.machine_title:
   yue: "呢段係電腦程式寫嘅"
   vi: "Phần này do chương trình máy tính viết"
   th: "ข้อความนี้เขียนโดยโปรแกรมคอมพิวเตอร์"
+  bg: "Това е написано от компютърна програма"
 ui.letter.machine_text:
   en: "It can be wrong. Check the date, time and place in your letter."
   fi: "Se voi olla väärässä. Tarkista päivä, kellonaika ja paikka kirjeestäsi."
@@ -205,6 +218,7 @@ ui.letter.machine_text:
   yue: "佢可能會錯。請對返封信上面嘅日期、時間同地點。"
   vi: "Nó có thể sai. Hãy kiểm tra ngày, giờ và địa điểm trong thư của bạn."
   th: "อาจมีข้อผิดพลาด โปรดตรวจวันที่ เวลา และสถานที่ในจดหมายของคุณ"
+  bg: "Може да има грешки. Проверете датата, часа и мястото в писмото си."
 ui.letter.facts_title:
   en: "In your letter"
   fi: "Kirjeessäsi lukee"
@@ -219,6 +233,7 @@ ui.letter.facts_title:
   yue: "封信寫住"
   vi: "Trong thư của bạn"
   th: "ในจดหมายของคุณ"
+  bg: "Във вашето писмо"
 ui.letter.fact_sender:
   en: "From"
   fi: "Lähettäjä"
@@ -233,6 +248,7 @@ ui.letter.fact_sender:
   yue: "寄信方"
   vi: "Người gửi"
   th: "จาก"
+  bg: "От"
 ui.letter.fact_when:
   en: "When"
   fi: "Milloin"
@@ -247,6 +263,7 @@ ui.letter.fact_when:
   yue: "時間"
   vi: "Khi nào"
   th: "เมื่อไร"
+  bg: "Кога"
 ui.letter.fact_where:
   en: "Where"
   fi: "Missä"
@@ -261,6 +278,7 @@ ui.letter.fact_where:
   yue: "地點"
   vi: "Ở đâu"
   th: "ที่ไหน"
+  bg: "Къде"
 ui.letter.fact_deadline:
   en: "Do this by"
   fi: "Tee viimeistään"
@@ -275,6 +293,7 @@ ui.letter.fact_deadline:
   yue: "最遲期限"
   vi: "Hạn chót"
   th: "ทำภายใน"
+  bg: "Направете го до"
 ui.letter.fact_phone:
   en: "Phone"
   fi: "Puhelin"
@@ -289,6 +308,7 @@ ui.letter.fact_phone:
   yue: "電話"
   vi: "Điện thoại"
   th: "โทรศัพท์"
+  bg: "Телефон"
 ui.letter.actions_title:
   en: "What to do"
   fi: "Mitä sinun pitää tehdä"
@@ -303,6 +323,7 @@ ui.letter.actions_title:
   yue: "要做啲咩"
   vi: "Bạn cần làm gì"
   th: "สิ่งที่ต้องทำ"
+  bg: "Какво да направите"
 ui.letter.call:
   en: "Call"
   fi: "Soita"
@@ -317,6 +338,7 @@ ui.letter.call:
   yue: "打電話"
   vi: "Gọi"
   th: "โทร"
+  bg: "Обади се"
 ui.letter.guide_cervical:
   en: "Open the picture guide to this screening"
   fi: "Avaa kuvaopas tästä seulonnasta"
@@ -331,6 +353,7 @@ ui.letter.guide_cervical:
   yue: "打開呢項篩查嘅圖片指南"
   vi: "Mở hướng dẫn bằng hình về đợt sàng lọc này"
   th: "เปิดคู่มือภาพของการตรวจคัดกรองนี้"
+  bg: "Отвори ръководството с картинки за този скрининг"
 ui.letter.again:
   en: "Take a photo of another page or letter"
   fi: "Kuvaa toinen sivu tai kirje"
@@ -345,6 +368,7 @@ ui.letter.again:
   yue: "影另一版或者另一封信"
   vi: "Chụp một trang hoặc lá thư khác"
   th: "ถ่ายรูปหน้าอื่นหรือจดหมายอื่น"
+  bg: "Снимай друга страница или друго писмо"
 ui.letter.done:
   en: "Back to the start"
   fi: "Takaisin alkuun"
@@ -359,6 +383,7 @@ ui.letter.done:
   yue: "返去開始"
   vi: "Quay lại từ đầu"
   th: "กลับไปหน้าเริ่มต้น"
+  bg: "Обратно към началото"
 
 # --- When it does not work ---
 ui.letter.unreadable_title:
@@ -375,6 +400,7 @@ ui.letter.unreadable_title:
   yue: "Silta 讀唔到封信"
   vi: "Silta không đọc được lá thư"
   th: "Silta อ่านจดหมายไม่ได้"
+  bg: "Silta не успя да прочете писмото"
 ui.letter.unreadable_text:
   en: "Take a new photo: the whole page, good light, hold the phone still."
   fi: "Ota uusi kuva: koko sivu, hyvä valo, pidä puhelin paikallaan."
@@ -389,6 +415,7 @@ ui.letter.unreadable_text:
   yue: "請再影過一張：成版紙、光線好、揸穩部電話。"
   vi: "Hãy chụp lại: trọn cả trang, đủ sáng, giữ yên điện thoại."
   th: "ถ่ายรูปใหม่: ให้เห็นทั้งหน้า แสงสว่างพอ และถือโทรศัพท์ให้นิ่ง"
+  bg: "Направете нова снимка: цялата страница, добра светлина, дръжте телефона неподвижно."
 ui.letter.error_title:
   en: "The letter cannot be read right now"
   fi: "Kirjettä ei voi lukea juuri nyt"
@@ -403,6 +430,7 @@ ui.letter.error_title:
   yue: "而家讀唔到封信"
   vi: "Hiện không đọc được lá thư"
   th: "ตอนนี้ยังอ่านจดหมายไม่ได้"
+  bg: "Писмото не може да бъде прочетено в момента"
 ui.letter.error_text:
   en: "Try again in a moment. If the letter gives a phone number, you can call it and say your language."
   fi: "Yritä hetken päästä uudelleen. Jos kirjeessä on puhelinnumero, voit soittaa siihen ja kertoa kielesi."
@@ -417,6 +445,7 @@ ui.letter.error_text:
   yue: "請遲啲再試。如果封信有電話號碼，你可以打過去同講你用咩語言。"
   vi: "Hãy thử lại sau giây lát. Nếu thư có số điện thoại, bạn có thể gọi và nói ngôn ngữ của mình."
   th: "ลองอีกครั้งในอีกสักครู่ ถ้าในจดหมายมีเบอร์โทรศัพท์ คุณโทรไปและบอกภาษาของคุณได้"
+  bg: "Опитайте отново след малко. Ако в писмото има телефонен номер, можете да се обадите и да кажете езика си."
 ui.letter.retry:
   en: "Try again"
   fi: "Yritä uudelleen"
@@ -431,3 +460,4 @@ ui.letter.retry:
   yue: "再試一次"
   vi: "Thử lại"
   th: "ลองอีกครั้ง"
+  bg: "Опитай отново"

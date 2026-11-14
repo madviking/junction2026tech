@@ -1,6 +1,6 @@
 # The phone-call script around the lane's Finnish request (care_paths/domain/compose.ts,
 # callScript). The Finnish text is what the person says or hears; every other language is
-# its meaning. All 13 languages live here; only en and fi are checked.
+# its meaning. All 14 languages live here; only en and fi are checked.
 # {language} = the person's language (Finnish name in fi, the language's own name elsewhere).
 
 step.call.greeting:
@@ -17,6 +17,7 @@ step.call.greeting:
   yue: "你好。我打嚟係因為我有健康問題需要幫助。"
   vi: "Xin chào. Tôi gọi vì tôi cần giúp đỡ về một vấn đề sức khỏe."
   th: "สวัสดีค่ะ/ครับ ฉันโทรมาเพราะต้องการความช่วยเหลือเรื่องสุขภาพ"
+  bg: "Здравейте. Обаждам се, защото имам нужда от помощ за здравословен проблем."
 step.call.interpreter:
   en: "I speak only a little Finnish. I need an interpreter."
   fi: "Puhun vain vähän suomea. Tarvitsen tulkin."
@@ -31,6 +32,7 @@ step.call.interpreter:
   yue: "我只係識講少少芬蘭話。我需要傳譯員。"
   vi: "Tôi chỉ nói được một chút tiếng Phần Lan. Tôi cần phiên dịch viên."
   th: "ฉันพูดภาษาฟินแลนด์ได้นิดหน่อย ฉันต้องการล่าม"
+  bg: "Говоря само малко фински. Имам нужда от преводач."
 step.call.my_language:
   en: "My language is {language}."
   fi: "Kieleni on {language}."
@@ -45,6 +47,7 @@ step.call.my_language:
   yue: "我講{language}。"
   vi: "Ngôn ngữ của tôi là {language}."
   th: "ภาษาของฉันคือ {language}"
+  bg: "Моят език: {language}."
 step.call.symptoms:
   en: "I have these symptoms:"
   fi: "Minulla on nämä oireet:"
@@ -59,6 +62,7 @@ step.call.symptoms:
   yue: "我有以下症狀："
   vi: "Tôi có những triệu chứng sau:"
   th: "ฉันมีอาการเหล่านี้:"
+  bg: "Имам следните симптоми:"
 step.call.ask.id:
   en: "What is your personal identity code or date of birth?"
   fi: "Mikä on henkilötunnuksesi tai syntymäaikasi?"
@@ -73,6 +77,7 @@ step.call.ask.id:
   yue: "你嘅個人身份號碼或者出世日期係幾多？"
   vi: "Mã số cá nhân hoặc ngày sinh của bạn là gì?"
   th: "รหัสประจำตัวบุคคลหรือวันเกิดของคุณคืออะไร"
+  bg: "Какъв е вашият личен идентификационен код или датата ви на раждане?"
 step.call.ask.phone:
   en: "Which number can we call you on?"
   fi: "Mihin numeroon voimme soittaa sinulle?"
@@ -87,6 +92,7 @@ step.call.ask.phone:
   yue: "我哋可以打邊個號碼搵你？"
   vi: "Chúng tôi có thể gọi cho bạn theo số nào?"
   th: "เราติดต่อคุณได้ที่เบอร์อะไร"
+  bg: "На кой номер можем да ви се обадим?"
 step.call.ask.since:
   en: "When did the symptoms start?"
   fi: "Milloin oireet alkoivat?"
@@ -101,6 +107,7 @@ step.call.ask.since:
   yue: "啲症狀幾時開始？"
   vi: "Các triệu chứng bắt đầu khi nào?"
   th: "อาการเริ่มเมื่อไร"
+  bg: "Кога започнаха симптомите?"
 step.call.repeat:
   en: "Could you please repeat the time and the place slowly?"
   fi: "Voisitteko toistaa ajan ja paikan hitaasti?"
@@ -115,6 +122,7 @@ step.call.repeat:
   yue: "你可唔可以慢慢再講一次時間同地點？"
   vi: "Bạn có thể nhắc lại thời gian và địa điểm thật chậm không?"
   th: "ช่วยพูดเวลาและสถานที่ซ้ำช้า ๆ ได้ไหม"
+  bg: "Бихте ли повторили бавно часа и мястото?"
 step.call.sms:
   en: "Could you send it to me as a text message?"
   fi: "Voisitteko lähettää sen minulle tekstiviestinä?"
@@ -129,6 +137,7 @@ step.call.sms:
   yue: "你可唔可以用短訊send俾我？"
   vi: "Bạn có thể gửi cho tôi bằng tin nhắn không?"
   th: "ช่วยส่งเป็นข้อความ SMS ให้ฉันได้ไหม"
+  bg: "Бихте ли ми го изпратили с текстово съобщение?"
 step.call.thanks:
   en: "Thank you for your help. Goodbye."
   fi: "Kiitos avusta. Näkemiin."
@@ -143,6 +152,7 @@ step.call.thanks:
   yue: "多謝你幫忙。拜拜。"
   vi: "Cảm ơn bạn đã giúp đỡ. Tạm biệt."
   th: "ขอบคุณที่ช่วยเหลือ ลาก่อน"
+  bg: "Благодаря за помощта. Довиждане."
 
 # How long the symptoms have lasted (care_paths/domain/keys.ts SYMPTOM_DURATIONS).
 # ui.journey.duration.* = the picker question and cards; step.call.since.* = the call-script line.
@@ -160,6 +170,7 @@ ui.journey.duration.title:
   yue: "呢啲症狀有幾耐？"
   vi: "Bạn bị như vậy bao lâu rồi?"
   th: "คุณมีอาการเหล่านี้มานานเท่าไร"
+  bg: "Откога ги имате?"
 ui.journey.duration.under_2_weeks:
   en: "Less than 2 weeks"
   fi: "Alle 2 viikkoa"
@@ -174,6 +185,7 @@ ui.journey.duration.under_2_weeks:
   yue: "少過2個星期"
   vi: "Dưới 2 tuần"
   th: "น้อยกว่า 2 สัปดาห์"
+  bg: "По-малко от 2 седмици"
 ui.journey.duration.weeks_2_4:
   en: "2 to 4 weeks"
   fi: "2–4 viikkoa"
@@ -188,6 +200,7 @@ ui.journey.duration.weeks_2_4:
   yue: "2至4個星期"
   vi: "2 đến 4 tuần"
   th: "2 ถึง 4 สัปดาห์"
+  bg: "2 до 4 седмици"
 ui.journey.duration.months_1_3:
   en: "1 to 3 months"
   fi: "1–3 kuukautta"
@@ -202,6 +215,7 @@ ui.journey.duration.months_1_3:
   yue: "1至3個月"
   vi: "1 đến 3 tháng"
   th: "1 ถึง 3 เดือน"
+  bg: "1 до 3 месеца"
 ui.journey.duration.over_3_months:
   en: "More than 3 months"
   fi: "Yli 3 kuukautta"
@@ -216,6 +230,7 @@ ui.journey.duration.over_3_months:
   yue: "超過3個月"
   vi: "Hơn 3 tháng"
   th: "มากกว่า 3 เดือน"
+  bg: "Повече от 3 месеца"
 step.call.since.under_2_weeks:
   en: "They started less than two weeks ago."
   fi: "Ne alkoivat alle kaksi viikkoa sitten."
@@ -230,6 +245,7 @@ step.call.since.under_2_weeks:
   yue: "啲症狀係少過兩個星期之前開始。"
   vi: "Chúng bắt đầu chưa đến hai tuần trước."
   th: "อาการเริ่มเมื่อไม่ถึงสองสัปดาห์ก่อน"
+  bg: "Започнаха преди по-малко от две седмици."
 step.call.since.weeks_2_4:
   en: "They started 2–4 weeks ago."
   fi: "Ne alkoivat 2–4 viikkoa sitten."
@@ -244,6 +260,7 @@ step.call.since.weeks_2_4:
   yue: "啲症狀係2至4個星期之前開始。"
   vi: "Chúng bắt đầu cách đây 2 đến 4 tuần."
   th: "อาการเริ่มเมื่อ 2 ถึง 4 สัปดาห์ก่อน"
+  bg: "Започнаха преди 2–4 седмици."
 step.call.since.months_1_3:
   en: "They started 1–3 months ago."
   fi: "Ne alkoivat 1–3 kuukautta sitten."
@@ -258,6 +275,7 @@ step.call.since.months_1_3:
   yue: "啲症狀係1至3個月之前開始。"
   vi: "Chúng bắt đầu cách đây 1 đến 3 tháng."
   th: "อาการเริ่มเมื่อ 1 ถึง 3 เดือนก่อน"
+  bg: "Започнаха преди 1–3 месеца."
 step.call.since.over_3_months:
   en: "They started more than three months ago."
   fi: "Ne alkoivat yli kolme kuukautta sitten."
@@ -272,3 +290,4 @@ step.call.since.over_3_months:
   yue: "啲症狀係三個幾月之前開始。"
   vi: "Chúng bắt đầu cách đây hơn ba tháng."
   th: "อาการเริ่มเมื่อกว่าสามเดือนก่อน"
+  bg: "Започнаха преди повече от три месеца."

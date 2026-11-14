@@ -1678,7 +1678,7 @@ export namespace domain {
      * Literal unions written out: the Encore type parser does not support typeof X[number].
      * Order is the language picker order: national languages, then by speakers in Finland.
      */
-    export type Lang = "en" | "fi" | "sv" | "ru" | "et" | "uk" | "ar" | "so" | "fa" | "zh" | "yue" | "vi" | "th"
+    export type Lang = "en" | "fi" | "sv" | "ru" | "et" | "uk" | "ar" | "so" | "fa" | "zh" | "yue" | "vi" | "th" | "bg"
 
     export interface LanguageDef {
         code: Lang

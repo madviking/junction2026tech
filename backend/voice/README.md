@@ -28,7 +28,7 @@ pages `text-to-speech/convert`, `speech-to-text/convert` and `overview/models`.
 | en, fi | `full_voice` | yes (Scribe) | yes (`eleven_v4`) | `approved` | yes |
 | ar | `full_voice` | yes (Scribe "good") | yes (`eleven_v4`) | `unchecked` (placeholder texts) | yes, by an admin after listening |
 | so | `cards_with_audio` | no (Scribe WER 25–50 %) | yes (`eleven_v4`; v2/flash lack Somali) | `unchecked` | no: only an approved human recording |
-| sv, ru, et, uk, vi | `full_voice` | yes (Scribe excellent, ≤ 5 % WER) | yes (`eleven_v4`) | `unchecked` (placeholder texts) | yes, by an admin after listening |
+| sv, ru, et, uk, vi, bg | `full_voice` | yes (Scribe excellent, ≤ 5 % WER) | yes (`eleven_v4`) | `unchecked` (placeholder texts) | yes, by an admin after listening |
 | fa, zh, yue | `full_voice` | yes (Scribe high, 5–10 % WER) | yes (`eleven_v4`; Cantonese sent as `yue`) | `unchecked` (placeholder texts) | yes, by an admin after listening |
 | th | `full_voice` | yes (Scribe good, 10–20 % WER) | yes (`eleven_v4`) | `unchecked` (placeholder texts) | yes, by an admin after listening |
 

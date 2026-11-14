@@ -44,6 +44,7 @@ export const SEED_LANGUAGES: LanguageDef[] = [
   { code: 'yue', name: '廣東話', dir: 'ltr', placeholder: true, profile: 'C2' },
   { code: 'vi', name: 'Tiếng Việt', dir: 'ltr', placeholder: true, profile: 'C2' },
   { code: 'th', name: 'ไทย', dir: 'ltr', placeholder: true, profile: 'C2' },
+  { code: 'bg', name: 'Български', dir: 'ltr', placeholder: true, profile: 'C2' },
 ]
 
 const obj = (v: unknown, where: string): Raw => {

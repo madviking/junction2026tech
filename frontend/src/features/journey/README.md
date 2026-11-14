@@ -122,5 +122,5 @@ as a list" switches to the text list (with card details); free text / voice sits
 pictures. `symptomVisuals.ts` maps a symptom id to body parts and a Tabler picture
 (presentation only, never sent); a card missing there falls under "Whole body". Silta does
 not ask the person's sex: the figure is neutral and sex-specific cards stay visible to all.
-Strings `ui.journey.body.*` in `backend/care_paths/seed/ui/body_map.yaml` (13 languages).
+Strings `ui.journey.body.*` in `backend/care_paths/seed/ui/body_map.yaml` (14 languages).
 Tests `components/SymptomPictures.test.tsx`.

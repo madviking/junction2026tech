@@ -5,11 +5,14 @@ structural edits, and the same validation publish runs, with the clinical/legal 
 flags beside it. Backend: `backend/content/README.md` ("Journey editor",
 `api.content.journey*`).
 
-## Feature flag (off by default, on in local dev)
+## Feature flag (on in local dev and in the deployed app)
 
 Two flags, both must be on. `make dev-backend` / `make dev-frontend` and the
-`.claude/launch.json` preview servers turn both on locally (override with `=false`);
-builds and deployments leave them off unless set.
+`.claude/launch.json` preview servers turn both on locally (override with `=false`). The
+deployed app turns both on too: `frontend/Dockerfile` (build arg, default `true`) and
+`deploy/aiven/Dockerfile` (`ENV`, overridable in the Runtime app's environment). A plain
+`npm run build` or `encore build docker` leaves them off. The view-only demo account sees
+the editor but every write is refused (`requireAdmin()`).
 
 - Frontend `VITE_FEATURE_JOURNEY_EDITOR=true` (read in `src/app/features.ts` at build or
   dev-server start). Off: no `/admin/journey` route and no "Journey" nav entry; the page
