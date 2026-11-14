@@ -54,9 +54,10 @@ export function OutcomeChooser({ view, send, sending, match, children }: Outcome
     return (
       <SymptomPicker
         symptoms={view.symptoms}
+        durations={view.durations}
         match={match}
         sending={sending}
-        onConfirm={(symptoms) => send({ outcome: needs.outcome, symptoms })}
+        onConfirm={(symptoms, duration) => send({ outcome: needs.outcome, symptoms, ...(duration ? { duration } : {}) })}
         onCancel={() => setNeeds(null)}
       />
     )

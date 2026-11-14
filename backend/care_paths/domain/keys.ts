@@ -30,12 +30,21 @@ export const routeQuestionKey = (index: number) => `journey.fact.route.question.
 export const ROUTE_IF_UNKNOWN_KEY = 'journey.fact.route.if_unknown.then'
 
 export const symptomKey = (id: string, field: 'card' | 'detail') => `card.symptom.${id}.${field}`
+// How long the symptoms have lasted: a closed set the person may pick with the symptom
+// cards. Never changes the lane; only the call script says it.
+export const SYMPTOM_DURATIONS = ['under_2_weeks', 'weeks_2_4', 'months_1_3', 'over_3_months'] as const
+export type SymptomDuration = (typeof SYMPTOM_DURATIONS)[number]
+export const isSymptomDuration = (id: string): id is SymptomDuration => (SYMPTOM_DURATIONS as readonly string[]).includes(id)
+// Picker card ("2 to 4 weeks") and the call-script line ("They started 2–4 weeks ago.").
+export const durationKey = (id: string) => `ui.journey.duration.${id}`
+export const sinceKey = (id: string) => `step.call.since.${id}`
 export const emergencySignKey = (id: string) => `card.emergency.${id}`
 export const clinicianNextKey = (outcome: string) => `card.clinician.${outcome}.next`
 
-// UI strings (`ui.*`) and care-path step texts (`step.*`) are free keys defined by
-// seed files; validation only checks that they have English and Finnish.
-export const isFreeKey = (key: string) => key.startsWith('ui.') || key.startsWith('step.')
+// UI strings (`ui.*`), care-path step texts (`step.*`) and the health care glossary
+// (`glossary.*`, domain/glossary.ts) are free keys defined by seed files; validation
+// only checks that they have English.
+export const isFreeKey = (key: string) => key.startsWith('ui.') || key.startsWith('step.') || key.startsWith('glossary.')
 
 export interface KeySets {
   required: string[]

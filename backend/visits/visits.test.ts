@@ -29,13 +29,19 @@ describe('visit journey', () => {
     expect(v0.symptoms.length).toBeGreaterThan(5)
 
     // The client's lane is ignored; the lane is the most urgent one among the cards (lump U2 < tired U3).
-    const v1 = await addEvent({ code: v0.code, lang: 'so', outcome: 'symptom', symptoms: ['tired', 'lump'], lane: 'U0' } as never)
+    const v1 = await addEvent({ code: v0.code, lang: 'so', outcome: 'symptom', symptoms: ['tired', 'lump'], duration: 'months_1_3', lane: 'U0' } as never)
+    expect(v1.durations.filter((d) => d.selected).map((d) => d.id)).toEqual(['months_1_3'])
     expect(v1.state).toMatchObject({ stage: 'route', lane: 'U2' })
     expect(v1.symptoms.filter((s) => s.selected).map((s) => s.id)).toEqual(['lump', 'tired'])
 
     const v2 = await addEvent({ code: v0.code, lang: 'so', outcome: 'door_known', route: 'A1' })
     expect(v2.state).toMatchObject({ stage: 'contact', route: 'A1' })
     expect(v2.carePath).toMatchObject({ lane: 'U2', route: 'A1', profile: 'C3' })
+    // The call script names the tapped symptom cards in Finnish, in the order they were sent.
+    const symptomLines = v2.carePath!.callScript.find((p) => p.id === 'symptoms')!.lines.filter((l) => l.item)
+    expect(symptomLines.map((l) => l.key)).toEqual(['card.symptom.tired.card', 'card.symptom.lump.card'])
+    expect(v2.carePath!.callScript.find((p) => p.id === 'opening')!.lines.map((l) => l.fi)).toContain('Kieleni on somali.')
+    expect(v2.carePath!.callScript.find((p) => p.id === 'symptoms')!.lines.map((l) => l.key)).toContain('step.call.since.months_1_3')
 
     const v3 = await addEvent({ code: v0.code, lang: 'so', outcome: 'got_time', visitDate: '2026-11-20' })
     expect(v3.state).toMatchObject({ stage: 'wait', visitDate: '2026-11-20' })
@@ -192,6 +198,8 @@ describe('visit privacy and validation', () => {
     await bad({ code, lang: 'en', outcome: 'symptom', symptoms: ['made_up'] })
     await bad({ code, lang: 'en', outcome: 'symptom' })
     await bad({ code, lang: 'en', outcome: 'letter', symptoms: ['lump'] })
+    await bad({ code, lang: 'en', outcome: 'symptom', symptoms: ['lump'], duration: 'forever' })
+    await bad({ code, lang: 'en', outcome: 'letter', duration: 'weeks_2_4' })
     await bad({ code, lang: 'xx', outcome: 'letter' })
     await expect(clinicianAnswers({ code, answers: ['dance'] })).rejects.toMatchObject({ code: 'invalid_argument' })
     await expect(get({ code: 'SLT-0000-0000' })).rejects.toMatchObject({ code: 'not_found' })

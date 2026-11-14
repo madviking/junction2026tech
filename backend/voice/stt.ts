@@ -4,10 +4,13 @@ import { APIError } from 'encore.dev/api'
 import log from 'encore.dev/log'
 import { ProviderError } from './adapter'
 import { decodeAudio, wavDurationSecs } from './audio'
+import { correctTranscript, sttKeyterms } from '../care_paths/domain/glossary'
+import type { Lang } from '../care_paths/domain/types'
 import { STT_MODEL, languageVoice, sttCostUsd } from './capabilities'
 import { FAKE_MODEL } from './fake'
 import { pickProvider } from './providers.config'
 import * as repo from './repository'
+import { liveDoc } from './service'
 
 export const MAX_RECORDING_BYTES = 2 * 1024 * 1024
 export const MAX_RECORDING_SECS = 30
@@ -29,13 +32,16 @@ export async function transcribe(lang: string, audioBase64: string, mime: string
 
   const provider = pickProvider(await repo.totalSpendUsd(), 'stt')
   const model = provider.name === 'fake' ? FAKE_MODEL : STT_MODEL
+  // Health care glossary: bias the provider towards our words, then fix known mishearings.
+  const doc = await liveDoc()
+  const keyterms = sttKeyterms(doc, lang as Lang)
   try {
-    const out = await provider.stt({ bytes: audio.bytes, mime: audio.mime, lang: cap.providerLang, model })
+    const out = await provider.stt({ bytes: audio.bytes, mime: audio.mime, lang: cap.providerLang, model, keyterms })
     const seconds = out.durationSecs ?? wavSecs ?? audio.bytes.length / FALLBACK_BYTES_PER_SEC
-    const costUsd = provider.name === 'fake' ? 0 : sttCostUsd(seconds)
+    const costUsd = provider.name === 'fake' ? 0 : sttCostUsd(seconds, keyterms.length > 0)
     await repo.insertUsage({ provider: provider.name, feature: 'stt.resident', model, characters: 0, seconds, costUsd, status: 'ok' })
     log.info('voice stt done', { lang, bytes: audio.bytes.length, seconds: Math.round(seconds * 10) / 10, transcriptChars: out.text.length, provider: provider.name })
-    return { text: out.text, lang }
+    return { text: correctTranscript(doc, out.text, lang as Lang), lang }
   } catch (err) {
     if (!(err instanceof ProviderError)) throw err
     await repo.insertUsage({ provider: provider.name, feature: 'stt.resident', model, characters: 0, seconds: 0, costUsd: 0, status: 'provider_error' })

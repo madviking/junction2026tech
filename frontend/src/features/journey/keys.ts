@@ -10,6 +10,7 @@ export const routeQuestionKey = (index: number) => `journey.fact.route.question.
 export const ROUTE_IF_UNKNOWN_KEY = 'journey.fact.route.if_unknown.then'
 export const routeCardKey = (code: string) => `route.${code}.card`
 export const symptomKey = (id: string, field: 'card' | 'detail') => `card.symptom.${id}.${field}`
+export const durationKey = (id: string) => `ui.journey.duration.${id}`
 export const emergencySignKey = (id: string) => `card.emergency.${id}`
 
 export const routeNoteKey = (code: string) => `route.${code}.note`
@@ -44,6 +45,9 @@ export function clockLabelKey(
 }
 
 /** Text key of a card in a match set (for the read-back play button). */
+/** Answer text of a health care glossary entry (backend care_paths/domain/glossary.ts). */
+export const glossaryAnswerKey = (id: string) => `glossary.${id}.answer`
+
 export function matchCardKey(set: MatchSet, id: string, stage?: string): string {
   if (set === 'symptoms') return symptomKey(id, 'card')
   if (set === 'route') return routeCardKey(id)

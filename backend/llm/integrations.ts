@@ -71,7 +71,8 @@ const INTEGRATIONS: Record<string, IntegrationDef> = {
   'cards.match': {
     description:
       'Matches what a resident typed or said to one card of a closed set from the live ' +
-      'content (symptom, route or journey outcome cards). Never sees interrupts or lanes. ' +
+      'content (symptom, route or journey outcome cards), or to a health care glossary ' +
+      'answer card, or to "none of these". Never sees interrupts or lanes. ' +
       'A bad answer costs one confirmation tap: the UI reads the card back or shows all cards.',
     provider: 'openrouter',
     kind: 'decide',

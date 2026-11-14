@@ -5,7 +5,7 @@ import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
 import type { ContentDoc } from '../care_paths/domain/types'
 import { adminApprove, adminAssets, adminGenerate, adminUpload, spend, usageSummary } from './admin'
 import { wavTone } from './audio'
-import { TTS_MODEL, TTS_VOICE_ID } from './capabilities'
+import { sttCostUsd, TTS_MODEL, TTS_VOICE_ID } from './capabilities'
 import { fakeProvider } from './fake'
 import { pickProvider } from './providers.config'
 import { countUsage, deleteUsageWithStatus, insertUsage, voiceTableColumns } from './repository'
@@ -172,6 +172,23 @@ describe('clip resolution', () => {
 })
 
 describe('speech-to-text', () => {
+  it('biases the transcription towards the health care glossary and corrects known mishearings', async () => {
+    const calls = stubFetch(() =>
+      Response.json({ text: "They were asking for my Kellogg card. I don't know what that is.", language_code: 'eng', words: [], audio_duration_secs: 2 }),
+    )
+
+    const out = await transcribe({ lang: 'en', audioBase64: wavTone(2).toString('base64'), mime: 'audio/wav' })
+
+    expect(out.text).toBe("They were asking for my Kela card. I don't know what that is.")
+    const keyterms = (calls[0]!.init.body as FormData).getAll('keyterms')
+    expect(keyterms).toEqual(expect.arrayContaining(['Kela-kortti', 'Kela card', 'terveysasema']))
+    expect(keyterms.length).toBeLessThanOrEqual(100)
+  })
+
+  it('adds the 20 % key term surcharge to the cost', () => {
+    expect(sttCostUsd(3600, true)).toBeCloseTo(sttCostUsd(3600) * 1.2)
+  })
+
   it('sends the documented multipart request and returns the transcript without storing it', async () => {
     const transcriptText = unique('I have found a new lump')
     const calls = stubFetch(() => Response.json({ text: transcriptText, language_code: 'fin', language_probability: 0.98, words: [], audio_duration_secs: 1.5 }))

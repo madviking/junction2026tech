@@ -27,15 +27,15 @@ empty tonight.
 | --- | --- | --- |
 | `describe`, `wait`, `followup`, new stages | default `StageCards` | question, outcome cards, `MatchInput` (set `outcomes`) |
 | `route` | `RouteStage` | route questions as guidance, route cards (`route.<code>.card`), `MatchInput` set `route`, other outcomes ("not sure") |
-| `contact` | `ContactStage` | door: title, door, note; Finnish script (`scriptFi`, play in Finnish) + meaning (`scriptLocal`); clocks with basis badge; outcome cards |
+| `contact` | `ContactStage` | door: title, door, note; full call script (`CallScript`, from `carePath.callScript`: greeting, interpreter, checked symptoms, request, "they may ask you", closing; each line Finnish + meaning, play in Finnish and in the person's language); clocks with basis badge; outcome cards |
 | `stalled` | `StalledStage` | escalation ladder (`StepList`, current rung) + outcome cards |
 | `emergency` | `EmergencyStage` | 112 (the PageShell slot) and the emergency signs; below them only "something changed" to go back |
 | `visit` | `VisitStage` | "Show your visit card" + default cards |
 | `closed` | `ClosedStage` | closing text + reopen card |
 
 Outcome taps go through `OutcomeChooser`, driven by the content structure: an outcome
-with `sets: 'lane'` opens the `SymptomPicker` (multi-select symptom cards + free text;
-sends `{ outcome, symptoms }`), one with `sets: 'route'` opens the route cards (sends
+with `sets: 'lane'` opens the `SymptomPicker` (multi-select symptom cards + free text, then
+an optional "how long?" choice from `view.durations`; sends `{ outcome, symptoms, duration? }`), one with `sets: 'route'` opens the route cards (sends
 `{ outcome, route }`), one with `records: 'visit_date'` asks for an optional date (sends
 `visitDate`), any other is sent as is. That is why `describe` needs no entry.
 
@@ -64,7 +64,10 @@ limits line, and the "Your code" line.
 
 Text field ("Describe in your own words") + `RecordAnswerButton` → `POST /api/cards/match`.
 `confirm` → read-back "Did you mean: …?" with a play button and Yes / No; only Yes calls
-`onChosen`. `choose`, No or an error → a short message and the cards stay to tap. It never
+`onChosen`. `answer` (a question about a Finnish health care word, "they asked for my Kela
+card, what is it?") → an answer card with the question, the answer, a play button
+(`glossary.<id>.answer`) and OK, which clears the field; nothing is chosen and the cards
+stay. `choose`, No or an error → a short message and the cards stay to tap. It never
 chooses on its own. In the symptom picker Yes selects the card (Continue still sends).
 
 ## Files
@@ -88,3 +91,16 @@ npx playwright test --project=resident e2e/resident/journey.spec.ts   # running 
 An outcome whose structure has `records: 'visit_date'` (e.g. contact → got_time) asks for the
 appointment date in `OutcomeChooser` before sending; the date is optional ("Continue without a date").
 Strings `ui.journey.visit_date.*`.
+
+## Picture version of the symptom picker
+
+`SymptomPicker` opens in the picture view for people who struggle with written text
+(`SymptomBodyPicker`): a neutral body map (`BodyMap`) above big picture cards
+(`ChoiceCard layout="tile"`, each with its listen button). Tapping a body part narrows the
+cards to that part; with no part chosen every card shows, so nothing is ever hidden. "Show
+as a list" switches to the text list (with card details); free text / voice sits below the
+pictures. `symptomVisuals.ts` maps a symptom id to body parts and a Tabler picture
+(presentation only, never sent); a card missing there falls under "Whole body". Silta does
+not ask the person's sex: the figure is neutral and sex-specific cards stay visible to all.
+Strings `ui.journey.body.*` in `backend/care_paths/seed/ui/body_map.yaml` (13 languages).
+Tests `components/SymptomPictures.test.tsx`.

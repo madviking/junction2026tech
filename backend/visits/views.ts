@@ -1,6 +1,6 @@
 // Response shapes built from the live document and a replay. Pure: no I/O.
 // Ordered things are arrays (Encore's JSON encoder sorts object keys).
-import { compose, ComposeError, type CarePath } from '../care_paths/domain/compose'
+import { compose, ComposeError, interpreterNeeded, type CarePath } from '../care_paths/domain/compose'
 import { availableInputs } from '../care_paths/domain/journey'
 import * as k from '../care_paths/domain/keys'
 import { optionalText, textOf } from '../care_paths/domain/texts'
@@ -59,6 +59,8 @@ export interface VisitView {
   then: string | null
   ladder: { rungs: string[]; current: number } | null
   symptoms: SymptomOption[]
+  // How long the symptoms have lasted: closed choices for the symptom picker.
+  durations: SymptomOption[]
   carePath: CarePath | null
   nextSteps: NextStep[]
   history: HistoryItem[]
@@ -83,10 +85,7 @@ export interface VisitMeta {
   county: string
 }
 
-// Finnish and Swedish are the national languages: services must serve both, so no interpreter.
-export function interpreterNeeded(lang: Lang): boolean {
-  return lang !== 'fi' && lang !== 'sv'
-}
+export { interpreterNeeded }
 
 export function nextSteps(doc: ContentDoc, r: Replay, lang: Lang): NextStep[] {
   return r.answers.map((outcome) => ({ outcome, text: textOf(doc, k.clinicianNextKey(outcome), lang) }))
@@ -128,17 +127,20 @@ export function visitView(doc: ContentDoc, meta: VisitMeta, r: Replay, lang: Lan
       ? { rungs: Array.from({ length: stage.ladder }, (_, i) => t(k.ladderKey(s.stage, i))), current: s.ladderStep }
       : null,
     symptoms: doc.cards.symptoms.map((c) => ({ id: c.id, text: t(k.symptomKey(c.id, 'card')), selected: r.symptoms.includes(c.id) })),
-    carePath: carePathOf(doc, s.lane, s.route, lang),
+    durations: k.SYMPTOM_DURATIONS.map((id) => ({ id, text: t(k.durationKey(id)), selected: r.duration === id })),
+    carePath: carePathOf(doc, s.lane, s.route, r.symptoms, r.duration, lang),
     nextSteps: nextSteps(doc, r, lang),
     history: r.applied.map((h) => ({ stage: h.stage, outcome: h.outcome, at: h.at.toISOString(), actor: h.actor })),
   }
 }
 
-function carePathOf(doc: ContentDoc, lane: string | null, route: string | null, lang: Lang): CarePath | null {
+function carePathOf(doc: ContentDoc, lane: string | null, route: string | null, symptoms: string[], duration: string | null, lang: Lang): CarePath | null {
   if (!lane || !route) return null
   const profile = doc.languages.find((l) => l.code === lang)!.profile
   try {
-    return compose(doc, { lane, route, profile, barriers: [], lang })
+    // A symptom card removed from content since the tap is left out of the script.
+    const known = symptoms.filter((id) => doc.cards.symptoms.some((c) => c.id === id))
+    return compose(doc, { lane, route, profile, barriers: [], lang, symptoms: known, duration: duration && k.isSymptomDuration(duration) ? duration : null })
   } catch (err) {
     if (err instanceof ComposeError) return null
     throw err

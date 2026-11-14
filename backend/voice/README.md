@@ -15,7 +15,7 @@ pages `text-to-speech/convert`, `speech-to-text/convert` and `overview/models`.
 | `voice.ts` | Public endpoints |
 | `admin.ts` | Admin endpoints (`auth: true`, `requireAdmin()`, audited) and internal usage endpoints |
 | `service.ts` | Clip resolution, on-demand generation, uploads, approval, usage |
-| `stt.ts` | Speech-to-text rules (limits, Somali refusal, no storage) |
+| `stt.ts` | Speech-to-text rules (limits, Somali refusal, no storage); sends the health care glossary as `keyterms` (Finnish + the person's-language terms, at most 100 to avoid the 20 s minimum billing) and fixes known mishearings in the transcript (`care_paths/domain/glossary.ts`) |
 | `repository.ts` | SQL |
 | `adapter.ts`, `elevenlabs.ts`, `fake.ts`, `providers.config.ts` | Provider interface, real adapter (timeouts 30 s / 60 s), offline adapter (`mode: 'fake'` only), mode + 5 USD spend cap |
 | `audio.ts` | Base64 decode with limits, mime sniffing, WAV duration, WAV tone |
@@ -83,7 +83,8 @@ transcripts are not stored or logged (logs carry lengths and status). Zero-reten
 
 ## Cost
 
-TTS characters × $0.08 / 1K (`eleven_v4`), STT seconds × $0.20 / hour (`scribe_v3`). When the
+TTS characters × $0.08 / 1K (`eleven_v4`), STT seconds × $0.20 / hour (`scribe_v3`), plus
+20 % when key terms are sent (always, once the glossary has terms). When the
 summed `voice_usage.cost_usd` reaches 5.00 USD, live mode refuses new provider calls:
 generation and speech-to-text fail with `unavailable` ("voice is temporarily unavailable")
 and log a warning. Stored audio is still served. Live mode never falls back to the fake

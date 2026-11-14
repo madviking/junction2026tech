@@ -30,7 +30,7 @@ that event is skipped and a warning is logged, so the visit keeps its last good 
 | --- | --- | --- | --- |
 | POST | `/api/visits` | `{ lang, county? }` (county default `helsinki`) | `VisitView` (the only place the new code is returned) |
 | GET | `/api/visits/:code?lang=` | lang defaults to the visit's language | `VisitView` |
-| POST | `/api/visits/:code/events` | `{ lang, outcome, symptoms?, route?, visitDate? }` | `VisitView` |
+| POST | `/api/visits/:code/events` | `{ lang, outcome, symptoms?, duration?, route?, visitDate? }` | `VisitView` |
 | GET | `/api/visits/:code/summary` | | `ClinicianSummary`, always Finnish |
 | POST | `/api/visits/:code/clinician` | `{ answers: string[] }` | `ClinicianSummary` |
 | GET | `/api/visits/:code/next-steps?lang=` | | `{ steps: { outcome, text }[] }` |
@@ -44,12 +44,14 @@ An unknown, malformed or expired code returns `not_found`.
 - **Events.** The client never sends a lane. For an outcome whose structure has
   `sets: 'lane'`, the client sends symptom card ids (validated against `cards.symptoms`).
   The server picks the most urgent lane among them: lanes are ordered as in
-  `structure.lanes`, and the first is the most urgent. The server stores a `symptoms`
-  event and then the `outcome` event. Symptom cards with any other outcome get
+  `structure.lanes`, and the first is the most urgent. An optional `duration`
+  (`SYMPTOM_DURATIONS` id; how long the symptoms have lasted, said in the call script, never
+  used for the lane) is accepted only with symptom cards. The server stores a `symptoms`
+  event (`{ symptoms, lane, duration? }`) and then the `outcome` event. Symptom cards with any other outcome get
   `invalid_argument`. Interrupts (`emergency_sign`, `something_changed`) use the same
   endpoint. A `JourneyError` from the engine returns `invalid_argument`. `visitDate` is
   `YYYY-MM-DD`. The request `lang` also becomes the visit's language, which the summary
-  uses for the interpreter line (`interpreterNeeded()` in `views.ts`: not for Finnish or Swedish).
+  uses for the interpreter line (`interpreterNeeded()` in `care_paths/domain/compose.ts`, re-exported by `views.ts`: not for Finnish or Swedish).
 - **Clinician answers.** Answers are validated against `cards.clinician`, and each one is
   recorded as a `clinician_answer` event (actor `clinician`). On the first post of a
   clinician visit the journey moves once:
@@ -72,8 +74,8 @@ An unknown, malformed or expired code returns `not_found`.
   in `journey.interrupts` order. From `emergency` only `something_changed` is offered, and
   it leads back to `describe`.
 - **VisitView.** All text is in the request language, with English as the fallback.
-  `carePath` (from `compose`, using the language's profile) is filled once both lane and
-  route are known. Ordered things are arrays.
+  `carePath` (from `compose`, using the language's profile and the symptom cards behind the
+  lane, which the call script names) is filled once both lane and route are known. Ordered things are arrays.
 
 ## Tables (migration `6_visits`)
 

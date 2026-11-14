@@ -34,6 +34,8 @@ export const contrastPairs: ContrastPair[] = [
   { name: 'control border on surface', foreground: s.border, background: s.surface, kind: 'uiComponent' },
   { name: 'control border on background', foreground: s.border, background: s.background, kind: 'uiComponent' },
   { name: 'selected border on surface', foreground: s.primary, background: s.surface, kind: 'uiComponent' },
+  { name: 'tile pictogram / body part outline on info background', foreground: s.primary, background: tones.info.bg, kind: 'uiComponent' },
+  { name: 'chosen body part on background', foreground: s.primary, background: s.background, kind: 'uiComponent' },
   ...toneNames.flatMap((tone): ContrastPair[] => [
     { name: `${tone} text on ${tone} background`, foreground: tones[tone].fg, background: tones[tone].bg, kind: 'normalText' },
     { name: `body text on ${tone} background`, foreground: s.text, background: tones[tone].bg, kind: 'normalText' },

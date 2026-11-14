@@ -27,6 +27,9 @@ export function readSeedFiles(dir = seedDir()): SeedFiles {
         .sort()
         .map((f) => readFileSync(path.join(uiDir, f), 'utf8'))
     : []
+  // glossary.yaml uses the ui format with glossary.* keys (care_paths/domain/glossary.ts).
+  const glossary = path.join(dir, 'glossary.yaml')
+  if (existsSync(glossary)) uiYamls.push(readFileSync(glossary, 'utf8'))
   const translations: SeedFiles['translations'] = {}
   for (const lang of LANGS) {
     const file = path.join(dir, `texts.${lang}.yaml`)

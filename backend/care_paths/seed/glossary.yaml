@@ -1,0 +1,178 @@
+# Finnish health care vocabulary: SEED for the content database (same flat format as
+# ui/*.yaml: key -> {en, fi, ...}). One entry per term, four fields:
+#   glossary.<id>.term      the word as it is used in Finland (fi) and in the person's language
+#   glossary.<id>.heard     optional; what speech-to-text writes instead, ";"-separated, lower case.
+#                           Replaced by the term before matching (care_paths/domain/glossary.ts).
+#   glossary.<id>.question  the question the answer card answers
+#   glossary.<id>.answer    a short plain-language answer that ends with what to say or do
+# The matcher offers every entry with a question and an answer as an answer card next to the
+# cards of the current step (cards/README.md). Answers are general guidance, not medical advice;
+# they need a review like every other text (admin review flag).
+
+glossary.kela_card.term:
+  en: "Kela card"
+  fi: "Kela-kortti"
+glossary.kela_card.heard:
+  en: "kellogg card; kellogg's card; kellogs card; kayla card; keela card; kella card; kelly card; kela cart; cella card"
+glossary.kela_card.question:
+  en: "What is a Kela card?"
+  fi: "Mikä on Kela-kortti?"
+glossary.kela_card.answer:
+  en: "The Kela card is the health insurance card from Kela, the Finnish social insurance institution. It shows that you are covered by Finnish health insurance. It is mostly used at pharmacies and private clinics. At a public health station you can get care without it. If you do not have one, say: \"Minulla ei ole Kela-korttia\" and show your ID or residence permit."
+  fi: "Kela-kortti on Kelan sairausvakuutuskortti. Se osoittaa, että kuulut Suomen sairausvakuutukseen. Sitä käytetään lähinnä apteekissa ja yksityisellä lääkäriasemalla. Julkisella terveysasemalla saat hoitoa ilman sitä. Jos sinulla ei ole korttia, sano: \"Minulla ei ole Kela-korttia\" ja näytä henkilöllisyystodistus tai oleskelulupa."
+
+glossary.personal_id.term:
+  en: "personal identity code (henkilötunnus)"
+  fi: "henkilötunnus"
+glossary.personal_id.heard:
+  en: "henkilo tunnus; henki lötunnus; hetu code"
+glossary.personal_id.question:
+  en: "What is a henkilötunnus (personal identity code)?"
+  fi: "Mikä on henkilötunnus?"
+glossary.personal_id.answer:
+  en: "A henkilötunnus is your Finnish personal identity code, for example 010190-123A. You get it when you are registered in Finland. Health services use it to find your records. If you do not have one, say: \"Minulla ei ole henkilötunnusta.\" You can still get care; they can use a temporary identifier."
+  fi: "Henkilötunnus on suomalainen tunnus, esimerkiksi 010190-123A. Saat sen, kun sinut rekisteröidään Suomessa. Terveyspalvelut löytävät sillä tietosi. Jos sinulla ei ole sitä, sano: \"Minulla ei ole henkilötunnusta.\" Saat silti hoitoa; sinulle voidaan antaa väliaikainen tunniste."
+
+glossary.health_station.term:
+  en: "health station (terveysasema)"
+  fi: "terveysasema"
+glossary.health_station.heard:
+  en: "terveys asema; tervis asema"
+glossary.health_station.question:
+  en: "What is a terveysasema (health station)?"
+  fi: "Mikä on terveysasema?"
+glossary.health_station.answer:
+  en: "A terveysasema is the public health station for your area. You contact it first when a symptom is not an emergency. A nurse assesses how soon you need a doctor. Call its booking line or use its online service."
+  fi: "Terveysasema on alueesi julkinen terveysasema. Otat siihen yhteyttä ensin, kun oire ei ole hätätilanne. Hoitaja arvioi, kuinka pian tarvitset lääkärin. Soita ajanvaraukseen tai käytä sen verkkopalvelua."
+
+glossary.emergency_clinic.term:
+  en: "emergency clinic (päivystys)"
+  fi: "päivystys"
+glossary.emergency_clinic.heard:
+  en: "paivystys; päivistys; pyvistys"
+glossary.emergency_clinic.question:
+  en: "What is päivystys (emergency clinic)?"
+  fi: "Mikä on päivystys?"
+glossary.emergency_clinic.answer:
+  en: "Päivystys is the emergency clinic for problems that cannot wait until the health station is open. Before you go, call the medical helpline 116 117; they tell you where to go. If a life is in danger, call 112."
+  fi: "Päivystys hoitaa asiat, jotka eivät voi odottaa terveysaseman aukeamista. Soita ennen lähtöä päivystysavun numeroon 116 117; sieltä kerrotaan, minne mennä. Jos henki on vaarassa, soita 112."
+
+glossary.referral.term:
+  en: "referral (lähete)"
+  fi: "lähete"
+glossary.referral.heard:
+  en: "lahete; la hete"
+glossary.referral.question:
+  en: "What is a lähete (referral)?"
+  fi: "Mikä on lähete?"
+glossary.referral.answer:
+  en: "A lähete is a referral: a doctor sends you to a hospital or a specialist. In public care you need one to see a specialist. The hospital must assess the referral within 3 weeks. If you hear nothing, call and ask: \"Onko lähetteeni tullut perille?\""
+  fi: "Lähete tarkoittaa, että lääkäri ohjaa sinut sairaalaan tai erikoislääkärille. Julkisessa hoidossa erikoislääkärille pääsee vain lähetteellä. Sairaalan on arvioitava lähete 3 viikon kuluessa. Jos et kuule mitään, soita ja kysy: \"Onko lähetteeni tullut perille?\""
+
+glossary.omakanta.term:
+  en: "OmaKanta"
+  fi: "OmaKanta"
+glossary.omakanta.heard:
+  en: "oma kanta; homa kanta; omma kanta; my kanta; oma canta; kanta fi"
+glossary.omakanta.question:
+  en: "What is OmaKanta?"
+  fi: "Mikä on OmaKanta?"
+glossary.omakanta.answer:
+  en: "OmaKanta (kanta.fi) is the national online service where you see your prescriptions, test results and health records. You log in with online banking codes or a mobile certificate. If you cannot log in, ask the health station to tell you your results."
+  fi: "OmaKanta (kanta.fi) on kansallinen verkkopalvelu, jossa näet reseptisi, tutkimustulokset ja potilastietosi. Kirjaudut verkkopankkitunnuksilla tai mobiilivarmenteella. Jos et pääse kirjautumaan, pyydä terveysasemaa kertomaan tulokset."
+
+glossary.callback.term:
+  en: "callback (takaisinsoitto)"
+  fi: "takaisinsoitto"
+glossary.callback.heard:
+  en: "takaisin soitto"
+glossary.callback.question:
+  en: "What is takaisinsoitto (callback)?"
+  fi: "Mikä on takaisinsoitto?"
+glossary.callback.answer:
+  en: "Takaisinsoitto means the phone line saves your number and a nurse calls you back, often the same day. Keep your phone on and answer unknown numbers; the call may come from a hidden number. If nobody calls by the next working day, call again."
+  fi: "Takaisinsoitto tarkoittaa, että puhelinpalvelu tallentaa numerosi ja hoitaja soittaa sinulle, usein samana päivänä. Pidä puhelin päällä ja vastaa tuntemattomiin numeroihin; puhelu voi tulla salaisesta numerosta. Jos kukaan ei soita seuraavana arkipäivänä, soita uudelleen."
+
+glossary.interpreter.term:
+  en: "interpreter (tulkki)"
+  fi: "tulkki"
+glossary.interpreter.heard:
+  en: "tulki"
+glossary.interpreter.question:
+  en: "Can I get an interpreter (tulkki)?"
+  fi: "Voinko saada tulkin?"
+glossary.interpreter.answer:
+  en: "Yes. In public health care you can ask for an interpreter, and it is free for you. Ask when you book: \"Tarvitsen tulkin. Kieleni on …\" The health service books the interpreter, in person or by phone."
+  fi: "Kyllä. Julkisessa terveydenhuollossa voit pyytää tulkin, ja se on sinulle maksuton. Pyydä ajanvarauksen yhteydessä: \"Tarvitsen tulkin. Kieleni on …\" Terveyspalvelu tilaa tulkin paikan päälle tai puhelimeen."
+
+glossary.client_fee.term:
+  en: "client fee (asiakasmaksu)"
+  fi: "asiakasmaksu"
+glossary.client_fee.heard:
+  en: "asiakas maksu; maksu katto"
+glossary.client_fee.question:
+  en: "What does it cost? What is asiakasmaksu (client fee)?"
+  fi: "Mitä hoito maksaa? Mikä on asiakasmaksu?"
+glossary.client_fee.answer:
+  en: "An asiakasmaksu is the fee for public health care. Fees are set by law and are small; children's care is mostly free. There is a yearly cap (maksukatto). If you cannot pay, you can ask for the fee to be reduced. Do not skip care because of a bill."
+  fi: "Asiakasmaksu on julkisen terveydenhuollon maksu. Maksut ovat laissa määrättyjä ja pieniä; lasten hoito on pääosin maksutonta. Maksuille on vuosittainen maksukatto. Jos et pysty maksamaan, voit hakea maksun alentamista. Älä jätä hoitoa väliin laskun takia."
+
+glossary.ehic.term:
+  en: "European Health Insurance Card (EHIC)"
+  fi: "eurooppalainen sairaanhoitokortti"
+glossary.ehic.heard:
+  en: "e hic card; ehic card; european health card"
+glossary.ehic.question:
+  en: "What is the European Health Insurance Card (EHIC)?"
+  fi: "Mikä on eurooppalainen sairaanhoitokortti?"
+glossary.ehic.answer:
+  en: "The European Health Insurance Card (EHIC) comes from your home country in the EU or EEA. With it you get necessary care in Finnish public health care at the same fees as people who live here. Show it when you contact the health station."
+  fi: "Eurooppalaisen sairaanhoitokortin saa omasta EU- tai ETA-maastaan. Sillä saat tarpeellista hoitoa Suomen julkisessa terveydenhuollossa samoilla maksuilla kuin täällä asuvat. Näytä kortti, kun otat yhteyttä terveysasemaan."
+
+glossary.urgent.term:
+  en: "urgent (kiireellinen)"
+  fi: "kiireellinen"
+glossary.urgent.heard:
+  en: "kiirellinen; kiire ellinen"
+glossary.urgent.question:
+  en: "What does kiireellinen (urgent) mean?"
+  fi: "Mitä kiireellinen tarkoittaa?"
+glossary.urgent.answer:
+  en: "Kiireellinen means urgent: you need care within a day or so. Kiireetön means non-urgent: you get an appointment later. If you think your symptom needs a quick check, say: \"Pyydän kiireellistä arviota.\""
+  fi: "Kiireellinen tarkoittaa, että tarvitset hoitoa noin vuorokauden sisällä. Kiireetön tarkoittaa, että saat ajan myöhemmin. Jos oireesi mielestäsi vaatii nopean arvion, sano: \"Pyydän kiireellistä arviota.\""
+
+glossary.wellbeing_county.term:
+  en: "wellbeing services county (hyvinvointialue)"
+  fi: "hyvinvointialue"
+glossary.wellbeing_county.heard:
+  en: "hyvin vointi alue; hyvinvointi alue"
+glossary.wellbeing_county.question:
+  en: "What is a hyvinvointialue (wellbeing services county)?"
+  fi: "Mikä on hyvinvointialue?"
+glossary.wellbeing_county.answer:
+  en: "A hyvinvointialue is the wellbeing services county that runs public health care where you live. Your health station and your hospital belong to it. Its website lists the phone numbers for your area."
+  fi: "Hyvinvointialue järjestää julkisen terveydenhuollon asuinalueellasi. Terveysasemasi ja sairaalasi kuuluvat siihen. Sen verkkosivuilla ovat alueesi puhelinnumerot."
+
+glossary.occupational_health.term:
+  en: "occupational health care (työterveys)"
+  fi: "työterveys"
+glossary.occupational_health.heard:
+  en: "tyoterveys; työ terveys; tyo terveys"
+glossary.occupational_health.question:
+  en: "What is työterveys (occupational health care)?"
+  fi: "Mikä on työterveys?"
+glossary.occupational_health.answer:
+  en: "Työterveys is the health service your employer pays for. Many employers include doctor visits for illness. Ask your employer or the occupational health clinic whether you can come there with your symptom. You can always use the public health station too."
+  fi: "Työterveys on työnantajasi kustantama terveyspalvelu. Monella työnantajalla siihen kuuluvat myös sairausvastaanotot. Kysy työnantajalta tai työterveysasemalta, voitko tulla sinne oireesi kanssa. Voit aina käyttää myös julkista terveysasemaa."
+
+glossary.screening.term:
+  en: "screening (seulonta)"
+  fi: "seulonta"
+glossary.screening.heard:
+  en: "seulonta test; seul onta"
+glossary.screening.question:
+  en: "What is seulonta (screening)?"
+  fi: "Mikä on seulonta?"
+glossary.screening.answer:
+  en: "Seulonta is a free test that you are invited to by letter, for example for breast, cervical or bowel cancer. You do not need symptoms. If you already have a symptom, do not wait for the screening: contact the health station."
+  fi: "Seulonta on maksuton tutkimus, johon sinut kutsutaan kirjeellä, esimerkiksi rinta-, kohdunkaula- tai suolistosyövän seulontaan. Oireita ei tarvita. Jos sinulla on jo oire, älä odota seulontaa vaan ota yhteyttä terveysasemaan."

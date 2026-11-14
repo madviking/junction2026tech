@@ -24,6 +24,8 @@ export interface SttRequest {
   mime: string
   lang: string
   model: string
+  // Words to bias the transcription towards (health care glossary); provider limits apply.
+  keyterms?: string[]
 }
 
 export interface SttResult {

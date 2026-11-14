@@ -59,6 +59,8 @@ export const elevenLabs: VoiceProvider = {
     form.append('model_id', req.model)
     form.append('language_code', req.lang)
     form.append('tag_audio_events', 'false')
+    // A list field: one form entry per term (speech-to-text/convert, read 2026-11-14).
+    for (const term of req.keyterms ?? []) form.append('keyterms', term)
     form.append('file', new Blob([new Uint8Array(req.bytes)], { type: req.mime }), `recording.${EXT[req.mime] ?? 'bin'}`)
     const response = await fetch(`${ELEVENLABS_BASE_URL}/v1/speech-to-text`, {
       method: 'POST',

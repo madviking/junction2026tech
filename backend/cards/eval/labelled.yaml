@@ -47,3 +47,14 @@ items:
   - {id: en-20, lang: en, set: symptoms, text: "something is wrong with my body", expect: choose}
   - {id: fi-17, lang: fi, set: symptoms, text: "En tiedä, jotain outoa", expect: choose}
   - {id: fi-18, lang: fi, set: symptoms, text: "Minua pelottaa", expect: choose}
+  # ---- health care words (glossary answer cards; expect answer:<glossary id>) ----
+  - {id: en-22, lang: en, set: outcomes, stage: contact, text: "They were asking for my Kellogg card. I don't know what that is.", expect: "answer:kela_card"}
+  - {id: en-23, lang: en, set: outcomes, stage: contact, text: "they wanted my henkilötunnus but I do not have one, what is it?", expect: "answer:personal_id"}
+  - {id: en-24, lang: en, set: symptoms, text: "can I get an interpreter when I see the doctor?", expect: "answer:interpreter"}
+  - {id: en-25, lang: en, set: outcomes, stage: wait, text: "they told me to look in omakanta, what is that?", expect: "answer:omakanta"}
+  - {id: fi-20, lang: fi, set: outcomes, stage: contact, text: "Mikä on lähete? Minulta kysyttiin sitä", expect: "answer:referral"}
+  # ---- statements that use a health care word: expect the situation card, not the answer card ----
+  - {id: en-26, lang: en, set: outcomes, stage: contact, text: "they said a nurse will do a callback later today", expect: told_to_wait}
+  - {id: en-27, lang: en, set: route, text: "I live in Finland, I have a Kela card and a home municipality", expect: A1}
+  # ---- off-topic: expect choose ----
+  - {id: en-28, lang: en, set: outcomes, stage: contact, text: "where can I park my car?", expect: choose}

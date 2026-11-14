@@ -1,9 +1,12 @@
-import { IconHeartbeat, IconMapPin, IconStethoscope } from '@tabler/icons-react'
+import { IconCircleDot, IconHeartbeat, IconLungs, IconMapPin, IconStethoscope } from '@tabler/icons-react'
 import { useState } from 'react'
 import {
   ActionButton,
   AudioPlayButton,
   Banner,
+  BodyMap,
+  type BodyMapRegion,
+  type BodyRegionId,
   ChoiceCard,
   Divider,
   EmergencyCallLink,
@@ -32,8 +35,17 @@ const steps: StepItem[] = [
   { id: 'card', title: 'Show your visit card', status: 'upcoming' },
 ]
 
+const bodyRegions: BodyMapRegion[] = [
+  { id: 'head', label: 'Head and neck' },
+  { id: 'chest', label: 'Chest, breast and armpit' },
+  { id: 'belly', label: 'Belly and lower body' },
+  { id: 'skin', label: 'Skin' },
+  { id: 'whole', label: 'Whole body' },
+]
+
 export function ResidentPrimitivesSection() {
   const [choice, setChoice] = useState<string>('lump')
+  const [region, setRegion] = useState<BodyRegionId | null>('chest')
   return (
     <Section eyebrow="Resident" title="Resident primitives" description="Mobile-first, 48px touch targets.">
       <Specimen title="Text tones">
@@ -93,6 +105,35 @@ export function ResidentPrimitivesSection() {
             onPress={() => setChoice('bleeding')}
           />
           <ChoiceCard label="Disabled choice" detail="Not available yet" disabled selected={false} onPress={noop} />
+        </Stack>
+      </Specimen>
+
+      <Specimen title="BodyMap and ChoiceCard layout=tile (picture symptom picker)">
+        <Stack gap="md">
+          <BodyMap
+            label="Where do you feel it?"
+            regions={bodyRegions}
+            value={region}
+            onChange={setRegion}
+          />
+          <Grid min="xs" gap="sm">
+            <ChoiceCard
+              layout="tile"
+              label="A new lump or swelling"
+              icon={<IconCircleDot size={40} stroke={1.6} />}
+              selected
+              onPress={noop}
+              trailing={<AudioPlayButton state="idle" label="Listen: A new lump or swelling" onPress={noop} />}
+            />
+            <ChoiceCard
+              layout="tile"
+              label="A cough for over 3 weeks"
+              icon={<IconLungs size={40} stroke={1.6} />}
+              selected={false}
+              onPress={noop}
+              trailing={<AudioPlayButton state="idle" label="Listen: A cough for over 3 weeks" onPress={noop} />}
+            />
+          </Grid>
         </Stack>
       </Specimen>
 

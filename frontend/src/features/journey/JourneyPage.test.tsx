@@ -51,6 +51,37 @@ describe('JourneyPage', () => {
     await waitFor(() => expect(calls.find((c) => c.method === 'POST')?.body).toEqual({ lang: 'en', outcome: 'fine' }))
   })
 
+  it('shows the full call script with the checked symptoms on the door screen', async () => {
+    const line = (key: string | null, fi: string, local: string, item = false) => ({ key, fi, local, item })
+    const contact = visitView({
+      stage: { id: 'contact', outcomes: [], terminal: false, ladder: 0, checkIns: [], overdueNext: null },
+      state: { stage: 'contact', lane: 'U2', route: 'A1', ladderStep: 0, visitDate: null, tries: [] },
+      outcomes: [],
+      carePath: {
+        lane: 'U2', route: 'A1', profile: 'C2', barriers: [], emergency: false,
+        destination: { title: 'Contact the health station', door: 'health station', scriptFi: 'x', scriptLocal: 'x', note: '' },
+        callScript: [
+          { id: 'opening', lines: [line('step.call.greeting', 'Hei.', 'Hello.'), line(null, 'Kieleni on englanti.', 'My language is English.')] },
+          { id: 'symptoms', lines: [line('step.call.symptoms', 'Minulla on nämä oireet:', 'I have these symptoms:'), line('card.symptom.lump.card', 'Uusi kyhmy', 'A new lump', true), line('step.call.since.weeks_2_4', 'Ne alkoivat 2–4 viikkoa sitten.', 'They started 2–4 weeks ago.')] },
+          { id: 'request', lines: [line('rule.U2.script', 'Olen huolissani näistä oireista.', 'I am worried about these symptoms.')] },
+          { id: 'they_ask', lines: [line('step.call.ask.since', 'Milloin oireet alkoivat?', 'When did the symptoms start?')] },
+          { id: 'closing', lines: [line('step.call.thanks', 'Kiitos.', 'Thank you.')] },
+        ],
+        clocks: [], adaptations: [], steps: [], reviewFlags: [],
+      },
+    })
+    stubBackend({ 'GET /api/content/live': bundle, [`GET ${visitPath}`]: contact })
+    renderJourney()
+
+    expect(await screen.findByText('• Uusi kyhmy')).toBeInTheDocument()
+    expect(screen.getByText('• A new lump')).toBeInTheDocument()
+    expect(screen.getByText('Kieleni on englanti.')).toBeInTheDocument()
+    expect(screen.getByText('Ne alkoivat 2–4 viikkoa sitten.')).toBeInTheDocument()
+    expect(screen.getByText('Olen huolissani näistä oireista.')).toBeInTheDocument()
+    expect(screen.getByText('Milloin oireet alkoivat?')).toBeInTheDocument()
+    expect(screen.getByText('Kiitos.')).toBeInTheDocument()
+  })
+
   it('shows no "translation not yet checked" notice in a placeholder language', async () => {
     stubBackend({ 'GET /api/content/live': { ...bundle, placeholder: true }, [`GET ${visitPath}`]: visitView() })
     renderJourney()
@@ -58,7 +89,7 @@ describe('JourneyPage', () => {
     expect(screen.queryByText('Translation not yet checked')).not.toBeInTheDocument()
   })
 
-  it('opens the symptom picker for the lane outcome and sends the chosen symptom ids', async () => {
+  it('opens the symptom picker for the lane outcome and sends the chosen symptom ids and duration', async () => {
     const calls = stubBackend({
       'GET /api/content/live': bundle,
       [`GET ${visitPath}`]: visitView(),
@@ -69,12 +100,16 @@ describe('JourneyPage', () => {
 
     fireEvent.click(await screen.findByRole('button', { name: 'I have a symptom' }))
     expect(screen.getByRole('heading', { name: 'What worries you?' })).toBeInTheDocument()
+    // The duration question appears only once a symptom is chosen.
+    expect(screen.queryByRole('heading', { name: 'How long have you had them?' })).not.toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: 'A new lump' }))
     fireEvent.click(screen.getByRole('button', { name: 'A long cough' }))
+    expect(screen.getByRole('heading', { name: 'How long have you had them?' })).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: '2 to 4 weeks' }))
     fireEvent.click(screen.getByRole('button', { name: 'Continue' }))
 
     await waitFor(() =>
-      expect(calls.find((c) => c.method === 'POST')?.body).toEqual({ lang: 'en', outcome: 'symptom', symptoms: ['lump', 'cough'] }),
+      expect(calls.find((c) => c.method === 'POST')?.body).toEqual({ lang: 'en', outcome: 'symptom', symptoms: ['lump', 'cough'], duration: 'weeks_2_4' }),
     )
   })
 
@@ -82,7 +117,7 @@ describe('JourneyPage', () => {
     const calls = stubBackend({
       'GET /api/content/live': bundle,
       [`GET ${visitPath}`]: visitView(),
-      'POST /api/cards/match': { status: 'confirm', top: { id: 'lump', text: 'A new lump', probability: 0.9 }, ranked: [] },
+      'POST /api/cards/match': { status: 'confirm', top: { id: 'lump', text: 'A new lump', probability: 0.9 }, answer: null, ranked: [] },
     })
 
     renderJourney()

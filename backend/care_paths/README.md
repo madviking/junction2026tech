@@ -21,10 +21,11 @@ composition. Port of the Python `app/care_paths` module to Encore.ts.
 domain/      pure TypeScript, no I/O, no Encore imports; shared by content, visits, cards, voice
   types.ts     ContentDoc = structure + cards + texts (+ languages)
   keys.ts      the only place that derives text keys (lane.U2.name, journey.outcome.contact.no_answer.card ...)
-  seed.ts      rules.yaml + cards.yaml + ui/*.yaml + texts.<lang>.yaml -> ContentDoc
+  seed.ts      rules.yaml + cards.yaml + ui/*.yaml + glossary.yaml + texts.<lang>.yaml -> ContentDoc
+  glossary.ts  Finnish health care vocabulary: answer cards, transcript correction, STT key terms
   validate.ts  whole-document validation (seed time and every publish); errors block
   journey.ts   next(journey, codes, state, input) -> { state, thenKey, interrupt }
-  compose.ts   one person's care path (door, scripts, clocks, adaptations, steps, review flags)
+  compose.ts   one person's care path (door, scripts, full call script, clocks, adaptations, steps, review flags)
   export.ts    ContentDoc -> rules.yaml shape (English wording, Finnish scripts)
   texts.ts     text lookup with English fallback
   views.ts     ordered array views for API responses (Encore sorts object keys)
@@ -49,10 +50,36 @@ structure only holds codes, flags and links.
   `fi` (and `so`/`ar` placeholders; the other languages keep their texts, `ui.*` included,
   in `seed/texts.<lang>.yaml`). Outside production the backend re-checks the seed
   files at most every 5 s, so the key appears without a restart.
+- Add a health care word: four keys in `seed/glossary.yaml` (same format as `ui/*.yaml`):
+  `glossary.<id>.term` (the word in Finnish and in the person's language), optional
+  `.heard` (speech-to-text mishearings, `;`-separated, lower case, whole words, e.g.
+  "kellogg card"), `.question` and `.answer` (plain language, ends with what to say or
+  do). `glossary.*` are free keys (English required). They reach admin-edited content
+  through the normal missing-key merge. Used by `cards` (answer cards next to every card
+  set, mishearings fixed before matching) and `voice` (key terms sent to speech-to-text,
+  mishearings fixed in the transcript). Answers are general guidance and need the same
+  review as every other text.
 
 Changes to the seed's journey draft (14 Nov): `door_known` has `sets: route`,
 `not_sure` has `sets: route_if_unknown` (was a then-text naming the if-unknown door), and
 the stalled outcomes that climb the ladder have `climb: true`.
+
+## Call script
+
+`CarePath.callScript` is the whole phone call as ordered parts (`opening`, `symptoms`,
+`request`, `they_ask`, `closing`); each line has the Finnish text, its meaning in the
+person's language and the text key (audio). Texts: `step.call.*` in
+`seed/ui/call_script.yaml` (all 13 languages). The `request` line is the lane/route rule
+script; the U2/U3 rule scripts say "these symptoms" because the `symptoms` part lists the
+tapped symptom cards (`compose` input `symptoms`, from the visit). Non-Finnish/Swedish
+speakers get the interpreter lines; "Kieleni on …" is composed (Finnish language names in
+`compose.ts`) and has no audio. The emergency lane has only the 112 script.
+
+How long the symptoms have lasted is a closed set (`keys.ts` `SYMPTOM_DURATIONS`: under 2
+weeks, 2–4 weeks, 1–3 months, over 3 months), picked optionally with the symptom cards.
+It never changes the lane. Picked → the `symptoms` part ends with `step.call.since.<id>`
+("Ne alkoivat 2–4 viikkoa sitten.") and "when did they start?" leaves `they_ask`. The rule
+scripts carry no `[N]` blank. Picker texts: `ui.journey.duration.*`.
 
 ## Endpoints
 

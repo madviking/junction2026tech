@@ -30,7 +30,7 @@ describe('MatchInput', () => {
   it('confirm: reads the card back and calls onChosen on Yes', async () => {
     const calls = stubBackend({
       'GET /api/content/live': bundle,
-      'POST /api/cards/match': { status: 'confirm', top: { id: 'no_answer', text: 'Nobody answered', probability: 0.92 }, ranked: [] },
+      'POST /api/cards/match': { status: 'confirm', top: { id: 'no_answer', text: 'Nobody answered', probability: 0.92 }, answer: null, ranked: [] },
     })
     const onChosen = vi.fn()
     renderMatch(onChosen)
@@ -52,7 +52,7 @@ describe('MatchInput', () => {
   it('No on the read-back chooses nothing', async () => {
     stubBackend({
       'GET /api/content/live': bundle,
-      'POST /api/cards/match': { status: 'confirm', top: { id: 'no_answer', text: 'Nobody answered', probability: 0.92 }, ranked: [] },
+      'POST /api/cards/match': { status: 'confirm', top: { id: 'no_answer', text: 'Nobody answered', probability: 0.92 }, answer: null, ranked: [] },
     })
     const onChosen = vi.fn()
     renderMatch(onChosen)
@@ -64,10 +64,36 @@ describe('MatchInput', () => {
     expect(onChosen).not.toHaveBeenCalled()
   })
 
+  it('answer: explains the health care word, keeps the cards and chooses nothing', async () => {
+    stubBackend({
+      'GET /api/content/live': bundle,
+      'POST /api/cards/match': {
+        status: 'answer',
+        top: null,
+        answer: { id: 'kela_card', question: 'What is a Kela card?', text: 'The Kela card is the health insurance card from Kela.', probability: 0.88 },
+        ranked: [],
+      },
+    })
+    const onChosen = vi.fn()
+    renderMatch(onChosen)
+
+    await ask("They asked for my Kela card. I don't know what it is.")
+
+    const panel = await screen.findByRole('group', { name: 'What is a Kela card?' })
+    expect(within(panel).getByText('The Kela card is the health insurance card from Kela.')).toBeInTheDocument()
+    expect(within(panel).getByText('When you are ready, choose a card or describe it in your own words.')).toBeInTheDocument()
+    expect(onChosen).not.toHaveBeenCalled()
+
+    fireEvent.click(within(panel).getByRole('button', { name: 'OK' }))
+    expect(screen.queryByRole('group', { name: 'What is a Kela card?' })).not.toBeInTheDocument()
+    expect(screen.getByLabelText('Describe in your own words')).toHaveValue('')
+    expect(onChosen).not.toHaveBeenCalled()
+  })
+
   it('choose: shows a short message, no read-back and no automatic choice', async () => {
     stubBackend({
       'GET /api/content/live': bundle,
-      'POST /api/cards/match': { status: 'choose', top: null, ranked: [] },
+      'POST /api/cards/match': { status: 'choose', top: null, answer: null, ranked: [] },
     })
     const onChosen = vi.fn()
     renderMatch(onChosen)

@@ -12,6 +12,8 @@ export type EventKind = 'outcome' | 'symptoms' | 'clinician_answer' | 'clinician
 // Codes only, never free text.
 export interface EventPayload {
   symptoms?: string[]
+  // keys.SYMPTOM_DURATIONS id, stored with the symptom cards.
+  duration?: string
   lane?: string
   route?: string
   visitDate?: string

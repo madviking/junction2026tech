@@ -4,6 +4,7 @@
 import { APIError } from 'encore.dev/api'
 import log from 'encore.dev/log'
 import { content } from '~encore/clients'
+import { isSymptomDuration } from '../care_paths/domain/keys'
 import { JourneyError, next, type JourneyInput, type JourneyState } from '../care_paths/domain/journey'
 import type { ContentDoc, Lang } from '../care_paths/domain/types'
 import { hashCode, newCode, normalizeCode } from './code'
@@ -21,6 +22,8 @@ export interface EventParams {
   lang: string
   outcome: string
   symptoms?: string[]
+  // How long the symptoms have lasted (care_paths keys.SYMPTOM_DURATIONS); only with symptom cards.
+  duration?: string
   route?: string
   visitDate?: string
 }
@@ -121,11 +124,15 @@ export async function addEvent(code: string, p: EventParams): Promise<VisitView>
     let lane: string | undefined
     if (setsLane) lane = laneFromSymptoms(doc, symptoms)
     else if (symptoms.length > 0) throw APIError.invalidArgument(`outcome ${p.outcome} does not take symptom cards`)
+    if (p.duration !== undefined) {
+      if (!setsLane) throw APIError.invalidArgument(`outcome ${p.outcome} does not take a symptom duration`)
+      if (!isSymptomDuration(p.duration)) throw APIError.invalidArgument(`unknown symptom duration ${p.duration}`)
+    }
 
     const payload = { lane, route: p.route, visitDate: p.visitDate }
     const state = step(doc, r.state, { outcome: p.outcome, at: at.toISOString(), ...payload })
 
-    if (setsLane) await repo.insertEvent(tx, visit.id, { actor: 'resident', kind: 'symptoms', stage, outcome: p.outcome, payload: { symptoms, lane }, at })
+    if (setsLane) await repo.insertEvent(tx, visit.id, { actor: 'resident', kind: 'symptoms', stage, outcome: p.outcome, payload: { symptoms, lane, ...(p.duration ? { duration: p.duration } : {}) }, at })
     await repo.insertEvent(tx, visit.id, { actor: 'resident', kind: 'outcome', stage, outcome: p.outcome, payload: clean(payload), at })
     await repo.updateVisit(tx, visit.id, { lang, stage: state.stage })
 

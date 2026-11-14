@@ -219,7 +219,7 @@ rules:
       - {label: Assessment, limit: same day, basis: legal}
   - lane: U2
     title: Contact the {door} and ask for an assessment today
-    script_fi: "Minulla on ollut [oire] [N] viikkoa. Olen huolissani, että se voi olla vakavaa. Tarvitsen lääkärin arvion pian."
+    script_fi: "Olen huolissani, että nämä oireet voivat olla vakavia. Tarvitsen lääkärin arvion pian."
     clocks:
       - {label: Assessment of need, limit: same day, basis: legal}
       - {label: First visit (23+), limit: 3 months, basis: legal}
@@ -231,7 +231,7 @@ rules:
   - lane: U2
     route: A5
     title: Tell the {door} today and ask for a doctor's assessment
-    script_fi: "Minulla on ollut [oire] [N] viikkoa. Olen huolissani. Tarvitsen lääkärin arvion pian."
+    script_fi: "Olen huolissani näistä oireista. Tarvitsen lääkärin arvion pian."
     clocks:
       - {label: Assessment of need, limit: same day, basis: legal}
       - {label: First visit (23+), limit: 3 months, basis: legal}
@@ -239,7 +239,7 @@ rules:
       - {label: Silta target for alarm symptoms, limit: within days, basis: recommended}
   - lane: U3
     title: Book a non-urgent visit at the {door}
-    script_fi: "Minulla on ollut [oire] [N] viikkoa eikä se mene ohi. Haluaisin ajan lääkärille."
+    script_fi: "Nämä oireet eivät mene ohi. Haluaisin ajan lääkärille."
     clocks:
       - {label: Assessment of need, limit: same day, basis: legal}
       - {label: First visit (23+), limit: 3 months, basis: legal}

@@ -1,9 +1,12 @@
-import { screen } from '@testing-library/react'
+import { screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { useState } from 'react'
 import { describe, expect, it, vi } from 'vitest'
 import {
   ActionButton,
   AudioPlayButton,
+  BodyMap,
+  type BodyRegionId,
   ChoiceCard,
   EmptyState,
   ErrorState,
@@ -45,6 +48,52 @@ describe('ChoiceCard', () => {
   it('cannot be pressed when disabled', () => {
     renderWithProviders(<ChoiceCard label="Later" disabled onPress={() => {}} />)
     expect(screen.getByRole('button', { name: 'Later' })).toBeDisabled()
+  })
+})
+
+describe('BodyMap', () => {
+  const regions = [
+    { id: 'head' as const, label: 'Head and neck' },
+    { id: 'chest' as const, label: 'Chest' },
+  ]
+
+  it('is a named group of region toggles; pressing the chosen one clears it', async () => {
+    const onChange = vi.fn()
+    function Harness() {
+      const [value, setValue] = useState<BodyRegionId | null>(null)
+      const change = (next: BodyRegionId | null) => {
+        onChange(next)
+        setValue(next)
+      }
+      return <BodyMap label="Where?" regions={regions} value={value} onChange={change} />
+    }
+    renderWithProviders(<Harness />)
+
+    const chest = within(screen.getByRole('group', { name: 'Where?' })).getByRole('button', { name: 'Chest' })
+    expect(chest).toHaveAttribute('aria-pressed', 'false')
+    await userEvent.click(chest)
+    expect(onChange).toHaveBeenLastCalledWith('chest')
+    expect(chest).toHaveAttribute('aria-pressed', 'true')
+    await userEvent.click(chest)
+    expect(onChange).toHaveBeenLastCalledWith(null)
+    expect(chest).toHaveAttribute('aria-pressed', 'false')
+  })
+
+  it('offers only the given regions and cannot be pressed when disabled', () => {
+    renderWithProviders(<BodyMap label="Where?" regions={regions} value={null} onChange={() => {}} disabled />)
+    expect(screen.queryByRole('button', { name: 'Skin' })).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Head and neck' })).toBeDisabled()
+  })
+})
+
+describe('ChoiceCard tile layout', () => {
+  it('keeps the same toggle semantics as the row layout', async () => {
+    const onPress = vi.fn()
+    renderWithProviders(<ChoiceCard layout="tile" label="A new lump" icon={<span />} selected={false} onPress={onPress} />)
+    const button = screen.getByRole('button', { name: 'A new lump' })
+    expect(button).toHaveAttribute('aria-pressed', 'false')
+    await userEvent.click(button)
+    expect(onPress).toHaveBeenCalledOnce()
   })
 })
 

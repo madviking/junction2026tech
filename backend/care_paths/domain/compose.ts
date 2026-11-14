@@ -11,6 +11,10 @@ export interface ComposeInput {
   profile: string
   barriers: string[]
   lang: Lang
+  // Symptom card ids behind the lane; they are named in the call script.
+  symptoms?: string[]
+  // How long they have lasted (keys.SYMPTOM_DURATIONS); said after the symptoms.
+  duration?: string | null
 }
 
 export interface PathClock {
@@ -30,6 +34,23 @@ export interface PathStep {
   text: string
   detail: string | null
   adaptation: string | null
+}
+
+// One line of the call script: Finnish to say or hear, and its meaning in the person's
+// language. key is the text key (audio for both languages); null for a composed line.
+export interface ScriptLine {
+  key: string | null
+  fi: string
+  local: string
+  // A list item under the line before it (a symptom).
+  item: boolean
+}
+
+export type ScriptPartId = 'opening' | 'symptoms' | 'request' | 'they_ask' | 'closing'
+
+export interface ScriptPart {
+  id: ScriptPartId
+  lines: ScriptLine[]
 }
 
 export interface ReviewFlag {
@@ -52,6 +73,9 @@ export interface CarePath {
     scriptLocal: string
     note: string
   }
+  // The whole phone call in order: greeting, interpreter, symptoms, request,
+  // what they may ask, closing. The emergency lane has only the 112 script.
+  callScript: ScriptPart[]
   clocks: PathClock[]
   adaptations: PathAdaptation[]
   steps: PathStep[]
@@ -112,11 +136,56 @@ export function compose(doc: ContentDoc, input: ComposeInput): CarePath {
     barriers,
     emergency: lane === 'U0',
     destination,
+    callScript: callScript(doc, input, k.ruleKey(rule, 'script')),
     clocks,
     adaptations,
     steps: steps(doc, { ...input, barriers }, destination.title),
     reviewFlags: reviewFlags(doc, lane, route),
   }
+}
+
+// Finnish and Swedish are the national languages: services must serve both, so no interpreter.
+export function interpreterNeeded(lang: Lang): boolean {
+  return lang !== 'fi' && lang !== 'sv'
+}
+
+// The person's language in Finnish, for "Kieleni on …".
+const LANGUAGE_IN_FINNISH: Record<Lang, string> = {
+  en: 'englanti', fi: 'suomi', sv: 'ruotsi', ru: 'venäjä', et: 'viro', uk: 'ukraina', ar: 'arabia',
+  so: 'somali', fa: 'persia', zh: 'kiina (mandariini)', yue: 'kantoninkiina', vi: 'vietnam', th: 'thai',
+}
+
+function callScript(doc: ContentDoc, input: ComposeInput, requestKey: string): ScriptPart[] {
+  const { lane, lang } = input
+  const line = (key: string, item = false): ScriptLine => ({ key, fi: textOf(doc, key, 'fi'), local: textOf(doc, key, lang), item })
+  const request: ScriptPart = { id: 'request', lines: [line(requestKey)] }
+  if (lane === 'U0') return [request]
+
+  const symptoms = [...new Set(input.symptoms ?? [])]
+  for (const id of symptoms) if (!doc.cards.symptoms.some((c) => c.id === id)) throw new ComposeError(`unknown symptom card ${id}`)
+  const duration = input.duration ?? null
+  if (duration !== null && !k.isSymptomDuration(duration)) throw new ComposeError(`unknown symptom duration ${duration}`)
+
+  const opening: ScriptLine[] = [line('step.call.greeting')]
+  if (interpreterNeeded(lang)) {
+    const native = doc.languages.find((l) => l.code === lang)?.name ?? lang
+    opening.push(line('step.call.interpreter'), {
+      key: null,
+      fi: textOf(doc, 'step.call.my_language', 'fi').replaceAll('{language}', LANGUAGE_IN_FINNISH[lang]),
+      local: textOf(doc, 'step.call.my_language', lang).replaceAll('{language}', native),
+      item: false,
+    })
+  }
+  const parts: ScriptPart[] = [{ id: 'opening', lines: opening }]
+  if (symptoms.length > 0) {
+    const since = duration ? [line(k.sinceKey(duration))] : []
+    parts.push({ id: 'symptoms', lines: [line('step.call.symptoms'), ...symptoms.map((id) => line(k.symptomKey(id, 'card'), true)), ...since] })
+  }
+  parts.push(request)
+  const asks = ['step.call.ask.id', 'step.call.ask.phone', ...(symptoms.length > 0 && !duration ? ['step.call.ask.since'] : [])]
+  parts.push({ id: 'they_ask', lines: asks.map((key) => line(key)) })
+  parts.push({ id: 'closing', lines: ['step.call.repeat', 'step.call.sms', 'step.call.thanks'].map((key) => line(key)) })
+  return parts
 }
 
 function steps(doc: ContentDoc, input: ComposeInput, title: string): PathStep[] {

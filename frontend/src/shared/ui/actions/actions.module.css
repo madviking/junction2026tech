@@ -89,6 +89,42 @@
   padding-inline-end: var(--silta-space-sm);
 }
 
+/* Tile layout: picture on top, text under it, check in the top corner, listen button at the bottom. */
+.choice[data-layout='tile'] {
+  position: relative;
+  flex-direction: column;
+}
+.choice[data-layout='tile'] .choiceMain {
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--silta-space-sm);
+  padding-block: var(--silta-space-lg) var(--silta-space-sm);
+  min-block-size: 9rem;
+  text-align: center;
+}
+.choice[data-layout='tile'] .choiceIcon {
+  inline-size: 4rem;
+  block-size: 4rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--silta-radius-full);
+  background: var(--silta-tone-info-bg);
+}
+.choice[data-layout='tile'] .choiceTexts {
+  flex: none;
+  inline-size: 100%;
+}
+.choice[data-layout='tile'] .choiceCheck {
+  position: absolute;
+  inset-block-start: var(--silta-space-sm);
+  inset-inline-end: var(--silta-space-sm);
+}
+.choice[data-layout='tile'] .choiceTrailing {
+  justify-content: center;
+  padding-block-end: var(--silta-space-sm);
+  padding-inline: var(--silta-space-sm);
+}
+
 /* ---- AudioPlayButton ---- */
 .audio {
   inline-size: 48px;

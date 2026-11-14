@@ -2,8 +2,9 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { content } from '~encore/clients'
 import type { ContentDoc } from '../care_paths/domain/types'
 import { providersConfig } from '../llm/providers.config'
+import { glossaryIds } from '../care_paths/domain/glossary'
 import { match } from './cards'
-import { decideStatus } from './service'
+import { ANSWER_PREFIX, NONE_ID, decideStatus } from './service'
 
 interface DecisionBody {
   state?: string
@@ -40,6 +41,9 @@ async function doc(): Promise<ContentDoc> {
   return JSON.parse((await content.liveDoc()).docJson) as ContentDoc
 }
 
+// The set's cards come first, then one answer card per glossary entry, then "none of these".
+const withExtras = (d: ContentDoc, cardIds: string[]) => [...cardIds, ...glossaryIds(d).map((id) => `${ANSWER_PREFIX}${id}`), NONE_ID]
+
 describe('POST /api/cards/match', () => {
   afterEach(() => vi.unstubAllGlobals())
 
@@ -50,7 +54,7 @@ describe('POST /api/cards/match', () => {
     const res = await match({ lang: 'fi', text: 'Löysin kyhmyn kaulasta', set: 'symptoms' })
 
     const criteria = bodies[0].questions.match.criteria
-    expect(Object.keys(criteria)).toEqual(d.cards.symptoms.map((c) => c.id))
+    expect(Object.keys(criteria)).toEqual(withExtras(d, d.cards.symptoms.map((c) => c.id)))
     expect(criteria.lump).toContain(d.texts['card.symptom.lump.card'].en.text)
     expect(criteria.lump).toContain(d.texts['card.symptom.lump.card'].fi.text)
     expect(bodies[0].state).toBe('Löysin kyhmyn kaulasta')
@@ -64,15 +68,48 @@ describe('POST /api/cards/match', () => {
     const d = await doc()
     const { bodies } = stubDecisions(favour('A3', 0.8, 0.1))
     await match({ lang: 'en', text: 'I study at the university', set: 'route' })
-    expect(Object.keys(bodies[0].questions.match.criteria)).toEqual(Object.keys(d.structure.routes))
+    expect(Object.keys(bodies[0].questions.match.criteria)).toEqual(withExtras(d, Object.keys(d.structure.routes)))
 
     vi.unstubAllGlobals()
     const outcomes = stubDecisions(favour('no_answer', 0.8, 0.1))
     const res = await match({ lang: 'en', text: 'Nobody picked up the phone', set: 'outcomes', stage: 'contact' })
     expect(Object.keys(outcomes.bodies[0].questions.match.criteria)).toEqual(
-      Object.keys(d.structure.journey.stages.contact.outcomes),
+      withExtras(d, Object.keys(d.structure.journey.stages.contact.outcomes)),
     )
     expect(res.top?.id).toBe('no_answer')
+  })
+
+  it('answers a question about a Finnish health care word instead of forcing a card', async () => {
+    const d = await doc()
+    const { bodies } = stubDecisions(favour(`${ANSWER_PREFIX}kela_card`, 0.85, 0.05))
+
+    const res = await match({ lang: 'en', text: "They were asking for my Kellogg card. I don't know what that is.", set: 'outcomes', stage: 'contact' })
+
+    expect(bodies[0].state).toBe("They were asking for my Kela card. I don't know what that is.")
+    expect(bodies[0].questions.match.criteria[`${ANSWER_PREFIX}kela_card`]).toContain('What is a Kela card?')
+    expect(res.status).toBe('answer')
+    expect(res.top).toBeNull()
+    expect(res.answer).toEqual({
+      id: 'kela_card',
+      question: d.texts['glossary.kela_card.question'].en.text,
+      text: d.texts['glossary.kela_card.answer'].en.text,
+      probability: 0.85,
+    })
+    // ranked holds only the step's own cards.
+    expect(res.ranked.map((r) => r.id)).toEqual(expect.arrayContaining(Object.keys(d.structure.journey.stages.contact.outcomes)))
+    expect(res.ranked).toHaveLength(Object.keys(d.structure.journey.stages.contact.outcomes).length)
+  })
+
+  it('answers in the person\'s language and falls back to English', async () => {
+    stubDecisions(favour(`${ANSWER_PREFIX}kela_card`, 0.85, 0.05))
+    const fi = await match({ lang: 'fi', text: 'Mikä on Kela-kortti?', set: 'outcomes', stage: 'contact' })
+    expect(fi.answer?.question).toBe('Mikä on Kela-kortti?')
+  })
+
+  it('returns choose when the person says something none of the options covers', async () => {
+    stubDecisions(favour(NONE_ID, 0.8, 0.1))
+    const res = await match({ lang: 'en', text: 'Where can I park my car?', set: 'outcomes', stage: 'contact' })
+    expect(res).toMatchObject({ status: 'choose', top: null, answer: null })
   })
 
   it('never offers interrupts in any set', async () => {

@@ -17,15 +17,17 @@ export interface ChoiceCardProps {
   disabled?: boolean
   /** Language of the label when it differs from the page (for example a language name in its own script). */
   lang?: string
+  /** `row` (default): icon, texts and check in one line. `tile`: big picture on top, text under it, for picture grids. */
+  layout?: 'row' | 'tile'
   onPress?: () => void
 }
 
 /** Big tappable card for choosing one thing (language, symptom, answer). */
-export function ChoiceCard({ label, detail, icon, trailing, selected, disabled, lang, onPress }: ChoiceCardProps) {
+export function ChoiceCard({ label, detail, icon, trailing, selected, disabled, lang, layout = 'row', onPress }: ChoiceCardProps) {
   const labelId = useId()
   const detailId = useId()
   return (
-    <div className={classes.choice} data-selected={selected || undefined} data-disabled={disabled || undefined}>
+    <div className={classes.choice} data-layout={layout} data-selected={selected || undefined} data-disabled={disabled || undefined}>
       <button
         type="button"
         className={classes.choiceMain}

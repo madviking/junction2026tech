@@ -1,6 +1,6 @@
 import { useId, useState } from 'react'
-import { matchCardKey } from '@/features/journey/keys'
-import type { MatchFn, MatchOption, MatchSet } from '@/features/journey/types'
+import { glossaryAnswerKey, matchCardKey } from '@/features/journey/keys'
+import type { MatchAnswer, MatchFn, MatchOption, MatchSet } from '@/features/journey/types'
 import { CardAudioButton, RecordAnswerButton } from '@/features/voice'
 import { useT } from '@/shared/i18n'
 import { ActionButton, Row, Stack, SurfaceCard, Text, TextField } from '@/shared/ui'
@@ -19,17 +19,20 @@ type Phase =
   | { kind: 'idle' }
   | { kind: 'pending' }
   | { kind: 'readback'; top: MatchOption }
+  | { kind: 'answer'; answer: MatchAnswer }
   | { kind: 'choose' }
   | { kind: 'error' }
 
 /**
  * Free text or voice → one card of a closed set. A confident match is read back
  * ("Did you mean …?") and chosen only on Yes; anything else leaves the cards on screen to
- * tap. Never chooses on its own.
+ * tap. A question about a Finnish health care word ("what is a Kela card?") gets a short
+ * answer card; the step's cards stay on screen. Never chooses on its own.
  */
 export function MatchInput({ set, stage, match, onChosen, disabled }: MatchInputProps) {
   const t = useT()
   const readbackId = useId()
+  const answerId = useId()
   const [text, setText] = useState('')
   const [phase, setPhase] = useState<Phase>({ kind: 'idle' })
 
@@ -39,7 +42,9 @@ export function MatchInput({ set, stage, match, onChosen, disabled }: MatchInput
     setPhase({ kind: 'pending' })
     try {
       const result = await match({ text: trimmed, set, stage })
-      setPhase(result.status === 'confirm' && result.top ? { kind: 'readback', top: result.top } : { kind: 'choose' })
+      if (result.status === 'confirm' && result.top) setPhase({ kind: 'readback', top: result.top })
+      else if (result.status === 'answer' && result.answer) setPhase({ kind: 'answer', answer: result.answer })
+      else setPhase({ kind: 'choose' })
     } catch {
       setPhase({ kind: 'error' })
     }
@@ -54,6 +59,11 @@ export function MatchInput({ set, stage, match, onChosen, disabled }: MatchInput
     setPhase({ kind: 'idle' })
     setText('')
     onChosen(id)
+  }
+
+  const dismissAnswer = () => {
+    setPhase({ kind: 'idle' })
+    setText('')
   }
 
   const busy = disabled || phase.kind === 'pending'
@@ -84,6 +94,27 @@ export function MatchInput({ set, stage, match, onChosen, disabled }: MatchInput
                   </ActionButton>
                   <ActionButton variant="secondary" onPress={() => setPhase({ kind: 'choose' })}>
                     {t('ui.journey.match.no')}
+                  </ActionButton>
+                </Row>
+              </Stack>
+            </div>
+          </SurfaceCard>
+        )}
+        {phase.kind === 'answer' && (
+          <SurfaceCard tone="muted">
+            <div role="group" aria-labelledby={answerId}>
+              <Stack gap="sm">
+                <Text variant="label" id={answerId}>
+                  {phase.answer.question}
+                </Text>
+                <Row gap="sm" align="start" justify="between" wrap={false}>
+                  <Text>{phase.answer.text}</Text>
+                  <CardAudioButton textKey={glossaryAnswerKey(phase.answer.id)} />
+                </Row>
+                <Text tone="muted">{t('ui.journey.match.answer_next')}</Text>
+                <Row gap="sm" grow>
+                  <ActionButton variant="secondary" onPress={dismissAnswer}>
+                    {t('ui.journey.match.answer_ok')}
                   </ActionButton>
                 </Row>
               </Stack>

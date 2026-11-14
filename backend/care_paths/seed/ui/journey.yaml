@@ -184,6 +184,34 @@ ui.journey.match.error:
   fi: "Se ei onnistunut. Valitse kortti."
   so: "Taasi ma shaqayn. Fadlan dooro kaar."
   ar: "لم ينجح ذلك. يرجى اختيار بطاقة."
+ui.journey.match.answer_next:
+  en: "When you are ready, choose a card or describe it in your own words."
+  fi: "Kun olet valmis, valitse kortti tai kerro omin sanoin."
+  sv: "När du är redo, välj ett kort eller berätta med egna ord."
+  ru: "Когда будете готовы, выберите карточку или опишите своими словами."
+  et: "Kui oled valmis, vali kaart või kirjelda oma sõnadega."
+  uk: "Коли будете готові, виберіть картку або опишіть своїми словами."
+  so: "Markaad diyaar tahay, dooro kaar ama ku sharax erayadaada."
+  ar: "عندما تكون مستعدًا، اختر بطاقة أو صف بكلماتك الخاصة."
+  fa: "هر وقت آماده بودید، یک کارت انتخاب کنید یا با کلمات خودتان توضیح دهید."
+  zh: "准备好后，请选择一张卡片，或用自己的话描述。"
+  yue: "準備好之後，揀一張卡，或者用自己嘅說話講。"
+  vi: "Khi bạn sẵn sàng, hãy chọn một thẻ hoặc mô tả bằng lời của bạn."
+  th: "เมื่อพร้อมแล้ว เลือกการ์ด หรืออธิบายด้วยคำพูดของคุณเอง"
+ui.journey.match.answer_ok:
+  en: "OK"
+  fi: "Selvä"
+  sv: "OK"
+  ru: "Понятно"
+  et: "Selge"
+  uk: "Зрозуміло"
+  so: "Waa hagaag"
+  ar: "حسنًا"
+  fa: "باشه"
+  zh: "好的"
+  yue: "好"
+  vi: "Đã hiểu"
+  th: "ตกลง"
 
 # Route stage
 ui.journey.route.guidance:
@@ -213,6 +241,11 @@ ui.journey.contact.play_fi:
   fi: "Toista suomenkielinen lause"
   so: "Daar weedha Finnishka"
   ar: "تشغيل العبارة الفنلندية"
+ui.journey.contact.they_ask:
+  en: "They may ask you"
+  fi: "Sinulta voidaan kysyä"
+  so: "Waxa laga yaabaa inay ku weydiiyaan"
+  ar: "قد يسألونك"
 ui.journey.contact.clocks_title:
   en: "Time limits"
   fi: "Aikarajat"

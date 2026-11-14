@@ -1,6 +1,6 @@
 // Live eval of cards.match against the labelled set. Skipped unless
 //   CARDS_EVAL_LIVE=1 encore test cards/eval/eval.live.test.ts
-// Estimate: 40 calls x ~500 input tokens x $0.10/1M = ~$0.002.
+// Estimate: 48 calls x ~1500 input tokens (cards + 14 answer cards) x $0.10/1M = ~$0.008.
 // Writes docs/proof/2026-11-14/classifier-eval.md.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import path from 'node:path'
@@ -43,29 +43,34 @@ async function usageTotals(): Promise<{ usd: number; calls: number; tokens: numb
 
 const pct = (n: number, d: number) => (d === 0 ? 'n/a' : `${((100 * n) / d).toFixed(0)}% (${n}/${d})`)
 
+// expect: a card id, `choose`, or `answer:<glossary id>` (an answer card).
+const answerOf = (r: Result) => (r.res?.status === 'answer' ? `answer:${r.res.answer?.id}` : null)
+const topOf = (r: Result) => answerOf(r) ?? r.res?.top?.id
+
 function verdict(r: Result): string {
   if (!r.res) return 'error'
   if (r.item.expect === 'choose') return r.res.status === 'choose' ? 'ok (choose)' : 'WRONG confirm'
   if (r.res.status === 'choose') return 'fallback (choose)'
-  return r.res.top?.id === r.item.expect ? 'ok' : 'WRONG confirm'
+  return topOf(r) === r.item.expect ? 'ok' : 'WRONG confirm'
 }
 
 function render(results: Result[], cost: { usd: number; calls: number; tokens: number }, provider: string): string {
   const cardItems = results.filter((r) => r.item.expect !== 'choose')
   const vague = results.filter((r) => r.item.expect === 'choose')
-  const confirms = cardItems.filter((r) => r.res?.status === 'confirm')
-  const confirmOk = confirms.filter((r) => r.res?.top?.id === r.item.expect)
+  const confirms = cardItems.filter((r) => r.res?.status === 'confirm' || r.res?.status === 'answer')
+  const confirmOk = confirms.filter((r) => topOf(r) === r.item.expect)
   const fallbacks = cardItems.filter((r) => r.res?.status === 'choose')
-  const rankedOk = cardItems.filter((r) => r.res?.ranked[0]?.id === r.item.expect)
+  const rankedOk = cardItems.filter((r) => (answerOf(r) ?? r.res?.ranked[0]?.id) === r.item.expect)
+  const answerItems = results.filter((r) => r.item.expect.startsWith('answer:'))
   const vagueOk = vague.filter((r) => r.res?.status === 'choose')
   const errors = results.filter((r) => !r.res)
   const byLang = (lang: string) => {
     const c = confirms.filter((r) => r.item.lang === lang)
-    return pct(c.filter((r) => r.res?.top?.id === r.item.expect).length, c.length)
+    return pct(c.filter((r) => topOf(r) === r.item.expect).length, c.length)
   }
 
   const rows = results.map((r) => {
-    const top = r.res?.ranked[0]
+    const top = r.res?.answer ? { id: answerOf(r), probability: r.res.answer.probability } : r.res?.ranked[0]
     const p = top ? top.probability.toFixed(2) : '-'
     const second = r.res?.ranked[1]?.probability.toFixed(2) ?? '-'
     const stage = r.item.stage ? `/${r.item.stage}` : ''
@@ -79,9 +84,10 @@ Last reviewed: 2026-11-14
 
 Live run of \`POST /api/cards/match\` (through \`llm.decide\`, feature \`cards.match\`,
 provider \`${provider}\`, model from \`backend/llm/integrations.ts\`) on the labelled set
-\`backend/cards/eval/labelled.yaml\` (${results.length} synthetic inputs: ${results.filter((r) => r.item.lang === 'en').length} English,
+\`backend/cards/eval/labelled.yaml\` (${results.length} synthetic inputs, ${answerItems.length} of them questions about health care words: ${results.filter((r) => r.item.lang === 'en').length} English,
 ${results.filter((r) => r.item.lang === 'fi').length} Finnish; ${vague.length} vague inputs expected to fall back to \`choose\`).
-Options came from the seeded live content in Encore's test database. Guard rails:
+Options came from the seeded live content in Encore's test database: the set's cards plus one
+answer card per glossary entry (\`care_paths/seed/glossary.yaml\`) and "none of these". Guard rails:
 \`minConfidence\` ${matchConfig.minConfidence}, \`minMargin\` ${matchConfig.minMargin} (\`backend/cards/config.ts\`).
 
 Proof level: live provider call from \`encore test\` (\`CARDS_EVAL_LIVE=1 encore test cards/eval/eval.live.test.ts\`).
@@ -96,6 +102,7 @@ Proof level: live provider call from \`encore test\` (\`CARDS_EVAL_LIVE=1 encore
 | Card items that fell back to \`choose\` | ${pct(fallbacks.length, cardItems.length)} |
 | Raw top-1 (highest probability = expected card, any status) | ${pct(rankedOk.length, cardItems.length)} |
 | Vague items correctly answered with \`choose\` | ${pct(vagueOk.length, vague.length)} |
+| Health care word questions answered with the right answer card | ${pct(answerItems.filter((r) => answerOf(r) === r.item.expect).length, answerItems.length)} |
 | Confirm accuracy, English / Finnish | ${byLang('en')} / ${byLang('fi')} |
 | Errors | ${errors.length} |
 | Provider calls (llm_usage rows, cards.match) | ${cost.calls} |

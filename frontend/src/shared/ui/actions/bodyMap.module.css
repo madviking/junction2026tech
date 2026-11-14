@@ -1,0 +1,83 @@
+/* BodyMap: neutral body figure + region toggle buttons. */
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--silta-space-sm);
+}
+.layout {
+  display: flex;
+  align-items: center;
+  gap: var(--silta-space-md);
+}
+.figure {
+  flex: none;
+  inline-size: 7.5rem;
+  block-size: auto;
+}
+.part {
+  fill: var(--silta-color-surface);
+  stroke: var(--silta-color-border);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  transition: fill 120ms ease;
+}
+.part[data-available] {
+  fill: var(--silta-tone-info-bg);
+  stroke: var(--silta-color-primary);
+  cursor: pointer;
+}
+.part[data-available]:hover {
+  fill: var(--silta-color-surface-selected);
+}
+.part[data-active] {
+  fill: var(--silta-color-primary);
+  stroke: var(--silta-color-primary);
+}
+.part[data-active]:hover {
+  fill: var(--silta-color-primary-hover);
+}
+.spot {
+  fill: var(--silta-color-text-muted);
+  pointer-events: none;
+}
+.spot[data-active] {
+  fill: var(--silta-color-text-on-filled);
+}
+.buttons {
+  flex: 1;
+  min-inline-size: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--silta-space-xs);
+}
+.regionButton {
+  min-block-size: 48px;
+  padding-block: var(--silta-space-xs);
+  padding-inline: var(--silta-space-md);
+  border: 1px solid var(--silta-color-border);
+  border-radius: var(--silta-radius-full);
+  background: var(--silta-color-surface);
+  color: var(--silta-color-text);
+  font: inherit;
+  font-size: var(--silta-type-label-size);
+  font-weight: var(--silta-type-label-weight);
+  line-height: var(--silta-type-label-line-height);
+  text-align: start;
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+.regionButton:hover:not(:disabled, [aria-pressed='true']) {
+  background: var(--silta-color-surface-selected);
+}
+.regionButton[aria-pressed='true'] {
+  background: var(--silta-color-primary);
+  border-color: var(--silta-color-primary);
+  color: var(--silta-color-text-on-filled);
+}
+.regionButton[aria-pressed='true']:hover {
+  background: var(--silta-color-primary-hover);
+}
+.regionButton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}

@@ -49,6 +49,7 @@ export { PageShell, type PageShellProps } from '@/shared/ui/layout/PageShell'
 // Actions
 export { ActionButton, type ActionButtonProps, type ActionButtonVariant } from '@/shared/ui/actions/ActionButton'
 export { ChoiceCard, type ChoiceCardProps } from '@/shared/ui/actions/ChoiceCard'
+export { BodyMap, type BodyMapProps, type BodyMapRegion, type BodyRegionId } from '@/shared/ui/actions/BodyMap'
 export { AudioPlayButton, type AudioPlayButtonProps, type AudioPlayState } from '@/shared/ui/actions/AudioPlayButton'
 export { RecordButton, type RecordButtonProps, type RecordState } from '@/shared/ui/actions/RecordButton'
 export { formatElapsed } from '@/shared/ui/actions/formatElapsed'

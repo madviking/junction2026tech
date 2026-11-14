@@ -32,6 +32,7 @@ function visitView(nextSteps: VisitView['nextSteps'], interpreterNeeded = true):
     then: null,
     ladder: null,
     symptoms: [{ id: 'lump', text: 'A new lump or swelling', selected: true }],
+    durations: [],
     carePath: null,
     nextSteps,
     history: [{ stage: 'contact', outcome: 'got_time', at: '2026-11-14T00:00:00Z', actor: 'resident' }],

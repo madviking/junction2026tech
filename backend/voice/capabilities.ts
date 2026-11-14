@@ -64,6 +64,9 @@ export function ttsCostUsd(characters: number): number {
   return (characters / 1000) * TTS_USD_PER_1K_CHARS
 }
 
-export function sttCostUsd(seconds: number): number {
-  return (seconds / 3600) * STT_USD_PER_HOUR
+// ElevenLabs bills key term biasing as a 20 % surcharge on the transcription.
+export const STT_KEYTERM_SURCHARGE = 0.2
+
+export function sttCostUsd(seconds: number, keyterms = false): number {
+  return (seconds / 3600) * STT_USD_PER_HOUR * (keyterms ? 1 + STT_KEYTERM_SURCHARGE : 1)
 }

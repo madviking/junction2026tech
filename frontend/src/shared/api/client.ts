@@ -214,6 +214,21 @@ export namespace admin {
 }
 
 export namespace cards {
+    export interface MatchAnswer {
+        /**
+         * Glossary entry id; texts glossary.<id>.question / .answer.
+         */
+        id: string
+
+        /**
+         * In the person's language (English fallback).
+         */
+        question: string
+
+        text: string
+        probability: number
+    }
+
     export interface MatchOption {
         id: string
         /**
@@ -237,12 +252,14 @@ export namespace cards {
     export interface MatchResponse {
         /**
          * confirm: read `top` back for the person to confirm. choose: show the cards.
+         * answer: the person asked about a health care word; show `answer`, the cards stay.
          */
-        status: "confirm" | "choose"
+        status: "confirm" | "choose" | "answer"
 
         top: MatchOption | null
+        answer: MatchAnswer | null
         /**
-         * All options, highest probability first.
+         * The set's cards, highest probability first (answer cards are not in this list).
          */
         ranked: MatchOption[]
     }
@@ -1153,6 +1170,11 @@ export namespace visits {
         lang: string
         outcome: string
         symptoms?: string[]
+        /**
+         * How long the symptoms have lasted (care_paths keys.SYMPTOM_DURATIONS); only with symptom cards.
+         */
+        duration?: string
+
         route?: string
         visitDate?: string
     }
@@ -1222,6 +1244,11 @@ export namespace visits {
             current: number
         } | null
         symptoms: SymptomOption[]
+        /**
+         * How long the symptoms have lasted: closed choices for the symptom picker.
+         */
+        durations: SymptomOption[]
+
         carePath: domain.CarePath | null
         nextSteps: NextStep[]
         history: HistoryItem[]
@@ -1496,6 +1523,12 @@ export namespace domain {
 
             note: string
         }
+        /**
+         * The whole phone call in order: greeting, interpreter, symptoms, request,
+         * what they may ask, closing. The emergency lane has only the 112 script.
+         */
+        callScript: ScriptPart[]
+
         clocks: PathClock[]
         adaptations: PathAdaptation[]
         steps: PathStep[]
@@ -1653,6 +1686,27 @@ export namespace domain {
         ifUnknownRoute: string
         ifUnknownReview: ReviewKind | null
     }
+
+    /**
+     * One line of the call script: Finnish to say or hear, and its meaning in the person's
+     * language. key is the text key (audio for both languages); null for a composed line.
+     */
+    export interface ScriptLine {
+        key: string | null
+        fi: string
+        local: string
+        /**
+         * A list item under the line before it (a symptom).
+         */
+        item: boolean
+    }
+
+    export interface ScriptPart {
+        id: ScriptPartId
+        lines: ScriptLine[]
+    }
+
+    export type ScriptPartId = "opening" | "symptoms" | "request" | "they_ask" | "closing"
 
     export interface SourceRef {
         id: number

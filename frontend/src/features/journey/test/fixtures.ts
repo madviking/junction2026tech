@@ -37,8 +37,11 @@ export const bundle: LiveBundle = {
     'ui.journey.match.yes': text('Yes'),
     'ui.journey.match.no': text('No'),
     'ui.journey.match.choose': text('Please choose a card.'),
+    'ui.journey.match.answer_next': text('When you are ready, choose a card or describe it in your own words.'),
+    'ui.journey.match.answer_ok': text('OK'),
     'ui.journey.symptom.title': text('What worries you?'),
     'ui.journey.symptom.confirm': text('Continue'),
+    'ui.journey.duration.title': text('How long have you had them?'),
     'ui.journey.error.not_found': text('We could not find this code.'),
     'ui.journey.error.back_start': text('Back to start'),
     'ui.journey.placeholder': text('Translation not yet checked'),
@@ -88,6 +91,10 @@ export function visitView(overrides: Partial<VisitView> = {}): VisitView {
     symptoms: [
       { id: 'lump', text: 'A new lump', selected: false },
       { id: 'cough', text: 'A long cough', selected: false },
+    ],
+    durations: [
+      { id: 'under_2_weeks', text: 'Less than 2 weeks', selected: false },
+      { id: 'weeks_2_4', text: '2 to 4 weeks', selected: false },
     ],
     carePath: null,
     nextSteps: [],

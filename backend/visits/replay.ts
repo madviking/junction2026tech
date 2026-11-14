@@ -19,6 +19,8 @@ export interface Replay {
   applied: AppliedStep[]
   // Symptom card ids behind the current lane ([] when the lane is not from symptoms).
   symptoms: string[]
+  // How long those symptoms have lasted (keys.SYMPTOM_DURATIONS), or null.
+  duration: string | null
   // Clinician answers in first-recorded order, without repeats.
   answers: string[]
   // True once the clinician has answered and the resident has not tapped an outcome since:
@@ -36,12 +38,14 @@ export const knownCodes = (doc: ContentDoc): KnownCodes => ({
 export function replay(doc: ContentDoc, events: EventRow[]): Replay {
   const journey = doc.structure.journey
   const codes = knownCodes(doc)
-  const out: Replay = { state: initialState(journey), thenKey: null, applied: [], symptoms: [], answers: [], clinicianDone: false, skipped: 0 }
+  const out: Replay = { state: initialState(journey), thenKey: null, applied: [], symptoms: [], duration: null, answers: [], clinicianDone: false, skipped: 0 }
   let pendingSymptoms: string[] = []
+  let pendingDuration: string | null = null
 
   for (const e of events) {
     if (e.kind === 'symptoms') {
       pendingSymptoms = e.payload.symptoms ?? []
+      pendingDuration = e.payload.duration ?? null
       continue
     }
     if (e.kind === 'clinician_answer') {
@@ -70,8 +74,13 @@ export function replay(doc: ContentDoc, events: EventRow[]): Replay {
       out.thenKey = r.thenKey
       out.applied.push({ stage: e.stage, outcome: e.outcome, at: e.at, actor: e.actor })
       if (e.actor === 'resident') out.clinicianDone = false
-      if (setsLane) out.symptoms = pendingSymptoms
-      else if (r.state.lane === null || r.state.stage === journey.start) out.symptoms = []
+      if (setsLane) {
+        out.symptoms = pendingSymptoms
+        out.duration = pendingDuration
+      } else if (r.state.lane === null || r.state.stage === journey.start) {
+        out.symptoms = []
+        out.duration = null
+      }
     } catch (err) {
       if (!(err instanceof JourneyError)) throw err
       // Keep the last good state and go on: the visit stays usable after a content change.

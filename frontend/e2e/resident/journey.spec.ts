@@ -52,7 +52,7 @@ test('(a) happy path: language → start → symptom → route → door → wait
   await shot(page, 'journey-route')
   await page.getByRole('button', { name: 'I live in Finland and have a home municipality' }).click()
 
-  await expect(page.getByText(/^Minulla on ollut/)).toBeVisible()
+  await expect(page.getByText('Minulla on nämä oireet:')).toBeVisible()
   await expect(page.getByText('Say this in Finnish')).toBeVisible()
   await expect(page.getByText('Time limits')).toBeVisible()
   await shot(page, 'journey-contact')
@@ -81,7 +81,7 @@ test('(b) "Nobody answered" twice → stalled with the escalation ladder', async
 
   await page.getByRole('button', { name: 'Nobody answered' }).click()
   await expect(page.getByText('Try the message channel or call 116117')).toBeVisible()
-  await expect(page.getByText(/^Minulla on ollut/)).toBeVisible()
+  await expect(page.getByText('Minulla on nämä oireet:')).toBeVisible()
   await shot(page, 'journey-then-text')
 
   await page.getByRole('button', { name: 'Nobody answered' }).click()
@@ -96,7 +96,7 @@ test('(b) "Nobody answered" twice → stalled with the escalation ladder', async
 test('(c) emergency interrupt from the contact stage → 112 screen, and back via "something changed"', async ({ page, request }) => {
   const code = await visitAt(request, TO_CONTACT)
   await page.goto(`/r/en/v/${code}`)
-  await expect(page.getByText(/^Minulla on ollut/)).toBeVisible()
+  await expect(page.getByText('Minulla on nämä oireet:')).toBeVisible()
 
   await page.getByRole('button', { name: 'This is an emergency' }).click()
   await expect(page.getByText('Call 112 now')).toBeVisible()
@@ -116,7 +116,7 @@ test('(c) emergency interrupt from the contact stage → 112 screen, and back vi
 test('(c2) emergency screen shows at once and stays when the event cannot be sent (offline)', async ({ page, request }) => {
   const code = await visitAt(request, TO_CONTACT)
   await page.goto(`/r/en/v/${code}`)
-  await expect(page.getByText(/^Minulla on ollut/)).toBeVisible()
+  await expect(page.getByText('Minulla on nämä oireet:')).toBeVisible()
 
   await page.route('**/api/visits/*/events', (route) => route.abort('internetdisconnected'))
   await page.getByRole('button', { name: 'This is an emergency' }).click()
