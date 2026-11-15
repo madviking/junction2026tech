@@ -238,5 +238,4 @@ team's research knowledge base ([junction2026](https://github.com/madviking/junc
 
 ## Team
 
-Timo Railo (product, architecture, pitch) · Mea Railo (backend, data) · Milla Railo (UX,
-design, video, data storytelling).
+Timo Railo (Dad), Milla Railo (Big Sister), Mea Railo (Little Sister)
