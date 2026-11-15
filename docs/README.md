@@ -46,6 +46,11 @@ header, module READMEs and skill references.
 
 - `architecture.md`: components, data flow, ports and boundaries.
 - `deployment.md`: the self-hosted image, Aiven and where the app runs.
+- `partners/aiven.md`, `partners/elevenlabs.md`, `partners/gemini.md`: how Silta uses each
+  tech partner, for judges and partners; every claim points to code or `proof/`. Keep them in
+  step with `../presentation/content/tech-challenges/`.
+- `readme/`: screenshot strips used by the root `README.md` and the partner docs (composed
+  from `../presentation/content/media/screens/` and `proof/`).
 - `decisions/0003-versioned-content-document.md`: all content in one versioned document; draft, publish, rollback, export.
 - `decisions/0002-encore-ts-on-aiven.md`: Encore.ts, self-hosted, Aiven PostgreSQL, same-region rule.
 - `decisions/0001-backend-runtime.md`: superseded by 0002.

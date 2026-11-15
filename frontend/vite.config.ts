@@ -21,5 +21,8 @@ export default defineConfig({
     setupFiles: ['./src/test/setup.ts'],
     include: ['src/**/*.test.{ts,tsx}'],
     css: false,
+    // Full-page tests take 3-4.5 s on a quiet machine (design system, admin content) and timed
+    // out at the 5 s default while other work loaded the CPU; see src/test/setup.ts too.
+    testTimeout: 20_000,
   },
 })

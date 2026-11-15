@@ -9,6 +9,9 @@ describe('DesignSystemPage', () => {
     renderWithProviders(<DesignSystemPage />, { route: '/design-system' })
 
     expect(screen.getByRole('heading', { level: 1, name: 'Design system' })).toBeInTheDocument()
+    // One role query over the large page, not one per section: each getByRole walks the
+    // whole DOM, and 25 of them made this the slowest test in the suite.
+    const headings = new Set(screen.getAllByRole('heading').map((h) => h.textContent?.trim()))
     for (const name of [
       'Semantic colours',
       'Palettes',
@@ -36,7 +39,7 @@ describe('DesignSystemPage', () => {
       'IconButton',
       'RTL sample',
     ]) {
-      expect(screen.getByRole('heading', { name })).toBeInTheDocument()
+      expect(headings, name).toContain(name)
     }
     expect(screen.queryByText(/FAIL/)).not.toBeInTheDocument()
   })
